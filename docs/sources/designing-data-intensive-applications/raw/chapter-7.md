@@ -115,6 +115,34 @@ In breve: l'Index-range lock è un'approssimazione sicura dei Predicate Locks. B
 
 ## Serializable Snapshot Isolation (SSI)
 
-It provides full serializability, but has only a small performance penalty compoared to snapshot isolation.
+It provides full serializability, but has only a small performance penalty compared to snapshot isolation.
 
-### Pessimistic vs optimitic concurrency control
+Il Serializable Snapshot Isolation (SSI) è un algoritmo relativamente nuovo (reso famoso da PostgreSQL intorno al 2012) che Kleppmann adora perché risolve il grande dilemma dei database: come avere la massima sicurezza (Serializzabilità) senza distruggere le prestazioni.
+
+### Pessimistic vs optimistic concurrency control
+
+Two-Phase Locking (2PL) è PESSIMISTICO: Il database assume che qualcosa andrà male, quindi blocca tutto preventivamente. Se vuoi leggere, aspetti; se vuoi scrivere, aspetti. È come un semaforo che sta sempre sul rosso "per sicurezza".
+
+Serial execution è estremamente pessimistico. é equivalente a bloccare tutto il database per ogni transaction. In compnenso le preformances sono alte per le singole transazioni.
+
+SSI è OTTIMISTICO: Il database ti lascia correre. Non mette lucchetti (lock). Ti permette di leggere e scrivere liberamente, sperando che non ci siano conflitti. Combina snapshot isolation con un algoritmo che detect se ci sono conflitti di serializzazione tra i vari writes.
+
+### DEcisions based on an outdated premise
+
+Il database sta facendo azioni basate su possibili outdated premises.
+
+Come può quindi controllare che quando fa commit non ci siano errori?
+
+Invece di bloccare gli altri, il database osserva e annota. Mentre la tua transazione gira, il database tiene traccia di due cose:
+
+Se hai letto dati che nel frattempo sono stati modificati da qualcun altro (letture obsolete).
+
+Se le tue scritture potrebbero aver invalidato le letture di qualcun altro.
+
+Quando arrivi al momento del commit, il database fa un controllo rapido. Se vede che è avvenuta una Write Skew (come quella dei medici), allora e solo allora interrompe la transazione e ti costringe a riprovare.
+
+Il SSI permette di avere i vantaggi dello Snapshot Isolation (letture veloci che non bloccano nessuno) ma aggiunge un algoritmo che scova i "fantasmi" e le "distorsioni" automaticamente.
+
+Vantaggio: Le letture sono istantanee. Non devi preoccuparti di Predicate Locks o indici bloccati.
+
+Svantaggio: Se il database è molto congestionato e ci sono tantissimi conflitti, molte transazioni verranno "abortite" e dovrai gestirne il riprovo (retry) nel tuo codice Node.js.
