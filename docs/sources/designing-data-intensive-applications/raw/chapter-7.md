@@ -1,3 +1,77 @@
+# 📚 Riassunto Capitolo 7: Transazioni
+
+_Tratto da: "Designing Data-Intensive Applications" (Martin Kleppmann)_
+
+Le transazioni non sono una soluzione "magica", ma un insieme di astrazioni che permettono all'applicazione di gestire errori e concorrenza senza impazzire.
+
+---
+
+## 1. Il Concetto di Transazione (ACID)
+
+L'obiettivo è raggruppare più letture e scritture in un'unica unità logica.
+
+- **Atomicity (Atomicità):** Se qualcosa fallisce, la transazione viene interrotta e tutte le modifiche fatte vengono scartate (**Abortability**).
+- **Consistency (Coerenza):** Il database passa da uno stato valido a un altro (responsabilità dell'applicazione).
+- **Isolation (Isolamento):** Transazioni eseguite contemporaneamente non si calpestano i piedi.
+- **Durability (Durabilità):** Una volta fatto il _commit_, i dati non vengono persi nemmeno in caso di guasto hardware.
+
+---
+
+## 2. Livelli di Isolamento Deboli (Weak Isolation)
+
+A causa delle performance, si usano livelli meno rigidi:
+
+### Read Committed
+
+- **No Dirty Reads:** Vedi solo dati che hanno già fatto il commit.
+- **No Dirty Writes:** Non puoi sovrascrivere dati di una transazione ancora aperta.
+
+### Snapshot Isolation (MVCC)
+
+Risolve il **Read Skew** (vedere dati diversi durante una lettura lunga).
+
+- **MVCC (Multi-Version Concurrency Control):** Il database tiene diverse versioni dello stesso oggetto.
+- **Vantaggio:** I lettori non bloccano mai gli scrittori e viceversa.
+
+---
+
+## 3. Prevenire i "Lost Updates"
+
+Accade nel ciclo _leggi-modifica-scrivi_. Se due utenti salvano insieme, uno perde le modifiche.
+
+- **Scritture Atomiche:** Operatori come `$inc` in MongoDB.
+- **Locking Esplicito:** Bloccare i record letti (es. `SELECT FOR UPDATE`).
+- **Compare-and-set:** Aggiornare solo se il valore è ancora quello che avevamo letto.
+
+---
+
+## 4. Anomalie Avanzate: Write Skew e Phantoms
+
+- **Write Skew:** Due transazioni leggono gli stessi dati, ma aggiornano oggetti diversi, violando una regola logica (es. due medici che si cancellano insieme dal turno).
+- **Phantoms (Fantasmi):** Quando una scrittura cambia il risultato di una query di ricerca in un'altra transazione aperta.
+
+---
+
+## 5. Serializzabilità (Il Massimo Livello)
+
+Garantisce che l'esecuzione parallela sia identica a un'esecuzione sequenziale.
+
+| Metodo                                    | Approccio    | Descrizione                                                                                |
+| :---------------------------------------- | :----------- | :----------------------------------------------------------------------------------------- |
+| **Actual Serial Execution**               | Fisico       | Esegue le transazioni una alla volta su un unico thread.                                   |
+| **Two-Phase Locking (2PL)**               | Pessimistico | Chi legge blocca chi scrive. Usa **Index-range locks** per evitare i fantasmi.             |
+| **SSI (Serializable Snapshot Isolation)** | Ottimistico  | Le transazioni corrono veloci; il DB le interrompe al commit se rileva un conflitto reale. |
+
+---
+
+## 💻 Applicazione per Frontend Developer (MERN)
+
+- **MongoDB:** Supporta le transazioni multi-documento dalla v4.0 usando lo **Snapshot Isolation**.
+- **Design:** Preferire aggiornamenti atomici quando possibile per mantenere alta la velocità.
+- **Retry:** Quando si usano transazioni complesse, il backend Node.js deve gestire gli errori di conflitto
+
+---- note più dettagliate --------
+
 ## Two-Phase Locking (2PL)
 
 Two-phase locking is similar, but makes the lock requirements much stronger. Sev‐
