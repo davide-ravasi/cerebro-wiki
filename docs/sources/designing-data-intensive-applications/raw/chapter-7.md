@@ -220,3 +220,42 @@ Il SSI permette di avere i vantaggi dello Snapshot Isolation (letture veloci che
 Vantaggio: Le letture sono istantanee. Non devi preoccuparti di Predicate Locks o indici bloccati.
 
 Svantaggio: Se il database è molto congestionato e ci sono tantissimi conflitti, molte transazioni verranno "abortite" e dovrai gestirne il riprovo (retry) nel tuo codice Node.js.
+
+# Chapter 7 Summary: Transactions
+
+## Core Definition (ACID)
+
+Transactions provide a safety mechanism to group multiple reads and writes into a single logical unit.
+
+- **Atomicity**: The ability to abort a transaction on error and discard all writes from it.
+- **Consistency**: The database remains in a valid state (primarily an application-level responsibility).
+- **Isolation**: Concurrently executing transactions are isolated from each other.
+- **Durability**: Once a transaction is committed, data will not be lost.
+
+## Weak Isolation Levels
+
+Most databases use weak isolation levels to maintain performance.
+
+- **Read Committed**: Prevents dirty reads (reading uncommitted data) and dirty writes (overwriting uncommitted data).
+- **Snapshot Isolation (MVCC)**: Solves read skew by allowing each transaction to read from a consistent snapshot of the database. This ensures readers do not block writers and vice versa.
+
+## Write Anomalies
+
+- **Lost Update**: Occurs in the read-modify-write cycle when two transactions attempt to update the same value simultaneously.
+  - _Solutions_: Atomic write operations (e.g., MongoDB's `$inc`), explicit locking, or compare-and-set.
+- **Write Skew**: Occurs when two transactions read the same objects but update different objects, violating a business requirement (e.g., the doctor on-call example).
+- **Phantoms**: Occurs when a write in one transaction changes the result of a search query in another transaction.
+
+## Serializability
+
+The strongest level of isolation, ensuring the result is the same as if transactions executed one at a time.
+
+1. **Actual Serial Execution**: Physically executing one transaction at a time on a single thread.
+2. **Two-Phase Locking (2PL)**: A pessimistic approach where writers block readers and vice versa. It uses index-range locks to prevent phantoms.
+3. **Serializable Snapshot Isolation (SSI)**: An optimistic approach that allows transactions to proceed without locks, only aborting at commit time if a conflict is detected.
+
+## Practical Implications (MERN/MongoDB)
+
+- **MongoDB**: Supports multi-document transactions using Snapshot Isolation (since v4.0).
+- **Implementation**: For many web applications, atomic operations are preferred over full transactions for better performance.
+- **Error Handling**: When using high isolation levels like SSI, the application backend must be designed to retry transactions that fail due to serialization conflicts.
