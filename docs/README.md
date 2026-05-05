@@ -14,6 +14,7 @@ This folder is a Markdown-first knowledge base designed for:
 - `sources/`: source-bound notes (book chapter summaries, lecture notes, article notes)
 - `sources/designing-data-intensive-applications/raw/`: raw DDIA chapter notes while reading (promote to formal `source` notes when you review)
 - `sources/mongodb-nodejs-developer-path/`: MongoDB (Node.js path) course — see `README.md` there; raw lessons under `raw/`
+- `sources/nodejs/`: Node.js / Express raw notes from study and projects — see `README.md` there; files under `raw/`
 - `concepts/`: atomic evergreen notes (one concept per file); subfolders by domain (e.g. `distributed-systems/`, `databases/`)
 - `patterns/`: practical decision notes and tradeoffs (when to use what)
 - `maps/`: map of content (MOC) pages that organize related notes

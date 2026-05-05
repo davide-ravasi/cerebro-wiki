@@ -1,5 +1,11 @@
-# Riassunto capitolo 8: The trouble with Distributed Systems 4/38
+# Riassunto capitolo 8: The trouble with Distributed Systems 8/38
 
 ## Faults and partial failures
 
-## CLoud computing and Supercomputing
+### Cloud computing and Supercomputing
+
+## Unreliable networks
+
+### Network faults in practice
+
+## Detecting faults
