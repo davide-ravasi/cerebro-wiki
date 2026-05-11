@@ -12,9 +12,9 @@ one to many relationship- embedding is preferred - per tenere insieme dati che p
 - ma posso usare references se ho un large dataset o un accesso frequente ai dati
   PER ESEMPIO: IL CAST del film, posso usare un array o posso creare referenze verso una collezione separata
 
-many to many - emebed or refenrece dipendenete dai requirements
+many to many - emebed or reference dipendente dai requirements
 
-exemple: movies- theaters ma possono essere molti dati nell'aray quindi posso fare rifermineti incrociati tra i due - ma può costare molto - aumentare costo query - diminuire peso dei dati
+exemple: movies- theaters ma possono essere molti dati nell'array quindi posso fare rifermineti incrociati tra i due - ma può costare molto - aumentare costo query - diminuire peso dei dati
 
 Embedding
 

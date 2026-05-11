@@ -5,17 +5,17 @@ type: source-index
 domain: databases
 tags: [source, mongodb, course, index]
 status: draft
-updated: 2026-04-29
+updated: 2026-05-11
 ---
 
 # Scope
 
-Raw and formal **source** notes for the MongoDB learning path (Node.js developer track). Same layout as DDIA: working notes live under `raw/`; promoted English `source` files can sit beside this README when you review.
+Raw and formal **source** notes for the MongoDB learning path (Node.js developer track). Same layout as DDIA: working notes live under `raw/`; promoted English `source` files sit beside this README.
 
 # Layout
 
 - `raw/<module>/lesson-NN-topic.md` — quick captures while studying (any language).
-- Future: `ch-NN-...md` or `lec-NN-...md` here with YAML frontmatter when you normalize a lesson into a wiki `source` note.
+- `<section-slug>.md` here — promoted source notes with YAML frontmatter (English).
 
 # Modules (raw)
 
@@ -23,8 +23,13 @@ Raw and formal **source** notes for the MongoDB learning path (Node.js developer
 |--------|------|
 | Document model | `raw/mongodb-document-model/` |
 
+# Promoted source notes
+
+- [[source-mongodb-connecting-section]] — `connecting-mongodb-mongo-shell.md`
+
 # Related wiki
 
+- [[map-mongodb]] — MongoDB-specific map
 - [[map-databases]] — shared database concepts (indexes, transactions, etc.)
 - [[concept-partitioning]] — ties to sharding when you reach cluster topics
 - [[concept-database-index]] — ties to MongoDB indexes
@@ -32,5 +37,7 @@ Raw and formal **source** notes for the MongoDB learning path (Node.js developer
 # Checklist
 
 - [x] `raw/README.md` with naming conventions
-- [ ] Create `maps/mongodb-map.md` when you have several lessons linked
-- [ ] Promote key lessons to formal `source` notes + extract `concept` notes where reusable
+- [x] Create `maps/mongodb-map.md`
+- [x] Promote "Connecting to MongoDB / mongo shell" section to formal source + concepts
+- [ ] Promote `lesson-05-embedding-referencing.md`
+- [ ] Extract more concept notes as lessons grow (aggregation, indexes, replica, transactions)

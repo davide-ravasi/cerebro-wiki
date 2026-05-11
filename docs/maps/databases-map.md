@@ -5,7 +5,7 @@ type: map
 domain: databases
 tags: [map, navigation, databases, transactions, ddia]
 status: evergreen
-updated: 2026-04-29
+updated: 2026-05-11
 ---
 
 # Purpose
@@ -19,10 +19,13 @@ Navigation for **transaction**, **locking**, and **isolation** notes (aligned wi
 - [[concept-phantom-read]]
 - [[concept-write-skew]]
 - [[concept-database-index]]
+- [[concept-mongodb-connection-string]]
+- [[concept-mongosh-basics]]
 
 # Source Notes
 
 - [[source-ddia-ch-07]] (add when your Chapter 7 source note exists)
+- [[source-mongodb-connecting-section]]
 
 # Open Threads
 
@@ -33,3 +36,4 @@ Navigation for **transaction**, **locking**, and **isolation** notes (aligned wi
 # Related Maps
 
 - [[map-distributed-systems]]
+- [[map-mongodb]]
