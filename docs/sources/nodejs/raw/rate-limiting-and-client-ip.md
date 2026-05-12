@@ -3,7 +3,7 @@ title: Rate limiting e IP client (Express + Netlify Functions)
 type: raw-note
 tags: [nodejs, express, netlify, security, express-rate-limit]
 provenance: Track'em All — learning project
-canonical_in_app_repo: react-exp/track-em-all/docs/RATE-LIMITING-AND-CLIENT-IP.md
+canonical_in_app_repo: react-exp/track-em-all/docs/rate-limiting-and-client-ip.md
 ---
 
 # Rate limiting e IP client (Express + Netlify Functions)
@@ -134,4 +134,4 @@ Per progetti in apprendimento o traffico moderato va bene; per hardening “fort
 
 ---
 
-*Aggiorna i numeri (`limit`, `windowMs`) se modifichi la configurazione in `functions/express.js`; mantieni allineata la copia in track-em-all `docs/RATE-LIMITING-AND-CLIENT-IP.md`.*
+*Aggiorna i numeri (`limit`, `windowMs`) se modifichi la configurazione in `functions/express.js`; mantieni allineata la copia in track-em-all `docs/rate-limiting-and-client-ip.md` (se anche lì preferisci il nome in kebab-case).*

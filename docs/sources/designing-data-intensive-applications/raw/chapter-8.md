@@ -57,8 +57,46 @@ Perchè non possiamo semplicemente risolvere il problema a un livello hardware e
 
 #### Can we not simply make network delays predictable?
 
-**Key idea**
+Il circuito telefonico è molto diverso da una connessione TCP.
+Il telefono quando una chiamata inizia alloca una quantità fissa di banda che nessun'altro può usare finché la connessione è attiva.
+Il TCP usa quanta banda è disponibile, quindi la quantità è variabile. Se la TCP connection è IDLE non usa banda.
 
+Ehernet e IP sono packet-switched protocol che soffrono della messa in coda e dei ritardi nel network. Non c'è il concetto di circuito come nella chiamata telefonica.
+Sono quindi ottimizzati pre **bursty traffic** quindi l'allocazione come nel circuito è difficile perchè non si può prevedere quanta
+banda allocare.
+Se troppo poca il transfer è lento, se troppo alta il circuito non può essere messo in funzione perchè il network non può garantire labanda.
+L'uso del circuito in questi casi spreca le capacità del network.
+
+## Unreliable clocks
+
+Clock and times are important.
+Applications depends on clocks for differents reasons:
+
+- **durations**
+- **points in time**
+
+**Examples**
+
+- What's the response time of the server?
+- How long did the user spend on our site?
+- When was this article published?
+- When does this cache entry expire?
+
+In distributed systems time is a tricky business.
+
+**Why**
+
+- the comm is not instantaneous
+- variable delays in network
+- each machine has it's own clock
+
+### Monotonic versus Time-of-Day Clocks
+
+#### Monotonic clocks
+
+#### Time-of-Day clocks
+
+**Key idea**
 **Tradeoff**
 **Example**
 **Open question**
