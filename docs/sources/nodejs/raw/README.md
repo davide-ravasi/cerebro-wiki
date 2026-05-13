@@ -2,6 +2,11 @@
 
 Appunti brevi mentre impari Node/Express in contesto reale (API serverless, proxy, sicurezza).
 
+## Indice
+
+- [`rate-limiting-and-client-ip.md`](./rate-limiting-and-client-ip.md) — rate limit + IP + `trust proxy` (dettaglio).
+- [`express-netlify-security-notes.md`](./express-netlify-security-notes.md) — body limit (JSON + form), checklist sicurezza Express/Netlify, error middleware.
+
 ## Naming
 
 - `topic-slug-kebab-case.md` (es. `rate-limiting-and-client-ip.md`).
