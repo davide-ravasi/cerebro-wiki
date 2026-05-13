@@ -83,7 +83,90 @@ Ordine: registrare **dopo** tutte le route (incluso fallback SPA se presente).
 3. Limite body **json + urlencoded**.  
 4. `trust proxy` + risoluzione IP se serve rate limit per IP.  
 5. Error handler centrale (JSON, no leak 5xx in prod).  
-6. Poi: CORS allowlist, variabili solo server (`JWT_SECRET` / `MONGODB_URI`), Helmet, hardening route secondarie.
+6. Poi: **§6** — CORS allowlist, variabili solo server, Helmet, hardening route secondarie (es. favorites).
+
+---
+
+## 6. CORS allowlist, Helmet, hardening “secondarie” (es. favorites)
+
+Questo blocco chiude il percorso: dopo auth, body e rate limit sugli endpoint più esposti, si stringe la **superficie** dell’API (chi può chiamarla da browser, quali header HTTP, cosa succede sulle route meno “critiche” ma comunque costose o abusabili).
+
+### 6.1 CORS — perché non basta “funziona con `cors()`”
+
+**Cosa fa CORS:** è una policy **del browser**. Il server risponde con header (`Access-Control-Allow-Origin`, ecc.); il browser decide se uno script su `https://sitoA.com` può leggere la risposta di una richiesta verso `https://apiB.com`.  
+**Non** sostituisce l’autenticazione: un attaccante può sempre chiamare la tua API con `curl` o un server proprio senza CORS.
+
+**`app.use(cors())` senza opzioni** (come spesso in dev) equivale in pratica a **consentire qualsiasi origine** per richieste “semplici” e a riflettere l’origine nelle preflight quando serve. Per un’API pubblica read-only può essere accettabile; per API che modificano dati utente con token nel header, conviene comunque **restringere** per:
+
+- ridurre rischi legati a **combinazioni** con bug futuri (XSS che legge risposte, estensioni browser, scenari misti);
+- allinearsi a una policy chiara: “solo il mio frontend Netlify e localhost in dev”.
+
+**Allowlist (origini esplicite):** passi a `cors` un elenco o una funzione che valida `Origin`:
+
+```js
+const allowed = new Set([
+  'https://tuodominio.netlify.app',
+  'http://localhost:5173',
+]);
+
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      // richieste same-origin / tool senza Origin: accetta
+      if (!origin || allowed.has(origin)) return cb(null, true);
+      return cb(null, false); // browser blocca la lettura della risposta cross-origin
+    },
+    credentials: true, // solo se usi cookie cross-site; con Bearer puro spesso false
+  }),
+);
+```
+
+**Cookie vs Bearer:** se un giorno usi **cookie** `HttpOnly` per la sessione, CORS + `credentials` diventano centrali: non puoi usare `Access-Control-Allow-Origin: *` con credenziali; serve origine specifica. Con **solo Bearer** in `Authorization`, molte app restano coerenti con allowlist stretta ma `credentials: false`.
+
+**Netlify:** l’origine del browser è tipicamente l’URL del sito (es. `*.netlify.app` o dominio custom); la function ha un URL diverso ma il browser invia comunque `Origin: https://tuo-sito…` nella richiesta al dominio della function (a seconda di come configuri il client). Tieni in allowlist **esattamente** le origini che il frontend usa in build/preview.
+
+---
+
+### 6.2 Helmet — header HTTP “difensivi”
+
+**`helmet`** non sostituisce validazione o auth; imposta (o consente di impostare) header come:
+
+- `X-Content-Type-Options: nosniff` — riduce MIME sniffing;
+- `X-Frame-Options` / base per **non** essere incastonati in iframe malevoli (clickjacking);
+- opzionalmente **Content-Security-Policy** (più sensibile sulle API JSON: valuta se serve o se la CSP è più rilevante sullo **static** dell’SPA).
+
+Su un’API JSON dietro Netlify, spesso si monta `app.use(helmet())` **dopo** aver chiaro quali route servono header extra; in alcuni casi si disabilita un singolo middleware Helmet se rompe il client (documentazione Helmet: opzioni per middleware).
+
+**Ordine:** di solito **prima** delle route, insieme a `cors` e parser, così ogni risposta eredita gli header.
+
+---
+
+### 6.3 Variabili d’ambiente solo server
+
+Segreti e stringhe di connessione non devono essere esposti al bundle frontend. In Vite i prefissi `VITE_*` sono pensati per il **client**; usarli anche in `functions/express.js` “funziona” su Netlify se li imposti solo lato build/function, ma è **facile confondersi** e finire per documentare o duplicare segreti nel posto sbagliato.
+
+**Pratica consigliata:** nomi dedicati lato server (`MONGODB_URI`, `JWT_SECRET`) nelle Netlify env, letti solo da `process.env` nelle functions, **senza** prefisso che il tooling espone al browser.
+
+---
+
+### 6.4 Hardening route “secondarie” — esempio **favorites**
+
+Nel progetto di riferimento, login/register hanno **rate limit**; le route `POST /favorite/add` e `POST /favorite/remove` sono protette da **JWT** (`protect`) ma tipicamente **non** hanno limite di frequenza. Per un attaccante con token valido (rubato o XSS) o per uno script che automatizza click, questo apre:
+
+- **abuso di scrittura** su MongoDB (`save()` ripetuti);
+- **ingombro** dell’array `favorites` (limite massimo preferiti assente?);
+- **payload**: `name`, `poster_path`, `vote_average` arrivano dal client — qualcuno potrebbe inserire stringhe enormi o contenuti indesiderati se non validi/ridimensionati (accanto al `10kb` body c’è già un tetto grezzo; resta la validazione **semantica**: lunghezza massima campi, tipo numerico per `vote_average`, `showId` coerente con regole TMDB o intero positivo).
+
+**Misure incrementalmente utili:**
+
+| Area | Idea |
+|------|------|
+| Rate limit | Un limiter dedicato (più permissivo di login) su `favorite/add` e `favorite/remove`, stessa chiave IP (o user id da token se preferisci bucket per utente). |
+| Business rules | Max N preferiti per utente; rifiutare duplicati `showId` in `add` (idempotenza). |
+| Validazione | Schema rigido (es. Joi/Zod lato server o validator manuali): `showId` formato atteso, stringhe con `maxLength`. |
+| Risposta | Valutare se restituire l’intero `favorites` o solo un ack + conteggio (meno dati in transito; i TODO nel controller sul “rimuovere dati dalla response” vanno in questa direzione). |
+
+**Autorizzazione:** con `req.user.id` preso dal token e `User.findById(userId)` non si “preferisce” un altro utente via body — bene. Resta da garantire che il **payload** non possa sovrascrivere campi sensibili altrove (qui il pattern è già “solo campi favorite espliciti”).
 
 ---
 
