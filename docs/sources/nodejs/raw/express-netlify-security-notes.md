@@ -93,6 +93,8 @@ Questo blocco chiude il percorso: dopo auth, body e rate limit sugli endpoint pi
 
 ### 6.1 CORS — perché non basta “funziona con `cors()`”
 
+Approfondimento **generico** (same-origin, preflight `OPTIONS`, esempi HTTP, `credentials`): **`cors-how-it-works.md`** nella stessa cartella `raw/`.
+
 **Cosa fa CORS:** è una policy **del browser**. Il server risponde con header (`Access-Control-Allow-Origin`, ecc.); il browser decide se uno script su `https://sitoA.com` può leggere la risposta di una richiesta verso `https://apiB.com`.  
 **Non** sostituisce l’autenticazione: un attaccante può sempre chiamare la tua API con `curl` o un server proprio senza CORS.
 

@@ -5,7 +5,7 @@ type: source-index
 domain: distributed-systems
 tags: [source, ddia, index]
 status: draft
-updated: 2026-04-28
+updated: 2026-05-13
 ---
 
 # Scope
@@ -23,6 +23,11 @@ Path: `raw/chapter-N.md` (informal capture). Formal wiki sources use ids `source
 - `raw/chapter-5.md` → future [[source-ddia-ch-05]]
 - `raw/chapter-6.md` → future [[source-ddia-ch-06]]
 - `raw/chapter-7.md` → future [[source-ddia-ch-07]]
+- `raw/chapter-8.md` → [[source-ddia-ch-08]] (`ch-08-trouble-with-distributed-systems.md`, partial)
+
+# Promoted source notes
+
+- [[source-ddia-ch-08]] — Chapter 8 partial (networks, clocks, process pauses)
 
 # Migration Checklist
 

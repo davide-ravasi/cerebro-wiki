@@ -1,5 +1,10 @@
 # Riassunto capitolo 8: The trouble with Distributed Systems 12/38
 
+> **Wiki (inglese, promosso):** [[source-ddia-ch-08]] — `../ch-08-trouble-with-distributed-systems.md`  
+> Concept estratte: time-of-day, monotonic, timeout, LWW, logical clock, process pause, NTP, leap second → [[map-distributed-systems]]
+
+---
+
 ## Faults and partial failures
 
 ### Cloud computing and Supercomputing

@@ -10,3 +10,4 @@ Vedi cartella **`raw/`** per i file markdown grezzi. Stile e workflow promozione
 |------|-----------|
 | [`rate-limiting-and-client-ip.md`](./raw/rate-limiting-and-client-ip.md) | `express-rate-limit`, `getClientIp`, `trust proxy`, header `RateLimit`, esempio numerico |
 | [`express-netlify-security-notes.md`](./raw/express-netlify-security-notes.md) | Difesa in profondità: body limit JSON **e** urlencoded, rate limit in sintesi, error middleware, checklist, **CORS/Helmet/favorites** (§6) |
+| [`cors-how-it-works.md`](./raw/cors-how-it-works.md) | CORS generico: same-origin, ruolo browser/server, header, OPTIONS/preflight, esempi HTTP, `credentials`, checklist |
