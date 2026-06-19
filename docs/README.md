@@ -15,9 +15,9 @@ This folder is a Markdown-first knowledge base designed for:
 - `sources/designing-data-intensive-applications/raw/`: raw DDIA chapter notes while reading (promote to formal `source` notes when you review)
 - `sources/mongodb-nodejs-developer-path/`: MongoDB (Node.js path) course — see `README.md` there; raw lessons under `raw/`
 - `sources/nodejs/`: Node.js / Express raw notes from study and projects — see `README.md` there; files under `raw/`
-- `concepts/`: atomic evergreen notes (one concept per file); subfolders by domain (e.g. `distributed-systems/`, `databases/`)
+- `concepts/`: atomic evergreen notes (one concept per file); subfolders by domain (e.g. `distributed-systems/`, `databases/`, `web/`)
 - `patterns/`: practical decision notes and tradeoffs (when to use what)
-- `maps/`: map of content (MOC) pages that organize related notes
+- `maps/`: map of content (MOC) pages that organize related notes (e.g. `web-security-map.md` for CORS/CSP/Helmet)
 - `glossary/`: short canonical definitions
 - `templates/`: reusable templates for every note type
 
@@ -28,6 +28,12 @@ This folder is a Markdown-first knowledge base designed for:
 3. Prefer links over duplication.
 4. Keep metadata consistent with YAML frontmatter.
 5. Optimize for future search and AI retrieval, not just for reading.
+
+## Language
+
+- **`sources/**/raw/`** — Italian is fine (personal capture, handwriting, memorization).
+- **Promoted wiki** (`source` notes outside `raw/`, `concepts/`, `patterns/`, `maps/`, `glossary/`) — **English** (public repo).
+- Template for DDIA-style raw chapters: [`templates/raw-chapter-note.md`](templates/raw-chapter-note.md)
 
 ## Suggested Naming
 

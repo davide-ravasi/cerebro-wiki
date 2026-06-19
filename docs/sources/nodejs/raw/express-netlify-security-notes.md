@@ -129,17 +129,22 @@ app.use(
 
 ---
 
-### 6.2 Helmet — header HTTP “difensivi”
+### 6.2 Helmet + header statici Netlify (pattern adottato)
 
-**`helmet`** non sostituisce validazione o auth; imposta (o consente di impostare) header come:
+**`helmet`** non sostituisce validazione o auth; aggiunge header HTTP difensivi sulle **risposte** che escono da Express.
 
-- `X-Content-Type-Options: nosniff` — riduce MIME sniffing;
-- `X-Frame-Options` / base per **non** essere incastonati in iframe malevoli (clickjacking);
-- opzionalmente **Content-Security-Policy** (più sensibile sulle API JSON: valuta se serve o se la CSP è più rilevante sullo **static** dell’SPA).
+**Pattern consigliato (Track'em All):**
 
-Su un’API JSON dietro Netlify, spesso si monta `app.use(helmet())` **dopo** aver chiaro quali route servono header extra; in alcuni casi si disabilita un singolo middleware Helmet se rompe il client (documentazione Helmet: opzioni per middleware).
+| Layer | File | Cosa |
+|--------|------|------|
+| **SPA + asset** | `netlify.toml` → `[[headers]]` `for = "/*"` | **CSP** completa (TMDB, font, YouTube `frame-src`), HSTS, `Permissions-Policy`, `X-Frame-Options`, ecc. |
+| **API Function** | `functions/express.js` → `helmet({ contentSecurityPolicy: false, … })` | Solo header “generici” sulle risposte JSON (`noSniff`, `frameguard`, `hsts`, …) — **senza** duplicare la CSP |
 
-**Ordine:** di solito **prima** delle route, insieme a `cors` e parser, così ogni risposta eredita gli header.
+La CSP conta per il **documento HTML** e per cosa il browser può caricare dalla pagina; ha più senso sui file statici serviti da Netlify che su ogni risposta `application/json`.
+
+**Wiki:** concept [[concept-content-security-policy]] · raw `content-security-policy.md` · pattern [[pattern-csp-netlify-static-express-api]] · mappa [[map-web-security]].
+
+**Ordine in Express:** `cors` → parser body → `helmet` → route.
 
 ---
 

@@ -3,7 +3,7 @@ title: CORS — come funziona (browser, header, preflight, esempi HTTP)
 type: raw-note
 tags: [web, http, cors, security, fetch, axios, express]
 provenance: Appunti generici per wiki cerebro (Node / browser / API)
-see_also_raw: express-netlify-security-notes.md
+see_also_raw: express-netlify-security-notes.md, content-security-policy.md
 ---
 
 # CORS — guida tecnica sintetica

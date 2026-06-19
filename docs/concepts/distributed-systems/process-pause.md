@@ -8,7 +8,7 @@ sources:
 tags: [concept, distributed-systems, clocks, faults, leader-election]
 status: evergreen
 confidence: medium
-updated: 2026-05-13
+updated: 2026-05-19
 ---
 
 # Definition
@@ -39,7 +39,7 @@ During pause: no heartbeat, no lease renewal, no request handling — peers may 
 
 # When To Use
 
-Design every distributed safety property assuming: **“This node may freeze at any instruction for a long time.”** Use fencing tokens, quorum, version checks — not only local lease checks.
+Design every distributed safety property assuming: **“This node may freeze at any instruction for a long time.”** Use **[[concept-fencing-token]]**, **[[concept-quorum-majority-truth]]**, version checks — not only local lease checks.
 
 # Example
 
@@ -51,4 +51,6 @@ Leader checks lease (10 s buffer OK), **GC pauses 15 s**, processes request whil
 - [[concept-monotonic-clock]]
 - [[concept-time-of-day-clock]]
 - [[concept-reliability]]
+- [[concept-fencing-token]]
+- [[concept-quorum-majority-truth]]
 - [[map-distributed-systems]]

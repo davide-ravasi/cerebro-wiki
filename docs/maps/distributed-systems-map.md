@@ -5,7 +5,7 @@ type: map
 domain: distributed-systems
 tags: [map, navigation, distributed-systems]
 status: evergreen
-updated: 2026-05-13
+updated: 2026-05-19
 ---
 
 # Purpose
@@ -33,7 +33,14 @@ Central navigation for distributed systems notes and decisions.
 - [[concept-leap-second]]
 - [[concept-last-write-wins-timestamp-risk]]
 - [[concept-logical-clock]]
+- [[concept-clock-confidence-interval]]
 - [[concept-process-pause]]
+
+## Truth, quorum, and safety (DDIA Ch. 8)
+
+- [[concept-quorum-majority-truth]]
+- [[concept-fencing-token]]
+- [[concept-byzantine-fault]]
 
 # Practical Patterns
 
@@ -48,15 +55,14 @@ Central navigation for distributed systems notes and decisions.
 - [[source-ddia-ch-04]]
 - [[source-ddia-ch-05]]
 - [[source-ddia-ch-06]]
-- [[source-ddia-ch-08]] — partial (networks + clocks); raw: `sources/designing-data-intensive-applications/raw/chapter-8.md`
+- [[source-ddia-ch-08]] — Ch. 8 complete (networks, clocks, quorum, fencing); raw: `sources/designing-data-intensive-applications/raw/chapter-8.md`
 
 # Open Threads
 
-- Complete DDIA Ch. 8 remainder (after process pauses)
 - Promote Ch. 7 transactions source
-- Consensus protocols (Raft, Paxos)
-- TrueTime / Spanner confidence intervals (deeper note optional)
+- Consensus protocols (Raft, Paxos) — Ch. 9
 - Stream processing and event-time semantics
+- Deeper Spanner / TrueTime case study (optional)
 
 # Related Maps
 

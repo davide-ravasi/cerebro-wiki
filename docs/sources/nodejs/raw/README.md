@@ -7,6 +7,8 @@ Appunti brevi mentre impari Node/Express in contesto reale (API serverless, prox
 - [`rate-limiting-and-client-ip.md`](./rate-limiting-and-client-ip.md) — rate limit + IP + `trust proxy` (dettaglio).
 - [`express-netlify-security-notes.md`](./express-netlify-security-notes.md) — body limit (JSON + form), checklist sicurezza Express/Netlify, error middleware, **CORS allowlist, Helmet, hardening favorites** (§6).
 - [`cors-how-it-works.md`](./cors-how-it-works.md) — CORS generico: origine, header, preflight, esempi HTTP, credenziali, checklist, snippet Express.
+- [`content-security-policy.md`](./content-security-policy.md) — CSP: direttive, Track'em All / `netlify.toml`, Vite dev; promosso in `concepts/web/content-security-policy.md`.
+- [`helmet.md`](./helmet.md) — Helmet.js: moduli header, personalizzazione, esempio Express; collegato a CSP / `express-netlify-security-notes.md` (§6.2).
 
 ## Naming
 

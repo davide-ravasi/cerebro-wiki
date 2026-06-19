@@ -23,11 +23,11 @@ Path: `raw/chapter-N.md` (informal capture). Formal wiki sources use ids `source
 - `raw/chapter-5.md` → future [[source-ddia-ch-05]]
 - `raw/chapter-6.md` → future [[source-ddia-ch-06]]
 - `raw/chapter-7.md` → future [[source-ddia-ch-07]]
-- `raw/chapter-8.md` → [[source-ddia-ch-08]] (`ch-08-trouble-with-distributed-systems.md`, partial)
+- `raw/chapter-8.md` → [[source-ddia-ch-08]] (`ch-08-trouble-with-distributed-systems.md`)
 
 # Promoted source notes
 
-- [[source-ddia-ch-08]] — Chapter 8 partial (networks, clocks, process pauses)
+- [[source-ddia-ch-08]] — Chapter 8 (networks, clocks, process pauses, quorum, fencing, Byzantine)
 
 # Migration Checklist
 

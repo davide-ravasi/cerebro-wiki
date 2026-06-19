@@ -1,6 +1,6 @@
 ---
 id: source-ddia-ch-08
-title: "DDIA Chapter 8: The Trouble with Distributed Systems (partial)"
+title: "DDIA Chapter 8: The Trouble with Distributed Systems"
 type: source
 domain: distributed-systems
 sources:
@@ -8,27 +8,25 @@ sources:
     title: "Designing Data-Intensive Applications"
     chapter: 8
     author: "Martin Kleppmann"
-tags: [source, ddia, distributed-systems, networks, clocks, faults]
+tags: [source, ddia, distributed-systems, networks, clocks, faults, quorum, fencing]
 status: draft
 confidence: medium
-updated: 2026-05-13
+updated: 2026-05-19
 ---
 
 # Summary
 
-Partial chapter coverage (through **unreliable clocks** and **process pauses**; remainder TBD). Core message: distributed systems must assume **partial failure**, **unbounded network delay**, and **unreliable time**. Timeouts detect faults heuristically; clocks drift and jump; **wall-clock timestamps are unsafe for ordering writes**; **process pauses** can invalidate leases and leader assumptions even when clocks are synchronized.
+Distributed systems must assume **partial failure**, **unbounded network delay**, and **unreliable time**. A single node cannot distinguish slow from dead; **timeouts** are heuristics. **Wall-clock timestamps** are unsafe for ordering; **process pauses** break leases. **Truth is quorum-defined**, not local — use **fencing tokens** when stale leaders might write. **Byzantine faults** are a stronger (rarer in practice) model than crash faults.
 
-Raw working notes: `raw/chapter-8.md`.
+Raw working notes (Italian, handwritten scan → markdown): `raw/chapter-8.md`.
 
 # Key Concepts
 
-## Networks (covered in raw)
+## Networks and faults
 
-- Timeouts are a **heuristic**, not proof of failure.
-- Delays are **unbounded** (congestion, queuing, CPU load, VM pauses, flow control).
-- Packet-switched (TCP/IP) vs circuit-switched (telephone): fixed bandwidth circuits do not fit bursty datacenter traffic.
+- [[concept-timeout-failure-detection]]
 
-## Clocks (covered in depth)
+## Clocks and time
 
 - [[concept-time-of-day-clock]]
 - [[concept-monotonic-clock]]
@@ -36,18 +34,36 @@ Raw working notes: `raw/chapter-8.md`.
 - [[concept-leap-second]]
 - [[concept-last-write-wins-timestamp-risk]]
 - [[concept-logical-clock]]
+- [[concept-clock-confidence-interval]]
 - [[concept-process-pause]]
+
+## Knowledge, truth, and safety
+
+- [[concept-quorum-majority-truth]]
+- [[concept-fencing-token]]
+- [[concept-byzantine-fault]]
 
 # Section notes (wiki body)
 
-## 1. Unreliable networks
+## 1. Faults and partial failures
+
+- Single machine: works or broken. Distributed: **partial failures** — nondeterministic, something always broken in large clusters.
+- **Cloud** model: commodity hardware, IP/Ethernet, geographic distribution, fault tolerance as requirement.
+- **Supercomputing** model: specialized hardware/network — different assumptions.
+
+## 2. Unreliable networks
+
+### Shared-nothing and async packets
+
+- Nodes communicate only via network. Request/response can fail in many indistinguishable ways (lost, queued, node dead, slow, response lost/delayed).
+- **Cannot tell why** — assume **no response**; use **timeout** (not proof of failure).
 
 ### Detecting faults and timeouts
 
-- A node cannot distinguish **slow** from **dead**; **timeouts** are the practical approach.
+- Occasional feedback (OS, crash scripts, management NIC, ICMP) — **do not rely** on it.
 - **Long timeout** → fewer false positives, slower failover.
 - **Short timeout** → faster failover, more false positives.
-- Network delay has **no hard upper bound** in practice.
+- Delays are **unbounded** in practice.
 
 ### Why delay varies
 
@@ -56,14 +72,14 @@ Raw working notes: `raw/chapter-8.md`.
 - **Virtualization** (VM paused by hypervisor).
 - **Flow control** (sender throttles).
 
-Delays must be tuned empirically; public clouds share resources with noisy neighbors.
+App sees **resulting delay**, not always packet loss. Tune timeouts **experimentally**; public clouds share resources with noisy neighbors.
 
 ### Synchronous vs asynchronous networks
 
 - **Circuit switching** (classic telephone): dedicated bandwidth for the call duration — predictable but wasteful for bursty workloads.
 - **Packet switching** (Ethernet/IP/TCP): statistical multiplexing, queues, variable delay — good for datacenter traffic, bad for assuming fixed latency.
 
-## 2. Unreliable clocks
+## 3. Unreliable clocks
 
 Applications use time for **durations** (timeouts, latency, QPS windows) and **points in time** (publish date, cache expiry, log timestamps). In distributed systems:
 
@@ -108,11 +124,11 @@ Problems:
 
 **Logical clocks** order events by **happened-before**, not by wall time — safer for ordering.
 
-### Clock readings as intervals
+### Clock readings as intervals and global snapshots
 
-A timestamp is not a point with infinite precision; it has a **confidence interval** (earliest…latest). Microsecond digits may be meaningless if uncertainty is ±100 ms.
+A timestamp is not a point with infinite precision; it has a **confidence interval** (earliest…latest). Microsecond digits may be meaningless if uncertainty is ±100 ms. Most systems **do not expose** this uncertainty.
 
-**TrueTime** (Spanner): returns `[earliest, latest]`; waits for interval to pass before commit so snapshots do not violate causality — expensive (GPS/atomic clocks per datacenter).
+For a **global snapshot** at time T across partitions, naive synchronized clocks can disagree on what “at T” means. **TrueTime** (Spanner): returns `[earliest, latest]`; **commit wait** until uncertainty passes so snapshots and commits do not violate causality — expensive (GPS/atomic clocks per datacenter). See [[concept-clock-confidence-interval]].
 
 ### Process pauses
 
@@ -131,6 +147,36 @@ Analogous to multi-threading: you cannot assume timing between two lines of code
 
 Mitigations: coordinated GC, rolling restarts, traffic shift before GC — reduce impact, do not eliminate the model.
 
+## 4. Knowledge, truth, and lies
+
+A distributed system has:
+
+- No **shared memory**
+- **Unreliable network** with variable delay
+- No reliable view of a **non-responding** node’s state
+- **Process pauses** and **unreliable clocks**
+
+You cannot trust a single node’s local judgment alone.
+
+## 5. The truth is defined by the majority
+
+A single node may:
+
+- **Receive** but not **send** (asymmetric partition)
+- Experience a long **stop-the-world GC**
+
+Therefore decisions (leader, lock, registration) require **quorum** agreement — see [[concept-quorum-majority-truth]]. A node that **believes** it is leader without quorum backing is dangerous.
+
+## 6. The leader, the lock, and fencing tokens
+
+Systems often require exactly **one** leader, **one** lock holder, or **one** successful registration.
+
+**Local belief ≠ cluster truth.** After lease expiry and failover, a delayed former leader must not corrupt shared state. **Fencing tokens** (monotonic numbers included in every write; storage rejects stale tokens) — see [[concept-fencing-token]].
+
+## 7. Byzantine faults
+
+**Byzantine fault tolerance:** correct operation even when nodes malfunction, disobey the protocol, or act maliciously. **Complicated**, often needs hardware support; uncommon in typical datacenter crash-fault designs. Web apps must still validate **untrusted user input** — related but not the same as inter-node BFT. See [[concept-byzantine-fault]].
+
 # Important Tradeoffs
 
 | Area | Tradeoff |
@@ -140,6 +186,9 @@ Mitigations: coordinated GC, rolling restarts, traffic shift before GC — reduc
 | NTP | Cheap sync vs drift, jumps, and bounded accuracy |
 | Leases + wall clock | Simple leadership vs clock skew and pauses |
 | TrueTime / Spanner | Strong global ordering vs cost and complexity |
+| Quorum decisions | Safety vs latency and availability during partitions |
+| Fencing tokens | Stale leader protection vs storage integration |
+| Byzantine tolerance | Strongest fault model vs complexity and cost |
 
 # What Changed My Mental Model
 
@@ -147,12 +196,15 @@ Mitigations: coordinated GC, rolling restarts, traffic shift before GC — reduc
 - **Monotonic** for duration on one node; **time-of-day** for human time, not for distributed ordering.
 - **Process pause** is a separate failure mode from **clock skew**: the node can be “alive” but not making progress.
 - **LWW** with timestamps is tempting and dangerous.
+- **Global snapshot at T** needs **clock uncertainty**, not naive NTP equality.
+- **Truth is quorum-defined**; fencing protects storage from false local belief.
+- **Byzantine** is the extreme case; most systems assume crash faults plus untrusted clients.
 
 # Open Questions
 
-- How do production systems choose timeout values (adaptive, percentiles)?
-- How do etcd / ZooKeeper / Consul combine leases, fencing, and clocks?
-- Remaining sections of Ch. 8 (beyond process pauses): to be added when read.
+- How do production systems choose timeout values (adaptive, percentiles, Phi accrual)?
+- How do etcd / ZooKeeper / Consul combine leases, fencing, and clocks in practice?
+- When is vector clock worth the metadata vs Lamport only?
 
 # Related Notes
 

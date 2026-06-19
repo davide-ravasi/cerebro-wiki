@@ -1,5 +1,7 @@
 # DDIA — raw chapter notes
 
-Working notes while reading *Designing Data-Intensive Applications* (mixed language, quick capture). Promote cleaned summaries to `../` (or sibling `ch-NN-*.md` source files) and link concepts from `docs/concepts/`.
+Appunti di lavoro mentre leggi *Designing Data-Intensive Applications* — **in italiano**, cattura veloce (anche da scan / appunti a mano).
 
-Files: `chapter-1.md` … `chapter-7.md`.
+**Promozione:** quando rivedi, passa a source + concept in **inglese** (`../ch-NN-*.md`, `docs/concepts/`). Schema: [`docs/templates/raw-chapter-note.md`](../../../templates/raw-chapter-note.md). Esempio completo: [`chapter-8.md`](chapter-8.md).
+
+Files: `chapter-1.md` … `chapter-8.md` (e altri man mano).
