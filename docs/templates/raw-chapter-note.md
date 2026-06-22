@@ -49,14 +49,35 @@ Idea 1 → conseguenza → idea 2 → …
 
 ---
 
+## Book club
+
+Here's my take on the key concepts in chapter N:
+
+### <Tema 1>
+
+…
+
+### <Tema 2>
+
+…
+
+### One line to remember
+
+> …
+
+*(English — paste-ready for Discord book club.)*
+
+---
+
 ## Convenzione lingua (cerebro-wiki)
 
 | Layer | Lingua |
 |-------|--------|
-| `sources/**/raw/` | **Italiano** — appunti personali, scan, memorizzazione |
+| `sources/**/raw/` (corpo note) | **Italiano** — appunti personali, scan, memorizzazione |
+| `sources/**/raw/` → `## Book club` | **English** — paste Discord (book club DDIA) |
 | `sources/**/ch-*.md` (source promossi) | **English** |
 | `concepts/`, `patterns/`, `maps/`, `glossary/` | **English** |
 
 Promozione: raw IT → source EN + concept EN; link `[[...]]`, non duplicare parola per parola.
 
-Riferimento: `sources/designing-data-intensive-applications/raw/chapter-8.md`
+Riferimenti: `chapter-8.md` (raw + book club), `chapter-4.md` (book club).

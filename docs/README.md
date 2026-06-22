@@ -31,9 +31,19 @@ This folder is a Markdown-first knowledge base designed for:
 
 ## Language
 
-- **`sources/**/raw/`** — Italian is fine (personal capture, handwriting, memorization).
+- **`sources/**/raw/`** — Italian for study notes (handwriting, scan, memorization).
+- **Exception:** `## Book club` at the bottom of DDIA raw chapters — **English**, paste-ready for Discord.
 - **Promoted wiki** (`source` notes outside `raw/`, `concepts/`, `patterns/`, `maps/`, `glossary/`) — **English** (public repo).
 - Template for DDIA-style raw chapters: [`templates/raw-chapter-note.md`](templates/raw-chapter-note.md)
+
+## DDIA workflow (reading + book club)
+
+1. Read the chapter; take **handwritten notes** (optional scan/photo).
+2. Transcribe into `sources/designing-data-intensive-applications/raw/chapter-N.md` (Italian, schema in template).
+3. Promote to English `ch-NN-*.md` source + `concepts/` when the chapter is reviewed.
+4. Add **`## Book club`** at the end of the raw file — short English summary for **Discord** (see [`chapter-8.md`](sources/designing-data-intensive-applications/raw/chapter-8.md)). Paste-only export: [`book-club/chapter-8.md`](sources/designing-data-intensive-applications/book-club/chapter-8.md).
+
+Say **“book club”** when you want only the Discord section drafted or updated.
 
 ## Suggested Naming
 
@@ -70,6 +80,7 @@ Optional but recommended:
 4. Write practical usage decisions in `patterns/`.
 5. Link everything from a domain map in `maps/`.
 6. Keep glossary terms short and canonical in `glossary/`.
+7. **DDIA:** add `## Book club` (English) at the end of each raw chapter for Discord — see [DDIA workflow](#ddia-workflow-reading--book-club).
 
 ## Publishing Notes Publicly
 
