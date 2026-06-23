@@ -52,6 +52,8 @@ Transaction A updates row 1 then row 2; transaction B updates row 2 then row 1. 
 - [[concept-deadlock]]
 - [[concept-phantom-read]]
 - [[concept-write-skew]]
+- [[concept-index-range-lock]]
+- [[concept-serializable-snapshot-isolation]]
 - [[concept-database-index]]
 - [[map-databases]]
 

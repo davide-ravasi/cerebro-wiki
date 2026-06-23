@@ -55,6 +55,7 @@ Central navigation for distributed systems notes and decisions.
 - [[source-ddia-ch-04]]
 - [[source-ddia-ch-05]]
 - [[source-ddia-ch-06]]
+- [[source-ddia-ch-07]] — Ch. 7 (transactions, isolation); raw: `sources/designing-data-intensive-applications/raw/chapter-7.md`
 - [[source-ddia-ch-08]] — Ch. 8 complete (networks, clocks, quorum, fencing); raw: `sources/designing-data-intensive-applications/raw/chapter-8.md`
 
 # Open Threads

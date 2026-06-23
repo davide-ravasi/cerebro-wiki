@@ -46,6 +46,7 @@ so that a concurrent **insert or update** cannot land inside another transaction
 
 - [[concept-write-skew]]
 - [[concept-two-phase-locking]]
+- [[concept-index-range-lock]]
 - [[map-databases]]
 
 # Related Patterns

@@ -41,7 +41,7 @@ This folder is a Markdown-first knowledge base designed for:
 1. Read the chapter; take **handwritten notes** (optional scan/photo).
 2. Transcribe into `sources/designing-data-intensive-applications/raw/chapter-N.md` (Italian, schema in template).
 3. Promote to English `ch-NN-*.md` source + `concepts/` when the chapter is reviewed.
-4. Add **`## Book club`** at the end of the raw file — short English summary for **Discord** (see [`chapter-8.md`](sources/designing-data-intensive-applications/raw/chapter-8.md)). Paste-only export: [`book-club/chapter-8.md`](sources/designing-data-intensive-applications/book-club/chapter-8.md).
+4. Add **`## Book club`** at the end of the raw file — short English summary for **Discord**. Index: [`book-club/README.md`](sources/designing-data-intensive-applications/book-club/README.md). Paste-only: [`book-club/chapter-N.md`](sources/designing-data-intensive-applications/book-club/).
 
 Say **“book club”** when you want only the Discord section drafted or updated.
 

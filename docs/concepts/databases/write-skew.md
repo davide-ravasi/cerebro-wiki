@@ -49,6 +49,8 @@ Individually the writes look valid against each snapshot; together they break a 
 
 - [[concept-phantom-read]]
 - [[concept-two-phase-locking]]
+- [[concept-index-range-lock]]
+- [[concept-serializable-snapshot-isolation]]
 - [[map-databases]]
 
 # Related Patterns

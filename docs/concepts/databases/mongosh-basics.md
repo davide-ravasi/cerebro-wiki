@@ -69,6 +69,8 @@ mongosh "mongodb://localhost:27017/trackemall"
 # Related Concepts
 
 - [[concept-mongodb-connection-string]]
+- [[concept-mongodb-find-queries]]
+- [[concept-mongodb-insert-operations]]
 - [[concept-database-index]]
 - [[map-mongodb]]
 - [[map-databases]]

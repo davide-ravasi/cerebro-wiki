@@ -5,7 +5,7 @@ type: map
 domain: databases
 tags: [map, navigation, databases, mongodb]
 status: evergreen
-updated: 2026-05-11
+updated: 2026-05-19
 ---
 
 # Purpose
@@ -16,6 +16,8 @@ Navigation for **MongoDB** notes: connection, shell, modeling, indexing, and ope
 
 - [[concept-mongodb-connection-string]]
 - [[concept-mongosh-basics]]
+- [[concept-mongodb-find-queries]]
+- [[concept-mongodb-insert-operations]]
 - [[concept-database-index]]
 
 # Source Notes

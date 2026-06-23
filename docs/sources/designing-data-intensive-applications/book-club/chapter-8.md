@@ -10,7 +10,7 @@ This chapter is really hard to resume but..... :grin:
 
 Here's my take on the key concepts in chapter 8:
 
-## Partial failure is the default
+### Partial failure is the default
 
 On one machine, things either work or they don't. In a distributed system, **something is always broken** — failures are **partial** and **nondeterministic**. The cloud model (commodity hardware, shared networks) assumes fault tolerance; you can't fix that with better hardware alone.
 

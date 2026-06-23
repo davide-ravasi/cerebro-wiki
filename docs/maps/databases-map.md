@@ -5,7 +5,7 @@ type: map
 domain: databases
 tags: [map, navigation, databases, transactions, ddia]
 status: evergreen
-updated: 2026-05-11
+updated: 2026-05-19
 ---
 
 # Purpose
@@ -14,24 +14,38 @@ Navigation for **transaction**, **locking**, and **isolation** notes (aligned wi
 
 # Core Concepts
 
-- [[concept-two-phase-locking]]
-- [[concept-deadlock]]
-- [[concept-phantom-read]]
+## Isolation and MVCC
+
+- [[concept-snapshot-isolation-mvcc]]
+
+## Anomalies
+
+- [[concept-lost-update]]
 - [[concept-write-skew]]
+- [[concept-phantom-read]]
+
+## Serializable mechanisms
+
+- [[concept-two-phase-locking]]
+- [[concept-index-range-lock]]
+- [[concept-serializable-snapshot-isolation]]
+- [[concept-deadlock]]
+
+## General
+
 - [[concept-database-index]]
 - [[concept-mongodb-connection-string]]
 - [[concept-mongosh-basics]]
 
 # Source Notes
 
-- [[source-ddia-ch-07]] (add when your Chapter 7 source note exists)
+- [[source-ddia-ch-07]] — DDIA Ch. 7 (transactions, isolation, serializability)
 - [[source-mongodb-connecting-section]]
 
 # Open Threads
 
-- Serializable snapshot isolation (SSI)
-- Isolation levels vs anomalies (read committed, snapshot, serializable)
-- Predicate locks and phantom prevention in real engines (see [[concept-phantom-read]])
+- Read committed vs snapshot vs serializable — naming across databases
+- MongoDB sharded transactions in production
 
 # Related Maps
 

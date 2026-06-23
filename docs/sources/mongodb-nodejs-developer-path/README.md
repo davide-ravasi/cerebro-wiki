@@ -41,3 +41,4 @@ Raw and formal **source** notes for the MongoDB learning path (Node.js developer
 - [x] Promote "Connecting to MongoDB / mongo shell" section to formal source + concepts
 - [ ] Promote `lesson-05-embedding-referencing.md`
 - [ ] Extract more concept notes as lessons grow (aggregation, indexes, replica, transactions)
+- [x] CRUD basics: [[concept-mongodb-find-queries]], [[concept-mongodb-insert-operations]]

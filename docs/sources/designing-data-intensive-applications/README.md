@@ -22,12 +22,21 @@ Path: `raw/chapter-N.md` (informal capture). Formal wiki sources use ids `source
 - `raw/chapter-4.md` → future [[source-ddia-ch-04]]
 - `raw/chapter-5.md` → future [[source-ddia-ch-05]]
 - `raw/chapter-6.md` → future [[source-ddia-ch-06]]
-- `raw/chapter-7.md` → future [[source-ddia-ch-07]]
+- `raw/chapter-7.md` → [[source-ddia-ch-07]] (`ch-07-transactions.md`)
 - `raw/chapter-8.md` → [[source-ddia-ch-08]] (`ch-08-trouble-with-distributed-systems.md`)
 
 # Promoted source notes
 
+- [[source-ddia-ch-07]] — Chapter 7 (transactions, isolation, 2PL, SSI)
 - [[source-ddia-ch-08]] — Chapter 8 (networks, clocks, process pauses, quorum, fencing, Byzantine)
+
+# Book club (shareable summaries)
+
+English, paste-ready for Discord. Index: [`book-club/README.md`](book-club/README.md)
+
+- [Chapter 4 — Encoding and Evolution](book-club/chapter-4.md)
+- [Chapter 7 — Transactions](book-club/chapter-7.md)
+- [Chapter 8 — The Trouble with Distributed Systems](book-club/chapter-8.md)
 
 # Migration Checklist
 
