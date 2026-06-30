@@ -21,6 +21,7 @@ License for this material: [MIT](../../../../LICENSE) (original notes in this re
 | 6 | Partitioning | — | — | coming soon |
 | 7 | Transactions | [chapter-7.md](./chapter-7.md) | [ch-07-transactions.md](../ch-07-transactions.md) | book club + wiki |
 | 8 | The Trouble with Distributed Systems | [chapter-8.md](./chapter-8.md) | [ch-08-trouble-with-distributed-systems.md](../ch-08-trouble-with-distributed-systems.md) | book club + wiki |
+| 9 | Consistency and Consensus | [chapter-9.md](./chapter-9.md) | [ch-09-consistency-and-consensus.md](../ch-09-consistency-and-consensus.md) | partial (linearizability) |
 
 Raw study notes (Italian): [`../raw/`](../raw/README.md)
 

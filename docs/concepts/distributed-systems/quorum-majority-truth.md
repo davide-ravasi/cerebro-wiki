@@ -47,4 +47,5 @@ Leader holds lease locally; GC pauses 15 s; quorum already elected a new leader.
 - [[concept-timeout-failure-detection]]
 - [[concept-replication]]
 - [[pattern-leader-based-replication]]
+- [[concept-linearizability]]
 - [[map-distributed-systems]]

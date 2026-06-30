@@ -42,6 +42,10 @@ Central navigation for distributed systems notes and decisions.
 - [[concept-fencing-token]]
 - [[concept-byzantine-fault]]
 
+## Consistency and consensus (DDIA Ch. 9)
+
+- [[concept-linearizability]]
+
 # Practical Patterns
 
 - [[pattern-leader-based-replication]]
@@ -57,11 +61,11 @@ Central navigation for distributed systems notes and decisions.
 - [[source-ddia-ch-06]]
 - [[source-ddia-ch-07]] — Ch. 7 (transactions, isolation); raw: `sources/designing-data-intensive-applications/raw/chapter-7.md`
 - [[source-ddia-ch-08]] — Ch. 8 complete (networks, clocks, quorum, fencing); raw: `sources/designing-data-intensive-applications/raw/chapter-8.md`
+- [[source-ddia-ch-09]] — Ch. 9 partial (linearizability); raw: `sources/designing-data-intensive-applications/raw/chapter-9.md`
 
 # Open Threads
 
-- Promote Ch. 7 transactions source
-- Consensus protocols (Raft, Paxos) — Ch. 9
+- Complete DDIA Ch. 9 (causal consistency, total order broadcast, Raft)
 - Stream processing and event-time semantics
 - Deeper Spanner / TrueTime case study (optional)
 
