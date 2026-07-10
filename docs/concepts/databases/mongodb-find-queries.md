@@ -8,7 +8,7 @@ sources:
 tags: [concept, databases, mongodb, queries, crud, mongosh]
 status: evergreen
 confidence: medium
-updated: 2026-05-19
+updated: 2026-07-10
 ---
 
 # Definition
@@ -71,6 +71,41 @@ const movies = await users
 | `$in`, `$nin` | in / not in array | `{ tag: { $in: ['js', 'node'] } }` |
 | `$and`, `$or` | logic | `{ $or: [{ a: 1 }, { b: 2 }] }` |
 | dot notation | nested field | `{ 'address.city': 'Rome' }` |
+| `$elemMatch` | all conditions on **same** array element | see below |
+
+### Arrays: dot notation vs `$elemMatch`
+
+**Value in array** (no subdocument) — equality matches if the value appears anywhere:
+
+```javascript
+db.accounts.find({ products: 'InvestmentFund' })
+```
+
+**Dot notation on array fields** — each condition can match a **different** element:
+
+```javascript
+// May match if one item has price > 800 and another has quantity >= 1
+db.sales.find({
+  'items.price': { $gt: 800 },
+  'items.quantity': { $gte: 1 },
+})
+```
+
+**`$elemMatch`** — every condition must apply to the **same** array element (subdocument):
+
+```javascript
+db.sales.find({
+  items: {
+    $elemMatch: {
+      name: 'laptop',
+      price: { $gt: 800 },
+      quantity: { $gte: 1 },
+    },
+  },
+})
+```
+
+Use `$elemMatch` when the business rule is about **one** embedded item (e.g. “a laptop line with price and stock both satisfying X”), not a mix across rows in the array.
 
 **By `_id`:**
 
@@ -99,7 +134,7 @@ await users.findOne({ _id: new ObjectId('664a1b2c3d4e5f6a7b8c9d0') });
 
 # Example
 
-Track'em All: load a user profile by `_id`, list movies with `year` and `genre` filters, paginate with `.sort()` + `.limit()`.
+Track'em All: load a user profile by `_id`, list movies with `year` and `genre` filters, paginate with `.sort()` + `.limit()`. For embedded `ratings` or `watchlist` arrays, use `$elemMatch` when multiple fields must match the same entry (e.g. user rated a title ≥ 4 **and** marked it favorite on the same watchlist row).
 
 # Related Concepts
 
