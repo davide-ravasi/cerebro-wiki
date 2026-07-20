@@ -11,15 +11,16 @@ This folder is a Markdown-first knowledge base designed for:
 ## Folder Structure
 
 - `inbox/`: quick captures, rough notes, ideas to process later
+- `reading/`: **reading queue** — books you plan to read, with trace (`why`, priority, chat hooks); see [`reading/README.md`](reading/README.md) and [[map-reading]]
 - `sources/`: source-bound notes (book chapter summaries, lecture notes, article notes)
 - `sources/designing-data-intensive-applications/raw/`: raw DDIA chapter notes while reading (promote to formal `source` notes when you review)
 - `sources/mongodb-nodejs-developer-path/`: MongoDB (Node.js path) course — see `README.md` there; raw lessons under `raw/`
 - `sources/nodejs/`: Node.js / Express raw notes from study and projects — see `README.md` there; files under `raw/`
 - `concepts/`: atomic evergreen notes (one concept per file); subfolders by domain (e.g. `distributed-systems/`, `databases/`, `web/`, `ai/`)
 - `patterns/`: practical decision notes and tradeoffs (when to use what)
-- `maps/`: map of content (MOC) pages that organize related notes (e.g. `web-security-map.md` for CORS/CSP/Helmet)
+- `maps/`: map of content (MOC) pages that organize related notes (e.g. `web-security-map.md` for CORS/CSP/Helmet, `reading-map.md` for books queue + active reading)
 - `glossary/`: short canonical definitions
-- `templates/`: reusable templates for every note type
+- `templates/`: reusable templates for every note type (including [`reading-queue-entry.md`](templates/reading-queue-entry.md))
 - `.cursor/skills/` (repo root): Cursor agent skills for **learning modes** (study DDIA/Mongo in chat) — see [`.cursor/skills/README.md`](../.cursor/skills/README.md)
 
 ## Core Principles
@@ -76,12 +77,14 @@ Optional but recommended:
 ## Recommended Workflow
 
 1. Capture quickly in `inbox/`.
-2. Promote to `sources/` with cleaned chapter/article notes.
-3. Extract reusable concepts into `concepts/`.
-4. Write practical usage decisions in `patterns/`.
-5. Link everything from a domain map in `maps/`.
-6. Keep glossary terms short and canonical in `glossary/`.
-7. **DDIA:** add `## Book club` (English) at the end of each raw chapter for Discord — see [DDIA workflow](#ddia-workflow-reading--book-club).
+2. **Books to read later:** add `reading/queue/<book-slug>.md` and link from [[map-reading]].
+3. Promote to `sources/` when reading starts (set queue entry `status: reading`).
+4. Extract reusable concepts into `concepts/`.
+5. Write practical usage decisions in `patterns/`.
+6. Link everything from a domain map in `maps/`.
+7. Keep glossary terms short and canonical in `glossary/`.
+8. **DDIA:** add `## Book club` (English) at the end of each raw chapter for Discord — see [DDIA workflow](#ddia-workflow-reading--book-club).
+9. **Finished book:** set queue entry `status: done`; keep `sources/` as the long-term artifact.
 
 ## Publishing Notes Publicly
 
