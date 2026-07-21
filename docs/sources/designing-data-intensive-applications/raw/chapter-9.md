@@ -1,8 +1,8 @@
-# Riassunto capitolo 9: Consistency and Consensus (in corso — linearizability)
+# Riassunto capitolo 9: Consistency and Consensus (in corso — linearizability + TOB)
 
 > **Wiki (inglese, promosso):** [[source-ddia-ch-09]] — `../ch-09-consistency-and-consensus.md`  
-> **Concept estratte:** linearizability (altre TBD: causal consistency, total order, Raft…) → [[map-distributed-systems]]  
-> **Provenienza:** lettura cap. 9 in corso + sessione `learn-core-idea-first` (lavagna, mag 2026)
+> **Concept estratte:** linearizability (promossa); total order broadcast (raw IT, lug 2026 — concept EN a fine cap. 9); causal, Raft TBD → [[map-distributed-systems]]  
+> **Provenienza:** lettura cap. 9 in corso + sessioni `learn-core-idea-first` (linearizability mag 2026; total order broadcast lug 2026)
 
 ---
 
@@ -54,11 +54,47 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ---
 
+## Total order broadcast
+
+> **Stato:** compreso in chat (`learn-core-idea-first`, lug 2026). Concept EN + sezione wiki **dopo** lettura Raft / fine cap. 9.
+
+### Idea chiave (una frase)
+
+**Tutti i nodi ricevono gli stessi messaggi nello stesso ordine** — una sola sequenza ufficiale condivisa, non solo “prima o poi tutti li hanno”.
+
+### Analogia: il cancelliere in tribunale
+
+- Il cancelliere annuncia gli eventi **in un ordine**; tutta la sala sente la stessa sequenza.
+- Se tutti sentono “obiezione” **prima** di “respinta”, nessun nodo può avere l’ordine invertito.
+- Due annunci **indipendenti** restano comunque in **un** ordine globale scelto una volta (spesso leader / consensus).
+
+### Regole operative (memoria)
+
+| Situazione | Cosa implica |
+|------------|----------------|
+| Nodo A vede M1 → M2 → M3 | Nodo B **deve** vedere M1 → M2 → M3 |
+| Due `+1` sul contatore, stesso ordine ovunque | Stato finale **2** su tutti (state machine replication) |
+| vs **causal order** | Causal: messaggi **indipendenti** possono arrivare in ordine diverso; **total order**: no |
+
+### Collegamento a linearizability
+
+- **Linearizability** = garanzia osservabile (“una lavagna”, recency).
+- **Total order broadcast** = **meccanismo** per far applicare le operazioni **nella stessa sequenza** su tutte le repliche (log ordinato → stesso stato).
+- Flusso tipico: write → entry nel log totalmente ordinato → repliche applicano → read coerente.
+
+### Da completare con il libro
+
+- Raft / Paxos come implementazione
+- ZooKeeper / etcd
+- Dettagli formalmente nel testo DDIA
+
+---
+
 ## Sezioni da completare (resto cap. 9)
 
 - [ ] Causal consistency
-- [ ] Total order broadcast
-- [ ] Consensus (Raft / Paxos)
+- [x] Total order broadcast — **compreso in chat** (lug 2026); promuovere concept EN a fine cap. 9
+- [ ] Consensus (Raft / Paxos) — nel libro
 - [ ] ZooKeeper / etcd
 - [ ] CAP / tradeoff con disponibilità
 
@@ -70,14 +106,15 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 Cap. 7 serializability (transazioni)
   → Cap. 8 tempo/rete/quorum inaffidabili
   → Cap. 9 linearizability (registro singolo, tempo reale)
-  → (da leggere) come costruire ordine condiviso: broadcast + consensus
+  → total order broadcast (stessa sequenza di eventi su tutti i nodi)
+  → (da leggere) consensus / Raft — come si implementa l’ordine
 ```
 
 ---
 
 ## Domande aperte
 
-- Come total order broadcast si collega a linearizability formalmente?
+- ~~Come total order broadcast si collega a linearizability formalmente?~~ → vedi sezione TOB sopra (meccanismo vs garanzia); approfondire con Raft
 - MongoDB: quali read sono linearizable su sharded cluster?
 
 ---
