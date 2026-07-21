@@ -8,7 +8,7 @@ sources:
 tags: [concept, databases, mongodb, queries, crud, mongosh]
 status: evergreen
 confidence: medium
-updated: 2026-07-10
+updated: 2026-07-21
 ---
 
 # Definition
@@ -106,6 +106,47 @@ db.sales.find({
 ```
 
 Use `$elemMatch` when the business rule is about **one** embedded item (e.g. “a laptop line with price and stock both satisfying X”), not a mix across rows in the array.
+
+### Logical operators: implicit `$and`, `$or`, explicit `$and`
+
+**Implicit `$and`** — comma-separated fields in one object = **all** conditions must match (default AND):
+
+```javascript
+db.routes.find({
+  'airline.name': 'Southwest Airlines',
+  stops: { $gte: 1 },
+})
+// same as: both airline name AND stops >= 1
+```
+
+**`$or`** — at least **one** branch must match:
+
+```javascript
+db.routes.find({
+  $or: [{ dst_airport: 'SEA' }, { src_airport: 'SEA' }],
+})
+// arrives at OR departs from Seattle
+```
+
+**Explicit `$and`** — required when combining multiple `$or` (or other) expressions; each array element is a clause that must **all** be true:
+
+```javascript
+db.routes.find({
+  $and: [
+    { $or: [{ dst_airport: 'SEA' }, { src_airport: 'SEA' }] },
+    { $or: [{ 'airline.name': 'American Airlines' }, { airplane: 320 }] },
+  ],
+})
+// (SEA in or out) AND (American OR airplane 320)
+```
+
+| Pattern | Logic | When |
+|---------|--------|------|
+| `{ a: 1, b: 2 }` | implicit **AND** | simple multi-field filters |
+| `{ $or: [...] }` | **OR** | any of the branches |
+| `{ $and: [ clause1, clause2 ] }` | **AND** of clauses | multiple `$or` groups, or clarity |
+
+**Not the same as `$elemMatch`:** `$or` / `$and` combine **top-level filter clauses**; `$elemMatch` binds conditions to **one array element**.
 
 **By `_id`:**
 

@@ -65,7 +65,7 @@ Central navigation for distributed systems notes and decisions.
 
 # Open Threads
 
-- Complete DDIA Ch. 9 (causal consistency, total order broadcast, Raft)
+- Complete DDIA Ch. 9 (causal consistency; promote total order broadcast concept after Raft; Raft)
 - Stream processing and event-time semantics
 - Deeper Spanner / TrueTime case study (optional)
 
