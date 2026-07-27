@@ -90,13 +90,57 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ---
 
+## Atomic commit / Two-Phase Commit (2PC)
+
+> **Stato:** lettura in corso (2026-07-27). Sezioni lette: single node → distributed; intro 2PC; system of promises; coordinator failure. Resto 2PC + Raft da finire.
+
+### Idea chiave (una frase)
+
+**Atomic commit distribuito** = tutti i partecipanti **commit** insieme **oppure** tutti **abort** — nessuno a metà strada.
+
+### Da nodo singolo a distribuito
+
+| Nodo singolo | Distribuito |
+|--------------|-------------|
+| WAL + commit locale = atomico | Più nodi / DB: serve **accordo** tra tutti |
+| Un solo decisore | Serve un **coordinatore** + protocollo |
+
+### 2PC — le due fasi
+
+1. **Prepare (voting):** coordinatore chiede ai partecipanti “puoi commitare?” → ogni nodo risponde **yes** o **no** (e tiene risorse/lock in attesa).
+2. **Commit / Abort:** se **tutti** yes → coordinatore manda **commit**; altrimenti **abort**. I partecipanti eseguono la decisione.
+
+### “A system of promises”
+
+- In prepare ogni partecipante **promette**: “se decidi commit, io commito.”
+- Il coordinatore **decide una volta** dopo aver raccolto i voti.
+- I partecipanti **non** possono cambiare idea dopo il yes in prepare.
+
+### Coordinator failure (bookmark lettura)
+
+- Coordinatore muore **prima** della decisione → partecipanti **bloccati** in attesa (incertezza).
+- Coordinatore muore **dopo** commit scritto ma prima che tutti lo sappiano → serve recovery / log del coordinatore.
+- Problema noto: 2PC **non** è fault-tolerant al 100% → motivazione per **consensus** (Raft) dopo nel capitolo.
+
+> **Attenzione:** 2PC (commit distribuito) ≠ **2PL** (two-phase **locking**, cap. 7 — serializzabilità).
+
+### Da completare nel libro
+
+- Recovery dettagliata, 3PC (se presente), limiti operativi
+- Poi: consensus / Raft
+
+---
+
 ## Sezioni da completare (resto cap. 9)
 
 - [ ] Causal consistency
 - [x] Total order broadcast — **compreso in chat** (lug 2026); promuovere concept EN a fine cap. 9
-- [ ] Consensus (Raft / Paxos) — nel libro
+- [~] Atomic commit / **two-phase commit (2PC)** — **in corso 2026-07-27** (prepare/commit, promises, coordinator failure); finire resto → core-idea-first al ripasso
+- [ ] Consensus (Raft / Paxos) — nel libro (dopo 2PC)
 - [ ] ZooKeeper / etcd
 - [ ] CAP / tradeoff con disponibilità
+
+> **Attenzione:** 2PC (commit) ≠ 2PL (locking, cap. 7).
 
 ---
 
@@ -107,6 +151,7 @@ Cap. 7 serializability (transazioni)
   → Cap. 8 tempo/rete/quorum inaffidabili
   → Cap. 9 linearizability (registro singolo, tempo reale)
   → total order broadcast (stessa sequenza di eventi su tutti i nodi)
+  → atomic commit / 2PC  ← bookmark 2026-07-24
   → (da leggere) consensus / Raft — come si implementa l’ordine
 ```
 

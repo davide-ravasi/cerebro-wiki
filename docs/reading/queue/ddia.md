@@ -7,7 +7,7 @@ domain: distributed-systems
 tags: [reading-queue, books, ddia, distributed-systems, databases]
 status: reading
 priority: high
-updated: 2026-07-21
+updated: 2026-07-27
 found_via: "Primary cerebro study track"
 why: "Foundation for distributed data, transactions, consistency, and operations at scale."
 related_skills:
@@ -25,7 +25,7 @@ source_slug: sources/designing-data-intensive-applications/
 | Chapters | State |
 |----------|--------|
 | 7–8 | Promoted source + concepts + book club |
-| 9 | Partial — linearizability promoted; **total order broadcast** captured in raw (core-idea-first, Jul 2026); Raft / causal TBD |
+| 9 | Partial — lin. promoted; TOB in raw; **2PC in progress (Jul 27):** prepare/commit, promises, coordinator failure; Raft / causal TBD |
 | 1–6, 10–12 | Not promoted yet |
 
 **Source index:** [[source-ddia-index]]  
@@ -33,7 +33,9 @@ source_slug: sources/designing-data-intensive-applications/
 
 ## Session log (resume hints)
 
-- **Jul 2026** — total order broadcast: `@learn-core-idea-first` in chat → raw `chapter-9.md` § TOB. **Next:** read Raft in book, then promote `concept-total-order-broadcast` + extend `source-ddia-ch-09`.
+- **2026-07-27** — 2PC ~20 min: single node→distributed, intro 2PC, system of promises, coordinator failure. Next: finish remaining 2PC → Raft.
+- **2026-07-24** — bookmark: § *Distributed transactions and consensus* — **atomic commit / 2PC** (started, after TOB).
+- **Jul 2026** — total order broadcast: `@learn-core-idea-first` → raw § TOB. Promote `concept-total-order-broadcast` a fine blocco consensus.
 
 ## Chat hook
 

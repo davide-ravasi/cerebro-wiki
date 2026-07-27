@@ -11,6 +11,7 @@ This folder is a Markdown-first knowledge base designed for:
 ## Folder Structure
 
 - `inbox/`: quick captures, rough notes, ideas to process later
+- `study-resume.md`: **single-file “resume tomorrow”** — hooks + which learning skill to use; not part of the wiki graph (read this when you reopen a topic)
 - `reading/`: **reading queue** — books you plan to read, with trace (`why`, priority, chat hooks); see [`reading/README.md`](reading/README.md) and [[map-reading]]
 - `sources/`: source-bound notes (book chapter summaries, lecture notes, article notes)
 - `sources/designing-data-intensive-applications/raw/`: raw DDIA chapter notes while reading (promote to formal `source` notes when you review)
