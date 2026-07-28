@@ -56,8 +56,8 @@
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | **20 min DDIA 2PC** (pre-session) ✓ · track-em-all: 1 pezzo **feature/UI** | ☐ track-em-all |
-| Mar | DDIA: Raft / cap. 9 … | ☐ |
+| Lun | **20 min DDIA 2PC** ✓ · track-em-all: HomePage `useQuery` search + Context rimosso | ☑ |
+| Mar | DDIA 2PC practice ✓ · **prossime:** Fault-Tolerant Consensus + Membership/coordination | ☑ lettura |
 | Mer | ripasso: integrità favorites / never trust client | ☑ |
 | Gio | ripasso: functional core / imperative shell (#2) | ☑ |
 | Ven | **mattina** track-em-all (~fino 10) · **pomeriggio** Mongo quiz se c’è mezz’ora | ☑ mattina |
@@ -72,10 +72,10 @@
 
 | | |
 |---|---|
-| **Hook** | *Cap. 9 § Distributed transactions and consensus — dopo TOB. Atomic commit = tutti commit o tutti abort; 2PC = coordinatore + prepare/commit. Non confondere con 2PL (locking, cap. 7).* |
-| **Skill** | `@learn-core-idea-first` (quando riprendi) → poi `@learn-error-simulator` |
-| **Dove** | libro DDIA cap. 9 (dopo total order broadcast) · `raw/chapter-9.md` |
-| **Bookmark** | Letto: single node→distributed, intro 2PC, system of promises, **coordinator failure** (2026-07-27); finire resto 2PC → Raft |
+| **Hook** | *2PC = prepare/commit + promesse. In practice: exactly-once ≈ atomicità messaggio+effetto; XA = 2PC standard; dopo prepare i lock restano “in doubt”; recovery dal log del coordinatore; limiti = costo/disponibilità. ≠ 2PL.* |
+| **Skill** | `@learn-core-idea-first` (quando chiudi le 8 pp) → poi `@learn-error-simulator` |
+| **Dove** | libro DDIA cap. 9 · `raw/chapter-9.md` |
+| **Bookmark** | 2PC practice ✓. **Resta:** Fault-Tolerant Consensus → Membership & coordination (ZK/etcd). Poi ripasso 2PC Mer |
 
 ### 2. DDIA — Raft (dopo 2PC nel libro)
 
@@ -99,6 +99,22 @@
 
 *Coda: non entra nel Mer/Gio finché non la promuovi in «Da ripassare».*
 
+### track-em-all — useQuery search: draft vs committed + `enabled`
+
+| | |
+|---|---|
+| **Hook** | *`textInput` = bozza (UI); `searchTerm` = chiave query. Submit aggiorna solo `searchTerm`. `useQuery` sta in top-level; `enabled: !!searchTerm` evita fetch a vuoto. Mai `useQuery` dentro l’handler.* |
+| **Skill** | `@learn-error-simulator` |
+| **Dove** | track-em-all `HomePage.tsx` |
+
+### track-em-all — Context solo se serve davvero
+
+| | |
+|---|---|
+| **Hook** | *Context utile se molti discendenti lontani condividono stato. Se i dati restano in Home (o bastano props a SearchBar/Search), Context è rumore — toglilo.* |
+| **Skill** | `@learn-error-simulator` (scenario: “metto tutto in Context”) |
+| **Dove** | HomePage (prima Provider, ora props locali) |
+
 ### tracking-ds — paginazione API + "misura prima di costruire"
 
 | | |
@@ -113,9 +129,9 @@
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lin. + TOB ok; **2PC in corso** (prepare/commit, promises, coordinator failure — 2026-07-27) | Finire 2PC → Raft → promote concept EN |
+| DDIA cap. 9 | Lin. + TOB + **2PC practice ✓**; **resta:** Fault-Tolerant Consensus + Membership/coordination | Leggere consensus (priorità) → ZK/etcd (più leggero) → promote EN |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione |
-| track-em-all | **Security path base ✓** · mirror front `favoriteValidation` + `useFavorite` (validate, toast max/API, RTK `.unwrap()`) ✓ | **Feature / UI** 1 pezzo lun/ven; optional later JWT refresh / cookies |
+| track-em-all | Security ✓ · favorites mirror ✓ · **Home search → `useQuery` + Context rimosso** ✓ | Feature/UI lun/ven; **follow-up:** same-term search refetch (`staleTime` / `refetch`); optional Load more `useInfiniteQuery`, auth `useMutation` |
 | tracking-ds | P0 | lavoro (non serale) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 
@@ -123,6 +139,8 @@
 
 ## Fatto di recente
 
+- **2026-07-28** — DDIA: *Distributed transactions in practice* (exactly-once, XA, holding locks in doubt, recovering coordinator, limitations); ~8 pp residue prima di Raft
+- **2026-07-27** — Track'em All Home: search `useQuery` + Context rimosso; Bugbot fix empty Search on home; **follow-up annotato:** same-term no-refetch (`staleTime` 5 min → `refetch` o `staleTime: 0`)
 - **2026-07-27 (mattina, pre-session)** — DDIA 2PC ~20 min: single node→distributed atomic commit, intro 2PC, system of promises, coordinator failure
 - **2026-07-24 (mattina)** — Track'em All: mirror `src/utils/favoriteValidation.js` + `useFavorite` (early return, toast max/API, RTK `.unwrap()`, type `ShowData`); keep-in-sync comments front/back
 - **2026-07-24** — DDIA: bookmark cap. 9 dopo TOB → **atomic commit / 2PC** (poche pagine); ven = track-em-all mattina, Mongo quiz pomeriggio se possibile
@@ -157,4 +175,4 @@
 3. Mer/Gio = solo ripasso da «Da ripassare» (non dal backlog intero).
 4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
 
-*Ultimo aggiornamento: 2026-07-27 (DDIA 2PC: prepare/commit, promises, coordinator failure)*
+*Ultimo aggiornamento: 2026-07-28 (DDIA 2PC practice · ~8 pp residue → Raft)*

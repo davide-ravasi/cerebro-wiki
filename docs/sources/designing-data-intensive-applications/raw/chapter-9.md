@@ -92,7 +92,8 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ## Atomic commit / Two-Phase Commit (2PC)
 
-> **Stato:** lettura in corso (2026-07-27). Sezioni lette: single node → distributed; intro 2PC; system of promises; coordinator failure. Resto 2PC + Raft da finire.
+> **Stato:** quasi chiuso (2026-07-28). Mancano ~8 pagine del blocco; poi consensus/Raft.  
+> Letto: intro 2PC → *Distributed transactions in practice* (exactly-once, XA, locks in doubt, recovering coordinator, limitations).
 
 ### Idea chiave (una frase)
 
@@ -116,18 +117,28 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 - Il coordinatore **decide una volta** dopo aver raccolto i voti.
 - I partecipanti **non** possono cambiare idea dopo il yes in prepare.
 
-### Coordinator failure (bookmark lettura)
+### Coordinator failure (base)
 
 - Coordinatore muore **prima** della decisione → partecipanti **bloccati** in attesa (incertezza).
 - Coordinatore muore **dopo** commit scritto ma prima che tutti lo sappiano → serve recovery / log del coordinatore.
 - Problema noto: 2PC **non** è fault-tolerant al 100% → motivazione per **consensus** (Raft) dopo nel capitolo.
 
+### Distributed transactions in practice (2026-07-28)
+
+| Tema | Idea in una riga |
+|------|------------------|
+| **Exactly-once message processing** | Atomicità messaggio + side effect (es. DB): o entrambi sì o entrambi no — evita “processato due volte” / “perso”. |
+| **XA transactions** | Standard 2PC tra risorse eterogenee (DB, queue, …) via coordinatore XA / resource managers. |
+| **Holding locks while in doubt** | Dopo *prepare* (yes), i lock restano tenuti finché arriva commit/abort — se il coordinatore è in dubbio, **contesa e latenza**. |
+| **Recovering from coordinator failure** | Nuovo coordinatore (o recovery) legge il log: se la decisione era già stata scritta → ripeti commit/abort; altrimenti spesso **abort** o resta bloccato. |
+| **Limitations of distributed transactions** | Costo, disponibilità (blocco in doubt), ops complesse, coupling — non “gratis”; molti sistemi preferiscono alternative (sagas, outbox, consensus ristretto). |
+
 > **Attenzione:** 2PC (commit distribuito) ≠ **2PL** (two-phase **locking**, cap. 7 — serializzabilità).
 
-### Da completare nel libro
+### Bookmark lettura
 
-- Recovery dettagliata, 3PC (se presente), limiti operativi
-- Poi: consensus / Raft
+- **Prossime macro:** Fault-Tolerant Consensus → Membership and coordination services
+- 2PC blocco practice chiuso (2026-07-28)
 
 ---
 
@@ -135,9 +146,9 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 - [ ] Causal consistency
 - [x] Total order broadcast — **compreso in chat** (lug 2026); promuovere concept EN a fine cap. 9
-- [~] Atomic commit / **two-phase commit (2PC)** — **in corso 2026-07-27** (prepare/commit, promises, coordinator failure); finire resto → core-idea-first al ripasso
-- [ ] Consensus (Raft / Paxos) — nel libro (dopo 2PC)
-- [ ] ZooKeeper / etcd
+- [x] Atomic commit / **2PC + practice** — letto 2026-07-28 (exactly-once, XA, locks in doubt, recovery, limits); ripasso Mer/Gio
+- [ ] **Fault-Tolerant Consensus** (Raft/Paxos/Zab, TOB, epoch/quorum) — **prossima priorità**
+- [ ] **Membership and coordination services** (ZooKeeper / etcd) — dopo consensus; ok più leggero
 - [ ] CAP / tradeoff con disponibilità
 
 > **Attenzione:** 2PC (commit) ≠ 2PL (locking, cap. 7).
@@ -151,8 +162,9 @@ Cap. 7 serializability (transazioni)
   → Cap. 8 tempo/rete/quorum inaffidabili
   → Cap. 9 linearizability (registro singolo, tempo reale)
   → total order broadcast (stessa sequenza di eventi su tutti i nodi)
-  → atomic commit / 2PC  ← bookmark 2026-07-24
-  → (da leggere) consensus / Raft — come si implementa l’ordine
+  → atomic commit / 2PC + practice ✓
+  → Fault-Tolerant Consensus  ← prossimo
+  → Membership & coordination (ZooKeeper / etcd)
 ```
 
 ---
