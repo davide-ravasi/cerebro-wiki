@@ -57,7 +57,7 @@
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | **20 min DDIA 2PC** ✓ · track-em-all: HomePage `useQuery` search + Context rimosso | ☑ |
-| Mar | DDIA 2PC practice ✓ · **prossime:** Fault-Tolerant Consensus + Membership/coordination | ☑ lettura |
+| Mar | DDIA 2PC practice ✓ · **+25 min** track-em-all (`staleTime`/`refetch` same-term) ✓ · prossime: Fault-Tolerant Consensus + Membership | ☑ |
 | Mer | ripasso: integrità favorites / never trust client | ☑ |
 | Gio | ripasso: functional core / imperative shell (#2) | ☑ |
 | Ven | **mattina** track-em-all (~fino 10) · **pomeriggio** Mongo quiz se c’è mezz’ora | ☑ mattina |
@@ -115,6 +115,14 @@
 | **Skill** | `@learn-error-simulator` (scenario: “metto tutto in Context”) |
 | **Dove** | HomePage (prima Provider, ora props locali) |
 
+### track-em-all — React Query: staleTime vs refetch
+
+| | |
+|---|---|
+| **Hook** | *staleTime = "ancora fresco, non rifetchare da solo". Stesso searchTerm + submit = niente in Network. refetch() = forza queryFn anche se la cache è fresh.* |
+| **Skill** | `@learn-error-simulator` |
+| **Dove** | cerebro `sources/react/raw/react-query-stale-time-and-refetch.md` · track-em-all `HomePage.tsx` |
+
 ### tracking-ds — paginazione API + "misura prima di costruire"
 
 | | |
@@ -131,7 +139,7 @@
 |------|--------|----------|
 | DDIA cap. 9 | Lin. + TOB + **2PC practice ✓**; **resta:** Fault-Tolerant Consensus + Membership/coordination | Leggere consensus (priorità) → ZK/etcd (più leggero) → promote EN |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione |
-| track-em-all | Security ✓ · favorites mirror ✓ · **Home search → `useQuery` + Context rimosso** ✓ | Feature/UI lun/ven; **follow-up:** same-term search refetch (`staleTime` / `refetch`); optional Load more `useInfiniteQuery`, auth `useMutation` |
+| track-em-all | Security ✓ · favorites mirror ✓ · **Home search → `useQuery` + Context rimosso** ✓ · **same-term refetch (`staleTime` / `refetch`)** ✓ | Feature/UI lun/ven; optional Load more `useInfiniteQuery`, auth `useMutation` |
 | tracking-ds | P0 | lavoro (non serale) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 
@@ -139,7 +147,8 @@
 
 ## Fatto di recente
 
-- **2026-07-28** — DDIA: *Distributed transactions in practice* (exactly-once, XA, holding locks in doubt, recovering coordinator, limitations); ~8 pp residue prima di Raft
+- **2026-07-28** — DDIA: *Distributed transactions in practice* ✓. **Resta:** Fault-Tolerant Consensus → Membership/coordination (non “8 pp di 2PC”).
+- **2026-07-28** — Track'em All: same-term search `refetch()` (`staleTime` 5 min → forza `queryFn` se submit identico); nota cerebro `sources/react/raw/react-query-stale-time-and-refetch.md`
 - **2026-07-27** — Track'em All Home: search `useQuery` + Context rimosso; Bugbot fix empty Search on home; **follow-up annotato:** same-term no-refetch (`staleTime` 5 min → `refetch` o `staleTime: 0`)
 - **2026-07-27 (mattina, pre-session)** — DDIA 2PC ~20 min: single node→distributed atomic commit, intro 2PC, system of promises, coordinator failure
 - **2026-07-24 (mattina)** — Track'em All: mirror `src/utils/favoriteValidation.js` + `useFavorite` (early return, toast max/API, RTK `.unwrap()`, type `ShowData`); keep-in-sync comments front/back
@@ -175,4 +184,4 @@
 3. Mer/Gio = solo ripasso da «Da ripassare» (non dal backlog intero).
 4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
 
-*Ultimo aggiornamento: 2026-07-28 (DDIA 2PC practice · ~8 pp residue → Raft)*
+*Ultimo aggiornamento: 2026-07-28 (DDIA 2PC practice · track-em-all staleTime/refetch · next: Fault-Tolerant Consensus)*
