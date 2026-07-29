@@ -35,3 +35,17 @@ Clients don't pick the order. A **shared mechanism** does: leader, quorum, conse
 > After a write **completes**, a read that **starts after** must see it — the **system** enforces one shared story, not the client.
 
 (More after I finish total order broadcast / Raft…)
+
+---
+
+### Fault-tolerant consensus (why it’s different from 2PC)
+
+**Core idea:** when some nodes fail, the system can still keep making progress by letting a *large enough* subset decide, while preventing different subsets from deciding *different* outcomes.
+
+**Why 2PC can block:** if the **coordinator** dies at the wrong time (after participants are prepared, but before the final decision is communicated), participants can end up waiting indefinitely. The system buys **atomicity** at the cost of **liveness / availability** (locks can stay “in doubt”).
+
+**Why consensus avoids “stuck forever”:** as long as enough nodes remain available, decisions can continue (**termination**). The safety intuition is that decision-making subsets must overlap, so you can’t have two conflicting decisions both “winning”.
+
+**Operational symptoms to remember:**
+- **2PC:** timeouts + contention because resources/locks remain held while waiting for the coordinator decision.
+- **consensus:** you may see latency during failures/re-elections, but the system keeps moving once a sufficient subset is alive.

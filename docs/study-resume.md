@@ -3,6 +3,19 @@
 > **Un solo file.** Leggilo quando riapri Cursor — non serve navigare il resto di cerebro.  
 > Aggiorna **Questa settimana** + **Da ripassare** a fine sessione (2 minuti).
 
+## ⏰ PROMEMORIA — mercoledì 2026-07-29 (mattina)
+
+**Prima del ripasso 2PC:** fare i **3 refining** del programma (chat cerebro):
+
+1. **Tab settimanale sempre vera** — riscrivere “Questa settimana” solo per *questa* settimana (Mer = ripasso 2PC; togliere fossilizzati favorites / functional core).
+2. **Done criteria** — (a) codice Lun: 1 frase testabile; (b) fine cap. 9: letto Fault-Tolerant Consensus + skim membership · 1 simulator 2PC · 1 simulator consensus · opz. promote concept EN.
+3. **Non-core espliciti** — Mongo e basso: regole in fondo (non Core emotivo); + nota “ogni 2 sett: 10 min spiega come un lead”.
+
+Poi: slot Mer = `@learn-error-simulator` su **2PC**.  
+Fine: cancella/sposta questo box in Fatto di recente.
+
+---
+
 **Obiettivo:** full-stack teorico solido + traiettoria lead.  
 **Core:** track-em-all · DDIA · Mongo (poco) · Max Node solo on-demand.
 
@@ -58,9 +71,9 @@
 |--------|----------------|:------:|
 | Lun | **20 min DDIA 2PC** ✓ · track-em-all: HomePage `useQuery` search + Context rimosso | ☑ |
 | Mar | DDIA 2PC practice ✓ · **+25 min** track-em-all (`staleTime`/`refetch` same-term) ✓ · prossime: Fault-Tolerant Consensus + Membership | ☑ |
-| Mer | ripasso: integrità favorites / never trust client | ☑ |
-| Gio | ripasso: functional core / imperative shell (#2) | ☑ |
-| Ven | **mattina** track-em-all (~fino 10) · **pomeriggio** Mongo quiz se c’è mezz’ora | ☑ mattina |
+| Mer | ripasso: **DDIA 2PC** con `@learn-error-simulator` (focus: locks in doubt + recovery) | ☑ |
+| Gio | ripasso: **DDIA 2PC** (se non chiuso) + micro-scenario su “perché 2PC blocca” | ☐ |
+| Ven | track-em-all (se serve) oppure Mongo **solo se** c’è surplus | ☐ |
 
 ---
 
@@ -73,9 +86,9 @@
 | | |
 |---|---|
 | **Hook** | *2PC = prepare/commit + promesse. In practice: exactly-once ≈ atomicità messaggio+effetto; XA = 2PC standard; dopo prepare i lock restano “in doubt”; recovery dal log del coordinatore; limiti = costo/disponibilità. ≠ 2PL.* |
-| **Skill** | `@learn-core-idea-first` (quando chiudi le 8 pp) → poi `@learn-error-simulator` |
+| **Skill** | `@learn-error-simulator` |
 | **Dove** | libro DDIA cap. 9 · `raw/chapter-9.md` |
-| **Bookmark** | 2PC practice ✓. **Resta:** Fault-Tolerant Consensus → Membership & coordination (ZK/etcd). Poi ripasso 2PC Mer |
+| **Bookmark** | 2PC practice ✓. **Done (oggi):** 1-2 scenari su coordinator failure + 1 scenario su locks in doubt. Poi parti con Membership & coordination domani. |
 
 ### 2. DDIA — Raft (dopo 2PC nel libro)
 
@@ -183,5 +196,6 @@
 2. **1 obiettivo per sessione** (anche con 2 pomodori).
 3. Mer/Gio = solo ripasso da «Da ripassare» (non dal backlog intero).
 4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
+5. **Non-core espliciti:** Mongo e basso sono **solo** surplus (non sostituiscono consensus/Raft ripasso).
 
-*Ultimo aggiornamento: 2026-07-28 (DDIA 2PC practice · track-em-all staleTime/refetch · next: Fault-Tolerant Consensus)*
+*Ultimo aggiornamento: 2026-07-28 (promemoria mer 29: 3 refining programma → poi ripasso 2PC)*
