@@ -7,7 +7,7 @@ domain: distributed-systems
 tags: [reading-queue, books, ddia, distributed-systems, databases]
 status: reading
 priority: high
-updated: 2026-07-28
+updated: 2026-07-30
 found_via: "Primary cerebro study track"
 why: "Foundation for distributed data, transactions, consistency, and operations at scale."
 related_skills:
@@ -25,7 +25,7 @@ source_slug: sources/designing-data-intensive-applications/
 | Chapters | State |
 |----------|--------|
 | 7–8 | Promoted source + concepts + book club |
-| 9 | Partial — lin. + TOB + **2PC practice ✓**; **next:** Fault-Tolerant Consensus → Membership/coordination |
+| 9 | Partial — lin. + TOB + 2PC ✓ · consensus idea ✓ · **Membership core-idea ✓ (Jul 30)**; Raft detail / CAP TBD |
 | 1–6, 10–12 | Not promoted yet |
 
 **Source index:** [[source-ddia-index]]  
@@ -33,7 +33,9 @@ source_slug: sources/designing-data-intensive-applications/
 
 ## Session log (resume hints)
 
-- **2026-07-28** — *Distributed transactions in practice* ✓. Next macros: **Fault-Tolerant Consensus**, then **Membership and coordination services**.
+- **2026-07-30** — Membership & coordination (ZK/etcd): `@learn-core-idea-first` → raw § Membership. Optional: `@learn-error-simulator`.
+- **2026-07-29** — 2PC ripasso + fault-tolerant consensus idea (vs 2PC blocking).
+- **2026-07-28** — *Distributed transactions in practice* ✓. Next macros were Fault-Tolerant Consensus → Membership.
 - **2026-07-27** — 2PC ~20 min: single node→distributed, intro 2PC, system of promises, coordinator failure.
 - **2026-07-24** — bookmark: § *Distributed transactions and consensus* — **atomic commit / 2PC** (started, after TOB).
 - **Jul 2026** — total order broadcast: `@learn-core-idea-first` → raw § TOB. Promote `concept-total-order-broadcast` a fine blocco consensus.

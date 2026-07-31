@@ -137,8 +137,52 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ### Bookmark lettura
 
-- **Prossime macro:** Fault-Tolerant Consensus → Membership and coordination services
-- 2PC blocco practice chiuso (2026-07-28)
+- 2PC practice ✓ · Fault-tolerant consensus (idea) ✓ in chat (2026-07-29)
+- Membership & coordination ✓ core-idea (2026-07-30); simulator opzionale; libro: skim se serve dettaglio
+
+---
+
+## Fault-tolerant consensus (idea — chat 2026-07-29)
+
+> **Stato:** compreso in chat (core-idea + error-simulator vs 2PC). Dettaglio Raft/epoch nel libro ancora da leggere/skimmare.
+
+### Idea chiave
+
+Se resta una **maggioranza**, il sistema può **continuare a decidere** (termination). Due sottoinsiemi che decidono devono **sovrapporsi** → niente decisioni divergenti. 2PC può **bloccarsi** senza coordinatore; consensus no (finché c’è majority).
+
+---
+
+## Membership and coordination services (ZooKeeper / etcd)
+
+> **Stato:** compreso in chat (`learn-core-idea-first`, 2026-07-30). Concept EN opzionale a fine cap. 9.
+
+### Idea chiave (una frase)
+
+**Non reinventare consensus in casa per il meta-stato:** un servizio esterno (ZK / etcd / Consul) tiene la **verità di coordinamento** (leader, config, lock, membership); le app chiedono e rispettano.
+
+### Analogia: il centralino ufficiale
+
+Tanti team → un solo centralino per “chi è di turno”, “quale foglio regole vale”, “risorsa libera?”. Senza centralino: due verità e comportamenti diversi.
+
+### A cosa serve (tipico)
+
+| Uso | Perché |
+|-----|--------|
+| Leader election | Un solo primario attivo |
+| Config / service discovery | Fonte ufficiale di impostazioni o indirizzi |
+| Distributed locks / fencing | Chi può fare un’operazione esclusiva |
+| Membership | Chi è nel gruppo / vivo |
+
+### Collegamenti
+
+- Sotto il cofano: **fault-tolerant consensus** (majority).
+- **≠ 2PC**: 2PC = atomicità tra *tue* risorse di business; ZK/etcd = coordinamento / meta-stato.
+- **Errore tipico:** usarli come database generale → no; solo stato piccolo e critico.
+
+### Da completare col libro (skim ok)
+
+- Dettagli API / watch / ephemeral nodes (ZK)
+- Come Kafka / DB usano coordination services in pratica
 
 ---
 
@@ -146,9 +190,9 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 - [ ] Causal consistency
 - [x] Total order broadcast — **compreso in chat** (lug 2026); promuovere concept EN a fine cap. 9
-- [x] Atomic commit / **2PC + practice** — letto 2026-07-28 (exactly-once, XA, locks in doubt, recovery, limits); ripasso Mer/Gio
-- [ ] **Fault-Tolerant Consensus** (Raft/Paxos/Zab, TOB, epoch/quorum) — **prossima priorità**
-- [ ] **Membership and coordination services** (ZooKeeper / etcd) — dopo consensus; ok più leggero
+- [x] Atomic commit / **2PC + practice** — letto 2026-07-28; ripasso Mer 2026-07-29 ✓
+- [~] **Fault-Tolerant Consensus** — idea ✓ chat; dettaglio Raft/Paxos nel libro TBD
+- [x] **Membership and coordination** — core-idea ✓ 2026-07-30; simulator / skim libro opzionale
 - [ ] CAP / tradeoff con disponibilità
 
 > **Attenzione:** 2PC (commit) ≠ 2PL (locking, cap. 7).
@@ -163,8 +207,8 @@ Cap. 7 serializability (transazioni)
   → Cap. 9 linearizability (registro singolo, tempo reale)
   → total order broadcast (stessa sequenza di eventi su tutti i nodi)
   → atomic commit / 2PC + practice ✓
-  → Fault-Tolerant Consensus  ← prossimo
-  → Membership & coordination (ZooKeeper / etcd)
+  → Fault-Tolerant Consensus (idea ✓; dettaglio libro TBD)
+  → Membership & coordination (ZK/etcd) ✓ core-idea
 ```
 
 ---

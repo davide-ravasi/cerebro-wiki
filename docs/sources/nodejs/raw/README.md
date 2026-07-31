@@ -9,6 +9,7 @@ Appunti brevi mentre impari Node/Express in contesto reale (API serverless, prox
 - [`cors-how-it-works.md`](./cors-how-it-works.md) — CORS generico: origine, header, preflight, esempi HTTP, credenziali, checklist, snippet Express.
 - [`content-security-policy.md`](./content-security-policy.md) — CSP: direttive, Track'em All / `netlify.toml`, Vite dev; promosso in `concepts/web/content-security-policy.md`.
 - [`helmet.md`](./helmet.md) — Helmet.js: moduli header, personalizzazione, esempio Express; collegato a CSP / `express-netlify-security-notes.md` (§6.2).
+- [`fetch-two-steps-and-http-errors.md`](./fetch-two-steps-and-http-errors.md) — `fetch` lato browser: perché due passaggi asincroni, `fetch` non rifiuta su 404, `throw` → `catch`, `statusText` vuoto in HTTP/2, `file://` senza origine, `npx`; promosso in `concepts/web/` (3 note).
 
 ## Naming
 

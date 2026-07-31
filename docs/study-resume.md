@@ -3,19 +3,6 @@
 > **Un solo file.** Leggilo quando riapri Cursor — non serve navigare il resto di cerebro.  
 > Aggiorna **Questa settimana** + **Da ripassare** a fine sessione (2 minuti).
 
-## ⏰ PROMEMORIA — mercoledì 2026-07-29 (mattina)
-
-**Prima del ripasso 2PC:** fare i **3 refining** del programma (chat cerebro):
-
-1. **Tab settimanale sempre vera** — riscrivere “Questa settimana” solo per *questa* settimana (Mer = ripasso 2PC; togliere fossilizzati favorites / functional core).
-2. **Done criteria** — (a) codice Lun: 1 frase testabile; (b) fine cap. 9: letto Fault-Tolerant Consensus + skim membership · 1 simulator 2PC · 1 simulator consensus · opz. promote concept EN.
-3. **Non-core espliciti** — Mongo e basso: regole in fondo (non Core emotivo); + nota “ogni 2 sett: 10 min spiega come un lead”.
-
-Poi: slot Mer = `@learn-error-simulator` su **2PC**.  
-Fine: cancella/sposta questo box in Fatto di recente.
-
----
-
 **Obiettivo:** full-stack teorico solido + traiettoria lead.  
 **Core:** track-em-all · DDIA · Mongo (poco) · Max Node solo on-demand.
 
@@ -72,8 +59,8 @@ Fine: cancella/sposta questo box in Fatto di recente.
 | Lun | **20 min DDIA 2PC** ✓ · track-em-all: HomePage `useQuery` search + Context rimosso | ☑ |
 | Mar | DDIA 2PC practice ✓ · **+25 min** track-em-all (`staleTime`/`refetch` same-term) ✓ · prossime: Fault-Tolerant Consensus + Membership | ☑ |
 | Mer | ripasso: **DDIA 2PC** con `@learn-error-simulator` (focus: locks in doubt + recovery) | ☑ |
-| Gio | ripasso: **DDIA 2PC** (se non chiuso) + micro-scenario su “perché 2PC blocca” | ☐ |
-| Ven | track-em-all (se serve) oppure Mongo **solo se** c’è surplus | ☐ |
+| Gio | ripasso: **Membership & coordination (ZK/etcd)** — core-idea ✓ · simulator ✓ · raw aggiornato | ☑ |
+| Ven | track-em-all: home smoke + describe ✓ · **Show smoke iniziato** (`show.smoke.spec.ts`) — finire prossima volta | ☑ parziale |
 
 ---
 
@@ -88,15 +75,16 @@ Fine: cancella/sposta questo box in Fatto di recente.
 | **Hook** | *2PC = prepare/commit + promesse. In practice: exactly-once ≈ atomicità messaggio+effetto; XA = 2PC standard; dopo prepare i lock restano “in doubt”; recovery dal log del coordinatore; limiti = costo/disponibilità. ≠ 2PL.* |
 | **Skill** | `@learn-error-simulator` |
 | **Dove** | libro DDIA cap. 9 · `raw/chapter-9.md` |
-| **Bookmark** | 2PC practice ✓. **Done (oggi):** 1-2 scenari su coordinator failure + 1 scenario su locks in doubt. Poi parti con Membership & coordination domani. |
+| **Bookmark** | 2PC practice + ripasso Mer ✓. Opzionale: micro-simulator se rivede. |
 
-### 2. DDIA — Raft (dopo 2PC nel libro)
+### 2. DDIA — Membership & coordination (ZK / etcd)
 
 | | |
 |---|---|
-| **Hook** | *Come si implementa l’ordine totale? Leader + log + majority.* |
-| **Skill** | `@learn-core-idea-first` → `@learn-error-simulator` |
-| **Dove** | libro · `raw/chapter-9.md` |
+| **Hook** | *Servizi di coordinamento: leader election, config, lock distribuiti — consensus “in scatola” per le app. Non reinventare 2PC in casa.* |
+| **Skill** | `@learn-error-simulator` (se vuoi verificare oggi) |
+| **Dove** | libro DDIA cap. 9 § Membership · `raw/chapter-9.md` |
+| **Bookmark** | Core-idea ✓ 2026-07-30 · raw § Membership + consensus idea |
 
 ### 3. (Opzionale) TOB / lin / causal — solo se confuso
 
@@ -144,15 +132,33 @@ Fine: cancella/sposta questo box in Fatto di recente.
 | **Skill** | `@learn-operational-fast` (pratico/API) |
 | **Dove** | tracking-ds `src/discover.ts` (da rileggere lunedì con calma) |
 
+### tracking-ds — fetch: due passaggi, errori HTTP, HTTP/2
+
+| | |
+|---|---|
+| **Hook** | *`FileReader` = byte che hai già · `fetch` = rete, non interscambiabili. Due passaggi perché gli **header arrivano prima del corpo**: 1° = `Response` (busta + stream non letto), 2° = `.json()` finisce di leggere e parsa. `fetch` **non** rifiuta su 404 → `response.ok` nel **primo** `.then()`; `throw` lì arriva al `.catch()` e copre rete + HTTP + parse. `statusText` è **vuoto in HTTP/2** → usa `status`. `file://` non ha origine → fetch bloccato, serve un server statico.* |
+| **Skill** | `@learn-error-simulator` — 3 trap da simulare: check dopo `.json()`, `response` fuori scope nel 2° `.then()`, messaggio d'errore vuoto solo in produzione |
+| **Dove** | cerebro `sources/nodejs/raw/fetch-two-steps-and-http-errors.md` · wiki EN `concepts/web/{fetch-response-model,http-errors-in-fetch,http2-reason-phrase}.md` · codice tracking-ds `dashboard/index.html` |
+| **Bookmark** | Imparato 31/07 collegando la pagina statica a `latest.json` su GitLab Pages. **Non ancora ripassato** — mai verificato col simulator. |
+
+### Node / browser — leggere file: input file vs `fs`
+
+| | |
+|---|---|
+| **Hook** | *Browser: `<input type="file">` → `File`/`Blob` già in memoria → `FileReader` o `file.text()`. Node: path su disco → `fs.readFile` / stream; upload HTTP → multipart (`multer`/`busboy`). Non confondere FileReader (client) con `fs` (server).* |
+| **Skill** | `@learn-operational-fast` (primo passaggio) → poi `@learn-error-simulator` |
+| **Dove** | da creare: `sources/nodejs/raw/reading-files-browser-vs-node.md` · contrast già in `fetch-two-steps-and-http-errors.md` §1 |
+| **Bookmark** | Lacuna dichiarata 2026-07-31 — materiale da costruire settimana prossima (non solo ripasso) |
+
 ---
 
 ## In corso
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lin. + TOB + **2PC practice ✓**; **resta:** Fault-Tolerant Consensus + Membership/coordination | Leggere consensus (priorità) → ZK/etcd (più leggero) → promote EN |
+| DDIA cap. 9 | Blocco principale ✓ (lin, TOB, 2PC, consensus idea, Membership) | **Rilettura completa + note a mano → raw stile ch.8** · poi promote EN |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione |
-| track-em-all | Security ✓ · favorites mirror ✓ · **Home search → `useQuery` + Context rimosso** ✓ · **same-term refetch (`staleTime` / `refetch`)** ✓ | Feature/UI lun/ven; optional Load more `useInfiniteQuery`, auth `useMutation` |
+| track-em-all | Security ✓ · Home search RQ ✓ · home smoke + describe ✓ · **Show smoke WIP** | Finire `tests/show.smoke.spec.ts`; optional Load more / auth mutation |
 | tracking-ds | P0 | lavoro (non serale) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 
@@ -160,6 +166,11 @@ Fine: cancella/sposta questo box in Fatto di recente.
 
 ## Fatto di recente
 
+- **2026-07-31** — Backlog: voce **leggere file (input browser vs `fs` Node)** — da costruire raw + ripasso sett. prossima
+- **2026-07-31** — tracking-ds (lavoro, ma materiale di studio estratto): `fetch` lato browser — due passaggi, `response.ok`, `throw`→`catch`, `statusText` vuoto in HTTP/2, `file://` senza origine, `npx`. Raw + 3 concept EN + voce in **Backlog ripasso** (da fare col simulator)
+- **2026-07-31** — Track'em All: home smoke Search Results + `test.describe`; **Show smoke iniziato** (`tests/show.smoke.spec.ts` — title + h1 Breaking Bad su `/show/1396`); da finire
+- **2026-07-30** — Membership & coordination (ZK/etcd): core-idea + simulator ✓ · raw aggiornato · **piano:** rilettura cap. 9 da capo con note a mano (come ch.8) → raw completo
+- **2026-07-29** — Ripasso 2PC + fault-tolerant consensus (vs 2PC) · book-club sezione consensus · 3 refining programma
 - **2026-07-28** — DDIA: *Distributed transactions in practice* ✓. **Resta:** Fault-Tolerant Consensus → Membership/coordination (non “8 pp di 2PC”).
 - **2026-07-28** — Track'em All: same-term search `refetch()` (`staleTime` 5 min → forza `queryFn` se submit identico); nota cerebro `sources/react/raw/react-query-stale-time-and-refetch.md`
 - **2026-07-27** — Track'em All Home: search `useQuery` + Context rimosso; Bugbot fix empty Search on home; **follow-up annotato:** same-term no-refetch (`staleTime` 5 min → `refetch` o `staleTime: 0`)
@@ -198,4 +209,4 @@ Fine: cancella/sposta questo box in Fatto di recente.
 4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
 5. **Non-core espliciti:** Mongo e basso sono **solo** surplus (non sostituiscono consensus/Raft ripasso).
 
-*Ultimo aggiornamento: 2026-07-28 (promemoria mer 29: 3 refining programma → poi ripasso 2PC)*
+*Ultimo aggiornamento: 2026-07-31 (home/show smoke · backlog fetch + file input vs fs)*
