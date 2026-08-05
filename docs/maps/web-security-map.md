@@ -16,6 +16,8 @@ Navigation for **browser security** notes learned while building Track'em All an
 
 - [[concept-content-security-policy]]
 
+- [[concept-origin-as-security-boundary]] — embed freely, read never; CORS as opt-in; fonts as the licensing exception
+
 ## HTTP client (fetch)
 
 - [[concept-fetch-response-model]] — why two awaits: `Response` envelope vs body stream
@@ -36,6 +38,7 @@ Navigation for **browser security** notes learned while building Track'em All an
 | Rate limit + client IP | `sources/nodejs/raw/rate-limiting-and-client-ip.md` |
 | Helmet (overview) | `sources/nodejs/raw/helmet.md` |
 | fetch: two steps, HTTP errors, HTTP/2, `file://` | `sources/nodejs/raw/fetch-two-steps-and-http-errors.md` |
+| Origin, CORS, the 5 layers + 4 method mistakes | `sources/nodejs/raw/origin-cors-and-the-five-layers.md` |
 
 # Open Threads
 
