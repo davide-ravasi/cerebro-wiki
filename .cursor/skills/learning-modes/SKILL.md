@@ -41,3 +41,7 @@ After understanding, offer to capture in `docs/` (raw IT → concept EN) per [do
 Per studiare **articoli / capitoli** con le tre fasi (essenza → applicazione → verifica): [guida-articoli-e-lettura.md](./guida-articoli-e-lettura.md)
 
 In chat: `@learning-modes guida articoli` oppure `Segui guida-articoli-e-lettura.md`.
+
+## Tecniche esterne (mappa)
+
+Feynman / Socratico / test attivo / analogie ↔ le nostre skill: [tecniche-apprendimento.md](./tecniche-apprendimento.md)

@@ -1,14 +1,43 @@
-# Riassunto capitolo 9: Consistency and Consensus (in corso — linearizability + TOB)
+# Riassunto capitolo 9: Consistency and Consensus (in corso — rilettura a mano)
 
 > **Wiki (inglese, promosso):** [[source-ddia-ch-09]] — `../ch-09-consistency-and-consensus.md`  
 > **Concept estratte:** linearizability (promossa); total order broadcast (raw IT, lug 2026 — concept EN a fine cap. 9); causal, Raft TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura cap. 9 in corso + sessioni `learn-core-idea-first` (linearizability mag 2026; total order broadcast lug 2026)
+> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano iniziata 2026-08-05** (~prime 5 pp + inizio Linearizability)
+
+---
+
+## Intro capitolo (appunti a mano — 2026-08-05)
+
+> Prime ~5 pagine: perché il capitolo esiste, prima di entrare in linearizability.
+
+### Idea chiave
+
+Serve **tollerare i fault** per costruire sistemi distribuiti fault-tolerant. Il modo migliore: trovare **astrazioni general-purpose** (come le **transazioni**) con garanzie chiare — poi chiedere: *quali garanzie/astrazioni esistono per i sistemi distribuiti?*
+
+### Consistency guarantees (da replica)
+
+| Tema | Nota tua |
+|------|----------|
+| DB replicati | **Timing issues** — due DB nello stesso istante possono avere dati diversi (write non “allo stesso tempo”) |
+| Eventual consistency | Convergenza sì, ma **non sappiamo quando** |
+| Metafora | Il DB *sembra* una variabile read/write — in realtà è **molto più complicato** |
 
 ---
 
 ## Linearizability
 
-### Idea chiave (una frase)
+> **Rilettura a mano:** iniziata 2026-08-05 (definizione + esempio “write then all readers”). Sotto: note chat precedenti (lavagna, regole overlap) — da fondere quando finisci la sezione sul libro.
+
+### Dalle note a mano (2026-08-05)
+
+**Linearizability** fa apparire il sistema come se:
+
+1. ci fosse **una sola replica**
+2. tutte le operazioni fossero **atomiche**
+
+**Esempio:** appena un client **completa con successo** una write → **tutti** i client che leggono dopo devono poter vedere il valore appena scritto.
+
+### Idea chiave (una frase — chat precedente)
 
 **Dopo che una modifica è davvero finita, chi guarda i dati dopo non deve ancora vedere la versione vecchia** — come se esistesse **una sola copia** del dato e tutti leggessero lo stesso ordine di eventi.
 

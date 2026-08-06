@@ -13,4 +13,6 @@ Inspired by "AI Geniale" learning prompts; adapted for DDIA, MongoDB, and cerebr
 
 **Guida articoli:** [guida-articoli-e-lettura.md](./learning-modes/guida-articoli-e-lettura.md) — fasi 1→2→3 per leggere e ragionare su articoli/capitoli. In chat: `@learning-modes guida articoli`.
 
+**Tecniche (Feynman / Socratico / …) ↔ skill:** [tecniche-apprendimento.md](./learning-modes/tecniche-apprendimento.md).
+
 Same files also live in `~/.cursor/skills/` for use outside this repo.
