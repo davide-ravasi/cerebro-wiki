@@ -81,7 +81,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Mar | ripasso: **fetch** (`response.ok` / due passaggi / HTTP/2 status) ✓ | ☑ |
 | Mer | DDIA: prime ~5 pp cap. 9 + **inizio Linearizability** (note a mano) ✓ | ☑ |
 | Gio | ripasso: **CORS / origine / 5 strati** ✓ · sync resume (archivio fetch+CORS) ✓ | ☑ |
-| Ven | **DDIA** finire Linearizability (note a mano) · 2°: **About polish** se c’è · **pomeriggio surplus:** Pages 3 trap **oppure** staleTime/enabled | ☐ |
+| Ven | **DDIA** finire Linearizability (note a mano) · 2°: About copy/layout se c’è · **pomeriggio surplus:** Pages 3 trap **oppure** staleTime/enabled | ☐ |
 
 ---
 
@@ -171,7 +171,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|----------|
 | DDIA cap. 9 | Rilettura a mano: intro + inizio Linearizability ✓ | **Ven: finire Linearizability** → digitare raw → TOB… |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Show + Person smoke ✓ · Home RQ ✓ | **About polish** → Load more / mutation · Open Graph |
+| track-em-all | Show + Person smoke ✓ · Home RQ ✓ · **About rename ✓** (H1 + PWA manifest) | About copy/layout → Load more / mutation · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 
@@ -179,6 +179,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-08-06 (pomeriggio)** — Track'em All: About rename “Show Tracker” → Track'em All + PWA manifest (`vite.config.js`); resta copy/layout/smoke
 - **2026-08-06** — Sync resume: archiviati fetch + CORS dal backlog; attivo ripasso = Pages trap · RQ enabled/staleTime · Playwright isVisible; cadenza Spiega-lead → 20/08
 - **2026-08-06** — Ripasso CORS ✓ (200≠policy · curl≠browser · Origin diversa)
 - **2026-08-05** — DDIA cap. 9 a mano: intro + inizio Linearizability → raw
@@ -212,4 +213,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-08-06 (sync resume · fetch+CORS archiviati · Ven = DDIA lin.)*
+*Ultimo aggiornamento: 2026-08-06 (About rename ✓ · Ven = DDIA lin. + About copy se c’è)*
