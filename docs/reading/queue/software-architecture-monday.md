@@ -11,12 +11,12 @@ platform: YouTube
 language: en
 domain: software-engineering
 tags: [reading-queue, video-series, software-architecture, patterns, system-design]
-status: queued
-priority: low
-updated: 2026-08-08
+status: optional
+priority: nice-to-have
+updated: 2026-08-10
 found_via: "YouTube discovery during architecture research"
 why: "10-min architectural patterns and tradeoffs — practical companion to DDIA theory; prepares for Head First SA book. Mark Richards is co-author of Head First SA."
-start_when: "After DDIA Ch. 9-12 complete; before or alongside Head First Software Architecture book"
+start_when: "OPTIONAL: After DDIA + Fowler + Pragmatic. Consider 10-15 cherry-picked videos instead of full series (222 is too much overlap with Head First SA)."
 related_skills: []
 related_concepts: []
 source_slug: sources/software-architecture-monday/
@@ -64,19 +64,42 @@ Mark Richards is an independent software architect, author, and conference speak
 | **Supports "traiettoria lead"** | Architecture vocabulary and tradeoff thinking for senior/lead conversations |
 | **Format fits pomodoros** | 10-min video + 15-min notes/reflection = perfect 25-min slot |
 
-## ⚠️ Important constraints
+## ⚠️ Important constraints & revised strategy
 
-**DO NOT start alongside DDIA** — risk of focus dispersion.
+**REVISED 2026-08-10:** After time/ROI analysis, SAM is **optional/nice-to-have**, not core path.
 
-### Recommended integration strategy
+### Issue: 222 videos = 2+ years commitment with 4h/week budget
+
+**Problem:** Significant overlap with Head First SA (same author, same patterns). With limited time, doing both is inefficient.
+
+### ✅ RECOMMENDED: "Light" approach (10-15 cherry-picked videos)
+
+Instead of committing to all 222 episodes:
 
 ```
 Timeline:
-1. ✅ Finish DDIA Ch. 9 (in progress)     ← YOU ARE HERE
-2. Complete DDIA Ch. 10-12 (consensus, batch/stream processing)
-3. 🎬 START SAM: 1-2 videos/week in Friday slot (instead of Mongo when done)
-4. 📚 After 8-12 weeks of SAM: Head First Software Architecture (full book)
+1. ✅ Finish DDIA Ch. 9-12
+2. 🎯 Fowler Refactoring (immediate lead skill: code quality)
+3. 🎯 Pragmatic Programmer (mindset + practices)
+4. 📚 Head First Software Architecture (covers SAM patterns in structured book form)
+5. ⚡ (Optional) 10-15 SAM videos on specific patterns if curious
 ```
+
+**Cherry-pick these topics** (if you watch SAM at all):
+- Event-driven architecture
+- Saga pattern (distributed transactions)
+- CQRS / Event Sourcing
+- Microservices vs modular monolith tradeoffs
+- API gateway patterns
+
+**Time saved:** ~100 hours → invest in practice (track-em-all) or other books.
+
+### 🚫 NOT RECOMMENDED: Full 222-episode commitment
+
+Reasons:
+- Same author as Head First SA = content overlap
+- 2+ years for video series vs 1 month for book
+- Fowler + Pragmatic have higher ROI for "traiettoria lead"
 
 ### Weekly rhythm (when active)
 
@@ -135,19 +158,35 @@ Add SAM lessons to:
 - `maps/reading-map.md` (Active section)
 - Consider creating `maps/architecture-map.md` after 10+ lessons
 
-# Topics to prioritize (when scanning)
+# Suggested cherry-pick list (if you watch SAM at all)
 
-Given your DDIA background and tracking-ds/track-em-all projects:
+**Context:** Instead of 222 episodes, watch 10-15 on topics most relevant to your path.
 
-- Event-driven architecture patterns
-- Microservices vs modular monolith tradeoffs
-- API gateway patterns
-- Saga pattern (distributed transactions)
-- CQRS and event sourcing
-- Architectural documentation
-- Layered architecture evolution
+Given your DDIA background and tracking-ds/track-em-all projects, prioritize:
 
-Skip or skim: Enterprise-specific patterns (ESB, SOA) unless curious.
+## Tier 1: Must-watch if doing SAM (5-7 videos)
+
+1. **Event-driven architecture fundamentals**
+2. **Saga pattern** (distributed transactions without 2PC)
+3. **CQRS basics**
+4. **Microservices vs modular monolith** (when to split)
+5. **API gateway / BFF pattern**
+
+## Tier 2: Nice-to-have (5-8 videos)
+
+6. Event sourcing
+7. Layered architecture evolution
+8. Architectural decision records (ADRs)
+9. Service mesh basics
+10. Database per service pattern
+
+## Skip entirely
+
+- Enterprise-specific patterns (ESB, SOA, SOAP)
+- Deep organizational/team patterns (you're individual contributor, not architect yet)
+- Patterns covered well in DDIA (replication, partitioning basics)
+
+**How to find episodes:** Browse [developertoarchitect.com/lessons](https://developertoarchitect.com/lessons) by topic title.
 
 # Chat hooks
 

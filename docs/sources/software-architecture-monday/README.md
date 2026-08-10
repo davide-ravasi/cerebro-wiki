@@ -8,6 +8,18 @@ Mark Richards' 10-minute video series on software architecture patterns and trad
 
 ---
 
+## ⚠️ Status: Optional / Nice-to-have (2026-08-10)
+
+After time/ROI analysis: **SAM is optional, not core learning path.**
+
+- **Issue:** 222 videos = 2+ years with your 4h/week budget; significant overlap with Head First SA (same author)
+- **Recommendation:** If interested, cherry-pick **10-15 videos** on specific patterns (see queue entry for list)
+- **Alternative:** Go straight to Head First SA book after Fowler + Pragmatic (better structured, less time)
+
+**Use this folder only if you decide to watch some SAM videos.**
+
+---
+
 ## Structure
 
 - **`raw/`** — Italian notes, one file per lesson (format: `lesson-NNN-topic-slug.md`)
