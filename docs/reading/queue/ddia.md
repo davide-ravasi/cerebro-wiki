@@ -33,7 +33,8 @@ source_slug: sources/designing-data-intensive-applications/
 
 ## Session log (resume hints)
 
-- **2026-08-05** — Rilettura a mano: intro cap. 9 (~5 pp) + inizio Linearizability → raw aggiornato. Next: finire sezione Linearizability sul libro.
+- **2026-08-07** — Linearizability a mano ✓ digitata (cosa rende lin. + when useful: locks/leader→consensus, uniqueness, cross-channel races). Next libro: impl/costi lin. → TOB…
+- **2026-08-05** — Rilettura a mano: intro cap. 9 (~5 pp) + inizio Linearizability → raw aggiornato.
 - **2026-07-30** — Membership & coordination (ZK/etcd): `@learn-core-idea-first` → raw § Membership. Optional: `@learn-error-simulator`.
 - **2026-07-29** — 2PC ripasso + fault-tolerant consensus idea (vs 2PC blocking).
 - **2026-07-28** — *Distributed transactions in practice* ✓. Next macros were Fault-Tolerant Consensus → Membership.

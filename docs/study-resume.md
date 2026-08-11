@@ -73,23 +73,32 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-08-03 → 08-07)*
+*(settimana 2026-08-10 → 08-14)*
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: **Show smoke** (`show.smoke.spec.ts`) — seasons/episodes ✓ | ☑ |
-| Mar | ripasso: **fetch** (`response.ok` / due passaggi / HTTP/2 status) ✓ | ☑ |
-| Mer | DDIA: prime ~5 pp cap. 9 + **inizio Linearizability** (note a mano) ✓ | ☑ |
-| Gio | ripasso: **CORS / origine / 5 strati** ✓ · sync resume (archivio fetch+CORS) ✓ | ☑ |
-| Ven | **DDIA** finire Linearizability (note a mano) · 2°: About copy/layout se c’è · **pomeriggio surplus:** Pages 3 trap **oppure** staleTime/enabled | ☐ |
+| Lun | track-em-all: Favorites smoke — guest→login + empty seed ✓; lista con favorites **prox volta** | ☑ parziale |
+| Mar | DDIA: prossima sezione lin. (impl/costi) — pagine 339–344 fatte; trascrizione in corso | ☑ |
+| Mer | ripasso: **auth login/persist/PrivateRoute/favorites** (priorità — gap dallo smoke) | ☐ |
+| Gio | ripasso: Pages 3 trap **oppure** RQ enabled/staleTime | ☐ |
+| Ven | track-em-all: **Favorites smoke #3** (seed lista) + PR · poi Listing/Episode **oppure** `useMutation` | ☐ |
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-*Prossima Mer/Gio (sett. 10–14 ago) o surplus Ven.*
+*Prossima Mer/Gio (sett. 10–14 ago) o surplus.*
 
-### 1. tracking-ds — GitLab Pages: 3 trap meccanici
+### 1. track-em-all — Auth: login · persist · PrivateRoute · favorites
+
+| | |
+|---|---|
+| **Hook** | *Gate FE = solo `state.auth.user` (`PrivateRoute`). Persist: key `persist:root`, `auth` doppio-JSON. JWT = `tea-token` per API, non apre le route. Forgare storage ≠ auth server (add/remove favorites serve token valido). Gap emerso dallo smoke Favorites 2026-08-10.* |
+| **Skill** | `@learn-core-idea-first` poi `@learn-error-simulator` |
+| **Dove** | `PrivateRoute.tsx` · `store.ts` (persist) · `authSlice` / `authService` · `FavoritesPage` · `tests/favorite.smoke.spec.ts` |
+| **Bookmark** | **Priorità Mer 12/08** — mappa a voce: login → user+token → persist → gate → favorites API |
+
+### 2. tracking-ds — GitLab Pages: 3 trap meccanici
 
 | | |
 |---|---|
@@ -98,7 +107,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Dove** | `sources/nodejs/raw/gitlab-pages-model.md` · tracking-ds `.gitlab-ci.yml` |
 | **Bookmark** | Simulator 03/08: modello ✓; **da rifare solo i 3 trap** |
 
-### 2. track-em-all — React Query: `enabled` + staleTime/refetch
+### 3. track-em-all — React Query: `enabled` + staleTime/refetch
 
 | | |
 |---|---|
@@ -106,19 +115,19 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Skill** | `@learn-error-simulator` |
 | **Dove** | HomePage · `sources/react/raw/react-query-stale-time-and-refetch.md` |
 
-### 3. track-em-all — Playwright: anti-flakiness (`isVisible` race)
+---
+
+## Backlog ripasso
+
+*Coda: promuovi in «Da ripassare» quando serve.*
+
+### track-em-all — Playwright: anti-flakiness (`isVisible` race)
 
 | | |
 |---|---|
 | **Hook** | *Con UI async non branchare su `isVisible()` al primo render: aspetta outcome stabile (es. “Photos” **oppure** “No photos available”).* |
 | **Skill** | `@learn-error-simulator` |
 | **Dove** | `tests/person.smoke.spec.ts` · PersonPage |
-
----
-
-## Backlog ripasso
-
-*Coda: promuovi in «Da ripassare» quando serve.*
 
 ### track-em-all — Context solo se serve davvero
 
@@ -127,6 +136,14 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *Context solo se molti discendenti lontani. Home + props → Context è rumore.* |
 | **Skill** | `@learn-error-simulator` |
 | **Dove** | HomePage |
+
+### track-em-all — useInfiniteQuery: `getNextPageParam` vs `maxPages`
+
+| | |
+|---|---|
+| **Hook** | *`getNextPageParam` = c’è ancora da fetchare (`total_pages`). `maxPages` = quante pagine tieni in **cache** (ne droppa di vecchie). Cap solo su maxPages + fetch illimitato → lista che perde card. Preview home = `useQuery` + `cardAmount`; listing = infinite.* |
+| **Skill** | `@learn-error-simulator` |
+| **Dove** | `useQueryShow.tsx` · `ShowResponse.total_pages` |
 
 ### tracking-ds — paginazione API + "misura prima di costruire"
 
@@ -150,7 +167,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Tema | Note |
 |------|------|
 | 2PC / Membership / TOB–lin–causal | Compresi + simulator dove applicabile. Solo se confusione dopo rilettura a mano. |
-| Linearizability (rilettura) | In corso a mano — **Ven** finire sezione; poi digitare raw |
+| Linearizability (rilettura) | Digitata in `raw/chapter-9.md` ✓ 2026-08-07 (def + when useful) |
 
 ---
 
@@ -169,9 +186,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Rilettura a mano: intro + inizio Linearizability ✓ | **Ven: finire Linearizability** → digitare raw → TOB… |
+| DDIA cap. 9 | Linearizability ✓ in raw (def + when useful) | Prossimo libro: impl/costi lin. → TOB… |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Show + Person smoke ✓ · Home RQ ✓ · **About rename ✓** (H1 + PWA manifest) | About copy/layout → Load more / mutation · Open Graph |
+| track-em-all | Show+Person+About+Load more ✓ · **Favorites smoke 2/3** (manca seed lista) | Prox codice: test favorites popolati → PR · Listing/Episode · `useMutation` · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 
@@ -179,7 +196,12 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-08-06 (pomeriggio)** — Track'em All: About rename “Show Tracker” → Track'em All + PWA manifest (`vite.config.js`); resta copy/layout/smoke
+- **2026-08-10** — Favorites smoke parziale: guest→`/login` + logged empty (`persist:root`, await `addInitScript`, empty copy fix). **Prox:** seed `favorites[]` + assert cards · poi PR. Ripasso auth → attivo #1 Mer
+- **2026-08-07** — Track'em All: Load more — `getNextPageParam` su `total_pages` TMDB, rimosso `maxPages` (cache drop); tipo `ShowResponse`; branch/PR `feat/showlist-infinite-total-pages`
+- **2026-08-07** — Track'em All: About polish ✓ (copy 4 sezioni + layout + Footer repo) · PR `feat/updated-about-page`
+- **2026-08-07** — DDIA Linearizability note a mano digitizzate (flip nel tempo; useful: locks/leader, uniqueness, cross-channel) → `raw/chapter-9.md`
+- **2026-08-07** — DDIA Linearizability: lettura/note a mano finite (foto)
+- **2026-08-06 (pomeriggio)** — Track'em All: About rename + PWA manifest (`vite.config.js`)
 - **2026-08-06** — Sync resume: archiviati fetch + CORS dal backlog; attivo ripasso = Pages trap · RQ enabled/staleTime · Playwright isVisible; cadenza Spiega-lead → 20/08
 - **2026-08-06** — Ripasso CORS ✓ (200≠policy · curl≠browser · Origin diversa)
 - **2026-08-05** — DDIA cap. 9 a mano: intro + inizio Linearizability → raw
@@ -213,4 +235,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-08-06 (About rename ✓ · Ven = DDIA lin. + About copy se c’è)*
+*Ultimo aggiornamento: 2026-08-10 (Favorites smoke 2/3 · prox = seed lista + PR · Mer = ripasso auth)*

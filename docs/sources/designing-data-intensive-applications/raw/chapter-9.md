@@ -2,7 +2,7 @@
 
 > **Wiki (inglese, promosso):** [[source-ddia-ch-09]] — `../ch-09-consistency-and-consensus.md`  
 > **Concept estratte:** linearizability (promossa); total order broadcast (raw IT, lug 2026 — concept EN a fine cap. 9); causal, Raft TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano iniziata 2026-08-05** (~prime 5 pp + inizio Linearizability)
+> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…07 (intro + Linearizability: def + when useful)
 
 ---
 
@@ -26,27 +26,62 @@ Serve **tollerare i fault** per costruire sistemi distribuiti fault-tolerant. Il
 
 ## Linearizability
 
-> **Rilettura a mano:** iniziata 2026-08-05 (definizione + esempio “write then all readers”). Sotto: note chat precedenti (lavagna, regole overlap) — da fondere quando finisci la sezione sul libro.
+> **Rilettura a mano:** 2026-08-05 (definizione) + **2026-08-07** (cosa rende linearizable + *when is it useful*). Note chat (lavagna, overlap) fuse sotto.
 
-### Dalle note a mano (2026-08-05)
+### Dalle note a mano — definizione (05–07/08)
 
 **Linearizability** fa apparire il sistema come se:
 
-1. ci fosse **una sola replica**
+1. ci fosse **una sola replica** / **una sola copia** del dato
 2. tutte le operazioni fossero **atomiche**
 
 **Esempio:** appena un client **completa con successo** una write → **tutti** i client che leggono dopo devono poter vedere il valore appena scritto.
 
-### Idea chiave (una frase — chat precedente)
+### Cosa rende il sistema linearizable? (note 07/08)
 
-**Dopo che una modifica è davvero finita, chi guarda i dati dopo non deve ancora vedere la versione vecchia** — come se esistesse **una sola copia** del dato e tutti leggessero lo stesso ordine di eventi.
+Deve **apparire** come se esistesse **una sola copia**.
+
+Rispetto a una **WRITE**:
+
+| Timing della read | Effetto |
+|-------------------|---------|
+| **Before** la write | legge il valore **prima** |
+| **After** la write | legge il valore **dopo** |
+| **Concurrent** con la write | può sembrare che il valore “flippi” avanti/indietro |
+
+**Vincolo:** deve esistere **un punto nel tempo** in cui il valore **flippa**; da lì in poi **tutte** le read successive devono restituire **quel** valore (non tornare al vecchio).
+
+### Relying on linearizability — quando serve? (note 07/08)
+
+#### (1) Locking and leader election
+
+```text
+Single-leader replication → only one leader
+  → serve un LOCK
+  → il lock deve essere LINEARIZABLE
+  → all nodes must agree
+  → CONSENSUS
+```
+
+#### (2) Constraints and uniqueness guarantees
+
+Unicità tipica nei DB: **email**, **username**, **saldo conto** (hard uniqueness).  
+Per questo serve linearizability: **lock + un solo valore aggiornato** (nessuna “due verità”).
+
+#### (3) Cross-channel timing dependencies
+
+Esempio libro: **resizer** + **image storage** su **due canali di comunicazione diversi** → senza linearizability (o equivalenti) possibili **race conditions**.
+
+### Idea chiave (una frase)
+
+**Dopo che una modifica è davvero finita, chi guarda i dati dopo non deve ancora vedere la versione vecchia** — una sola copia logica, ops atomiche, flip unico nel tempo.
 
 ### Analogia: la lavagna in ufficio
 
 - Mario scrive *“giovedì — Alice”* e **finisce** (penna giù).
 - Sara guarda la lavagna **dopo** → deve vedere la prenotazione, non *“libero”*.
-- Se Mario e Sara scrivono **insieme** (overlap), alla fine il sistema deve mettere le operazioni **in fila** e mostrare **un solo** risultato a tutti.
-- **Non** è il client che decide: serve un **meccanismo condiviso** (protocollo del DB / servizio di coordinamento).
+- Se Mario e Sara scrivono **insieme** (overlap), alla fine il sistema mette le operazioni **in fila** e mostra **un solo** risultato.
+- **Non** è il client che decide: serve un **meccanismo condiviso**.
 
 → [[concept-linearizability]]
 
@@ -56,16 +91,17 @@ Serve **tollerare i fault** per costruire sistemi distribuiti fault-tolerant. Il
 |------------|---------------------|
 | Write **finita**, poi read | Read vede la write |
 | Read **finita**, poi write | Read vede valore **prima** della write |
-| Write e read **sovrapposte** | Read può vedere vecchio **o** nuovo (ordine seriale flessibile) |
+| Write e read **sovrapposte** | Read può vedere vecchio **o** nuovo (fino al flip) |
+| Dopo il **flip** | **Tutte** le read successive vedono il nuovo |
 | Due write **sovrapposte** | Un ordine W1→W2 o W2→W1; **un** stato finale |
 
-**Errore comune:** confondere “read durante write” con “write non ancora finita” quando il testo dice che la write **è già completata**.
+**Errore comune:** confondere “read durante write” con “write non ancora finita” quando la write **è già completata**.
 
 ### Chi linearizza i dati
 
 - **Non** il client.
 - **Non** il singolo nodo senza quorum ([[concept-quorum-majority-truth]]).
-- **Sì** il backend: leader, quorum, consensus, total order broadcast (da leggere nel resto del cap.).
+- **Sì** il backend: leader, quorum, consensus, total order broadcast.
 
 Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica async “sperando”.
 
@@ -80,6 +116,8 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 ### Esempio dev
 
 `POST /users` → 201, `GET` da replica in ritardo → 404 = **non** linearizable. Primary / `readConcern: "majority"` (Mongo).
+
+**Bookmark rilettura:** sezione Linearizability (definizione + when useful) ✓ a mano 07/08; prossimo nel libro: implementazione / costi / vs causal, poi TOB.
 
 ---
 
