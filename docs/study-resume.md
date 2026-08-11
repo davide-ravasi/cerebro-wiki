@@ -78,10 +78,10 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | track-em-all: Favorites smoke — guest→login + empty seed ✓; lista con favorites **prox volta** | ☑ parziale |
-| Mar | DDIA: prossima sezione lin. (impl/costi) — pagine 339–344 fatte; trascrizione in corso | ☑ |
-| Mer | ripasso: **auth login/persist/PrivateRoute/favorites** (priorità — gap dallo smoke) | ☐ |
-| Gio | ripasso: Pages 3 trap **oppure** RQ enabled/staleTime | ☐ |
-| Ven | track-em-all: **Favorites smoke #3** (seed lista) + PR · poi Listing/Episode **oppure** `useMutation` | ☐ |
+| Mar | DDIA: cost of lin. + ordering/causality + sequence numbers (pp. 18–23) — trascritte ✓ | ☑ |
+| Mer | **① DDIA ripasso generale cap. 9 — blocco 1** (lin. completa + cost/CAP + ordering/causality + seq. numbers + TOB, `@learn-error-simulator` misto) · **② ripasso auth** login/persist/PrivateRoute/favorites | ☐ |
+| Gio | **① DDIA ripasso generale cap. 9 — blocco 2** (2PC + consensus idea + membership + **filo narrativo** cap. 7→8→9) · **② ripasso Pages 3 trap** oppure RQ enabled/staleTime (a scelta, se resta tempo) | ☐ |
+| Ven | **Partenza vacanza** (15 gg, rientro ~29/08) — track-em-all Favorites/PR e resto backlog **sospesi** fino al ritorno | — |
 
 ---
 
@@ -96,7 +96,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *Gate FE = solo `state.auth.user` (`PrivateRoute`). Persist: key `persist:root`, `auth` doppio-JSON. JWT = `tea-token` per API, non apre le route. Forgare storage ≠ auth server (add/remove favorites serve token valido). Gap emerso dallo smoke Favorites 2026-08-10.* |
 | **Skill** | `@learn-core-idea-first` poi `@learn-error-simulator` |
 | **Dove** | `PrivateRoute.tsx` · `store.ts` (persist) · `authSlice` / `authService` · `FavoritesPage` · `tests/favorite.smoke.spec.ts` |
-| **Bookmark** | **Priorità Mer 12/08** — mappa a voce: login → user+token → persist → gate → favorites API |
+| **Bookmark** | **Mer 12/08, sessione 2** (dopo ripasso generale DDIA blocco 1) — mappa a voce: login → user+token → persist → gate → favorites API |
 
 ### 2. tracking-ds — GitLab Pages: 3 trap meccanici
 
@@ -120,6 +120,15 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 ## Backlog ripasso
 
 *Coda: promuovi in «Da ripassare» quando serve.*
+
+### tracking-ds — Derivare invece di ricalcolare (+ lo zero falsy)
+
+| | |
+|---|---|
+| **Hook** | *Se due valori devono corrispondere, ricava il secondo dal primo: due calcoli paralleli possono divergere, uno derivato no. Corollari: quando togli un campo da un contratto, controlla quali decisioni esistevano solo per servirlo. Lo zero è falsy → `!indexOf(x)` e `!distance` mentono entrambi. Un test difficile da scrivere accusa il codice, non il test.* |
+| **Skill** | `@learn-error-simulator` |
+| **Dove** | `sources/nodejs/raw/derivare-invece-di-ricalcolare.md` · tracking-ds `src/metrics/calculateMetricsPath.ts` |
+| **Bookmark** | `learn-core-idea-first` fatto 11/08 (3 domande passate, correzione su assoluto/relativo). Da rifare: le 4 trappole di piattaforma e lo zero falsy |
 
 ### track-em-all — Playwright: anti-flakiness (`isVisible` race)
 
@@ -186,7 +195,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Linearizability ✓ in raw (def + when useful) | Prossimo libro: impl/costi lin. → TOB… |
+| DDIA cap. 9 | Lin. + costo + ordering/causality + sequence numbers ✓ in raw (pp. 18–23) | **Ripasso generale Mer+Gio** (error-simulator misto + filo narrativo) prima della vacanza; **dopo il rientro (~29/08):** finire lettura a mano pp. 24–52 → chiusura capitolo |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
 | track-em-all | Show+Person+About+Load more ✓ · **Favorites smoke 2/3** (manca seed lista) | Prox codice: test favorites popolati → PR · Listing/Episode · `useMutation` · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
@@ -196,12 +205,14 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-08-11** — DDIA cap. 9 a mano (pp. 18–23): cost of linearizability, ordering guarantees, ordering & causality (total vs partial order), sequence number ordering (+ non-causal generators) → `raw/chapter-9.md`
 - **2026-08-10** — Favorites smoke parziale: guest→`/login` + logged empty (`persist:root`, await `addInitScript`, empty copy fix). **Prox:** seed `favorites[]` + assert cards · poi PR. Ripasso auth → attivo #1 Mer
 - **2026-08-07** — Track'em All: Load more — `getNextPageParam` su `total_pages` TMDB, rimosso `maxPages` (cache drop); tipo `ShowResponse`; branch/PR `feat/showlist-infinite-total-pages`
 - **2026-08-07** — Track'em All: About polish ✓ (copy 4 sezioni + layout + Footer repo) · PR `feat/updated-about-page`
 - **2026-08-07** — DDIA Linearizability note a mano digitizzate (flip nel tempo; useful: locks/leader, uniqueness, cross-channel) → `raw/chapter-9.md`
 - **2026-08-07** — DDIA Linearizability: lettura/note a mano finite (foto)
 - **2026-08-06 (pomeriggio)** — Track'em All: About rename + PWA manifest (`vite.config.js`)
+- **2026-08-11** — tracking-ds: wiring del file derivato di metriche · lezione `learn-core-idea-first` su *derivare invece di ricalcolare* (3 domande passate) → raw `derivare-invece-di-ricalcolare.md` + voce nel backlog ripasso
 - **2026-08-06** — Sync resume: archiviati fetch + CORS dal backlog; attivo ripasso = Pages trap · RQ enabled/staleTime · Playwright isVisible; cadenza Spiega-lead → 20/08
 - **2026-08-06** — Ripasso CORS ✓ (200≠policy · curl≠browser · Origin diversa)
 - **2026-08-05** — DDIA cap. 9 a mano: intro + inizio Linearizability → raw
@@ -235,4 +246,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-08-10 (Favorites smoke 2/3 · prox = seed lista + PR · Mer = ripasso auth)*
+*Ultimo aggiornamento: 2026-08-11 — vacanza da Ven 14/08 (15gg, rientro ~29/08): Mer+Gio = ripasso generale DDIA cap. 9 (blocco 1+2, error-simulator misto + filo narrativo) **squeeze** con auth/Pages ripasso; dopo rientro: finire pp. 24-52 a mano + chiusura cap. 9*

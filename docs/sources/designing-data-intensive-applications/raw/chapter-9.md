@@ -2,7 +2,7 @@
 
 > **Wiki (inglese, promosso):** [[source-ddia-ch-09]] — `../ch-09-consistency-and-consensus.md`  
 > **Concept estratte:** linearizability (promossa); total order broadcast (raw IT, lug 2026 — concept EN a fine cap. 9); causal, Raft TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…07 (intro + Linearizability: def + when useful)
+> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…11 (intro + Linearizability + cost/ordering/causality + sequence numbers, pp. 18–23)
 
 ---
 
@@ -117,7 +117,103 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 `POST /users` → 201, `GET` da replica in ritardo → 404 = **non** linearizable. Primary / `readConcern: "majority"` (Mongo).
 
-**Bookmark rilettura:** sezione Linearizability (definizione + when useful) ✓ a mano 07/08; prossimo nel libro: implementazione / costi / vs causal, poi TOB.
+**Bookmark rilettura:** sezione Linearizability (definizione + when useful) ✓ a mano 07/08.
+
+---
+
+## Cost of linearizability (note a mano — 11/08, p. 18)
+
+### Se c'è un'interruzione di rete
+
+| Setup | Cosa succede |
+|-------|---------------|
+| **Single leader**, client connesso alla parte **sbagliata** | **non può scrivere** · **niente read linearizable** |
+| **Multi leader** | continua a operare (entrambi i lati) |
+
+### CAP theorem (promemoria)
+
+| Scelta | Conseguenza |
+|--------|-------------|
+| App **richiede** linearizability | alcune repliche **non possono processare richieste** mentre sono disconnesse |
+| App **non richiede** linearizability | l'app resta **disponibile** anche davanti a problemi di rete |
+
+**Perché si rinuncia alla linearizability:** per **performance**, non per fault tolerance.
+
+→ trade-off: **linearizability vs performance/disponibilità**, non "linearizability vs fault-tolerance".
+
+---
+
+## Ordering guarantees (note a mano — 11/08, p. 18)
+
+**Linearizability** implica un **ordine ben definito** (solo una copia dei dati → un solo ordine di eventi possibile).
+
+**L'ordinamento è un tema ricorrente** nel capitolo, non solo della linearizability:
+
+- **Single-leader replication** → ordine delle **write** (definito dal leader)
+- **Serializability** → un qualche **ordine sequenziale** (delle transazioni)
+- **Timestamp and clocks** → altro tentativo di dare un ordine (cap. 8, inaffidabile)
+
+---
+
+## Ordering and causality (note a mano — 11/08)
+
+**L'ordinamento preserva la causalità.** Esempi già visti nel libro dove serve rispettare l'ordine causa→effetto:
+
+- **Causal dependency** — domanda / risposta (la risposta non può "precedere" la domanda)
+- **Replication** — i **ritardi di rete** possono far arrivare gli eventi fuori ordine
+- **Happens-before** — il concetto chiave per definire la causalità
+- **Consistent snapshot** — deve essere **consistente con la causalità**
+- **Write skew** all'interno delle transazioni (cap. 7)
+
+**Causality impone un ordinamento sugli eventi.**
+
+### Causal order ≠ total order
+
+| Tipo di ordine | Definizione |
+|-----------------|-------------|
+| **Total order** | permette di **confrontare** una **qualsiasi coppia** di elementi |
+| **Partial order** | alcuni elementi sono **incomparabili** |
+
+| Garanzia | Tipo di ordine |
+|----------|-----------------|
+| **Linearizability** | **total order** |
+| **Causality** | **partial order** (esistono operazioni **concorrenti**) |
+
+→ **Conseguenza:** in un datastore **linearizable** non esiste il concetto di operazioni concorrenti — c'è sempre un ordine totale.
+
+### Linearizability è più forte della causal consistency
+
+- **Linearizable ⇒ causale** (implica il rispetto della causalità)
+- **Ma** linearizability può **danneggiare le performance** (vedi sezione costo sopra)
+
+### Catturare le dipendenze causali
+
+Per rispettare la causalità serve **sapere quale operazione è avvenuta prima** di un'altra (tracciare le dipendenze) — non basta un orologio/timestamp qualsiasi (cap. 8).
+
+---
+
+## Sequence number ordering (note a mano — 11/08, p. 23)
+
+> Tenere traccia di **tutte** le dipendenze causali può essere **impraticabile**.
+
+**Modo migliore:** usare **sequence number** o **timestamp** per ordinare gli eventi.
+
+- Forniscono un **ordine totale**
+- **E** sono **consistenti con la causalità**
+
+### Non-causal sequence number generators
+
+Se **non c'è un singolo leader**, è **meno chiaro** come generare i sequence number.
+
+**Vari metodi** (non basati su un leader):
+
+- ogni **nodo** ha la sua **propria sequenza**
+- **timestamp** attaccato a ogni operazione
+- **preallocare** blocchi di sequence number (per nodo)
+
+**MA** → questi metodi **non sono consistenti con la causalità**: non catturano l'**ordinamento delle operazioni tra nodi diversi**.
+
+**Bookmark rilettura:** cost of linearizability + ordering guarantees + causality + sequence number ordering ✓ a mano 11/08 (pp. 18–23); prossimo nel libro: **Lamport timestamps** / total order broadcast in dettaglio.
 
 ---
 
