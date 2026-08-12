@@ -79,8 +79,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track-em-all: Favorites smoke — guest→login + empty seed ✓; lista con favorites **prox volta** | ☑ parziale |
 | Mar | DDIA: cost of lin. + ordering/causality + sequence numbers (pp. 18–23) — trascritte ✓ | ☑ |
-| Mer | **① DDIA ripasso generale cap. 9 — blocco 1** (lin. completa + cost/CAP + ordering/causality + seq. numbers + TOB, `@learn-error-simulator` misto) · **② ripasso auth** login/persist/PrivateRoute/favorites | ☐ |
-| Gio | **① DDIA ripasso generale cap. 9 — blocco 2** (2PC + consensus idea + membership + **filo narrativo** cap. 7→8→9) · **② ripasso Pages 3 trap** oppure RQ enabled/staleTime (a scelta, se resta tempo) | ☐ |
+| Mer | **① DDIA ripasso generale cap. 9 — blocco 1** ✓ (5 scenari misti: lin./recency, cost-CAP, causality vs lin., TOB vs causal, serializability vs lin.) · **② ripasso auth** login/persist/PrivateRoute/favorites | ☑ parziale |
+| Gio | **① DDIA ripasso generale cap. 9 — blocco 2** (richiamo veloce 2PC+consensus, già ripassati 29/07 · **verifica vera** su Membership+TOB, mai testati · **filo narrativo** cap. 7→8→9) · **② ripasso Pages 3 trap** oppure RQ enabled/staleTime (a scelta, se resta tempo) | ☐ |
 | Ven | **Partenza vacanza** (15 gg, rientro ~29/08) — track-em-all Favorites/PR e resto backlog **sospesi** fino al ritorno | — |
 
 ---
@@ -171,6 +171,15 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Dove** | da creare: `sources/nodejs/raw/reading-files-browser-vs-node.md` |
 | **Bookmark** | Lacuna 31/07 — da **costruire** (non solo ripasso) |
 
+### DDIA cap. 9 — ripasso di rinforzo (settembre, post-vacanza)
+
+| | |
+|---|---|
+| **Hook** | *Blocco 1 (12/08) superato ma con aiuto extra su 3 punti: (1) linearizability non è "magia" — serve routing esplicito a leader/quorum, non basta che il dato "esista" da qualche parte; (2) rinunciare a linearizability è un trade-off di **performance**, non di fault-tolerance (spesso confuso); (3) i sequence number risolvono la causalità **facendo aspettare il client** l'operazione da cui dipende, non ordinando tutto globalmente.* |
+| **Skill** | `@learn-error-simulator` (ripetere scenari 1, 2, 3 con superfici diverse) |
+| **Dove** | `raw/chapter-9.md` § Linearizability + Cost of linearizability + Ordering and causality |
+| **Bookmark** | Blocco 2 (2PC/consensus/membership/TOB + filo narrativo) rimandato a settembre se non fatto Gio 13/08 prima della vacanza. Rileggere anche pp. 24–52 (mai fatte) prima di questa sessione. |
+
 ### DDIA — rinforzo opzionale (già fatti in chat)
 
 | Tema | Note |
@@ -195,16 +204,18 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lin. + costo + ordering/causality + sequence numbers ✓ in raw (pp. 18–23) | **Ripasso generale Mer+Gio** (error-simulator misto + filo narrativo) prima della vacanza; **dopo il rientro (~29/08):** finire lettura a mano pp. 24–52 → chiusura capitolo |
+| DDIA cap. 9 | Lin. + costo + ordering/causality + sequence numbers ✓ in raw (pp. 18–23) | **Mer:** ripasso generale blocco 1 (lin. completa, nuovo). **Gio:** richiamo 2PC/consensus (già ✓ 29/07) + verifica vera Membership/TOB (mai testati) + filo narrativo. Prima della vacanza; **dopo il rientro (~29/08):** finire pp. 24–52 → chiusura capitolo |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
 | track-em-all | Show+Person+About+Load more ✓ · **Favorites smoke 2/3** (manca seed lista) | Prox codice: test favorites popolati → PR · Listing/Episode · `useMutation` · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
+| **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
 
 ---
 
 ## Fatto di recente
 
+- **2026-08-12** — DDIA ripasso generale cap. 9 blocco 1 ✓ (`@learn-error-simulator` misto, 5 scenari: recency/routing, cost-CAP, causality vs lin. + seq. number fix, TOB vs causal order, serializability vs lin.) — tutti superati
 - **2026-08-11** — DDIA cap. 9 a mano (pp. 18–23): cost of linearizability, ordering guarantees, ordering & causality (total vs partial order), sequence number ordering (+ non-causal generators) → `raw/chapter-9.md`
 - **2026-08-10** — Favorites smoke parziale: guest→`/login` + logged empty (`persist:root`, await `addInitScript`, empty copy fix). **Prox:** seed `favorites[]` + assert cards · poi PR. Ripasso auth → attivo #1 Mer
 - **2026-08-07** — Track'em All: Load more — `getNextPageParam` su `total_pages` TMDB, rimosso `maxPages` (cache drop); tipo `ShowResponse`; branch/PR `feat/showlist-infinite-total-pages`
@@ -246,4 +257,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-08-11 — vacanza da Ven 14/08 (15gg, rientro ~29/08): Mer+Gio = ripasso generale DDIA cap. 9 (blocco 1+2, error-simulator misto + filo narrativo) **squeeze** con auth/Pages ripasso; dopo rientro: finire pp. 24-52 a mano + chiusura cap. 9*
+*Ultimo aggiornamento: 2026-08-12 — blocco 1 DDIA ✓ (5 scenari, 3 punti da rinforzare a settembre); sessione 2 auth **non fatta** (mancava tempo); Gio 13/08 = blocco 2 confermato + auth/Pages se resta tempo; vacanza da Ven 14/08 (15gg, rientro ~29/08)*
