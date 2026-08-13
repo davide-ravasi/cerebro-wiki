@@ -80,7 +80,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Lun | track-em-all: Favorites smoke — guest→login + empty seed ✓; lista con favorites **prox volta** | ☑ parziale |
 | Mar | DDIA: cost of lin. + ordering/causality + sequence numbers (pp. 18–23) — trascritte ✓ | ☑ |
 | Mer | **① DDIA ripasso generale cap. 9 — blocco 1** ✓ (5 scenari misti: lin./recency, cost-CAP, causality vs lin., TOB vs causal, serializability vs lin.) · **② ripasso auth** login/persist/PrivateRoute/favorites | ☑ parziale |
-| Gio | **① DDIA ripasso generale cap. 9 — blocco 2** (richiamo veloce 2PC+consensus, già ripassati 29/07 · **verifica vera** su Membership+TOB, mai testati · **filo narrativo** cap. 7→8→9) · **② ripasso Pages 3 trap** oppure RQ enabled/staleTime (a scelta, se resta tempo) | ☐ |
+| Gio | **① DDIA ripasso generale cap. 9 — blocco 2** (richiamo veloce 2PC+consensus, già ripassati 29/07 · **verifica vera** su Membership+TOB, mai testati · **filo narrativo** cap. 7→8→9) · **② ripasso Pages 3 trap** oppure RQ enabled/staleTime (a scelta, se resta tempo) | ☑ parziale (Membership ✓ gap identificati, TOB veloce 5 min) |
 | Ven | **Partenza vacanza** (15 gg, rientro ~29/08) — track-em-all Favorites/PR e resto backlog **sospesi** fino al ritorno | — |
 
 ---
@@ -179,6 +179,15 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Skill** | `@learn-error-simulator` (ripetere scenari 1, 2, 3 con superfici diverse) |
 | **Dove** | `raw/chapter-9.md` § Linearizability + Cost of linearizability + Ordering and causality |
 | **Bookmark** | Blocco 2 (2PC/consensus/membership/TOB + filo narrativo) rimandato a settembre se non fatto Gio 13/08 prima della vacanza. Rileggere anche pp. 24–52 (mai fatte) prima di questa sessione. |
+
+### DDIA — Membership/ZK: 5 gap tecnici (post-vacanza ~29/08)
+
+| | |
+|---|---|
+| **Hook** | *Ripasso 13/08 pre-vacanza: core-idea ok, ma mancano dettagli critici. **5 punti da rafforzare:** (1) 2PC vs Consensus = scopi diversi (atomic commit vs coordinamento); (2) Fault tolerance: majority quorum vs single coordinator; (3) Feature ZK/etcd (watches, ephemeral nodes, linearizability built-in); (4) Chicken-egg problem (chi coordina Postgres?); (5) ZK/etcd = self-coordinating con consensus interno.* |
+| **Skill** | Rileggi note + `@learn-error-simulator` con domande oggi |
+| **Dove** | `raw/chapter-9.md` — sezioni "Membership and coordination" (318-349) + "Atomic commit / 2PC" (256-298) |
+| **Bookmark** | Ripasso 13/08: concetti alto livello ✓, dettagli tecnici mancanti. **Post-vacanza:** rileggi 10 min + rifare error-simulator |
 
 ### DDIA — rinforzo opzionale (già fatti in chat)
 
