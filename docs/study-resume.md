@@ -62,8 +62,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | | |
 |---|---|
 | **Ultima volta** | — (non ancora fatto) |
-| **Prossima scadenza** | **2026-08-20** (gio) |
-| **Candidati** | fetch due passaggi · CORS/5 strati · 2PC vs consensus · linearizability |
+| **Prossima scadenza** | **2026-09-11** (gio) — recupero cadenza scaduta |
+| **Candidati** | linearizability · 2PC vs consensus · auth bollino FE vs JWT · CORS/5 strati |
 
 **Track:** quando apri la chat, dimmi la **data del giorno** → controllo se `Prossima scadenza` ≤ oggi. Dopo sessione: Ultima volta + Prossima = +14 giorni.
 
@@ -73,30 +73,42 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-08-10 → 08-14)*
+*(settimana 2026-09-01 → 09-05 — rientro post-vacanza)* **chiusa**
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: Favorites smoke — guest→login + empty seed ✓; lista con favorites **prox volta** | ☑ parziale |
-| Mar | DDIA: cost of lin. + ordering/causality + sequence numbers (pp. 18–23) — trascritte ✓ | ☑ |
-| Mer | **① DDIA ripasso generale cap. 9 — blocco 1** ✓ (5 scenari misti: lin./recency, cost-CAP, causality vs lin., TOB vs causal, serializability vs lin.) · **② ripasso auth** login/persist/PrivateRoute/favorites | ☑ parziale |
-| Gio | **① DDIA ripasso generale cap. 9 — blocco 2** (richiamo veloce 2PC+consensus, già ripassati 29/07 · **verifica vera** su Membership+TOB, mai testati · **filo narrativo** cap. 7→8→9) · **② ripasso Pages 3 trap** oppure RQ enabled/staleTime (a scelta, se resta tempo) | ☑ parziale (Membership ✓ gap identificati, TOB veloce 5 min) |
-| Ven | **Partenza vacanza** (15 gg, rientro ~29/08) — track-em-all Favorites/PR e resto backlog **sospesi** fino al ritorno | — |
+| Lun | — (rientro lento) | — |
+| Mar | — | — |
+| Mer | — | — |
+| Gio | track-em-all: ripasso auth **core-idea ✓** (bollino FE vs biglietto server / persist / PrivateRoute) | ☑ |
+| Ven | track-em-all: **Favorites smoke 3/3 ✓** + commenti puliti · **PR preparata** | ☑ |
+
+## Prossima settimana — focus
+
+*(settimana 2026-09-08 → 09-12)*
+
+| Giorno | Piano (1 riga) | Fatto? |
+|--------|----------------|:------:|
+| Lun | track-em-all: **Listing smoke** (route + shell + contenuto minimo) | ☐ |
+| Mar | DDIA: ripresa cap. 9 a mano da **pp. 24+** (Lamport / TOB dettaglio) **oppure** 25 min rinforzo 3 punti deboli lin. se la lettura pesa | ☐ |
+| Mer | ripasso: **auth** `@learn-error-simulator` (attivo #1 — dopo core-idea 03/09) | ☐ |
+| Gio | ripasso: **Pages 3 trap** **oppure** **Spiega-lead** (scadenza 11/09 — linearizability / 2PC vs consensus) | ☐ |
+| Ven | track-em-all: **Episode smoke** **oppure** push/merge PR favorites se ancora aperta | ☐ |
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-*Prossima Mer/Gio (sett. 10–14 ago) o surplus.*
+*Prossima Mer/Gio (sett. 08–12 set).*
 
 ### 1. track-em-all — Auth: login · persist · PrivateRoute · favorites
 
 | | |
 |---|---|
-| **Hook** | *Gate FE = solo `state.auth.user` (`PrivateRoute`). Persist: key `persist:root`, `auth` doppio-JSON. JWT = `tea-token` per API, non apre le route. Forgare storage ≠ auth server (add/remove favorites serve token valido). Gap emerso dallo smoke Favorites 2026-08-10.* |
-| **Skill** | `@learn-core-idea-first` poi `@learn-error-simulator` |
+| **Hook** | *Gate FE = solo `state.auth.user` (`PrivateRoute`). Persist: key `persist:root`, `auth` doppio-JSON. JWT = `tea-token` per API, non apre le route. Forgare storage ≠ auth server (add/remove favorites serve token valido). Check token solo sul client = ancora forgabile; prova vera = server.* |
+| **Skill** | `@learn-error-simulator` *(prossimo)* |
 | **Dove** | `PrivateRoute.tsx` · `store.ts` (persist) · `authSlice` / `authService` · `FavoritesPage` · `tests/favorite.smoke.spec.ts` |
-| **Bookmark** | **Mer 12/08, sessione 2** (dopo ripasso generale DDIA blocco 1) — mappa a voce: login → user+token → persist → gate → favorites API |
+| **Bookmark** | **core-idea ✓ 2026-09-03** (3 gate: smoke seed vs API · user senza token · check token solo FE). **Prox Mer/Gio:** `@learn-error-simulator` su stessi pezzi |
 
 ### 2. tracking-ds — GitLab Pages: 3 trap meccanici
 
@@ -213,9 +225,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lin. + costo + ordering/causality + sequence numbers ✓ in raw (pp. 18–23) | **Mer:** ripasso generale blocco 1 (lin. completa, nuovo). **Gio:** richiamo 2PC/consensus (già ✓ 29/07) + verifica vera Membership/TOB (mai testati) + filo narrativo. Prima della vacanza; **dopo il rientro (~29/08):** finire pp. 24–52 → chiusura capitolo |
+| DDIA cap. 9 | Lin. + costo + ordering/causality + seq.num ✓ (pp. 18–23); ripasso blocco 1 ✓; Membership gaps aperti | **Sett. 08–12:** Mar = lettura pp. 24+ **o** rinforzo 3 punti deboli; Mer/Gio = auth simulator / Pages o Spiega-lead; poi chiudere cap. |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Show+Person+About+Load more ✓ · **Favorites smoke 2/3** (manca seed lista) | Prox codice: test favorites popolati → PR · Listing/Episode · `useMutation` · Open Graph |
+| track-em-all | Show+Person+About+Load more ✓ · Favorites smoke 3/3 ✓ · PR preparata | **Sett. 08–12:** Lun Listing smoke · Ven Episode smoke (o merge PR) · poi `useMutation` · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -224,6 +236,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-09-04** — Track'em All: **Favorites smoke 3/3 ✓** (`favorite.smoke.spec.ts` — seed `Favorite` shape + 2 card: count, alt poster, testo nome in `p`). Commenti puliti · **PR preparata**. Auth error-simulator ancora aperto (Mer/Gio)
+- **2026-09-03** — Track'em All: ripasso auth **core-idea ✓** (`@learn-core-idea-first` — bollino FE vs biglietto server; persist/`PrivateRoute`/`tea-token`). Resta `@learn-error-simulator`
 - **2026-08-12** — DDIA ripasso generale cap. 9 blocco 1 ✓ (`@learn-error-simulator` misto, 5 scenari: recency/routing, cost-CAP, causality vs lin. + seq. number fix, TOB vs causal order, serializability vs lin.) — tutti superati
 - **2026-08-11** — DDIA cap. 9 a mano (pp. 18–23): cost of linearizability, ordering guarantees, ordering & causality (total vs partial order), sequence number ordering (+ non-causal generators) → `raw/chapter-9.md`
 - **2026-08-10** — Favorites smoke parziale: guest→`/login` + logged empty (`persist:root`, await `addInitScript`, empty copy fix). **Prox:** seed `favorites[]` + assert cards · poi PR. Ripasso auth → attivo #1 Mer
@@ -266,4 +280,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-08-12 — blocco 1 DDIA ✓ (5 scenari, 3 punti da rinforzare a settembre); sessione 2 auth **non fatta** (mancava tempo); Gio 13/08 = blocco 2 confermato + auth/Pages se resta tempo; vacanza da Ven 14/08 (15gg, rientro ~29/08)*
+*Ultimo aggiornamento: 2026-09-04 sera — sett. 01–05 chiusa; programma sett. 08–12: Lun Listing smoke · Mar DDIA pp.24+/rinforzo · Mer auth simulator · Gio Pages o Spiega-lead · Ven Episode smoke / merge PR*
