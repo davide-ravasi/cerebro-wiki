@@ -73,33 +73,23 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-09-01 → 09-05 — rientro post-vacanza)* **chiusa**
+*(settimana 2026-09-07 → 09-11)*
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | — (rientro lento) | — |
-| Mar | — | — |
-| Mer | — | — |
-| Gio | track-em-all: ripasso auth **core-idea ✓** (bollino FE vs biglietto server / persist / PrivateRoute) | ☑ |
-| Ven | track-em-all: **Favorites smoke 3/3 ✓** + commenti puliti · **PR preparata** | ☑ |
-
-## Prossima settimana — focus
-
-*(settimana 2026-09-08 → 09-12)*
-
-| Giorno | Piano (1 riga) | Fatto? |
-|--------|----------------|:------:|
-| Lun | track-em-all: **Listing smoke** (route + shell + contenuto minimo) | ☐ |
+| Lun | track-em-all: **Listing smoke ✓** (popular + load more) · **Episode smoke in corso** (nav da show → Pilot; shell + h1/still + cast/photos; manca dettaglio) | ☑ parziale |
 | Mar | DDIA: ripresa cap. 9 a mano da **pp. 24+** (Lamport / TOB dettaglio) **oppure** 25 min rinforzo 3 punti deboli lin. se la lettura pesa | ☐ |
 | Mer | ripasso: **auth** `@learn-error-simulator` (attivo #1 — dopo core-idea 03/09) | ☐ |
 | Gio | ripasso: **Pages 3 trap** **oppure** **Spiega-lead** (scadenza 11/09 — linearizability / 2PC vs consensus) | ☐ |
-| Ven | track-em-all: **Episode smoke** **oppure** push/merge PR favorites se ancora aperta | ☐ |
+| Ven | track-em-all: **chiudere Episode smoke** + PR (branch `tests/episode-page`) | ☐ |
+
+*(Sett. rientro 01–05/09 chiusa: auth core-idea ✓ · Favorites smoke 3/3 ✓ · PR preparata — vedi Fatto di recente.)*
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-*Prossima Mer/Gio (sett. 08–12 set).*
+*Prossima Mer/Gio (sett. 07–11 set).*
 
 ### 1. track-em-all — Auth: login · persist · PrivateRoute · favorites
 
@@ -227,7 +217,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|----------|
 | DDIA cap. 9 | Lin. + costo + ordering/causality + seq.num ✓ (pp. 18–23); ripasso blocco 1 ✓; Membership gaps aperti | **Sett. 08–12:** Mar = lettura pp. 24+ **o** rinforzo 3 punti deboli; Mer/Gio = auth simulator / Pages o Spiega-lead; poi chiudere cap. |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Show+Person+About+Load more ✓ · Favorites smoke 3/3 ✓ · PR preparata | **Sett. 08–12:** Lun Listing smoke · Ven Episode smoke (o merge PR) · poi `useMutation` · Open Graph |
+| track-em-all | Show+Person+About+Load more+Favorites+Listing ✓ · **Episode smoke ~80%** (`tests/episode-page`) | Prox: chiudere episode → PR · poi `useMutation` · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -236,7 +226,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-09-04** — Track'em All: **Favorites smoke 3/3 ✓** (`favorite.smoke.spec.ts` — seed `Favorite` shape + 2 card: count, alt poster, testo nome in `p`). Commenti puliti · **PR preparata**. Auth error-simulator ancora aperto (Mer/Gio)
+- **2026-09-07** — Track'em All: **Listing smoke mergiato** (#126). Branch **`tests/episode-page`**: prima parte episode smoke ✓ (nav show→Pilot; shell + h1/still + cast/photos). **Prox:** dettaglio S/E/air/overview + contenuto cast/photos → PR
+- **2026-09-04** — Track'em All: **Favorites smoke 3/3 ✓** mergiato (#124). Auth error-simulator ancora aperto (Mer/Gio)
 - **2026-09-03** — Track'em All: ripasso auth **core-idea ✓** (`@learn-core-idea-first` — bollino FE vs biglietto server; persist/`PrivateRoute`/`tea-token`). Resta `@learn-error-simulator`
 - **2026-08-12** — DDIA ripasso generale cap. 9 blocco 1 ✓ (`@learn-error-simulator` misto, 5 scenari: recency/routing, cost-CAP, causality vs lin. + seq. number fix, TOB vs causal order, serializability vs lin.) — tutti superati
 - **2026-08-11** — DDIA cap. 9 a mano (pp. 18–23): cost of linearizability, ordering guarantees, ordering & causality (total vs partial order), sequence number ordering (+ non-causal generators) → `raw/chapter-9.md`
@@ -280,4 +271,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-04 sera — sett. 01–05 chiusa; programma sett. 08–12: Lun Listing smoke · Mar DDIA pp.24+/rinforzo · Mer auth simulator · Gio Pages o Spiega-lead · Ven Episode smoke / merge PR*
+*Ultimo aggiornamento: 2026-09-07 — Listing mergiato #126 · branch `tests/episode-page` (prima parte ✓) · prox = chiudere episode + PR*
