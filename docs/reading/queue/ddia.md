@@ -25,7 +25,7 @@ source_slug: sources/designing-data-intensive-applications/
 | Chapters | State |
 |----------|--------|
 | 7–8 | Promoted source + concepts + book club |
-| 9 | Partial — lin. + TOB + 2PC ✓ · consensus idea ✓ · **Membership core-idea ✓ (Jul 30)**; Raft detail / CAP TBD |
+| 9 | Partial — lin.+cost+causality+seq+Lamport+TOB a mano ✓ · 2PC ✓ · consensus idea ✓ · Membership ✓; Raft detail TBD |
 | 1–6, 10–12 | Not promoted yet |
 
 **Source index:** [[source-ddia-index]]  
@@ -33,7 +33,8 @@ source_slug: sources/designing-data-intensive-applications/
 
 ## Session log (resume hints)
 
-- **2026-08-11** — Rilettura a mano pp. 18–23: cost of linearizability (CAP, perf vs fault-tolerance), ordering guarantees, ordering & causality (total vs partial order), sequence number ordering + non-causal generators → raw aggiornato. Next: Lamport timestamps / TOB in dettaglio.
+- **2026-09-08** — A mano: Lamport timestamps + TOB (props/log/async) + intro distributed tx/consensus (~p.32). Rilettura cost→seq fuse nel raw. Next libro: Raft / fine consensus se manca dettaglio.
+- **2026-08-11** — Rilettura a mano pp. 18–23: cost of linearizability (CAP, perf vs fault-tolerance), ordering guarantees, ordering & causality (total vs partial order), sequence number ordering + non-causal generators → raw aggiornato.
 - **2026-08-07** — Linearizability a mano ✓ digitata (cosa rende lin. + when useful: locks/leader→consensus, uniqueness, cross-channel races).
 - **2026-08-05** — Rilettura a mano: intro cap. 9 (~5 pp) + inizio Linearizability → raw aggiornato.
 - **2026-07-30** — Membership & coordination (ZK/etcd): `@learn-core-idea-first` → raw § Membership. Optional: `@learn-error-simulator`.

@@ -2,7 +2,7 @@
 
 > **Wiki (inglese, promosso):** [[source-ddia-ch-09]] — `../ch-09-consistency-and-consensus.md`  
 > **Concept estratte:** linearizability (promossa); total order broadcast (raw IT, lug 2026 — concept EN a fine cap. 9); causal, Raft TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…11 (intro + Linearizability + cost/ordering/causality + sequence numbers, pp. 18–23)
+> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…11 + **2026-09-08** (cost/ordering/causality/seq · Lamport · TOB a mano · inizio distributed tx/consensus ~p.32)
 
 ---
 
@@ -121,7 +121,7 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ---
 
-## Cost of linearizability (note a mano — 11/08, p. 18)
+## Cost of linearizability (note a mano — 11/08 + rilettura 08/09, p. 18)
 
 ### Se c'è un'interruzione di rete
 
@@ -143,7 +143,7 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ---
 
-## Ordering guarantees (note a mano — 11/08, p. 18)
+## Ordering guarantees (note a mano — 11/08 + rilettura 08/09, p. 18)
 
 **Linearizability** implica un **ordine ben definito** (solo una copia dei dati → un solo ordine di eventi possibile).
 
@@ -155,7 +155,7 @@ Collegamento **cap. 8:** rete/orologi inaffidabili → non basta NTP o replica a
 
 ---
 
-## Ordering and causality (note a mano — 11/08)
+## Ordering and causality (note a mano — 11/08 + rilettura 08/09)
 
 **L'ordinamento preserva la causalità.** Esempi già visti nel libro dove serve rispettare l'ordine causa→effetto:
 
@@ -192,7 +192,7 @@ Per rispettare la causalità serve **sapere quale operazione è avvenuta prima**
 
 ---
 
-## Sequence number ordering (note a mano — 11/08, p. 23)
+## Sequence number ordering (note a mano — 11/08 + rilettura 08/09, p. 23)
 
 > Tenere traccia di **tutte** le dipendenze causali può essere **impraticabile**.
 
@@ -213,17 +213,60 @@ Se **non c'è un singolo leader**, è **meno chiaro** come generare i sequence n
 
 **MA** → questi metodi **non sono consistenti con la causalità**: non catturano l'**ordinamento delle operazioni tra nodi diversi**.
 
-**Bookmark rilettura:** cost of linearizability + ordering guarantees + causality + sequence number ordering ✓ a mano 11/08 (pp. 18–23); prossimo nel libro: **Lamport timestamps** / total order broadcast in dettaglio.
+---
+
+## Lamport timestamps (note a mano — 08/09)
+
+> Generano numeri **consistenti con la causalità** senza tracciare a mano ogni dipendenza.
+
+**Struttura:** ⟨**node id**⟩ + ⟨**counter**⟩
+
+**Regola tipica:** se un nodo **riceve** un messaggio con counter più alto → prende il **max**, poi aggiorna il **proprio** counter.
+
+### Timestamp ordering non basta
+
+I Lamport timestamps **non sono sufficienti** per molti problemi tipici dei sistemi distribuiti.
+
+**Esempio:** due utenti tentano **in concorrenza** di creare un account con lo **stesso username**.  
+Per decidere **accept vs fail** non basta il timestamp locale: serve in pratica **confrontarsi con gli altri nodi** (cosa sta succedendo altrove).
+
+**IMP:** un **ordine totale** “ufficiale” emerge solo **dopo** aver **raccolto** le operazioni dagli altri nodi — non dal solo clock logico locale.
+
+→ Da qui il passo successivo: **total order broadcast** (una sequenza unica su cui tutti concordano).
+
+**Bookmark rilettura:** cost → ordering/causality → sequence numbers → **Lamport ✓ 08/09**; TOB a mano sotto.
 
 ---
 
 ## Total order broadcast
 
-> **Stato:** compreso in chat (`learn-core-idea-first`, lug 2026). Concept EN + sezione wiki **dopo** lettura Raft / fine cap. 9.
+> **Stato:** compreso in chat (`learn-core-idea-first`, lug 2026) + **note a mano 08/09**. Concept EN + sezione wiki **dopo** lettura Raft / fine cap. 9.
 
 ### Idea chiave (una frase)
 
 **Tutti i nodi ricevono gli stessi messaggi nello stesso ordine** — una sola sequenza ufficiale condivisa, non solo “prima o poi tutti li hanno”.
+
+In un sistema distribuito è **difficile** far sì che tutti i nodi **concordino** sullo stesso ordine delle operazioni.
+
+### Come si ottiene spesso (intuizione libro)
+
+```text
+Total order broadcast
+  → spesso via single-leader replication
+  → il leader sequenzia (un solo “CPU” / un solo punto che decide l’ordine)
+```
+
+### Due proprietà obbligatorie (note 08/09)
+
+1. **Nessun messaggio perso** (reliable delivery)
+2. **Messaggi consegnati a ogni nodo nello stesso ordine**
+
+### Usare TOB (note 08/09)
+
+- Per implementare **transazioni serializzabili** (stesso ordine di ops → stesso stato)
+- L’ordine è **fissato al momento della delivery** del messaggio
+- TOB è **asincrono** (non aspetti che “tutto il mondo” abbia già applicato in sync wall-clock)
+- **Metafora log:** è un modo per creare un **log** — tutti i nodi leggono il log e vedono la **stessa sequenza** di messaggi
 
 ### Analogia: il cancelliere in tribunale
 
@@ -244,6 +287,7 @@ Se **non c'è un singolo leader**, è **meno chiaro** come generare i sequence n
 - **Linearizability** = garanzia osservabile (“una lavagna”, recency).
 - **Total order broadcast** = **meccanismo** per far applicare le operazioni **nella stessa sequenza** su tutte le repliche (log ordinato → stesso stato).
 - Flusso tipico: write → entry nel log totalmente ordinato → repliche applicano → read coerente.
+- Collegamento a Lamport: i timestamp logici **ordinano in modo causale**, ma **non** decidono da soli “chi vince” su conflitti globali (es. username unico) senza raccogliere le ops / avere un ordine totale condiviso (TOB/consensus).
 
 ### Da completare con il libro
 
@@ -251,16 +295,29 @@ Se **non c'è un singolo leader**, è **meno chiaro** come generare i sequence n
 - ZooKeeper / etcd
 - Dettagli formalmente nel testo DDIA
 
+**Bookmark rilettura:** TOB a mano ✓ 08/09; prossimo nel libro: resto **distributed transactions / 2PC** (già avviato sotto) → consensus fault-tolerant in dettaglio.
+
 ---
 
 ## Atomic commit / Two-Phase Commit (2PC)
 
-> **Stato:** quasi chiuso (2026-07-28). Mancano ~8 pagine del blocco; poi consensus/Raft.  
+> **Stato:** quasi chiuso in chat (2026-07-28) + **ripresa a mano 08/09** (~p. 32 — intro consensus + atomic commit + da single-node a distributed).  
 > Letto: intro 2PC → *Distributed transactions in practice* (exactly-once, XA, locks in doubt, recovering coordinator, limitations).
+
+### Consensus — perché compare qui (note 08/09)
+
+**Consensus** = far sì che **vari nodi concordino su qualcosa**.
+
+**Quando serve:**
+- **Leader election**
+- **Atomic commit** (tutti i nodi concordano sull’**esito** della transazione)
 
 ### Idea chiave (una frase)
 
 **Atomic commit distribuito** = tutti i partecipanti **commit** insieme **oppure** tutti **abort** — nessuno a metà strada.
+
+**Atomicità della transazione** → esito solo **COMMIT** o **ABORT**.  
+**Previene:** risultati **a metà** · stato **semi-aggiornato**.
 
 ### Da nodo singolo a distribuito
 
@@ -268,6 +325,14 @@ Se **non c'è un singolo leader**, è **meno chiaro** come generare i sequence n
 |--------------|-------------|
 | WAL + commit locale = atomico | Più nodi / DB: serve **accordo** tra tutti |
 | Un solo decisore | Serve un **coordinatore** + protocollo |
+
+**Ordine tipico su un singolo nodo DB** (note 08/09):
+
+1. Rende le write della transazione **durevoli**
+2. **Append** di un **commit record** al log
+3. Così può **recuperare** da lì in caso di **crash**
+
+**Se ci sono più nodi:** **non basta** mandare semplicemente una “commit request” a tutti — serve un protocollo (→ **2PC** sotto).
 
 ### 2PC — le due fasi
 
@@ -351,12 +416,13 @@ Tanti team → un solo centralino per “chi è di turno”, “quale foglio reg
 
 ## Sezioni da completare (resto cap. 9)
 
-- [ ] Causal consistency
-- [x] Total order broadcast — **compreso in chat** (lug 2026); promuovere concept EN a fine cap. 9
-- [x] Atomic commit / **2PC + practice** — letto 2026-07-28; ripasso Mer 2026-07-29 ✓
+- [x] Causal consistency / ordering & causality — note a mano ✓ (11/08 + 08/09)
+- [x] Lamport timestamps — note a mano ✓ 08/09
+- [x] Total order broadcast — chat lug 2026 + **note a mano 08/09**; promuovere concept EN a fine cap. 9
+- [x] Atomic commit / **2PC + practice** — letto 2026-07-28; ripasso Mer 2026-07-29 ✓; intro a mano ripresa 08/09 (~p.32)
 - [~] **Fault-Tolerant Consensus** — idea ✓ chat; dettaglio Raft/Paxos nel libro TBD
 - [x] **Membership and coordination** — core-idea ✓ 2026-07-30; simulator / skim libro opzionale
-- [ ] CAP / tradeoff con disponibilità
+- [x] CAP / tradeoff con disponibilità — note a mano ✓ (cost of lin., 11/08 + 08/09)
 
 > **Attenzione:** 2PC (commit) ≠ 2PL (locking, cap. 7).
 
@@ -368,8 +434,11 @@ Tanti team → un solo centralino per “chi è di turno”, “quale foglio reg
 Cap. 7 serializability (transazioni)
   → Cap. 8 tempo/rete/quorum inaffidabili
   → Cap. 9 linearizability (registro singolo, tempo reale)
-  → total order broadcast (stessa sequenza di eventi su tutti i nodi)
-  → atomic commit / 2PC + practice ✓
+  → cost of lin. / CAP (perf, non solo fault-tolerance)
+  → ordering & causality (total vs partial)
+  → sequence numbers → Lamport (causale ma non basta)
+  → total order broadcast (log unico; props: no loss + same order)
+  → atomic commit / 2PC (+ practice ✓)
   → Fault-Tolerant Consensus (idea ✓; dettaglio libro TBD)
   → Membership & coordination (ZK/etcd) ✓ core-idea
 ```

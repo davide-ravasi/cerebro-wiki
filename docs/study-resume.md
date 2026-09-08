@@ -63,7 +63,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |---|---|
 | **Ultima volta** | — (non ancora fatto) |
 | **Prossima scadenza** | **2026-09-11** (gio) — recupero cadenza scaduta |
-| **Candidati** | linearizability · 2PC vs consensus · auth bollino FE vs JWT · CORS/5 strati |
+| **Candidati** | linearizability · **Lamport vs TOB** · 2PC vs consensus · auth bollino FE vs JWT |
 
 **Track:** quando apri la chat, dimmi la **data del giorno** → controllo se `Prossima scadenza` ≤ oggi. Dopo sessione: Ultima volta + Prossima = +14 giorni.
 
@@ -77,11 +77,11 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: **Listing smoke ✓** (popular + load more) · **Episode smoke in corso** (nav da show → Pilot; shell + h1/still + cast/photos; manca dettaglio) | ☑ parziale |
-| Mar | DDIA: ripresa cap. 9 a mano da **pp. 24+** (Lamport / TOB dettaglio) **oppure** 25 min rinforzo 3 punti deboli lin. se la lettura pesa | ☐ |
+| Lun | track-em-all: **Listing smoke ✓** · **Episode smoke ✓** (nav show→Pilot; shell; S/E; air date; overview; cast/photos con `.first()` non count fissi) | ☑ |
+| Mar | DDIA: rilettura a mano ✓ (cost→causality→seq · **Lamport** · **TOB** · intro distributed tx ~p.32) → digitata in raw | ☑ |
 | Mer | ripasso: **auth** `@learn-error-simulator` (attivo #1 — dopo core-idea 03/09) | ☐ |
-| Gio | ripasso: **Pages 3 trap** **oppure** **Spiega-lead** (scadenza 11/09 — linearizability / 2PC vs consensus) | ☐ |
-| Ven | track-em-all: **chiudere Episode smoke** + PR (branch `tests/episode-page`) | ☐ |
+| Gio | ripasso: **Lamport+TOB esempi** (attivo #3) **oppure** Pages 3 trap **oppure** Spiega-lead (scadenza 11/09) | ☐ |
+| Ven | track-em-all: `useMutation` start **oppure** Open Graph (Episode ✓ #127) | ☐ |
 
 *(Sett. rientro 01–05/09 chiusa: auth core-idea ✓ · Favorites smoke 3/3 ✓ · PR preparata — vedi Fatto di recente.)*
 
@@ -109,19 +109,29 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Dove** | `sources/nodejs/raw/gitlab-pages-model.md` · tracking-ds `.gitlab-ci.yml` |
 | **Bookmark** | Simulator 03/08: modello ✓; **da rifare solo i 3 trap** |
 
-### 3. track-em-all — React Query: `enabled` + staleTime/refetch
+### 3. DDIA — Lamport timestamps + Total order broadcast (esempi concreti)
 
 | | |
 |---|---|
-| **Hook** | *`textInput` = bozza; `searchTerm` = chiave. `enabled: !!searchTerm`. `staleTime` = fresco → no refetch da solo; stesso termine → serve `refetch()`.* |
-| **Skill** | `@learn-error-simulator` |
-| **Dove** | HomePage · `sources/react/raw/react-query-stale-time-and-refetch.md` |
+| **Hook** | *Note a mano 08/09 digitate ma **non ancora chiare in pratica**. Lamport: come si aggiorna il counter (max+1), cosa garantisce (causalità) e cosa **non** decide (es. due username uguali in concorrenza). TOB: le 2 props (no loss + same order), perché è “come un log”, come si implementa tipicamente (leader che sequenzia / consensus), vs Lamport. Serve **esempi concreti** + eventuale micro-schema, non solo definizioni.* |
+| **Skill** | `@learn-core-idea-first` (Lamport, poi TOB) → `@learn-error-simulator` con scenari |
+| **Dove** | `raw/chapter-9.md` § Lamport timestamps · § Total order broadcast |
+| **Bookmark** | **Priorità teoria post-Mer** (auth simulator resta Mer 10/09). Sessione dedicata: 1) Lamport con 2–3 nodi e messaggi numerati 2) caso username 3) TOB come log + confronto “cosa manca a Lamport”. |
 
 ---
 
 ## Backlog ripasso
 
 *Coda: promuovi in «Da ripassare» quando serve.*
+
+### track-em-all — React Query: `enabled` + staleTime/refetch
+
+| | |
+|---|---|
+| **Hook** | *`textInput` = bozza; `searchTerm` = chiave. `enabled: !!searchTerm`. `staleTime` = fresco → no refetch da solo; stesso termine → serve `refetch()`.* |
+| **Skill** | `@learn-error-simulator` |
+| **Dove** | HomePage · `sources/react/raw/react-query-stale-time-and-refetch.md` |
+| **Bookmark** | Spostato da attivo 08/09 per fare posto a Lamport/TOB (priorità confusione attuale) |
 
 ### tracking-ds — Derivare invece di ricalcolare (+ lo zero falsy)
 
@@ -173,6 +183,15 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Dove** | da creare: `sources/nodejs/raw/reading-files-browser-vs-node.md` |
 | **Bookmark** | Lacuna 31/07 — da **costruire** (non solo ripasso) |
 
+### DDIA cap. 9 — ripasso generale (dopo chiusura capitolo)
+
+| | |
+|---|---|
+| **Hook** | *Quando la rilettura a mano del cap. 9 è **chiusa** (pagine mancanti + Raft se serve): ripasso **generale** su tutto il capitolo, non pezzo per pezzo isolato. Filo: lin. (def/cost/CAP) → ordering/causality → Lamport → TOB → 2PC → consensus → membership. Scenario misti che intrecciano i concetti.* |
+| **Skill** | `@learn-error-simulator` misto (+ opzionale `Spiega-lead` su un pezzo debole) |
+| **Dove** | `raw/chapter-9.md` intero · filo narrativo in coda al raw |
+| **Bookmark** | **Condizionato a fine cap.** Non schedulare prima. Incorpora: 3 punti deboli lin. (ago) · Lamport/TOB esempi (attivo #3 ora) · 5 gap Membership · blocco 1 già fatto 12/08 non va rifatto da zero, solo richiamo. |
+
 ### DDIA cap. 9 — ripasso di rinforzo (settembre, post-vacanza)
 
 | | |
@@ -215,9 +234,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lin. + costo + ordering/causality + seq.num ✓ (pp. 18–23); ripasso blocco 1 ✓; Membership gaps aperti | **Sett. 08–12:** Mar = lettura pp. 24+ **o** rinforzo 3 punti deboli; Mer/Gio = auth simulator / Pages o Spiega-lead; poi chiudere cap. |
+| DDIA cap. 9 | Lamport+TOB a mano in raw ✓ ma **poca chiarezza operativa** | **Attivo #3:** esempi Lamport→TOB. Poi pagine mancanti / Raft. **A capitolo chiuso:** ripasso generale (voce in backlog). Rinforzo 3 punti lin. + Membership gaps restano in coda |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Show+Person+About+Load more+Favorites+Listing ✓ · **Episode smoke ~80%** (`tests/episode-page`) | Prox: chiudere episode → PR · poi `useMutation` · Open Graph |
+| track-em-all | Show+Person+About+Load more+Favorites+Listing+Episode smoke ✓ (#127) | Prox: `useMutation` · Open Graph · smoke CI |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -226,7 +245,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-09-07** — Track'em All: **Listing smoke mergiato** (#126). Branch **`tests/episode-page`**: prima parte episode smoke ✓ (nav show→Pilot; shell + h1/still + cast/photos). **Prox:** dettaglio S/E/air/overview + contenuto cast/photos → PR
+- **2026-09-08** — DDIA cap. 9 a mano: rilettura cost/ordering/causality/seq + **Lamport timestamps** + **TOB** (props, log, async) + intro distributed tx/consensus (~p.32, single-node WAL → “not enough to send commit to all”) → `raw/chapter-9.md`
+- **2026-09-07** — Track'em All: **Listing** #126 · **Episode smoke mergiato** #127 (nav show→Pilot; shell; S01E01; air date; overview; cast/photos `.first()`)
 - **2026-09-04** — Track'em All: **Favorites smoke 3/3 ✓** mergiato (#124). Auth error-simulator ancora aperto (Mer/Gio)
 - **2026-09-03** — Track'em All: ripasso auth **core-idea ✓** (`@learn-core-idea-first` — bollino FE vs biglietto server; persist/`PrivateRoute`/`tea-token`). Resta `@learn-error-simulator`
 - **2026-08-12** — DDIA ripasso generale cap. 9 blocco 1 ✓ (`@learn-error-simulator` misto, 5 scenari: recency/routing, cost-CAP, causality vs lin. + seq. number fix, TOB vs causal order, serializability vs lin.) — tutti superati
@@ -271,4 +291,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-07 — Listing mergiato #126 · branch `tests/episode-page` (prima parte ✓) · prox = chiudere episode + PR*
+*Ultimo aggiornamento: 2026-09-08 — attivo #3 Lamport+TOB esempi; **backlog: ripasso generale cap. 9 a capitolo chiuso**; Mer = auth simulator*
