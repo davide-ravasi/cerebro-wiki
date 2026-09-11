@@ -79,9 +79,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track-em-all: **Listing smoke ✓** · **Episode smoke ✓** (nav show→Pilot; shell; S/E; air date; overview; cast/photos con `.first()` non count fissi) | ☑ |
 | Mar | DDIA: rilettura a mano ✓ (cost→causality→seq · **Lamport** · **TOB** · intro distributed tx ~p.32) → digitata in raw | ☑ |
-| Mer | ripasso: **auth** `@learn-error-simulator` (attivo #1 — dopo core-idea 03/09) | ☐ |
-| Gio | ripasso: **Lamport+TOB esempi** (attivo #3) **oppure** Pages 3 trap **oppure** Spiega-lead (scadenza 11/09) | ☐ |
-| Ven | track-em-all: `useMutation` start **oppure** Open Graph (Episode ✓ #127) | ☐ |
+| Mer | ripasso: **auth** `@learn-error-simulator` ✓ · surplus: **Lamport** `@learn-core-idea-first` ✓ (3 gate) — TOB ancora da fare | ☑ |
+| Gio | ripasso: **TOB** `@learn-core-idea-first` ✓ (3 gate; Lamport già ✓ 09/09) — coppia Lamport+TOB operativa | ☑ |
+| Ven | track-em-all: **`useMutation` login ✓** (token + `dispatch(login.fulfilled)` → Redux/PrivateRoute/favorites ok) | ☑ |
 
 *(Sett. rientro 01–05/09 chiusa: auth core-idea ✓ · Favorites smoke 3/3 ✓ · PR preparata — vedi Fatto di recente.)*
 
@@ -89,16 +89,16 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Da ripassare (attivo — max 3)
 
-*Prossima Mer/Gio (sett. 07–11 set).*
+*Prossima Gio (sett. 07–11 set) o surplus.*
 
-### 1. track-em-all — Auth: login · persist · PrivateRoute · favorites
+### 1. DDIA — Lamport timestamps + Total order broadcast (esempi concreti)
 
 | | |
 |---|---|
-| **Hook** | *Gate FE = solo `state.auth.user` (`PrivateRoute`). Persist: key `persist:root`, `auth` doppio-JSON. JWT = `tea-token` per API, non apre le route. Forgare storage ≠ auth server (add/remove favorites serve token valido). Check token solo sul client = ancora forgabile; prova vera = server.* |
-| **Skill** | `@learn-error-simulator` *(prossimo)* |
-| **Dove** | `PrivateRoute.tsx` · `store.ts` (persist) · `authSlice` / `authService` · `FavoritesPage` · `tests/favorite.smoke.spec.ts` |
-| **Bookmark** | **core-idea ✓ 2026-09-03** (3 gate: smoke seed vs API · user senza token · check token solo FE). **Prox Mer/Gio:** `@learn-error-simulator` su stessi pezzi |
+| **Hook** | *Note a mano 08/09 digitate ma **non ancora chiare in pratica**. Lamport: come si aggiorna il counter (max+1), cosa garantisce (causalità) e cosa **non** decide (es. due username uguali in concorrenza). TOB: le 2 props (no loss + same order), perché è “come un log”, come si implementa tipicamente (leader che sequenzia / consensus), vs Lamport. Serve **esempi concreti** + eventuale micro-schema, non solo definizioni.* |
+| **Skill** | `@learn-core-idea-first` (Lamport, poi TOB) → `@learn-error-simulator` con scenari |
+| **Dove** | `raw/chapter-9.md` § Lamport timestamps · § Total order broadcast |
+| **Bookmark** | **Lamport ✓ 09/09** · **TOB ✓ 10/09** (core-idea). Opzionale: error-simulator corto; poi archiviare da attivo se solidi |
 
 ### 2. tracking-ds — GitLab Pages: 3 trap meccanici
 
@@ -109,29 +109,19 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Dove** | `sources/nodejs/raw/gitlab-pages-model.md` · tracking-ds `.gitlab-ci.yml` |
 | **Bookmark** | Simulator 03/08: modello ✓; **da rifare solo i 3 trap** |
 
-### 3. DDIA — Lamport timestamps + Total order broadcast (esempi concreti)
-
-| | |
-|---|---|
-| **Hook** | *Note a mano 08/09 digitate ma **non ancora chiare in pratica**. Lamport: come si aggiorna il counter (max+1), cosa garantisce (causalità) e cosa **non** decide (es. due username uguali in concorrenza). TOB: le 2 props (no loss + same order), perché è “come un log”, come si implementa tipicamente (leader che sequenzia / consensus), vs Lamport. Serve **esempi concreti** + eventuale micro-schema, non solo definizioni.* |
-| **Skill** | `@learn-core-idea-first` (Lamport, poi TOB) → `@learn-error-simulator` con scenari |
-| **Dove** | `raw/chapter-9.md` § Lamport timestamps · § Total order broadcast |
-| **Bookmark** | **Priorità teoria post-Mer** (auth simulator resta Mer 10/09). Sessione dedicata: 1) Lamport con 2–3 nodi e messaggi numerati 2) caso username 3) TOB come log + confronto “cosa manca a Lamport”. |
-
----
-
-## Backlog ripasso
-
-*Coda: promuovi in «Da ripassare» quando serve.*
-
-### track-em-all — React Query: `enabled` + staleTime/refetch
+### 3. track-em-all — React Query: `enabled` + staleTime/refetch
 
 | | |
 |---|---|
 | **Hook** | *`textInput` = bozza; `searchTerm` = chiave. `enabled: !!searchTerm`. `staleTime` = fresco → no refetch da solo; stesso termine → serve `refetch()`.* |
 | **Skill** | `@learn-error-simulator` |
 | **Dove** | HomePage · `sources/react/raw/react-query-stale-time-and-refetch.md` |
-| **Bookmark** | Spostato da attivo 08/09 per fare posto a Lamport/TOB (priorità confusione attuale) |
+
+---
+
+## Backlog ripasso
+
+*Coda: promuovi in «Da ripassare» quando serve.*
 
 ### tracking-ds — Derivare invece di ricalcolare (+ lo zero falsy)
 
@@ -225,6 +215,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|------|
 | fetch: due passaggi, `ok`, HTTP/2 | 2026-08-04 | raw `fetch-two-steps-and-http-errors.md` |
 | CORS / origine / 5 strati | 2026-08-06 | raw `origin-cors-and-the-five-layers.md` |
+| favorites / auth FE vs JWT (PrivateRoute / persist / tea-token) | 2026-09-09 | simulator ✓ (dopo core-idea 03/09) |
 | favorites / never trust client | 2026-07-22 | — |
 | functional core / imperative shell | 2026-07-23 | — |
 
@@ -236,7 +227,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|----------|
 | DDIA cap. 9 | Lamport+TOB a mano in raw ✓ ma **poca chiarezza operativa** | **Attivo #3:** esempi Lamport→TOB. Poi pagine mancanti / Raft. **A capitolo chiuso:** ripasso generale (voce in backlog). Rinforzo 3 punti lin. + Membership gaps restano in coda |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Show+Person+About+Load more+Favorites+Listing+Episode smoke ✓ (#127) | Prox: `useMutation` · Open Graph · smoke CI |
+| track-em-all | Smoke ✓ · **`useMutation` login ✓** (`login.fulfilled` → Redux) | Prox: register mutation · favorite add/remove mutation · pulire `currentUser` Context se ridondante · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -245,6 +236,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-09-11** — Track'em All: **`useMutation` login ✓** — `mutationFn: loginUser` + `onSuccess` → `dispatch(login.fulfilled(response))`; token ok; Redux/PrivateRoute/favorites ripristinati. Prox: register / favorites mutation · opz. azione sync `setSession` al posto di fulfilled manuale
+- **2026-09-10** — DDIA **TOB** `@learn-core-idea-first` ✓ (cancelliere: stessi elementi + stesso ordine; arbitraggio concorrenza; username = primo in lista vince). Coppia Lamport+TOB chiusa in core-idea
+- **2026-09-09** — Auth error-simulator ✓ · **Lamport** `@learn-core-idea-first` ✓ (uffici/timbri; max+1; concorrenti incomparabili; username → serve accordo/TOB). **Prox:** TOB core-idea + esempi
 - **2026-09-08** — DDIA cap. 9 a mano: rilettura cost/ordering/causality/seq + **Lamport timestamps** + **TOB** (props, log, async) + intro distributed tx/consensus (~p.32, single-node WAL → “not enough to send commit to all”) → `raw/chapter-9.md`
 - **2026-09-07** — Track'em All: **Listing** #126 · **Episode smoke mergiato** #127 (nav show→Pilot; shell; S01E01; air date; overview; cast/photos `.first()`)
 - **2026-09-04** — Track'em All: **Favorites smoke 3/3 ✓** mergiato (#124). Auth error-simulator ancora aperto (Mer/Gio)
@@ -291,4 +285,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-08 — attivo #3 Lamport+TOB esempi; **backlog: ripasso generale cap. 9 a capitolo chiuso**; Mer = auth simulator*
+*Ultimo aggiornamento: 2026-09-11 — useMutation login ✓ (fulfilled→Redux); prox = register/favorites mutation · sett. 07–11 chiusa sul codice login*

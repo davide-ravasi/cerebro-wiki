@@ -14,7 +14,7 @@ domain: web
 tags: [reading-queue, books, web-performance, react, core-web-vitals, frontend]
 status: queued
 priority: medium
-updated: 2026-07-10
+updated: 2026-09-09
 found_via: "Personal reading list"
 why: "Hands-on profiling and optimization — Core Web Vitals, rendering patterns, bundles, interaction perf; ~70% general web perf, React-focused examples."
 start_when: "When deepening frontend perf on real apps (Track'em All, overnight-guest, work UI)"
@@ -26,6 +26,7 @@ urls:
   author_blog: "https://www.developerway.com/"
   study_repo: "https://github.com/developerway/web-perf-fundamentals"
   amazon_print: "https://www.amazon.com/dp/B0FH7L837V"
+  profile_guide: "https://perf.reviews/profile-guide"
 prerequisites: "Comfortable React codebase; middle–senior frontend; general web dev basics"
 ---
 
@@ -41,7 +42,7 @@ prerequisites: "Comfortable React codebase; middle–senior frontend; general we
 | **ISBN-13** | 9798291909607 |
 | **ASIN** | B0FHBGGT9X (eBook) / B0FH7L837V (print) |
 | **Pages** | ~376 |
-| **Companion** | Study monorepo: [developerway/web-perf-fundamentals](https://github.com/developerway/web-perf-fundamentals) (MIT) |
+| **Companion** | Study monorepo: [developerway/web-perf-fundamentals](https://github.com/developerway/web-perf-fundamentals) (MIT) · Profile field guide: [perf.reviews/profile-guide](https://perf.reviews/profile-guide) |
 
 **Also by author:** *Advanced React* — [advanced-react.com](https://www.advanced-react.com/)
 
@@ -66,6 +67,7 @@ Middle–senior **React** developers who can navigate a codebase without basics 
 - Treat as **journey / investigation**, not step-by-step React tutorial
 - Run chapter workspaces from study repo: `npm run [script] --workspace=[chapter-name]`
 - Cross-link future concepts: Core Web Vitals, RSC, bundle analysis, flame graphs
+- **Companion DevTools (saved 2026-09-09):** [Reading a Performance Profile: Field Guide](https://perf.reviews/profile-guide) — colori del profile (Scripting/Rendering/Paint…), barre Network, waterfall, flame chart. Usare **all’apertura del libro** (o 1 pomodoro prima) come dizionario operativo; non è priorità finché DDIA/core colloqui sono aperti.
 
 ## Chat hook
 
