@@ -62,8 +62,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | | |
 |---|---|
 | **Ultima volta** | — (non ancora fatto) |
-| **Prossima scadenza** | **2026-09-11** (gio) — recupero cadenza scaduta |
-| **Candidati** | linearizability · **Lamport vs TOB** · 2PC vs consensus · auth bollino FE vs JWT |
+| **Prossima scadenza** | **2026-09-16** (mer) — recupero: non fatto lun 14 |
+| **Candidati** | **Lamport vs TOB** (forte) · 2PC vs consensus · linearizability · auth bollino FE vs JWT |
 
 **Track:** quando apri la chat, dimmi la **data del giorno** → controllo se `Prossima scadenza` ≤ oggi. Dopo sessione: Ultima volta + Prossima = +14 giorni.
 
@@ -73,34 +73,37 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-09-07 → 09-11)*
+*(settimana 2026-09-14 → 09-18)*
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: **Listing smoke ✓** · **Episode smoke ✓** (nav show→Pilot; shell; S/E; air date; overview; cast/photos con `.first()` non count fissi) | ☑ |
-| Mar | DDIA: rilettura a mano ✓ (cost→causality→seq · **Lamport** · **TOB** · intro distributed tx ~p.32) → digitata in raw | ☑ |
-| Mer | ripasso: **auth** `@learn-error-simulator` ✓ · surplus: **Lamport** `@learn-core-idea-first` ✓ (3 gate) — TOB ancora da fare | ☑ |
-| Gio | ripasso: **TOB** `@learn-core-idea-first` ✓ (3 gate; Lamport già ✓ 09/09) — coppia Lamport+TOB operativa | ☑ |
-| Ven | track-em-all: **`useMutation` login ✓** (token + `dispatch(login.fulfilled)` → Redux/PrivateRoute/favorites ok) | ☑ |
+| Lun | track-em-all: **`useMutation` register ✓** · avvio favorites (`useMutation` add nello hook, **non ancora `mutate`/UI**) | ☑ |
+| Mar | DDIA cap. 9: **2PC a mano ✓** + **FTC meccanismo** core-idea ✓ (epoch / majority / fencing). Raft carta = opzionale | ☑ |
+| Mer | ripasso: **Pages 3 trap** `@learn-error-simulator` **oppure** Spiega-lead se non fatto lun | ☐ |
+| Gio | ripasso: **RQ `enabled` + staleTime/refetch** `@learn-error-simulator` | ☐ |
+| Ven | track-em-all: **ripaso favorites fulfilled/serializable** + **remove mutation (tu)** · surplus: Mongo | ☐ |
 
-*(Sett. rientro 01–05/09 chiusa: auth core-idea ✓ · Favorites smoke 3/3 ✓ · PR preparata — vedi Fatto di recente.)*
+*(Sett. 07–11 chiusa: Listing+Episode smoke · Lamport+TOB core-idea · auth simulator · `useMutation` login ✓.)*
+
+### Prossima settimana — preview (2026-09-21 → 09-25)
+
+| Giorno | Piano (1 riga) |
+|--------|----------------|
+| Lun | track-em-all: remove favorites (se non chiuso Ven) / Open Graph |
+| Mar | **DDIA cap. 10** — inizio (nuovo) |
+| Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` (filo intero + 3 punti lin.) |
+| Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** `@learn-error-simulator` |
+| Ven | track-em-all o Mongo surplus |
+
+Dopo mer+gio 21–25 il cap. 9 è chiuso da studio. Wiki TOB/source = coda, non blocco.
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-*Prossima Gio (sett. 07–11 set) o surplus.*
+*Mer/Gio sett. 14–18.*
 
-### 1. DDIA — Lamport timestamps + Total order broadcast (esempi concreti)
-
-| | |
-|---|---|
-| **Hook** | *Note a mano 08/09 digitate ma **non ancora chiare in pratica**. Lamport: come si aggiorna il counter (max+1), cosa garantisce (causalità) e cosa **non** decide (es. due username uguali in concorrenza). TOB: le 2 props (no loss + same order), perché è “come un log”, come si implementa tipicamente (leader che sequenzia / consensus), vs Lamport. Serve **esempi concreti** + eventuale micro-schema, non solo definizioni.* |
-| **Skill** | `@learn-core-idea-first` (Lamport, poi TOB) → `@learn-error-simulator` con scenari |
-| **Dove** | `raw/chapter-9.md` § Lamport timestamps · § Total order broadcast |
-| **Bookmark** | **Lamport ✓ 09/09** · **TOB ✓ 10/09** (core-idea). Opzionale: error-simulator corto; poi archiviare da attivo se solidi |
-
-### 2. tracking-ds — GitLab Pages: 3 trap meccanici
+### 1. tracking-ds — GitLab Pages: 3 trap meccanici
 
 | | |
 |---|---|
@@ -109,13 +112,17 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Dove** | `sources/nodejs/raw/gitlab-pages-model.md` · tracking-ds `.gitlab-ci.yml` |
 | **Bookmark** | Simulator 03/08: modello ✓; **da rifare solo i 3 trap** |
 
-### 3. track-em-all — React Query: `enabled` + staleTime/refetch
+### 2. track-em-all — React Query: `enabled` + staleTime/refetch
 
 | | |
 |---|---|
 | **Hook** | *`textInput` = bozza; `searchTerm` = chiave. `enabled: !!searchTerm`. `staleTime` = fresco → no refetch da solo; stesso termine → serve `refetch()`.* |
 | **Skill** | `@learn-error-simulator` |
 | **Dove** | HomePage · `sources/react/raw/react-query-stale-time-and-refetch.md` |
+
+### 3. *(slot libero dopo Pages+RQ; Lamport+TOB core-idea ✓ 09–10/09 → archivio)*
+
+Chiusura cap. 9 **non** questa settimana: **mer/gio 23–24/09** (preview sopra).
 
 ---
 
@@ -180,7 +187,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *Quando la rilettura a mano del cap. 9 è **chiusa** (pagine mancanti + Raft se serve): ripasso **generale** su tutto il capitolo, non pezzo per pezzo isolato. Filo: lin. (def/cost/CAP) → ordering/causality → Lamport → TOB → 2PC → consensus → membership. Scenario misti che intrecciano i concetti.* |
 | **Skill** | `@learn-error-simulator` misto (+ opzionale `Spiega-lead` su un pezzo debole) |
 | **Dove** | `raw/chapter-9.md` intero · filo narrativo in coda al raw |
-| **Bookmark** | **Condizionato a fine cap.** Non schedulare prima. Incorpora: 3 punti deboli lin. (ago) · Lamport/TOB esempi (attivo #3 ora) · 5 gap Membership · blocco 1 già fatto 12/08 non va rifatto da zero, solo richiamo. |
+| **Bookmark** | **Schedulato mer 23/09.** Filo intero. Incorpora 3 punti deboli lin. Non rifare blocco 1 (12/08). |
 
 ### DDIA cap. 9 — ripasso di rinforzo (settembre, post-vacanza)
 
@@ -198,7 +205,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *Ripasso 13/08 pre-vacanza: core-idea ok, ma mancano dettagli critici. **5 punti da rafforzare:** (1) 2PC vs Consensus = scopi diversi (atomic commit vs coordinamento); (2) Fault tolerance: majority quorum vs single coordinator; (3) Feature ZK/etcd (watches, ephemeral nodes, linearizability built-in); (4) Chicken-egg problem (chi coordina Postgres?); (5) ZK/etcd = self-coordinating con consensus interno.* |
 | **Skill** | Rileggi note + `@learn-error-simulator` con domande oggi |
 | **Dove** | `raw/chapter-9.md` — sezioni "Membership and coordination" (318-349) + "Atomic commit / 2PC" (256-298) |
-| **Bookmark** | Ripasso 13/08: concetti alto livello ✓, dettagli tecnici mancanti. **Post-vacanza:** rileggi 10 min + rifare error-simulator |
+| **Bookmark** | **Schedulato gio 24/09.** 5 punti; 1–2 già toccati da FTC 15/09, restano watch/ephemeral/chicken-egg. |
 
 ### DDIA — rinforzo opzionale (già fatti in chat)
 
@@ -216,6 +223,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | fetch: due passaggi, `ok`, HTTP/2 | 2026-08-04 | raw `fetch-two-steps-and-http-errors.md` |
 | CORS / origine / 5 strati | 2026-08-06 | raw `origin-cors-and-the-five-layers.md` |
 | favorites / auth FE vs JWT (PrivateRoute / persist / tea-token) | 2026-09-09 | simulator ✓ (dopo core-idea 03/09) |
+| Lamport + TOB (core-idea) | 2026-09-09 / 10 | raw cap. 9 |
 | favorites / never trust client | 2026-07-22 | — |
 | functional core / imperative shell | 2026-07-23 | — |
 
@@ -225,9 +233,10 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lamport+TOB a mano in raw ✓ ma **poca chiarezza operativa** | **Attivo #3:** esempi Lamport→TOB. Poi pagine mancanti / Raft. **A capitolo chiuso:** ripasso generale (voce in backlog). Rinforzo 3 punti lin. + Membership gaps restano in coda |
-| Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus) |
-| track-em-all | Smoke ✓ · **`useMutation` login ✓** (`login.fulfilled` → Redux) | Prox: register mutation · favorite add/remove mutation · pulire `currentUser` Context se ridondante · Open Graph |
+| DDIA cap. 9 | Lettura/core **chiusa 15/09** | **Chiusura studio:** mer 23/09 generale · gio 24/09 5 gap. Poi archivio. Wiki = coda |
+| DDIA cap. 10 | Non iniziato | **Mar 22/09** — inizio (nuovo) |
+| Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
+| track-em-all | Smoke ✓ · login+register **`useMutation` ✓** · favorites **add ✓** | Prox: ripasso fulfilled/serializable · **remove mutation (tu)** · later `Login.tsx` · Open Graph |
 | tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -236,6 +245,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-09-15** — Track'em All: **favorites add `useMutation` ✓** — `mutate` + `favoriteAdd.fulfilled(payload, requestId, arg)`; payload = `response.data` (no AxiosResponse / serializable); generics thunk; loading da `variables`. **Prox:** ripasso questa parte · remove (tu) · later `Login.tsx`
+- **2026-09-15** — DDIA cap. 9 lettura/core chiusa. **Piano:** cap. **10** mar 22/09; chiusura 9 = mer 23 generale + gio 24 5 gap. Questa sett. resta Pages / RQ / favorites
+- **2026-09-14** — Track'em All: **`useMutation` register ✓** (stesso pattern login: `throw` + `register.fulfilled` + `isPending`). Favorites avviato; chiuso add il 15/09. Spiega-lead → mer 16
 - **2026-09-11** — Track'em All: **`useMutation` login ✓** — `mutationFn: loginUser` + `onSuccess` → `dispatch(login.fulfilled(response))`; token ok; Redux/PrivateRoute/favorites ripristinati. Prox: register / favorites mutation · opz. azione sync `setSession` al posto di fulfilled manuale
 - **2026-09-10** — DDIA **TOB** `@learn-core-idea-first` ✓ (cancelliere: stessi elementi + stesso ordine; arbitraggio concorrenza; username = primo in lista vince). Coppia Lamport+TOB chiusa in core-idea
 - **2026-09-09** — Auth error-simulator ✓ · **Lamport** `@learn-core-idea-first` ✓ (uffici/timbri; max+1; concorrenti incomparabili; username → serve accordo/TOB). **Prox:** TOB core-idea + esempi
@@ -285,4 +297,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo e basso = solo surplus.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-11 — useMutation login ✓ (fulfilled→Redux); prox = register/favorites mutation · sett. 07–11 chiusa sul codice login*
+*Ultimo aggiornamento: 2026-09-15 — favorites **add** mutation ✓ · prox = ripasso fulfilled/serializable + **remove (tu)** · later Login.tsx · Spiega-lead / Pages mer*

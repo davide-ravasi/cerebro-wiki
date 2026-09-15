@@ -25,7 +25,7 @@ source_slug: sources/designing-data-intensive-applications/
 | Chapters | State |
 |----------|--------|
 | 7–8 | Promoted source + concepts + book club |
-| 9 | Partial — lin.+cost+causality+seq+Lamport+TOB a mano ✓ · 2PC ✓ · consensus idea ✓ · Membership ✓; Raft detail TBD |
+| 9 | **A mano chiuso 15/09** — lin.+cost+causality+Lamport+TOB+2PC+FTC meccanismo+Membership core. Wiki source ancora parziale (lin.). Raft carta / 5 gap ZK = surplus. Ripasso generale = sbloccato |
 | 1–6, 10–12 | Not promoted yet |
 
 **Source index:** [[source-ddia-index]]  
@@ -33,6 +33,7 @@ source_slug: sources/designing-data-intensive-applications/
 
 ## Session log (resume hints)
 
+- **2026-09-15** — Cap. 9 **chiuso a mano** (2PC scan + FTC epoch core-idea). Wiki promotion e ripasso generale restano coda, non lettura.
 - **2026-09-08** — A mano: Lamport timestamps + TOB (props/log/async) + intro distributed tx/consensus (~p.32). Rilettura cost→seq fuse nel raw. Next libro: Raft / fine consensus se manca dettaglio.
 - **2026-08-11** — Rilettura a mano pp. 18–23: cost of linearizability (CAP, perf vs fault-tolerance), ordering guarantees, ordering & causality (total vs partial order), sequence number ordering + non-causal generators → raw aggiornato.
 - **2026-08-07** — Linearizability a mano ✓ digitata (cosa rende lin. + when useful: locks/leader→consensus, uniqueness, cross-channel races).

@@ -1,8 +1,8 @@
-# Riassunto capitolo 9: Consistency and Consensus (in corso — rilettura a mano)
+# Riassunto capitolo 9: Consistency and Consensus (rilettura a mano **chiusa** 15/09)
 
 > **Wiki (inglese, promosso):** [[source-ddia-ch-09]] — `../ch-09-consistency-and-consensus.md`  
 > **Concept estratte:** linearizability (promossa); total order broadcast (raw IT, lug 2026 — concept EN a fine cap. 9); causal, Raft TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…11 + **2026-09-08** (cost/ordering/causality/seq · Lamport · TOB a mano · inizio distributed tx/consensus ~p.32)
+> **Provenienza:** lettura cap. 9 + sessioni chat; **rilettura a mano** 2026-08-05…11 + **2026-09-08** (cost→TOB + intro dist. tx) + **2026-09-15** (2PC completo: promises, coordinator failure, practice, locks in doubt — scan ~p.32/52)
 
 ---
 
@@ -301,8 +301,8 @@ Total order broadcast
 
 ## Atomic commit / Two-Phase Commit (2PC)
 
-> **Stato:** quasi chiuso in chat (2026-07-28) + **ripresa a mano 08/09** (~p. 32 — intro consensus + atomic commit + da single-node a distributed).  
-> Letto: intro 2PC → *Distributed transactions in practice* (exactly-once, XA, locks in doubt, recovering coordinator, limitations).
+> **Stato:** chiuso a mano **15/09** (scan) + chat 2026-07-28 + intro 08/09.  
+> Copre: perché serve accordo → 2PC → promises → coordinator failure → practice (internal vs heterogeneous) → locks in doubt / recovery.
 
 ### Consensus — perché compare qui (note 08/09)
 
@@ -332,51 +332,99 @@ Total order broadcast
 2. **Append** di un **commit record** al log
 3. Così può **recuperare** da lì in caso di **crash**
 
-**Se ci sono più nodi:** **non basta** mandare semplicemente una “commit request” a tutti — serve un protocollo (→ **2PC** sotto).
+**Se ci sono più nodi:** **non basta** mandare una “commit request” a tutti, né far commitare **in indipendenza** — i nodi diverrebbero inconsistenti. Serve un protocollo (→ **2PC**).
+
+**Perché un commit “semplice” fallisce su alcuni nodi:** vincoli rifiutati · write perse in rete · crash. Un nodo che ha committato **non può tornare indietro**: il risultato è già **visibile**. Quindi: **commit una sola volta, irrevocabile**.
 
 ### 2PC — le due fasi
 
-1. **Prepare (voting):** coordinatore chiede ai partecipanti “puoi commitare?” → ogni nodo risponde **yes** o **no** (e tiene risorse/lock in attesa).
-2. **Commit / Abort:** se **tutti** yes → coordinatore manda **commit**; altrimenti **abort**. I partecipanti eseguono la decisione.
+Algoritmo per atomic commit **su più nodi**: **tutti commit** **oppure** **tutti abort**. Serve **coordinatore** + **partecipanti**.
 
-### “A system of promises”
+1. **Prepare (voting):** l’app è ready → coordinatore chiede “puoi commitare?” → **yes** o **no**.
+2. **Commit / Abort:** **tutti** yes → commit; **un** no → abort.
 
-- In prepare ogni partecipante **promette**: “se decidi commit, io commito.”
-- Il coordinatore **decide una volta** dopo aver raccolto i voti.
-- I partecipanti **non** possono cambiare idea dopo il yes in prepare.
+### “A system of promises” (flusso, note 15/09)
 
-### Coordinator failure (base)
+1. App chiede un **transaction ID** al coordinatore
+2. App apre una tx **single-node** su ogni partecipante, con quell’ID
+3. Ready to commit → **prepare** ai partecipanti
+4. I partecipanti verificano di **poter** commitare
+5. Il coordinatore raccoglie le risposte e prende la **decisione definitiva** (commit/abort)
+6. La decisione è **scritta su disco**
+7. Poi **invia** commit o abort a tutti
 
-- Coordinatore muore **prima** della decisione → partecipanti **bloccati** in attesa (incertezza).
-- Coordinatore muore **dopo** commit scritto ma prima che tutti lo sappiano → serve recovery / log del coordinatore.
-- Problema noto: 2PC **non** è fault-tolerant al 100% → motivazione per **consensus** (Raft) dopo nel capitolo.
+**Due punti cruciali:**
 
-### Distributed transactions in practice (2026-07-28)
+| Chi | Cosa | Effetto |
+|-----|------|---------|
+| Partecipante vota **yes** | **Promette** che commiterà se il coordinatore decide commit | Non può cambiare idea |
+| Coordinatore **decide** | Decisione **irrevocabile** (dopo il log) | I partecipanti eseguono quella e basta |
+
+### Coordinator failure (note 15/09 — due casi)
+
+| Quando muore il coordinatore | Cosa possono fare i partecipanti |
+|------------------------------|----------------------------------|
+| **Prima** di mandare la prepare / senza aver preso yes | Possono **abortare in sicurezza** (nessuno ha promesso) |
+| **Dopo** che un partecipante ha detto **yes** | **Devono aspettare** — stato **in doubt / uncertain** finché il coordinatore (o un recovery) non torna |
+
+Dopo yes i **lock restano**: nessuna altra tx può modificare quelle righe, finché non arriva commit o abort. Questo è il costo operativo (contesa, latenza), non un dettaglio.
+
+**Recovery:** coordinatore crashato e **riavviato** → rilegge il **log** e risolve le tx in doubt.  
+**Orphan in-doubt:** a volte **non** si risolve da sola → **un admin decide a mano** (tanto lavoro).
+
+2PC **non** è fault-tolerant al 100% (può restare bloccato) → motivazione per **consensus** (Raft) dopo nel capitolo.
+
+### Distributed transactions in practice (chat 07/28 + note 15/09)
+
+**Reputazione mista:** problemi operativi · uccidono la performance · promettono più di quanto consegnano.
+
+| Tipo | Idea |
+|------|------|
+| **DB-internal** | Stesso prodotto/famiglia: protocollo a scelta, ottimizzazioni specifiche della tecnologia. |
+| **Heterogeneous** (es. messaggio + write DB) | Commit atomico tra sistemi **diversi**. Possibile solo se **tutti usano lo stesso protocollo** (in pratica: XA / resource managers). |
 
 | Tema | Idea in una riga |
 |------|------------------|
-| **Exactly-once message processing** | Atomicità messaggio + side effect (es. DB): o entrambi sì o entrambi no — evita “processato due volte” / “perso”. |
-| **XA transactions** | Standard 2PC tra risorse eterogenee (DB, queue, …) via coordinatore XA / resource managers. |
-| **Holding locks while in doubt** | Dopo *prepare* (yes), i lock restano tenuti finché arriva commit/abort — se il coordinatore è in dubbio, **contesa e latenza**. |
-| **Recovering from coordinator failure** | Nuovo coordinatore (o recovery) legge il log: se la decisione era già stata scritta → ripeti commit/abort; altrimenti spesso **abort** o resta bloccato. |
-| **Limitations of distributed transactions** | Costo, disponibilità (blocco in doubt), ops complesse, coupling — non “gratis”; molti sistemi preferiscono alternative (sagas, outbox, consensus ristretto). |
+| **Exactly-once message processing** | Atomicità messaggio + side effect (es. DB): o entrambi sì o entrambi no. |
+| **XA** | Standard 2PC tra risorse eterogenee. |
+| **Limitations** | Costo, disponibilità (blocco in doubt), coupling — alternative: sagas, outbox, consensus *ristretto* (meta-stato, non tutte le tx business). |
 
 > **Attenzione:** 2PC (commit distribuito) ≠ **2PL** (two-phase **locking**, cap. 7 — serializzabilità).
 
 ### Bookmark lettura
 
-- 2PC practice ✓ · Fault-tolerant consensus (idea) ✓ in chat (2026-07-29)
-- Membership & coordination ✓ core-idea (2026-07-30); simulator opzionale; libro: skim se serve dettaglio
+- 2PC + practice **a mano ✓ 15/09** · Fault-tolerant consensus: idea ✓ 29/07 · meccanismo epoch ✓ 15/09
+- Membership & coordination ✓ core-idea (2026-07-30); 5 gap tecnici in backlog ripasso
 
 ---
 
-## Fault-tolerant consensus (idea — chat 2026-07-29)
+## Fault-tolerant consensus (idea 29/07 + meccanismo 15/09, core-idea)
 
-> **Stato:** compreso in chat (core-idea + error-simulator vs 2PC). Dettaglio Raft/epoch nel libro ancora da leggere/skimmare.
+> **Stato:** idea vs 2PC ✓ chat 29/07. **Meccanismo (epoch / majority / fencing)** ✓ core-idea 15/09 **senza** rilettura Raft pagina per pagina. Dettaglio algoritmo (match log, election timeout) resta opzionale.
 
 ### Idea chiave
 
 Se resta una **maggioranza**, il sistema può **continuare a decidere** (termination). Due sottoinsiemi che decidono devono **sovrapporsi** → niente decisioni divergenti. 2PC può **bloccarsi** senza coordinatore; consensus no (finché c’è majority).
+
+### Meccanismo (analogia → termini)
+
+| Ristorante (15/09) | Nel sistema |
+|--------------------|-------------|
+| Foglio turno **numerato** (17, poi 18) | **Epoch / term / generation / ballot** |
+| Più della metà dello staff deve firmare lo stesso capo | **Quorum di maggioranza** (due quorum si **intersecano**) |
+| Capo 17 che rientra: il forno guarda il numero e ignora | **Fencing**: comandi con epoch **stale** rifiutati |
+| Non aspetti il 17 per sempre: eleggi il 18 | **Leader election** su un termine nuovo |
+
+**Vs 2PC:** dopo un *yes* sei **in doubt** finché *quel* coordinatore (o un umano) torna. Qui, se il capo sparisce, una majority **sceglie un capo nuovo** con numero **più alto**; il vecchio non “sovrascrive” perché i follower (e il log) accettano solo l’epoch corrente.
+
+**Log / TOB:** il capo attuale propone voci in **un** ordine; la majority le **accetta**. Tutti i sopravvissuti vedono la **stessa sequenza** → è il modo usuale di **implementare total order broadcast** (e poi linearizability su un registro). Non è un DB per tutte le tx business: è piccolo, critico (meta-stato, ordine delle ops).
+
+**Cosa non è:** 3PC non “sistema” il blocco di 2PC in rete asincrona. FLP: in async puro con anche un crash, il consensus deterministico **non** è sempre possibile — in pratica si usano **timeout** (ipotesi di rete “abbastanza” sincrona).
+
+### Bookmark
+
+- Core-idea meccanismo ✓ 15/09 (3 gate: nuovo numero; majority/overlap; ignore stale)
+- Libro Raft passo-passo: solo se vuoi i dettagli (heartbeat, log matching)
 
 ---
 
@@ -419,8 +467,8 @@ Tanti team → un solo centralino per “chi è di turno”, “quale foglio reg
 - [x] Causal consistency / ordering & causality — note a mano ✓ (11/08 + 08/09)
 - [x] Lamport timestamps — note a mano ✓ 08/09
 - [x] Total order broadcast — chat lug 2026 + **note a mano 08/09**; promuovere concept EN a fine cap. 9
-- [x] Atomic commit / **2PC + practice** — letto 2026-07-28; ripasso Mer 2026-07-29 ✓; intro a mano ripresa 08/09 (~p.32)
-- [~] **Fault-Tolerant Consensus** — idea ✓ chat; dettaglio Raft/Paxos nel libro TBD
+- [x] Atomic commit / **2PC + practice** — a mano ✓ **15/09** (promises, in-doubt, internal vs heterogeneous)
+- [x] **Fault-Tolerant Consensus** — idea ✓ 29/07 · **meccanismo epoch/majority/fencing ✓ 15/09** (core-idea; Raft carta opzionale)
 - [x] **Membership and coordination** — core-idea ✓ 2026-07-30; simulator / skim libro opzionale
 - [x] CAP / tradeoff con disponibilità — note a mano ✓ (cost of lin., 11/08 + 08/09)
 
@@ -439,7 +487,7 @@ Cap. 7 serializability (transazioni)
   → sequence numbers → Lamport (causale ma non basta)
   → total order broadcast (log unico; props: no loss + same order)
   → atomic commit / 2PC (+ practice ✓)
-  → Fault-Tolerant Consensus (idea ✓; dettaglio libro TBD)
+  → Fault-Tolerant Consensus (idea ✓ 29/07 · meccanismo epoch ✓ 15/09)
   → Membership & coordination (ZK/etcd) ✓ core-idea
 ```
 
