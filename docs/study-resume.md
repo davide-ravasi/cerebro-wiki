@@ -16,7 +16,7 @@
 | **Mar** | ~1 h | **2×25** | **DDIA** — nuovo (leggi / core-idea) |
 | **Mer** | ~30 min | **1×25** | **Ripasso** con Cursor (`@learn-error-simulator`) |
 | **Gio** | ~30 min | **1×25** | **Ripasso** con Cursor (altro tema o stesso se debole) |
-| **Ven** | ~1 h | **2×25** | **Mongo** corto **oppure** track-em-all |
+| **Ven** | ~1 h | **2×25** | **Mongo** corto **oppure** track-em-all **oppure** lab agenti (1 pomodoro) — **mai due deep** |
 
 **Pause:** 5 min tra pomodori; dopo 2 pomodori puoi fermarti (hai fatto l’ora).
 
@@ -73,62 +73,40 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-09-14 → 09-18)*
+*(settimana 2026-09-21 → 09-25)*
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: **`useMutation` register ✓** · avvio favorites (`useMutation` add nello hook, **non ancora `mutate`/UI**) | ☑ |
-| Mar | DDIA cap. 9: **2PC a mano ✓** + **FTC meccanismo** core-idea ✓ (epoch / majority / fencing). Raft carta = opzionale | ☑ |
-| Mer | ripasso: **Pages 3 trap** `@learn-error-simulator` **oppure** Spiega-lead se non fatto lun | ☐ |
-| Gio | ripasso: **RQ `enabled` + staleTime/refetch** `@learn-error-simulator` | ☐ |
-| Ven | track-em-all: **ripaso favorites fulfilled/serializable** + **remove mutation (tu)** · surplus: Mongo | ☐ |
+| Lun | track-em-all: **favorites add/remove `useMutation` ✓** mergiato **#130** | ☑ |
+| Mar | **DDIA cap. 10** inizio ✓ · surplus track: **`Login.tsx` ✓** PR **#131** (pipeline → merge) | ☑ |
+| Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` | ☐ |
+| Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** | ☐ |
+| Ven | **Lab agenti** 1×25 (Cursor SDK local — utile lavoro) **oppure** track leggero / Mongo — **mai entrambi deep**; se Mar–Gio pesanti → skip lab | ☐ |
 
-*(Sett. 07–11 chiusa: Listing+Episode smoke · Lamport+TOB core-idea · auth simulator · `useMutation` login ✓.)*
-
-### Prossima settimana — preview (2026-09-21 → 09-25)
-
-| Giorno | Piano (1 riga) |
-|--------|----------------|
-| Lun | track-em-all: remove favorites (se non chiuso Ven) / Open Graph |
-| Mar | **DDIA cap. 10** — inizio (nuovo) |
-| Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` (filo intero + 3 punti lin.) |
-| Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** `@learn-error-simulator` |
-| Ven | track-em-all o Mongo surplus |
-
-Dopo mer+gio 21–25 il cap. 9 è chiuso da studio. Wiki TOB/source = coda, non blocco.
+*(Sett. 14–18: register ✓ · 2PC+FTC ✓ · Pages 3 trap ✓ · RQ enabled/stale ✓ · favorites add ✓. Sett. 21: remove + merge #130.)*
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-*Mer/Gio sett. 14–18.*
+*Mer/Gio sett. 14–18: Pages ✓ · RQ ✓. Slot liberi fino a chiusura cap. 9 (23–24/09).*
 
-### 1. tracking-ds — GitLab Pages: 3 trap meccanici
-
-| | |
-|---|---|
-| **Hook** | *Modello Pages ok; rinforza: `mkdir -p` non azzera · artefatti stage precedenti arrivano da soli · deploy = snapshot che **sostituisce** (non accumula).* |
-| **Skill** | `@learn-error-simulator` |
-| **Dove** | `sources/nodejs/raw/gitlab-pages-model.md` · tracking-ds `.gitlab-ci.yml` |
-| **Bookmark** | Simulator 03/08: modello ✓; **da rifare solo i 3 trap** |
-
-### 2. track-em-all — React Query: `enabled` + staleTime/refetch
-
-| | |
-|---|---|
-| **Hook** | *`textInput` = bozza; `searchTerm` = chiave. `enabled: !!searchTerm`. `staleTime` = fresco → no refetch da solo; stesso termine → serve `refetch()`.* |
-| **Skill** | `@learn-error-simulator` |
-| **Dove** | HomePage · `sources/react/raw/react-query-stale-time-and-refetch.md` |
-
-### 3. *(slot libero dopo Pages+RQ; Lamport+TOB core-idea ✓ 09–10/09 → archivio)*
-
-Chiusura cap. 9 **non** questa settimana: **mer/gio 23–24/09** (preview sopra).
+### 1–3. *(liberi — chiusura DDIA 9 mer/gio prossima sett.)*
 
 ---
 
 ## Backlog ripasso
 
 *Coda: promuovi in «Da ripassare» quando serve.*
+
+### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
+
+| | |
+|---|---|
+| **Hook** | *`createAsyncThunk<A,B,C>`: **A** = payload successo · **B** = arg (senza B → spesso `void`) · **C** = `rejectValue`. Dispatch manuale: `.fulfilled(payload, requestId, arg)`. Payload = form unica (service `response.data` ≡ reducer `action.payload`, no Axios). `variables` mutation ≠ payload.* |
+| **Skill** | `@learn-core-idea-first` **poi** `@learn-error-simulator` (payload vs arg vs rejectValue) |
+| **Dove** | `authSlice.tsx` · `Login.tsx` · `UseFavorite.tsx` · chat 22/09 (login TS) |
+| **Bookmark** | Pratica fatta su login/favorites; **da rispiegare** quando c’è slot Mer/Gio libero (dopo chiusura cap. 9) |
 
 ### tracking-ds — Derivare invece di ricalcolare (+ lo zero falsy)
 
@@ -223,6 +201,8 @@ Chiusura cap. 9 **non** questa settimana: **mer/gio 23–24/09** (preview sopra)
 | fetch: due passaggi, `ok`, HTTP/2 | 2026-08-04 | raw `fetch-two-steps-and-http-errors.md` |
 | CORS / origine / 5 strati | 2026-08-06 | raw `origin-cors-and-the-five-layers.md` |
 | favorites / auth FE vs JWT (PrivateRoute / persist / tea-token) | 2026-09-09 | simulator ✓ (dopo core-idea 03/09) |
+| Pages 3 trap | 2026-09-16 | raw gitlab-pages-model |
+| RQ enabled + staleTime/refetch | 2026-09-17 | HomePage · raw react-query-stale-time |
 | Lamport + TOB (core-idea) | 2026-09-09 / 10 | raw cap. 9 |
 | favorites / never trust client | 2026-07-22 | — |
 | functional core / imperative shell | 2026-07-23 | — |
@@ -234,10 +214,11 @@ Chiusura cap. 9 **non** questa settimana: **mer/gio 23–24/09** (preview sopra)
 | Tema | Stato | Prossimo |
 |------|--------|----------|
 | DDIA cap. 9 | Lettura/core **chiusa 15/09** | **Chiusura studio:** mer 23/09 generale · gio 24/09 5 gap. Poi archivio. Wiki = coda |
-| DDIA cap. 10 | Non iniziato | **Mar 22/09** — inizio (nuovo) |
+| DDIA cap. 10 | Raw aperto · **~pp. 1–6 / ~40** (22/09) | Prox Mar: continuare a mano → digitare intro/Unix in `raw/chapter-10.md` |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | Smoke ✓ · login+register **`useMutation` ✓** · favorites **add ✓** | Prox: ripasso fulfilled/serializable · **remove mutation (tu)** · later `Login.tsx` · Open Graph |
-| tracking-ds | P0 lavoro | ripasso Pages trap (attivo #1) |
+| track-em-all | Smoke ✓ · mutations #128–#130 · **`Login.tsx` PR #131** | Prox: merge #131 · Register.tsx · Open Graph · ripasso RTK+TS (backlog) |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Udemy posseduto = vocabolario | **Ven 26/09:** lab Cursor SDK **local** 1 pomodoro (task concreto). Poi cloud. Max 1 deep/settimana. Mar–Gio pesanti → skip |
+| tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
 
@@ -245,8 +226,13 @@ Chiusura cap. 9 **non** questa settimana: **mer/gio 23–24/09** (preview sopra)
 
 ## Fatto di recente
 
-- **2026-09-15** — Track'em All: **favorites add `useMutation` ✓** — `mutate` + `favoriteAdd.fulfilled(payload, requestId, arg)`; payload = `response.data` (no AxiosResponse / serializable); generics thunk; loading da `variables`. **Prox:** ripasso questa parte · remove (tu) · later `Login.tsx`
-- **2026-09-15** — DDIA cap. 9 lettura/core chiusa. **Piano:** cap. **10** mar 22/09; chiusura 9 = mer 23 generale + gio 24 5 gap. Questa sett. resta Pages / RQ / favorites
+- **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
+- **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
+- **2026-09-22** — Track'em All: **`Login.tsx` ✓** PR **#131** (test UI ok) — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
+- **2026-09-21** — Track'em All: **favorites add/remove `useMutation` mergiato #130** — pair chiuso (`response.data` · `.fulfilled(payload, requestId, arg)` · loading `variables`). Prox track: Open Graph · later `Login.tsx`
+- **2026-09-17** — RQ **enabled + staleTime** simulator ✓ (`textInput`≠fetch · fresh per-key · ritorno a termine già cercato = cache hit; staleTime = **5 min** non 30)
+- **2026-09-16** — Pages **3 trap** simulator ✓ (snapshot sostituisce · artifact stage prec. arrivano da soli · `mkdir -p` non azzera). Spiega-lead ancora aperto
+- **2026-09-15** — Track'em All: **favorites add `useMutation` ✓** · DDIA cap. 9 lettura/core chiusa (cap. 10 dal 22/09; chiusura 9 = 23–24/09)
 - **2026-09-14** — Track'em All: **`useMutation` register ✓** (stesso pattern login: `throw` + `register.fulfilled` + `isPending`). Favorites avviato; chiuso add il 15/09. Spiega-lead → mer 16
 - **2026-09-11** — Track'em All: **`useMutation` login ✓** — `mutationFn: loginUser` + `onSuccess` → `dispatch(login.fulfilled(response))`; token ok; Redux/PrivateRoute/favorites ripristinati. Prox: register / favorites mutation · opz. azione sync `setSession` al posto di fulfilled manuale
 - **2026-09-10** — DDIA **TOB** `@learn-core-idea-first` ✓ (cancelliere: stessi elementi + stesso ordine; arbitraggio concorrenza; username = primo in lista vince). Coppia Lamport+TOB chiusa in core-idea
@@ -294,7 +280,7 @@ Chiusura cap. 9 **non** questa settimana: **mer/gio 23–24/09** (preview sopra)
 2. **1 obiettivo per sessione** (anche con 2 pomodori).
 3. Mer/Gio = solo ripasso da «Da ripassare» (non dal backlog intero).
 4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
-5. **Non-core:** Mongo e basso = solo surplus.
+5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-15 — favorites **add** mutation ✓ · prox = ripasso fulfilled/serializable + **remove (tu)** · later Login.tsx · Spiega-lead / Pages mer*
+*Ultimo aggiornamento: 2026-09-22 — Login.tsx **#131** in review · ripasso RTK+TS in backlog · Mer = chiusura cap. 9*

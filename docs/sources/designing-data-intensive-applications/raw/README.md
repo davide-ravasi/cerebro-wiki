@@ -15,12 +15,13 @@ Schema: [`docs/templates/raw-chapter-note.md`](../../../templates/raw-chapter-no
 |---------|-----------|
 | [`chapter-7.md`](chapter-7.md) | Raw completo + book club (transazioni, isolamento) |
 | [`chapter-8.md`](chapter-8.md) | Raw completo + book club |
-| [`chapter-9.md`](chapter-9.md) | Raw parziale (chat + lettura) → **prossima:** rilettura completa + note a mano stile ch.8 |
+| [`chapter-9.md`](chapter-9.md) | Raw chiuso a mano 15/09 (lin.→Membership); chiusura studio mer/gio 23–24/09 |
+| [`chapter-10.md`](chapter-10.md) | **In corso** — Batch and Stream Processing (inizio 22/09) |
 | [`chapter-4.md`](chapter-4.md) | Book club (encoding, compatibility) |
 
 Indice book club (link condivisibili): [`../book-club/README.md`](../book-club/README.md)
 
-Files: `chapter-1.md` … `chapter-9.md` (e altri man mano).
+Files: `chapter-1.md` … `chapter-10.md` (e altri man mano).
 
 ## Book club (Discord)
 

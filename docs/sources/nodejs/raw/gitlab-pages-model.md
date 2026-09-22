@@ -122,3 +122,42 @@ risultati. Verificato il 30/07 su `ds-tracker`: nessuna variabile CI e nessuno s
 3. Ogni deploy **sostituisce** tutto: per cambiare un file, ri-produci tutti i file.
 4. La `rules` sul branch di default è obbligatoria — e un typo lì non dà errore, dà silenzio.
 5. URL non indovinabile (domini unici = origine separata) → `$CI_PAGES_URL`. Il link `/-/jobs/.../artifacts/` non è il sito.
+
+---
+
+## Tutorial — i 3 trap (errori del 16/09)
+
+Riletto dopo il simulatore. Ogni pezzo: cosa credevi → cosa fa GitLab → analogia → come verificarlo.
+
+### 1. Il sito nuovo non si somma a quello vecchio
+
+**Cosa è andato storto.** Job `pages` mette in `public/` solo `latest.json`. Pensavi: la home di settimana scorsa resta, magari con dati vecchi.
+
+**Cosa fa Pages.** Ogni run del job `pages` pubblica **un artifact intero** e quello **diventa** il sito. Il precedente viene **buttato**, non fuso. Se nell’artifact manca `index.html`, la home **non** la pesca dal deploy vecchio → 404 / sito spezzato.
+
+**Analogia.** Non è un cassetto in cui aggiungi un foglio. È una **foto che sostituisce l’album**: se oggi scatti solo il json, le altre pagine non sono “ancora nell’album”.
+
+**Check.** “Per togliere un file dal sito, basta non metterlo nel **nuovo** `public/`.” Se i deploy si accumulassero, non avresti modo di cancellare. Quindi **devono** rimpiazzare.
+
+**Cosa fare.** Ogni `pages` ricostruisce **tutto** `public/` (come fa tracking-ds: copia l’intera `dashboard/`, non un file solo).
+
+### 2. Gli artifact dello stage prima arrivano da soli
+
+**Cosa è andato storto.** Due job in fila (`scan` poi `pages`). `pages` non fa `cp` di `metrics.json`. Pensavi: la cartella di `pages` è vuota da quel file, perché “è `pages` che copia da dashboard a public”.
+
+**Cosa fa GitLab.** I job **non** condividono il disco (a fine job la macchina muore). Per questo esistono gli artifact: file zippati e **scaricati di default** nel job dello **stage successivo**. Senza `needs` speciale, senza `cp` tuo. (`needs: [tests]` in tracking-ds è un altro discorso: *ordine/gate*, non “non scaricare niente”.)
+
+**Analogia.** Turno 1 lascia un **pacco in magazzino**. Turno 2 trova il pacco già in sala, anche se non è andato in magazzino a prenderlo. Non è lo stesso tavolo: è il magazzino GitLab.
+
+**Check.** All’inizio di `pages`, un `ls` può mostrare file che **non** hai copiato nello `script:`. Quelli sono artifact dello stage prima.
+
+### 3. `mkdir -p` non svuota
+
+**Cosa è andato storto.** `public/` c’è già (file vecchi arrivati al punto 2). Fai `mkdir -p public` e `cp latest.json public/`. Pensavi: cartella pulita, solo latest.
+
+**Cosa fa `mkdir -p`.** “Crea la catena di cartelle **se manca**.” Se `public/` **esiste**, non tocca i file dentro. Risultato: `index.html` vecchio **+** `latest.json`.
+
+**Analogia.** “Apri il cassetto se non c’è.” Se il cassetto c’è già pieno, non lo svuoti: ci metti un altro foglio.
+
+**Cosa fare se vuoi pulito.** `rm -rf public && mkdir -p public` (o ricostruire `public/` da zero copiando l’albero giusto, come la dashboard). Poi ricorda il punto 1: quello che resta in `public/` **è** il sito intero.
+
