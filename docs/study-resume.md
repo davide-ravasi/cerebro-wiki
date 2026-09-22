@@ -78,7 +78,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | track-em-all: **favorites add/remove `useMutation` ✓** mergiato **#130** | ☑ |
-| Mar | **DDIA cap. 10** inizio ✓ · surplus track: **`Login.tsx` ✓** PR **#131** (pipeline → merge) | ☑ |
+| Mar | **DDIA cap. 10** inizio ✓ · surplus track: **`Login.tsx` mergiato #131** | ☑ |
 | Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` | ☐ |
 | Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** | ☐ |
 | Ven | **Lab agenti** 1×25 (Cursor SDK local — utile lavoro) **oppure** track leggero / Mongo — **mai entrambi deep**; se Mar–Gio pesanti → skip lab | ☐ |
@@ -216,7 +216,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | DDIA cap. 9 | Lettura/core **chiusa 15/09** | **Chiusura studio:** mer 23/09 generale · gio 24/09 5 gap. Poi archivio. Wiki = coda |
 | DDIA cap. 10 | Raw aperto · **~pp. 1–6 / ~40** (22/09) | Prox Mar: continuare a mano → digitare intro/Unix in `raw/chapter-10.md` |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | Smoke ✓ · mutations #128–#130 · **`Login.tsx` PR #131** | Prox: merge #131 · Register.tsx · Open Graph · ripasso RTK+TS (backlog) |
+| track-em-all | Smoke ✓ · mutations #128–#130 · **`Login.tsx` #131 ✓** | Prox: Register.tsx · Open Graph · ripasso RTK+TS (backlog) |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Udemy posseduto = vocabolario | **Ven 26/09:** lab Cursor SDK **local** 1 pomodoro (task concreto). Poi cloud. Max 1 deep/settimana. Mar–Gio pesanti → skip |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
@@ -228,7 +228,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 - **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
 - **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
-- **2026-09-22** — Track'em All: **`Login.tsx` ✓** PR **#131** (test UI ok) — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
+- **2026-09-22** — Track'em All: **`Login.tsx` mergiato #131** — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
 - **2026-09-21** — Track'em All: **favorites add/remove `useMutation` mergiato #130** — pair chiuso (`response.data` · `.fulfilled(payload, requestId, arg)` · loading `variables`). Prox track: Open Graph · later `Login.tsx`
 - **2026-09-17** — RQ **enabled + staleTime** simulator ✓ (`textInput`≠fetch · fresh per-key · ritorno a termine già cercato = cache hit; staleTime = **5 min** non 30)
 - **2026-09-16** — Pages **3 trap** simulator ✓ (snapshot sostituisce · artifact stage prec. arrivano da soli · `mkdir -p` non azzera). Spiega-lead ancora aperto
@@ -283,4 +283,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-22 — Login.tsx **#131** in review · ripasso RTK+TS in backlog · Mer = chiusura cap. 9*
+*Ultimo aggiornamento: 2026-09-22 — Login.tsx **#131** su main · ripasso RTK+TS in backlog · Mer = chiusura cap. 9*
