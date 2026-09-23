@@ -79,11 +79,23 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track-em-all: **favorites add/remove `useMutation` ✓** mergiato **#130** | ☑ |
 | Mar | **DDIA cap. 10** inizio ✓ · surplus track: **`Login.tsx` mergiato #131** | ☑ |
-| Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` | ☐ |
+| Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` ✓ (lin. path lettura · CAP≠quorum magic · seq≠TOB / wait causale) | ☑ |
 | Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** | ☐ |
 | Ven | **Lab agenti** 1×25 (Cursor SDK local — utile lavoro) **oppure** track leggero / Mongo — **mai entrambi deep**; se Mar–Gio pesanti → skip lab | ☐ |
 
 *(Sett. 14–18: register ✓ · 2PC+FTC ✓ · Pages 3 trap ✓ · RQ enabled/stale ✓ · favorites add ✓. Sett. 21: remove + merge #130.)*
+
+### Prossima settimana — preview (2026-09-28 → 10-02)
+
+| Giorno | Piano (1 riga) |
+|--------|----------------|
+| Lun | track-em-all (Register / Open Graph) |
+| Mar | **DDIA cap. 10** — continuare (~pp. 7+) |
+| Mer | **DDIA cap. 9 — 2° ripasso generale** `@learn-error-simulator` (superfici nuove: 2PC vs FTC · Lamport vs TOB · membership) |
+| Gio | ripasso libero (RTK+TS **oppure** Spiega-lead) |
+| Ven | lab agenti 1×25 **oppure** track — XOR |
+
+Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in doppio passaggio.
 
 ---
 
@@ -165,7 +177,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *Quando la rilettura a mano del cap. 9 è **chiusa** (pagine mancanti + Raft se serve): ripasso **generale** su tutto il capitolo, non pezzo per pezzo isolato. Filo: lin. (def/cost/CAP) → ordering/causality → Lamport → TOB → 2PC → consensus → membership. Scenario misti che intrecciano i concetti.* |
 | **Skill** | `@learn-error-simulator` misto (+ opzionale `Spiega-lead` su un pezzo debole) |
 | **Dove** | `raw/chapter-9.md` intero · filo narrativo in coda al raw |
-| **Bookmark** | **Schedulato mer 23/09.** Filo intero. Incorpora 3 punti deboli lin. Non rifare blocco 1 (12/08). |
+| **Bookmark** | **1° fatto mer 23/09** ✓. **2° schedulato mer 30/09** — superfici diverse (non rifare gli stessi 3 scenari). Poi archiviare. |
 
 ### DDIA cap. 9 — ripasso di rinforzo (settembre, post-vacanza)
 
@@ -203,6 +215,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | favorites / auth FE vs JWT (PrivateRoute / persist / tea-token) | 2026-09-09 | simulator ✓ (dopo core-idea 03/09) |
 | Pages 3 trap | 2026-09-16 | raw gitlab-pages-model |
 | RQ enabled + staleTime/refetch | 2026-09-17 | HomePage · raw react-query-stale-time |
+| DDIA cap. 9 ripasso generale (filo misto) | 2026-09-23 | simulator ✓ |
 | Lamport + TOB (core-idea) | 2026-09-09 / 10 | raw cap. 9 |
 | favorites / never trust client | 2026-07-22 | — |
 | functional core / imperative shell | 2026-07-23 | — |
@@ -213,7 +226,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lettura/core **chiusa 15/09** | **Chiusura studio:** mer 23/09 generale · gio 24/09 5 gap. Poi archivio. Wiki = coda |
+| DDIA cap. 9 | Lettura ✓ · generale **1/2** ✓ 23/09 | **Gio 24:** 5 gap ZK · **Mer 30:** 2° generale. Poi archivio |
 | DDIA cap. 10 | Raw aperto · **~pp. 1–6 / ~40** (22/09) | Prox Mar: continuare a mano → digitare intro/Unix in `raw/chapter-10.md` |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | Smoke ✓ · mutations #128–#130 · **`Login.tsx` #131 ✓** | Prox: Register.tsx · Open Graph · ripasso RTK+TS (backlog) |
@@ -226,6 +239,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-09-23** — DDIA cap. 9 **ripasso generale** ✓ (lin.: path lettura≠“esiste da qualche parte” · CAP: quorum≠C+A in partizione · cost lin.≈perf · seq number = wait causale ≠ TOB). Prox: gio 5 gap ZK
 - **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
 - **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
 - **2026-09-22** — Track'em All: **`Login.tsx` mergiato #131** — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
@@ -283,4 +297,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno.
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-22 — Login.tsx **#131** su main · ripasso RTK+TS in backlog · Mer = chiusura cap. 9*
+*Ultimo aggiornamento: 2026-09-23 — ripasso generale cap. 9 ✓ · Gio = 5 gap · 2° generale = mer 30/09*
