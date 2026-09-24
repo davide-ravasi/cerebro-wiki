@@ -80,7 +80,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Lun | track-em-all: **favorites add/remove `useMutation` ✓** mergiato **#130** | ☑ |
 | Mar | **DDIA cap. 10** inizio ✓ · surplus track: **`Login.tsx` mergiato #131** | ☑ |
 | Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` ✓ (lin. path lettura · CAP≠quorum magic · seq≠TOB / wait causale) | ☑ |
-| Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** | ☐ |
+| Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** ✓ (2PC≠ZK · quorum vs coord · ephemeral/watch · chicken-egg · ZK self-consensus) | ☑ |
 | Ven | **Lab agenti** 1×25 (Cursor SDK local — utile lavoro) **oppure** track leggero / Mongo — **mai entrambi deep**; se Mar–Gio pesanti → skip lab | ☐ |
 
 *(Sett. 14–18: register ✓ · 2PC+FTC ✓ · Pages 3 trap ✓ · RQ enabled/stale ✓ · favorites add ✓. Sett. 21: remove + merge #130.)*
@@ -195,7 +195,7 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 | **Hook** | *Ripasso 13/08 pre-vacanza: core-idea ok, ma mancano dettagli critici. **5 punti da rafforzare:** (1) 2PC vs Consensus = scopi diversi (atomic commit vs coordinamento); (2) Fault tolerance: majority quorum vs single coordinator; (3) Feature ZK/etcd (watches, ephemeral nodes, linearizability built-in); (4) Chicken-egg problem (chi coordina Postgres?); (5) ZK/etcd = self-coordinating con consensus interno.* |
 | **Skill** | Rileggi note + `@learn-error-simulator` con domande oggi |
 | **Dove** | `raw/chapter-9.md` — sezioni "Membership and coordination" (318-349) + "Atomic commit / 2PC" (256-298) |
-| **Bookmark** | **Schedulato gio 24/09.** 5 punti; 1–2 già toccati da FTC 15/09, restano watch/ephemeral/chicken-egg. |
+| **Bookmark** | **Chiuso gio 24/09** `@learn-error-simulator` ✓. Archiviabile dopo 2° generale (Mer 30). |
 
 ### DDIA — rinforzo opzionale (già fatti in chat)
 
@@ -216,6 +216,7 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 | Pages 3 trap | 2026-09-16 | raw gitlab-pages-model |
 | RQ enabled + staleTime/refetch | 2026-09-17 | HomePage · raw react-query-stale-time |
 | DDIA cap. 9 ripasso generale (filo misto) | 2026-09-23 | simulator ✓ |
+| DDIA Membership/ZK 5 gap | 2026-09-24 | simulator ✓ |
 | Lamport + TOB (core-idea) | 2026-09-09 / 10 | raw cap. 9 |
 | favorites / never trust client | 2026-07-22 | — |
 | functional core / imperative shell | 2026-07-23 | — |
@@ -226,7 +227,7 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lettura ✓ · generale **1/2** ✓ 23/09 | **Gio 24:** 5 gap ZK · **Mer 30:** 2° generale. Poi archivio |
+| DDIA cap. 9 | Lettura ✓ · generale **1/2** ✓ 23/09 · **5 gap ZK ✓ 24/09** | **Mer 30:** 2° generale. Poi archivio |
 | DDIA cap. 10 | Raw aperto · **~pp. 1–6 / ~40** (22/09) | Prox Mar: continuare a mano → digitare intro/Unix in `raw/chapter-10.md` |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | Smoke ✓ · mutations #128–#130 · **`Login.tsx` #131 ✓** | Prox: Register.tsx · Open Graph · ripasso RTK+TS (backlog) |
@@ -239,7 +240,8 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 
 ## Fatto di recente
 
-- **2026-09-23** — DDIA cap. 9 **ripasso generale** ✓ (lin.: path lettura≠“esiste da qualche parte” · CAP: quorum≠C+A in partizione · cost lin.≈perf · seq number = wait causale ≠ TOB). Prox: gio 5 gap ZK
+- **2026-09-24** — DDIA Membership/ZK **5 gap** ✓ (2PC=atomic commit risorse · quorum/rielezione ≠ 2PC bloccante · ephemeral+watch · chicken-egg → caso base self-consensus · ZK log+maggioranza). Prox: **Mer 30** 2° generale
+- **2026-09-23** — DDIA cap. 9 **ripasso generale** ✓ (lin.: path lettura≠“esiste da qualche parte” · CAP: quorum≠C+A in partizione · cost lin.≈perf · seq number = wait causale ≠ TOB)
 - **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
 - **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
 - **2026-09-22** — Track'em All: **`Login.tsx` mergiato #131** — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
