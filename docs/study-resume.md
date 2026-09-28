@@ -81,7 +81,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Mar | **DDIA cap. 10** inizio ✓ · surplus track: **`Login.tsx` mergiato #131** | ☑ |
 | Mer | **Chiusura cap. 9:** ripasso generale `@learn-error-simulator` ✓ (lin. path lettura · CAP≠quorum magic · seq≠TOB / wait causale) | ☑ |
 | Gio | **Chiusura cap. 9:** Membership/ZK **5 gap** ✓ (2PC≠ZK · quorum vs coord · ephemeral/watch · chicken-egg · ZK self-consensus) | ☑ |
-| Ven | **Lab agenti** 1×25 (Cursor SDK local — utile lavoro) **oppure** track leggero / Mongo — **mai entrambi deep**; se Mar–Gio pesanti → skip lab | ☐ |
+| Ven | **Lab agenti** Cursor SDK local ✓ (`ai-lab` · `Agent.prompt` one-shot · cwd `playground`) | ☑ |
 
 *(Sett. 14–18: register ✓ · 2PC+FTC ✓ · Pages 3 trap ✓ · RQ enabled/stale ✓ · favorites add ✓. Sett. 21: remove + merge #130.)*
 
@@ -93,7 +93,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Mar | **DDIA cap. 10** — continuare (~pp. 7+) |
 | Mer | **DDIA cap. 9 — 2° ripasso generale** `@learn-error-simulator` (superfici nuove: 2PC vs FTC · Lamport vs TOB · membership) |
 | Gio | ripasso libero (RTK+TS **oppure** Spiega-lead) |
-| Ven | lab agenti 1×25 **oppure** track — XOR |
+| Ven | lab agenti **#2** (`create`+`send`) **oppure** track — XOR |
 
 Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in doppio passaggio.
 
@@ -231,7 +231,7 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 | DDIA cap. 10 | Raw aperto · **~pp. 1–6 / ~40** (22/09) | Prox Mar: continuare a mano → digitare intro/Unix in `raw/chapter-10.md` |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | Smoke ✓ · mutations #128–#130 · **`Login.tsx` #131 ✓** | Prox: Register.tsx · Open Graph · ripasso RTK+TS (backlog) |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Udemy posseduto = vocabolario | **Ven 26/09:** lab Cursor SDK **local** 1 pomodoro (task concreto). Poi cloud. Max 1 deep/settimana. Mar–Gio pesanti → skip |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b** ✓ 25/09 | **Prox Ven: lab #2** `create`+`send` · poi #3 errori · #4 repo reale · #5 cloud. Programma: `docs/sources/ai-agents/README.md` · [[map-agents-lab]]. Max 1×25/sett. |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -240,6 +240,7 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 
 ## Fatto di recente
 
+- **2026-09-25** — Lab agenti **#1+#1b** ✓ (`../ai-lab`: `Agent.prompt` local · `finished`≠task ok). Path snello scritto: `docs/sources/ai-agents/` + [[map-agents-lab]]. Prox Ven: **#2** `create`+`send`
 - **2026-09-24** — DDIA Membership/ZK **5 gap** ✓ (2PC=atomic commit risorse · quorum/rielezione ≠ 2PC bloccante · ephemeral+watch · chicken-egg → caso base self-consensus · ZK log+maggioranza). Prox: **Mer 30** 2° generale
 - **2026-09-23** — DDIA cap. 9 **ripasso generale** ✓ (lin.: path lettura≠“esiste da qualche parte” · CAP: quorum≠C+A in partizione · cost lin.≈perf · seq number = wait causale ≠ TOB)
 - **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
@@ -296,7 +297,7 @@ Dopo gio 24 (5 gap) + mer 30 (2° generale) il cap. 9 da studio è chiuso in dop
 2. **1 obiettivo per sessione** (anche con 2 pomodori).
 3. Mer/Gio = solo ripasso da «Da ripassare» (non dal backlog intero).
 4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
-5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno.
+5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-23 — ripasso generale cap. 9 ✓ · Gio = 5 gap · 2° generale = mer 30/09*
+*Ultimo aggiornamento: 2026-09-25 — lab agenti #1+#1b ✓ · path snello agenti · prox Ven = #2 create+send · Mer 30 = 2° gen. cap. 9*

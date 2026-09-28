@@ -47,6 +47,7 @@ Index: [`reading/README.md`](../reading/README.md) · Template: [`templates/read
 | Software craft / refactoring | — | *(after Fowler: link concepts)* |
 | Software architecture | — | [[reading-head-first-software-architecture]] → Fundamentals of SA (later); [[reading-software-architecture-monday]] optional |
 | Web / frontend performance | — | [[map-web-security]] *(perf concepts TBD)* |
+| AI / agents (surplus Ven) | [[source-ai-agents-index]] | [[map-agents-lab]] |
 
 # Open threads
 
