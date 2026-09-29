@@ -78,7 +78,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | track-em-all: **Register #132** · UseFavorite cleanup · **OG+Twitter deployed ✓** | ☑ |
-| Mar | **DDIA cap. 10** — continuare (~pp. 7+) | ☐ |
+| Mar | **DDIA cap. 10** — ~pp. **6–11 / ~40** ✓ (Unix/batch chiuso a mano · inizio MapReduce) | ☑ |
 | Mer | **DDIA cap. 9 — 2° ripasso generale** `@learn-error-simulator` | ☐ |
 | Gio | ripasso libero (RTK+TS **oppure** Spiega-lead recupero) | ☐ |
 | Ven | lab agenti **#2** (`create`+`send`) **oppure** track — XOR | ☐ |
@@ -216,7 +216,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Tema | Stato | Prossimo |
 |------|--------|----------|
 | DDIA cap. 9 | Lettura ✓ · generale **1/2** ✓ 23/09 · **5 gap ZK ✓ 24/09** | **Mer 30:** 2° generale. Poi archivio |
-| DDIA cap. 10 | Raw aperto · **~pp. 1–6 / ~40** (22/09) | Prox Mar: continuare a mano → digitare intro/Unix in `raw/chapter-10.md` |
+| DDIA cap. 10 | Raw · **~pp. 11 / ~40** (29/09) · Unix letto · MR iniziato | Prox Mar: continuare MapReduce+DFS. Note dettagliate a **fine capitolo** |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | Register #132 ✓ · cleanup ✓ · **OG base deployed ✓** | **Prox lun track:** polish OG ([opengraph.to](https://www.opengraph.to/u/trackem-all.netlify.app): 1200×630, width/height, canonical, desc ≤160) · poi Helmet |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b** ✓ 25/09 | **Prox Ven: lab #2** `create`+`send` · poi #3 errori · #4 repo reale · #5 cloud. Programma: `docs/sources/ai-agents/README.md` · [[map-agents-lab]]. Max 1×25/sett. |
@@ -233,6 +233,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 - **2026-09-23** — DDIA cap. 9 **ripasso generale** ✓ (lin.: path lettura≠“esiste da qualche parte” · CAP: quorum≠C+A in partizione · cost lin.≈perf · seq number = wait causale ≠ TOB)
 - **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
 - **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
+- **2026-09-29** — DDIA cap. 10: ~**pp. 6–11 / 40** ✓. Unix/batch chiuso a mano; MapReduce iniziato (map→KV, shuffle, reduce). Note a fine capitolo. Prox: continuare MR/DFS
 - **2026-09-28** — Track'em All: **OG+Twitter home deployed** (`499a24b`). Audit [opengraph.to](https://www.opengraph.to/u/trackem-all.netlify.app) ~53: **error** = image 192px (serve 1200×630); warn = width/height + canonical; tips = desc ≤160, site_name/locale, title più lungo. H1 “missing” = falso allarme SPA. + Register #132 · UseFavorite cleanup
 - **2026-09-22** — Track'em All: **`Login.tsx` mergiato #131** — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
 - **2026-09-21** — Track'em All: **favorites add/remove `useMutation` mergiato #130** — pair chiuso (`response.data` · `.fulfilled(payload, requestId, arg)` · loading `variables`). Prox track: Open Graph · later `Login.tsx`
@@ -289,4 +290,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-28 — OG base ✓ · audit opengraph.to annotato (prox = 1200×630) · Mar = cap. 10 · Mer = 2° gen. cap. 9*
+*Ultimo aggiornamento: 2026-09-29 — cap. 10 ~11/40 · Mer = 2° gen. cap. 9 · Ven = lab agenti #2*

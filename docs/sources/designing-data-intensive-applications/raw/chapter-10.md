@@ -1,14 +1,15 @@
-# Riassunto capitolo 10: Batch and Stream Processing (in corso — inizio 22/09)
+# Riassunto capitolo 10: Batch and Stream Processing (in corso)
 
 > **Wiki (inglese, promosso):** TBD → `../ch-10-batch-and-stream-processing.md`  
 > **Concept estratte:** TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura a mano avviata **2026-09-22** (~pp. 1–6 / ~40)
+> **Provenienza:** lettura a mano · **2026-09-22** ~pp. 1–6 · **2026-09-29** ~pp. 6–11 / ~40  
+> **Note dettagliate:** a fine capitolo (scelta 29/09)
 
 ---
 
 ## Intro capitolo
 
-> Compila dopo le prime pagine.
+> Compila dopo le prime pagine / a fine capitolo.
 
 **Key idea (bozza libro):** i dati non finiscono quando sono scritti nel DB — servono **job** che li leggono, trasformano e producono altri dataset (batch) oppure li elaborano **in continuo** (stream).
 
@@ -18,36 +19,37 @@
 
 ## Batch processing with Unix tools
 
-> **Stato:** da leggere / digitare.
+> **Stato:** letto a mano (~fino a p.11 inizio MR). Digitazione → fine capitolo.
 
-### Idea chiave
+### Idea chiave (lab 29/09 — ponte a MR)
 
-*(1–2 frasi dopo lettura)*
+Unix: file in → pipe/filtri → file out. MapReduce = stesso spirito su cluster.
 
-### Simple log analysis
+### Simple log analysis / Unix philosophy
 
-| | |
-|--|--|
-
-### The Unix philosophy
-
-- …
-
-### Alternative: awk, sed, …
+*(note a fine capitolo)*
 
 ---
 
 ## MapReduce and Distributed Filesystems
 
-> **Stato:** da leggere / digitare.
+> **Stato:** **iniziato** 29/09 (da ~p.11). In corso.
 
-### Idea chiave
+### Idea chiave (ferma in chat 29/09)
 
-*(distribuire il modello “file in → file out” su tanti nodi)*
+- **Map:** record → serie di `(key, value)`
+- **Shuffle:** raggruppa per chiave
+- **Reduce:** per ogni chiave, aggrega i valori → output (file)
+
+Esempio URL count: map `(url, 1)` → reduce somma.
 
 ### Distributed filesystems (HDFS-style)
 
+*(da leggere / note fine cap.)*
+
 ### MapReduce job execution
+
+*(da leggere / note fine cap.)*
 
 ### MapReduce workflows / higher-level tools
 
@@ -99,14 +101,14 @@ Here's my take on chapter 10 so far:
 
 ### One line to remember
 
-> …
+> MapReduce = Unix pipes in grande (map → shuffle → reduce).
 
 ---
 
 ## Checklist lettura
 
-- [ ] Unix tools / philosophy
-- [ ] MapReduce + DFS
+- [x] Unix tools / philosophy *(letto 29/09; note a fine cap.)*
+- [ ] MapReduce + DFS *(iniziato 29/09)*
 - [ ] Beyond MapReduce (se presente)
 - [ ] Messaging / event streams
 - [ ] Stream processing core (joins, windows, …)
