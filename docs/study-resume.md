@@ -79,8 +79,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track-em-all: **Register #132** · UseFavorite cleanup · **OG+Twitter deployed ✓** | ☑ |
 | Mar | **DDIA cap. 10** — ~pp. **6–11 / ~40** ✓ (Unix/batch chiuso a mano · inizio MapReduce) | ☑ |
-| Mer | **DDIA cap. 9 — 2° ripasso generale** `@learn-error-simulator` | ☐ |
-| Gio | ripasso libero (RTK+TS **oppure** Spiega-lead recupero) | ☐ |
+| Mer | track-em-all: **OG meta facili ✓** (canonical, site_name, locale, desc) · cap. 9 2° → Gio | ☑ |
+| Gio | **DDIA cap. 9 — 2° ripasso generale** `@learn-error-simulator` (slittato da Mer) **oppure** RTK+TS / Spiega-lead | ☐ |
 | Ven | lab agenti **#2** (`create`+`send`) **oppure** track — XOR | ☐ |
 
 *(Sett. 21–25: favorites #130 · Login #131 · chiusura cap. 9 doppio passaggio · lab agenti #1.)*
@@ -183,7 +183,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *Ripasso 13/08 pre-vacanza: core-idea ok, ma mancano dettagli critici. **5 punti da rafforzare:** (1) 2PC vs Consensus = scopi diversi (atomic commit vs coordinamento); (2) Fault tolerance: majority quorum vs single coordinator; (3) Feature ZK/etcd (watches, ephemeral nodes, linearizability built-in); (4) Chicken-egg problem (chi coordina Postgres?); (5) ZK/etcd = self-coordinating con consensus interno.* |
 | **Skill** | Rileggi note + `@learn-error-simulator` con domande oggi |
 | **Dove** | `raw/chapter-9.md` — sezioni "Membership and coordination" (318-349) + "Atomic commit / 2PC" (256-298) |
-| **Bookmark** | **Chiuso gio 24/09** `@learn-error-simulator` ✓. Archiviabile dopo 2° generale (Mer 30). |
+| **Bookmark** | **Chiuso gio 24/09** `@learn-error-simulator` ✓. Archiviabile dopo 2° generale (**Gio 1/10**). |
 
 ### DDIA — rinforzo opzionale (già fatti in chat)
 
@@ -215,10 +215,10 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | Tema | Stato | Prossimo |
 |------|--------|----------|
-| DDIA cap. 9 | Lettura ✓ · generale **1/2** ✓ 23/09 · **5 gap ZK ✓ 24/09** | **Mer 30:** 2° generale. Poi archivio |
+| DDIA cap. 9 | Lettura ✓ · generale **1/2** ✓ 23/09 · **5 gap ZK ✓ 24/09** | **Gio 1/10:** 2° generale (slittato da Mer). Poi archivio |
 | DDIA cap. 10 | Raw · **~pp. 11 / ~40** (29/09) · Unix letto · MR iniziato | Prox Mar: continuare MapReduce+DFS. Note dettagliate a **fine capitolo** |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | Register #132 ✓ · cleanup ✓ · **OG base deployed ✓** | **Prox lun track:** polish OG ([opengraph.to](https://www.opengraph.to/u/trackem-all.netlify.app): 1200×630, width/height, canonical, desc ≤160) · poi Helmet |
+| track-em-all | OG base + **meta facili ✓** (30/09 · opengraph.to ~64) | **Prox:** PNG **1200×630** da SVG + width/height/alt · poi Helmet (≠ Express helmet) |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b** ✓ 25/09 | **Prox Ven: lab #2** `create`+`send` · poi #3 errori · #4 repo reale · #5 cloud. Programma: `docs/sources/ai-agents/README.md` · [[map-agents-lab]]. Max 1×25/sett. |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
@@ -234,7 +234,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 - **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
 - **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
 - **2026-09-29** — DDIA cap. 10: ~**pp. 6–11 / 40** ✓. Unix/batch chiuso a mano; MapReduce iniziato (map→KV, shuffle, reduce). Note a fine capitolo. Prox: continuare MR/DFS
-- **2026-09-28** — Track'em All: **OG+Twitter home deployed** (`499a24b`). Audit [opengraph.to](https://www.opengraph.to/u/trackem-all.netlify.app) ~53: **error** = image 192px (serve 1200×630); warn = width/height + canonical; tips = desc ≤160, site_name/locale, title più lungo. H1 “missing” = falso allarme SPA. + Register #132 · UseFavorite cleanup
+- **2026-09-30** — Track'em All: **OG meta facili** (canonical, site_name, locale, description ≤160) · deploy · opengraph.to **53→64**. ERROR rimasto = image 192px → prox **1200×630** da `track-em-all.svg`. H1 tool = falso allarme SPA. Cap. 9 2° → Gio
+- **2026-09-28** — Track'em All: **OG+Twitter home deployed** (`499a24b`). Audit opengraph.to ~53: error = image 192px. + Register #132 · UseFavorite cleanup
 - **2026-09-22** — Track'em All: **`Login.tsx` mergiato #131** — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
 - **2026-09-21** — Track'em All: **favorites add/remove `useMutation` mergiato #130** — pair chiuso (`response.data` · `.fulfilled(payload, requestId, arg)` · loading `variables`). Prox track: Open Graph · later `Login.tsx`
 - **2026-09-17** — RQ **enabled + staleTime** simulator ✓ (`textInput`≠fetch · fresh per-key · ritorno a termine già cercato = cache hit; staleTime = **5 min** non 30)
@@ -290,4 +291,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-09-29 — cap. 10 ~11/40 · Mer = 2° gen. cap. 9 · Ven = lab agenti #2*
+*Ultimo aggiornamento: 2026-09-30 — OG meta facili ✓ (score ~64) · prox track = 1200×630 · Gio = 2° gen. cap. 9*
