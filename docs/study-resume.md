@@ -229,7 +229,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-10-05** — Track'em All: OG **1200×630** + title · opengraph.to **64→89**. **Helmet** su ShowPage (`react-helmet-async`, `3e614fb`) — commit locale, **non pushato**. UI design review in TODO. Prox: push · JSON-LD
+- **2026-10-05** — Track'em All: OG **1200×630** + title · opengraph.to **64→89**. **Helmet** su ShowPage (`react-helmet-async`, `3e614fb`) — commit locale, **non pushato**. UI design review in TODO. Collega: **Layers** ([layers.jamiemill.com](https://layers.jamiemill.com)) — lettura per lavoro, poi ne riparliamo. Prox: push · JSON-LD
 - **2026-10-02** — Lab agenti **#2** ✓ · sera: video Max **blocco A ☑** · test spartito foto→INSERT (prompt dedicato, ok). Prox media: **B** · Prox Ven: lab **#3**
 - **2026-10-01** — DDIA cap. 9 **2° ripasso generale** ✓ (2PC≠FTC · Lamport=parziale/causale ≠ TOB totale · ZK meta≠2PC · ephemeral+watch · chicken-egg → quorum self-consensus). Cap. 9 **chiuso** doppio passaggio
 - **2026-09-30** — Track'em All: **OG meta facili** (canonical, site_name, locale, description ≤160) · deploy · opengraph.to **53→64**
