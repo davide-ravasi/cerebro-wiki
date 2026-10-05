@@ -223,7 +223,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b+#2** ✓ · video Max **A ☑** | Prox media: **B** · Prox Ven: lab **#3** errori. `docs/sources/ai-agents/README.md` |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
-| **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
+| **Bass theory** *(surplus, non settimana tipo)* | [[map-bass-theory]] · sheets-library scaffold | **Flusso ok 02/10:** foto → prompt agente → tabella + `INSERT` SQL → tu Run in Supabase. Poi upload Storage + `UPDATE` URL. Non compete con Lun/Mar |
 
 ---
 
