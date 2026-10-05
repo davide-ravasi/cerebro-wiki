@@ -5,7 +5,7 @@ type: source
 domain: ai
 tags: [source, ai, agents, cursor-sdk, udemy]
 status: evergreen
-updated: 2026-09-25
+updated: 2026-10-02
 ---
 
 # AI agents — path snello (lavoro)
@@ -26,17 +26,35 @@ Mappa: [[map-agents-lab]]
 | Multi-agent + CrewAI section | **Salta** finché lab #5–6 non sono stabili |
 | n8n / no-code deep | **Salta** come percorso; ok 1 video se curiosità |
 
-## Quando guardare i video (dopo il lab, non prima)
+## Coda video / articoli (da smaltire)
 
-Regola: max **15–20 min** video lo stesso giorno del lab, **dopo** lo script. Mai Udemy + lab deep in parallelo.
+Regola: **dopo ogni lab** → 15–20′ media. Mai Udemy + lab deep in parallelo.  
+Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/course/ai-agents-workflows-the-practical-guide/) (Max / Academind).
 
-| Quando | Video (~min) |
-|--------|----------------|
-| Dopo lab **#1** (ora / weekend) | Intro + *What are agents & workflows?* + *Workflows vs agentic* |
-| Dopo lab **#2** | Tools + loop agente (skip codice OpenAI) |
-| Dopo lab **#4** | HITL + sandbox/permessi (light) |
-| Dopo lab **#5–6** | Memory light se serve; poi valuta multi-agent |
-| Mai in blocco | OpenAI SDK, Slack, Ollama, CrewAI |
+| Priorità | Dopo | Titoli Udemy (esatti) | ~min | Stato |
+|:--------:|------|------------------------|-----:|:-----:|
+| **A** | #1 | *What Are AI Agents?* · *General vs Task-specific Agents* · *Where Agents Run* · *AI Agents vs AI Workflows* | ~10 | ☑ **02/10** |
+| **B** | #1–2 | *AI Agent Harnesses, LLMs & Limitations* · *How Agents Use Tools* · *Understanding Session Context* · *Core AI Agent Building Blocks - Overview* | ~13 | ☐ **prossimo** |
+| **C** | #2 | *Analyzing The Agent Loop* · *How The Agent Learns About Tools & Behaves Correctly* (skip codice OpenAI; ascolta il concetto) | ~10 | ☐ dopo B |
+| **C2** | #2 | Docs: [Cursor SDK](https://cursor.com/docs/sdk/typescript) — `create` / `send` / `wait` | ~10 | ☐ opz. |
+| **D** | #3 | (si aggiorna a fine lab) | — | — |
+| **E** | #4 | *Sometimes Important: Humans In The Loop* · *Managing Agent Tools & The Environment* · *How Agent Execution Is Constrained* | ~10 | ☐ più avanti |
+| **F** | #7 | *Providing Your Own Instructions & Understanding AGENTS.md / CLAUDE.md* · *Understanding Agent Skills* | ~12 | ☐ con lab skills |
+| — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
+
+**Prossima sessione media:** blocco **B** (~13′), poi **C** se resta tempo.
+
+## Max (Udemy) vs docs ufficiali Cursor
+
+| Fonte | A cosa serve |
+|-------|----------------|
+| **Video Max** | Vocabolario: cos’è un agent, tools, session context, agent vs workflow. Non sostituisce i lab. I titoli in coda sono mappati dal curriculum; il dettaglio frame-per-frame può variare. |
+| **[Docs SDK TypeScript](https://cursor.com/docs/sdk/typescript)** | Come lo fai in `ai-lab`: `prompt` / `create`+`send`, `local` vs `cloud`, `wait`, errori, `resume`. Priorità per codice. |
+| **[Cursor Learn — Agents](https://cursor.com/learn/agents)** (+ *Working with agents*) | Come usare l’agente **in IDE** (harness, prompt, context, delega). Complementa Max; non sostituisce lab SDK. |
+| **[Claude Academy](https://academy.claude.com)** | Fluency / Claude Code / Platform. Utile in generale; **non** sul path SDK Cursor. Opz.: *AI Fluency* o pezzi Claude Code se usi Claude; Platform/MCP solo se serve al lavoro. |
+| **Skill** `@sdk` / `~/.cursor/skills-cursor/sdk` | Trap comuni + pattern pronti in chat |
+
+**Non aggiungere** Claude Academy / Cursor Learn come filo parallelo a Max + lab Ven — solo se A+B sono fatti e resta curiosità (15′).
 
 ## Concetti da fissare (Udemy o Spiega-lead)
 
@@ -54,7 +72,7 @@ Regola: max **15–20 min** video lo stesso giorno del lab, **dopo** lo script. 
 |---|:-----:|--------------------|-------------|
 | **1** | ☑ 25/09 | `Agent.prompt` **local** + `cwd` toy + API key | Run `finished` + sai che local ≠ IDE open |
 | **1b** | ☑ 25/09 | Fallimento voluto (file assente) | Capisci: `finished` ≠ task riuscito |
-| **2** | ☐ | `Agent.create` + `send` + secondo messaggio (stesso agent) | Due turni, stesso contesto |
+| **2** | ☑ 02/10 | `Agent.create` + `send` + secondo messaggio (stesso agent) | Due turni, stesso contesto |
 | **3** | ☐ | Modello errori: `CursorAgentError` vs `status === "error"` | Sai quale fix per quale |
 | **4** | ☐ | Stesso pattern su **repo reale** (cwd stretto, task read-only) | Esito utile su codice che conosci |
 | **5** | ☐ | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
@@ -72,6 +90,7 @@ Regola: max **15–20 min** video lo stesso giorno del lab, **dopo** lo script. 
 ## Note lab
 
 - [`raw/lab-2026-09-25-local-prompt.md`](./raw/lab-2026-09-25-local-prompt.md)
+- [`raw/lab-2026-10-02-create-send.md`](./raw/lab-2026-10-02-create-send.md)
 
 ## Link
 

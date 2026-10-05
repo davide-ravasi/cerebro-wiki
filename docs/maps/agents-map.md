@@ -5,7 +5,7 @@ type: map
 domain: ai
 tags: [map, navigation, ai, agents, cursor-sdk]
 status: evergreen
-updated: 2026-09-25
+updated: 2026-10-02
 ---
 
 # Purpose
@@ -24,7 +24,7 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 
 # Practical Patterns
 
-- Lab repo: `../ai-lab` — `Agent.prompt` local ✓
+- Lab repo: `../ai-lab` — `Agent.prompt` local ✓ · `create`+`send` multi-turno ✓ 02/10
 - Cadenza: Ven 1×25, XOR track/Mongo
 
 # Source / corso
@@ -34,6 +34,8 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 
 # Open Threads
 
-- Lab #2 `create`+`send`
+- Lab #3 errori (`CursorAgentError` vs `status === "error"`)
+- Video Max: **A ☑** · prossimo **B**
 - Cloud su repo reale
+- Surplus: foto spartito → INSERT (prompt dedicato, testato 02/10)
 - Collegare a tracking-ds / Playwright quando c’è un job ripetibile

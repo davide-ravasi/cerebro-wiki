@@ -73,25 +73,25 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-09-28 → 10-02)*
+*(settimana 2026-10-05 → 10-09)*
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: **Register #132** · UseFavorite cleanup · **OG+Twitter deployed ✓** | ☑ |
-| Mar | **DDIA cap. 10** — ~pp. **6–11 / ~40** ✓ (Unix/batch chiuso a mano · inizio MapReduce) | ☑ |
-| Mer | track-em-all: **OG meta facili ✓** (canonical, site_name, locale, desc) · cap. 9 2° → Gio | ☑ |
-| Gio | **DDIA cap. 9 — 2° ripasso generale** ✓ (2PC≠FTC · Lamport≠TOB · ZK meta≠2PC · ephemeral/watch · chicken-egg/maggioranza) | ☑ |
-| Ven | lab agenti **#2** (`create`+`send`) **oppure** track — XOR | ☐ |
+| Lun | track-em-all: **OG 1200×630 ✓** · title · opengraph.to **89** · **Helmet su ShowPage** (locale, ahead 1) | ☑ |
+| Mar | **DDIA cap. 10** — continuare MapReduce / DFS (~da p.11) | ☐ |
+| Mer | Ripasso — **RTK+TS** (backlog) *oppure* Spiega-lead | ☐ |
+| Gio | Ripasso libero / recupero | ☐ |
+| Ven | lab agenti **#3** (errori) **oppure** track (UI review / Helmet) — XOR | ☐ |
 
-*(Sett. 21–25: favorites #130 · Login #131 · chiusura cap. 9 doppio passaggio · lab agenti #1.)*
+*(Sett. 28/09–02/10: Register #132 · OG meta facili · cap. 9 2° ✓ · lab agenti #2 · cap. 10 ~11/40.)*
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-*Mer/Gio sett. 14–18: Pages ✓ · RQ ✓. Slot liberi fino a chiusura cap. 9 (23–24/09).*
+*Slot liberi: cap. 9 chiuso. Promuovi RTK+TS da backlog se Mer 5/10.*
 
-### 1–3. *(liberi — chiusura DDIA 9 mer/gio prossima sett.)*
+### 1–3. *(liberi — Mer: RTK+TS consigliato)*
 
 ---
 
@@ -219,8 +219,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | DDIA cap. 9 | Lettura ✓ · generale **2/2** ✓ 01/10 · **5 gap ZK ✓ 24/09** | **Archivio** (chiuso studio doppio passaggio) |
 | DDIA cap. 10 | Raw · **~pp. 11 / ~40** (29/09) · Unix letto · MR iniziato | Prox Mar: continuare MapReduce+DFS. Note dettagliate a **fine capitolo** |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | OG base + **meta facili ✓** (30/09 · opengraph.to ~64) | **Prox:** PNG **1200×630** da SVG + width/height/alt · poi Helmet (≠ Express helmet) |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b** ✓ 25/09 | **Prox Ven: lab #2** `create`+`send` · poi #3 errori · #4 repo reale · #5 cloud. Programma: `docs/sources/ai-agents/README.md` · [[map-agents-lab]]. Max 1×25/sett. |
+| track-em-all | **OG home ~89 ✓** · **Helmet ShowPage** (`3e614fb`, non pushato) | Prox: push · UI design review (Figma) · JSON-LD |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b+#2** ✓ · video Max **A ☑** | Prox media: **B** · Prox Ven: lab **#3** errori. `docs/sources/ai-agents/README.md` |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler, Makarevich, Head First SA… | dopo blocco DDIA |
 | **Bass theory** *(idea, non attivo)* | Piano discusso 12/08 → [[map-bass-theory]] | Riprendere a settembre (post-vacanza); **non-core/surplus**, non compete con la settimana tipo |
@@ -229,14 +229,12 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-09-25** — Lab agenti **#1+#1b** ✓ (`../ai-lab`: `Agent.prompt` local · `finished`≠task ok). Path snello scritto: `docs/sources/ai-agents/` + [[map-agents-lab]]. Prox Ven: **#2** `create`+`send`
-- **2026-09-24** — DDIA Membership/ZK **5 gap** ✓ (2PC=atomic commit risorse · quorum/rielezione ≠ 2PC bloccante · ephemeral+watch · chicken-egg → caso base self-consensus · ZK log+maggioranza). Prox: **Mer 30** 2° generale
-- **2026-09-23** — DDIA cap. 9 **ripasso generale** ✓ (lin.: path lettura≠“esiste da qualche parte” · CAP: quorum≠C+A in partizione · cost lin.≈perf · seq number = wait causale ≠ TOB)
-- **2026-09-22** — DDIA cap. 10: inizio lettura ✓ (~**6/40** pp.). Raw `chapter-10.md` scheletro. Digitazione note quando le mandi.
-- **2026-09-21** — Decisione: **Ven surplus = lab agenti** (Cursor SDK → cloud; utile lavoro). Regola anti-overload: 1×25, XOR track/Mongo; skip se settimana DDIA pesante. Udemy = vocabolario, non filo principale.
-- **2026-09-29** — DDIA cap. 10: ~**pp. 6–11 / 40** ✓. Unix/batch chiuso a mano; MapReduce iniziato (map→KV, shuffle, reduce). Note a fine capitolo. Prox: continuare MR/DFS
+- **2026-10-05** — Track'em All: OG **1200×630** + title · opengraph.to **64→89**. **Helmet** su ShowPage (`react-helmet-async`, `3e614fb`) — commit locale, **non pushato**. UI design review in TODO. Prox: push · JSON-LD
+- **2026-10-02** — Lab agenti **#2** ✓ · sera: video Max **blocco A ☑** · test spartito foto→INSERT (prompt dedicato, ok). Prox media: **B** · Prox Ven: lab **#3**
 - **2026-10-01** — DDIA cap. 9 **2° ripasso generale** ✓ (2PC≠FTC · Lamport=parziale/causale ≠ TOB totale · ZK meta≠2PC · ephemeral+watch · chicken-egg → quorum self-consensus). Cap. 9 **chiuso** doppio passaggio
-- **2026-09-30** — Track'em All: **OG meta facili** (canonical, site_name, locale, description ≤160) · deploy · opengraph.to **53→64**. ERROR rimasto = image 192px → prox **1200×630** da `track-em-all.svg`. H1 tool = falso allarme SPA. Cap. 9 2° → Gio
+- **2026-09-30** — Track'em All: **OG meta facili** (canonical, site_name, locale, description ≤160) · deploy · opengraph.to **53→64**
+- **2026-09-29** — DDIA cap. 10: ~**pp. 6–11 / 40** ✓. Unix/batch chiuso a mano; MapReduce iniziato (map→KV, shuffle, reduce). Note a fine capitolo. Prox: continuare MR/DFS
+- **2026-09-25** — Lab agenti **#1+#1b** ✓ (`../ai-lab`: `Agent.prompt` local · `finished`≠task ok). Path snello scritto: `docs/sources/ai-agents/` + [[map-agents-lab]]. Prox Ven: **#2** `create`+`send`
 - **2026-09-28** — Track'em All: **OG+Twitter home deployed** (`499a24b`). Audit opengraph.to ~53: error = image 192px. + Register #132 · UseFavorite cleanup
 - **2026-09-22** — Track'em All: **`Login.tsx` mergiato #131** — `.fulfilled(payload, requestId, arg)` · `response.data` · generics login/register. **Ripasso RTK+TS** → backlog. Cap. 10 inizio ✓
 - **2026-09-21** — Track'em All: **favorites add/remove `useMutation` mergiato #130** — pair chiuso (`response.data` · `.fulfilled(payload, requestId, arg)` · loading `variables`). Prox track: Open Graph · later `Login.tsx`
@@ -293,4 +291,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-01 — cap. 9 **chiuso** (2° gen. ✓) · Ven = lab agenti #2 · prox Mar = cap. 10 MR*
+*Ultimo aggiornamento: 2026-10-05 — OG **89** · Helmet ShowPage locale (ahead 1) · Mar = cap. 10*
