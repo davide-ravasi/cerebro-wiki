@@ -2,7 +2,7 @@
 
 > **Wiki (inglese, promosso):** TBD → `../ch-10-batch-and-stream-processing.md`  
 > **Concept estratte:** TBD → [[map-distributed-systems]]  
-> **Provenienza:** lettura a mano · **2026-09-22** ~pp. 1–6 · **2026-09-29** ~pp. 6–11 / ~40  
+> **Provenienza:** lettura a mano · **2026-09-22** ~pp. 1–6 · **2026-09-29** ~pp. 6–11 · **2026-10-06** ~pp. 11–15 / ~40  
 > **Note dettagliate:** a fine capitolo (scelta 29/09)
 
 ---
@@ -33,7 +33,7 @@ Unix: file in → pipe/filtri → file out. MapReduce = stesso spirito su cluste
 
 ## MapReduce and Distributed Filesystems
 
-> **Stato:** **iniziato** 29/09 (da ~p.11). In corso.
+> **Stato:** in corso — fino a ~p.15 (06/10).
 
 ### Idea chiave (ferma in chat 29/09)
 

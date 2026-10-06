@@ -78,9 +78,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | track-em-all: **OG 1200×630 ✓** · title · opengraph.to **89** · **Helmet su ShowPage** (locale, ahead 1) | ☑ |
-| Mar | **DDIA cap. 10** — continuare MapReduce / DFS (~da p.11) | ☐ |
+| Mar | **DDIA cap. 10** — ~pp. **11–15 / ~40** ✓ (MapReduce / DFS in corso) | ☑ |
 | Mer | Ripasso — **RTK+TS** (backlog) *oppure* Spiega-lead | ☐ |
-| Gio | Ripasso libero / recupero | ☐ |
+| Gio | **DDIA cap. 10** — chiarimenti su pezzo letto (~pp. 1–15): `@learn-error-simulator` / core-idea sui punti confusi | ☐ |
 | Ven | lab agenti **#3** (errori) **oppure** track (UI review / Helmet) — XOR | ☐ |
 
 *(Sett. 28/09–02/10: Register #132 · OG meta facili · cap. 9 2° ✓ · lab agenti #2 · cap. 10 ~11/40.)*
@@ -89,9 +89,25 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Da ripassare (attivo — max 3)
 
-*Slot liberi: cap. 9 chiuso. Promuovi RTK+TS da backlog se Mer 5/10.*
+### 1. track-em-all — RTK+TS (`createAsyncThunk`)
 
-### 1–3. *(liberi — Mer: RTK+TS consigliato)*
+| | |
+|---|---|
+| **Hook** | *`createAsyncThunk<A,B,C>`: A=payload · B=arg · C=rejectValue. `.fulfilled(payload, requestId, arg)`.* |
+| **Skill** | `@learn-core-idea-first` **poi** `@learn-error-simulator` |
+| **Dove** | backlog sotto · Login/Register · Mer 08/10 |
+| **Bookmark** | Promosso per Mer |
+
+### 2. DDIA cap. 10 — chiarimenti (pezzo letto)
+
+| | |
+|---|---|
+| **Hook** | *Unix pipes → MapReduce (map/shuffle/reduce) → DFS/HDFS. Domande = dove sei confuso, non quiz generico.* |
+| **Skill** | `@learn-error-simulator` (scenari) **e/o** `@learn-core-idea-first` (1 concetto bloccante) — **già in cerebro**, niente skill nuova |
+| **Dove** | `raw/chapter-10.md` · libro ~pp. 1–15 |
+| **Bookmark** | **Gio 09/10.** Prima: 2–4 punti “non mi è chiaro” (anche a voce). Note dettagliate restano a fine cap. |
+
+### 3. *(libero)*
 
 ---
 
@@ -106,7 +122,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *`createAsyncThunk<A,B,C>`: **A** = payload successo · **B** = arg (senza B → spesso `void`) · **C** = `rejectValue`. Dispatch manuale: `.fulfilled(payload, requestId, arg)`. Payload = form unica (service `response.data` ≡ reducer `action.payload`, no Axios). `variables` mutation ≠ payload.* |
 | **Skill** | `@learn-core-idea-first` **poi** `@learn-error-simulator` (payload vs arg vs rejectValue) |
 | **Dove** | `authSlice.tsx` · `Login.tsx` · `UseFavorite.tsx` · chat 22/09 (login TS) |
-| **Bookmark** | Pratica fatta su login/favorites; **da rispiegare** quando c’è slot Mer/Gio libero (dopo chiusura cap. 9) |
+| **Bookmark** | **Promosso** in «Da ripassare» → Mer 08/10 |
 
 ### tracking-ds — Derivare invece di ricalcolare (+ lo zero falsy)
 
@@ -217,7 +233,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Tema | Stato | Prossimo |
 |------|--------|----------|
 | DDIA cap. 9 | Lettura ✓ · generale **2/2** ✓ 01/10 · **5 gap ZK ✓ 24/09** | **Archivio** (chiuso studio doppio passaggio) |
-| DDIA cap. 10 | Raw · **~pp. 11 / ~40** (29/09) · Unix letto · MR iniziato | Prox Mar: continuare MapReduce+DFS. Note dettagliate a **fine capitolo** |
+| DDIA cap. 10 | Raw · **~pp. 15 / ~40** (06/10) · Unix ✓ · MR/DFS in corso | Prox Mar: continuare MR. Note a **fine capitolo** |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | **OG home ~89 ✓** · **Helmet ShowPage** (`3e614fb`, non pushato) | Prox: push · UI design review (Figma) · JSON-LD |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b+#2** ✓ · video Max **A ☑** | Prox media: **B** · Prox Ven: lab **#3** errori. `docs/sources/ai-agents/README.md` |
@@ -229,6 +245,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-10-06** — DDIA cap. 10: ~**pp. 11–15 / 40** ✓ (MapReduce / DFS). Note a fine capitolo. Prox: continuare MR
 - **2026-10-05** — Track'em All: OG **1200×630** + title · opengraph.to **64→89**. **Helmet** su ShowPage (`react-helmet-async`, `3e614fb`) — commit locale, **non pushato**. UI design review in TODO. Collega: **Layers** ([layers.jamiemill.com](https://layers.jamiemill.com)) — lettura per lavoro, poi ne riparliamo. Prox: push · JSON-LD
 - **2026-10-02** — Lab agenti **#2** ✓ · sera: video Max **blocco A ☑** · test spartito foto→INSERT (prompt dedicato, ok). Prox media: **B** · Prox Ven: lab **#3**
 - **2026-10-01** — DDIA cap. 9 **2° ripasso generale** ✓ (2PC≠FTC · Lamport=parziale/causale ≠ TOB totale · ZK meta≠2PC · ephemeral+watch · chicken-egg → quorum self-consensus). Cap. 9 **chiuso** doppio passaggio
@@ -291,4 +308,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-05 — OG **89** · Helmet ShowPage locale (ahead 1) · Mar = cap. 10*
+*Ultimo aggiornamento: 2026-10-06 — cap. 10 ~**15/40** · Mer = RTK+TS / Spiega-lead · Ven = lab #3*

@@ -26,7 +26,7 @@ source_slug: sources/designing-data-intensive-applications/
 |----------|--------|
 | 7–8 | Promoted source + concepts + book club |
 | 9 | **A mano chiuso 15/09** — lin.+cost+causality+Lamport+TOB+2PC+FTC meccanismo+Membership core. Wiki source ancora parziale (lin.). Raft carta / 5 gap ZK = surplus. Ripasso generale = sbloccato |
-| 10 | **In corso** — ~**11/40** pp. (29/09); Unix ok · MapReduce iniziato; note a fine cap. |
+| 10 | **In corso** — ~**15/40** pp. (06/10); Unix ok · MapReduce/DFS in corso; note a fine cap. |
 | 1–6, 11–12 | Not promoted yet |
 
 **Source index:** [[source-ddia-index]]  
