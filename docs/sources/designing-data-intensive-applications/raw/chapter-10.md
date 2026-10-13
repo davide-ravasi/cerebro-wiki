@@ -108,7 +108,7 @@ Here's my take on chapter 10 so far:
 ## Checklist lettura
 
 - [x] Unix tools / philosophy *(letto 29/09; note a fine cap.)*
-- [ ] MapReduce + DFS *(iniziato 29/09)*
-- [ ] Beyond MapReduce (se presente)
-- [ ] Messaging / event streams
-- [ ] Stream processing core (joins, windows, …)
+- [x] MapReduce core-idea ✓ 13/10 (map/shuffle/reduce) · DFS / resto lettura in corso
+- [x] Join (batch/MR) core-idea ✓ 13/10
+- [ ] Resto cap. 10 — argomenti da trattare in chat (lista utente → Mer 14/10)
+- [ ] Cap. 11–12 — **non** in path ora (surplus dopo Fowler)

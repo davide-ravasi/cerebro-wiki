@@ -7,9 +7,9 @@ domain: distributed-systems
 tags: [reading-queue, books, ddia, distributed-systems, databases]
 status: reading
 priority: high
-updated: 2026-07-30
+updated: 2026-10-13
 found_via: "Primary cerebro study track"
-why: "Foundation for distributed data, transactions, consistency, and operations at scale."
+why: "Foundation for distributed data, transactions, consistency, and operations at scale. Cap. 10 in chiusura (pezzi in chat); poi Fowler. 11–12 surplus."
 related_skills:
   - learn-core-idea-first
   - learn-error-simulator
@@ -26,14 +26,15 @@ source_slug: sources/designing-data-intensive-applications/
 |----------|--------|
 | 7–8 | Promoted source + concepts + book club |
 | 9 | **A mano chiuso 15/09** — lin.+cost+causality+Lamport+TOB+2PC+FTC meccanismo+Membership core. Wiki source ancora parziale (lin.). Raft carta / 5 gap ZK = surplus. Ripasso generale = sbloccato |
-| 10 | **In corso** — ~**15/40** pp. (06/10); Unix ok · MapReduce/DFS in corso; note a fine cap. |
-| 1–6, 11–12 | Not promoted yet |
+| 10 | **Quasi fine** — MR+join core-idea ✓ 13/10; resto = lista argomenti in chat (Mer). Note a fine cap. |
+| 1–6, 11–12 | 11–12 surplus dopo Fowler; 1–6 not promoted |
 
 **Source index:** [[source-ddia-index]]  
 **Raw notes:** `sources/designing-data-intensive-applications/raw/`
 
 ## Session log (resume hints)
 
+- **2026-10-13** — Cap. 10 non chiuso: utente manda argomenti restanti → trattarli **Mer 14/10**. Poi Fowler.
 - **2026-09-22** — Cap. 10: raw scheletro + lettura ~**6/40** pp. Next: digitare intro/Unix quando ci sono note a mano.
 - **2026-09-15** — Cap. 9 **chiuso a mano** (2PC scan + FTC epoch core-idea). Wiki promotion e ripasso generale restano coda, non lettura.
 - **2026-09-08** — A mano: Lamport timestamps + TOB (props/log/async) + intro distributed tx/consensus (~p.32). Rilettura cost→seq fuse nel raw. Next libro: Raft / fine consensus se manca dettaglio.

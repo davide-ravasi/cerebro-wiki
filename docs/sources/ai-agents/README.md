@@ -34,7 +34,7 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | Priorità | Dopo | Titoli Udemy (esatti) | ~min | Stato |
 |:--------:|------|------------------------|-----:|:-----:|
 | **A** | #1 | *What Are AI Agents?* · *General vs Task-specific Agents* · *Where Agents Run* · *AI Agents vs AI Workflows* | ~10 | ☑ **02/10** |
-| **B** | #1–2 | *AI Agent Harnesses, LLMs & Limitations* · *How Agents Use Tools* · *Understanding Session Context* · *Core AI Agent Building Blocks - Overview* | ~13 | ☐ **prossimo** |
+| **B** | #1–2 | *AI Agent Harnesses, LLMs & Limitations* · *How Agents Use Tools* · *Understanding Session Context* · *Core AI Agent Building Blocks - Overview* | ~13 | ☑ **09/10** |
 | **C** | #2 | *Analyzing The Agent Loop* · *How The Agent Learns About Tools & Behaves Correctly* (skip codice OpenAI; ascolta il concetto) | ~10 | ☐ dopo B |
 | **C2** | #2 | Docs: [Cursor SDK](https://cursor.com/docs/sdk/typescript) — `create` / `send` / `wait` | ~10 | ☐ opz. |
 | **D** | #3 | (si aggiorna a fine lab) | — | — |
@@ -42,7 +42,21 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | **F** | #7 | *Providing Your Own Instructions & Understanding AGENTS.md / CLAUDE.md* · *Understanding Agent Skills* | ~12 | ☐ con lab skills |
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
-**Prossima sessione media:** blocco **B** (~13′), poi **C** se resta tempo.
+**Prossima sessione media:** blocco **C** (~10′), poi **C2** se resta tempo. Appunti A+B: learning session su screenshot (da mandare).
+
+## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
+
+Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettura lavoro.
+
+| Priorità | Articolo | Tema | ~min | Stato |
+|:--------:|----------|------|-----:|:-----:|
+| **1** | [Agent harness — no-BS guide](https://medium.com/gitconnected/agent-harness-a-no-bs-guide-8f69e3c0a3da) | Harness = instructions + tools + model (collega lab SDK + Max B) | ~15 | ☑ **09/10** (appunti → learning) |
+| **2** | [Claude come tech lead, non senior engineer](https://medium.com/codetodeploy/how-to-run-claude-like-a-tech-lead-not-a-senior-engineer-fba295ade37d) | Delega, review, deliverable — carriera | ~15 | ☐ |
+| **3** | [AI + design system guardrails (Evil Martians)](https://evilmartians.com/chronicles/ai-makes-design-system-guardrails-mandatory-this-framework-delivers-them) | Token, regole, AI su UI — track / lavoro | ~15 | ☐ |
+| — | [Layers](https://layers.jamiemill.com) | 7 strati product design (skill opz.) | ~20 | ☐ (Mer 07/10 = RTK; Layers in coda) |
+
+**Ordine suggerito:** harness (1) → tech lead (2) → design guardrails (3) · Layers quando previsto in calendario.  
+**Se hai ~15′ oggi:** parti da **#1 harness** (collega lab + video Max B).
 
 ## Max (Udemy) vs docs ufficiali Cursor
 
@@ -73,7 +87,7 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | **1** | ☑ 25/09 | `Agent.prompt` **local** + `cwd` toy + API key | Run `finished` + sai che local ≠ IDE open |
 | **1b** | ☑ 25/09 | Fallimento voluto (file assente) | Capisci: `finished` ≠ task riuscito |
 | **2** | ☑ 02/10 | `Agent.create` + `send` + secondo messaggio (stesso agent) | Due turni, stesso contesto |
-| **3** | ☐ | Modello errori: `CursorAgentError` vs `status === "error"` | Sai quale fix per quale |
+| **3** | ☑ 09/10 | Modello errori: `CursorAgentError` vs `status === "error"` | Sai quale fix per quale |
 | **4** | ☐ | Stesso pattern su **repo reale** (cwd stretto, task read-only) | Esito utile su codice che conosci |
 | **5** | ☐ | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
 | **6** | ☐ | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
@@ -91,6 +105,11 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 
 - [`raw/lab-2026-09-25-local-prompt.md`](./raw/lab-2026-09-25-local-prompt.md)
 - [`raw/lab-2026-10-02-create-send.md`](./raw/lab-2026-10-02-create-send.md)
+- [`raw/lab-2026-10-09-errors.md`](./raw/lab-2026-10-09-errors.md)
+
+## Idea later (non path)
+
+Chat UI su tracking + agente: surplus **dopo** lab #3–#4. Opzioni UI: assistant-ui / AI SDK `useChat`; runtime: backend + Cursor SDK (separato dalla chat).
 
 ## Link
 

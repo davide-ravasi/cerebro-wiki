@@ -15,10 +15,10 @@ domain: software-engineering
 tags: [reading-queue, books, refactoring, tdd, code-smell]
 status: queued
 priority: high
-updated: 2026-07-10
+updated: 2026-10-13
 found_via: "Matt Pocock — skills / AI coding workflow video"
-why: "Behavior-preserving structure changes, code smells, and red-green-refactor — complements agent-assisted coding without letting the AI refactor everything."
-start_when: "After solidifying current MongoDB + DDIA ch.9 threads, or when using /tdd-style skills on a real repo"
+why: "Behavior-preserving structure changes, code smells, and red-green-refactor — complements agent-assisted coding without letting the AI refactor everything. Priorità carriera dopo chiusura DDIA cap.10."
+start_when: "Dopo chiusura DDIA cap.10 + 2ª edizione (2018) in mano — pezzi utili (smell + catalogo), non tutto il libro"
 related_skills:
   - mattpocock/skills — tdd, code-review (Fowler smell baseline), request-refactor-plan
 related_concepts: []
