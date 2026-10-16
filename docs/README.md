@@ -23,6 +23,7 @@ This folder is a Markdown-first knowledge base designed for:
 - `glossary/`: short canonical definitions
 - `templates/`: reusable templates for every note type (including [`reading-queue-entry.md`](templates/reading-queue-entry.md))
 - `.cursor/skills/` (repo root): Cursor agent skills for **learning modes** (study DDIA/Mongo in chat) — see [`.cursor/skills/README.md`](../.cursor/skills/README.md)
+- `private/` (**local only, gitignored**): annual review / career dossier — evidence pack, not for public GitHub; see `docs/private/README.md` on your machine only
 
 ## Core Principles
 

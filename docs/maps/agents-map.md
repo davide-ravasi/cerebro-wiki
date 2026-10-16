@@ -5,7 +5,7 @@ type: map
 domain: ai
 tags: [map, navigation, ai, agents, cursor-sdk]
 status: evergreen
-updated: 2026-10-09
+updated: 2026-10-16
 ---
 
 # Purpose
@@ -20,22 +20,26 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 # Core Concepts (wiki)
 
 - [[concept-claude-md]] — project memory (AGENTS.md / CLAUDE.md)
-- *(TBD dopo lab 2–4: agent vs workflow, local vs cloud runtime)*
+- *(TBD: agent vs workflow — learning Mer 21/10 su screenshot; local vs cloud dopo lab #5)*
 
 # Practical Patterns
 
-- Lab repo: `../ai-lab` — `prompt` local ✓ · `create`+`send` ✓ 02/10 · errori ✓ 09/10
+- Lab repo: `../ai-lab` — `#1` prompt ✓ · `#2` create+send ✓ · `#3` errori ✓ · `#4` real-repo ✓ 16/10  
+  Trap #4: cwd foglia → SQLite `unable to open database file`; cwd = root repo + prompt stretto
 - Cadenza: Ven 1×25, XOR track/Mongo
 
 # Source / corso
 
-- Udemy: *AI Agents & Workflows — The Practical Guide* → solo building blocks (vedi tabella “prendere / saltare” nell’indice)
+- Udemy: *AI Agents & Workflows — The Practical Guide*
+  - §1 Getting Started: **tutto ☑** (= A+B; niente blocco C separato)
+  - §2 Using & Steering: **#12–16 ☑** 16/10 · prossimo **#20 HITL** · poi #17–18 (F)
 - Docs: https://cursor.com/docs/sdk/typescript
+- Articolo harness ☑ 09/10
 
 # Open Threads
 
-- Video Max: **A+B ☑** 09/10 · prossimo **C**
-- Learning session (1× ~25′): screenshot appunti A+B → un concetto, primo = agente vs workflow. Poi lab **#4**
-- Cloud su repo reale
-- Surplus: foto spartito → INSERT (prompt dedicato, testato 02/10)
-- Collegare a tracking-ds / Playwright quando c’è un job ripetibile
+- Video: chiudere **E** con #20 · poi **F** (#17–18)
+- Learning session ~25′ (**Mer 21/10**): screenshot A/B + harness → agente vs workflow
+- Lab **#5** cloud
+- Surplus: foto spartito → INSERT (ok 02/10)
+- Idea later: chat UI + tracking (dopo #5)

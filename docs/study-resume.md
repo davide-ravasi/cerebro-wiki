@@ -79,11 +79,21 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track-em-all: dedupe + Show Twitter/canonical ✓ · **Episode Helmet** ✓ | ☑ |
 | Mar | **MapReduce** gate ✓ (map / shuffle / reduce) | ☑ |
-| Mer | DDIA cap. 10 — **pezzi restanti in chat** (lista argomenti dal pomeriggio) | ☐ |
-| Gio | Se ci sono gli screenshot: **1** learning session (agente vs workflow, ~25′). Altrimenti stop | ☐ |
-| Ven | lab agenti **#4** (repo reale, sola lettura). Video **C** solo se resta ~10′ | ☐ |
+| Mer | DDIA cap. 10 — **reduce-side joins** ✓ (core) · resto lista ancora aperta | ◐ |
+| Gio | Learning screenshot (agente vs workflow) — **saltato** → recupero sett. prossima | ☐→ |
+| Ven | lab **#4** ✓ · Udemy §2 **#12–16** ☑ (manca #20 HITL per chiudere E) | ☑ |
 
-*(Sett. 5–9/10: OG/Helmet/search ✓ · DDIA ~15/40 · RTK ✓ · MapReduce Q1 aperta · lab #3 ✓ · video A+B ✓ · harness letto.)*
+*(Sett. chiusa 12–16/10: track SEO Episode · MR+reduce-side · lab #4 · video §1 completa + §2 parziale.)*
+
+### Settimana prossima (2026-10-19 → 10-23)
+
+| Giorno | Piano (1 riga) |
+|--------|----------------|
+| Lun | track: Helmet **Person** (1 obiettivo) |
+| Mar | DDIA cap. 10 — **map-side joins** (poi output batch se resta) |
+| Mer | **Recupero learning** ~25′: screenshot A/B + harness → agente vs workflow (1 concetto) |
+| Gio | Cap. 10 continua **oppure** stop / note |
+| Ven | Udemy **#20 HITL** (~3′) · poi lab **#5** cloud **oppure** #17–18 se preferisci F |
 
 ---
 
@@ -105,10 +115,10 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | | |
 |---|---|
-| **Hook** | *map = etichetta · shuffle = mucchi per chiave · reduce = aggrega/abbina. Join = stessa chiave di join nello shuffle. HDFS = storage file, non lo shuffle.* |
-| **Skill** | `@learn-core-idea-first` ✓ 13/10 (MR + join) |
+| **Hook** | *map = etichetta · shuffle = mucchi · reduce = aggrega/abbina. Reduce-side join = abbina nel reduce dopo shuffle; tag dataset; 1+N → riga per evento; skew = chiave gigante.* |
+| **Skill** | `@learn-core-idea-first` ✓ 13–14/10 (MR + join + reduce-side) |
 | **Dove** | `raw/chapter-10.md` |
-| **Bookmark** | Core-idea chiusi. Prox Mer = DFS / job execution a mano. |
+| **Bookmark** | Prox: **map-side joins** → output batch → Hadoop vs DB → beyond MR. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -232,7 +242,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | DDIA cap. 10 | MR + join core-idea ✓ · **resto = argomenti in chat Mer** | Poi Fowler 2ª. Cap. 11–12 = surplus |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | OG ~89 ✓ · Show Helmet + dedupe + Twitter/canonical ✓ · **Episode Helmet** ✓ (12/10) | Prox: Helmet **Person** · JSON-LD |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Path snello ✓ · lab **#1+#1b+#2+#3** ✓ · video Max **A ☑** | Prox: lab **#4** (repo reale, read-only) · `docs/sources/ai-agents/README.md` |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#4** ✓ · video **A+B** ☑ | Prox: lab **#5** cloud · video **C** · learning screenshot Mer 21/10 |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | Fowler 2ª (dopo cap.10) · HF SA · Makarevich · DDIA 11–12 surplus | In attesa fine 10 + copia Fowler |
 | **Bass theory** *(surplus, non settimana tipo)* | [[map-bass-theory]] · sheets-library scaffold | **Flusso ok 02/10:** foto → prompt agente → tabella + `INSERT` SQL → tu Run in Supabase. Poi upload Storage + `UPDATE` URL. Non compete con Lun/Mar |
@@ -241,7 +251,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-10-13** — MapReduce + join core-idea ✓. Cap. 10 **non chiuso**: pomeriggio → lista argomenti; **Mer** li trattiamo in chat. Poi Fowler.
+- **2026-10-16** — Lab agenti **#4** ✓. Video Udemy §2: **#12–16** ☑ (tools/env, model, system instructions). Manca **#20 HITL** per chiudere E; #17–18 = F dopo. Learning screenshot → Mer 21/10
+- **2026-10-14** — Cap. 10: **reduce-side joins** core ✓. Prox DDIA: map-side joins
+- **2026-10-13** — MapReduce + join core-idea ✓. Lista pezzi restanti cap. 10 annotata
 - **2026-10-12** — Track'em All: **dedupe meta** · Show Twitter + canonical · **Episode Helmet**. Prox track: Person Helmet
 - **2026-10-09** — Lab agenti **#3** ✓. Video Max **A+B** ☑. Articolo **agent harness** ☑ — appunti in arrivo (con A+B). Prox lab: **#4**. Prox media: **C**. MapReduce Q1 ancora aperta
 - **2026-10-08/09** — Lavoro pesante → formazione ridotta. **MapReduce** `@learn-core-idea-first` avviato (idea + analogia) · **Q1 non risposta**. Harness articolo: iniziato, non chiuso
@@ -309,4 +321,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-13 — MR+join ✓ · Mer = pezzi restanti cap.10 (lista pomeriggio)*
+*Ultimo aggiornamento: 2026-10-16 — lab **#4** ✓ · Udemy §2 #12–16 ☑ · prox: #20 HITL · Mer 21/10 learning · Mar map-side*

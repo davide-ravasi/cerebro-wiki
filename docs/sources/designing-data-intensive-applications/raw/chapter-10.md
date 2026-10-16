@@ -110,5 +110,10 @@ Here's my take on chapter 10 so far:
 - [x] Unix tools / philosophy *(letto 29/09; note a fine cap.)*
 - [x] MapReduce core-idea ✓ 13/10 (map/shuffle/reduce) · DFS / resto lettura in corso
 - [x] Join (batch/MR) core-idea ✓ 13/10
-- [ ] Resto cap. 10 — argomenti da trattare in chat (lista utente → Mer 14/10)
+- [ ] Resto cap. 10 — lista utente 13/10; sessione **14/10** (reduce-side ✓ in corso):
+  - [x] Reduce-side joins and grouping — **core 14/10** (etichetta dataset · 1+N · join nel reduce · skew accennato). Sort-merge: solo nome in quadro; approfondire se serve in rilettura
+  - [ ] Map-side joins
+  - [ ] Output of batch workflows
+  - [ ] Hadoop vs distributed databases
+  - [ ] Beyond MapReduce (materialise intermediate state · graph/iterative · high-level APIs)
 - [ ] Cap. 11–12 — **non** in path ora (surplus dopo Fowler)

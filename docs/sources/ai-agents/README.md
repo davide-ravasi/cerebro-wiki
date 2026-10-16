@@ -35,14 +35,13 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 |:--------:|------|------------------------|-----:|:-----:|
 | **A** | #1 | *What Are AI Agents?* · *General vs Task-specific Agents* · *Where Agents Run* · *AI Agents vs AI Workflows* | ~10 | ☑ **02/10** |
 | **B** | #1–2 | *AI Agent Harnesses, LLMs & Limitations* · *How Agents Use Tools* · *Understanding Session Context* · *Core AI Agent Building Blocks - Overview* | ~13 | ☑ **09/10** |
-| **C** | #2 | *Analyzing The Agent Loop* · *How The Agent Learns About Tools & Behaves Correctly* (skip codice OpenAI; ascolta il concetto) | ~10 | ☐ dopo B |
+| **C** | — | *(non presente in questo curriculum Udemy — loop/tools già in §1 + lab)* | — | ☑ skip |
 | **C2** | #2 | Docs: [Cursor SDK](https://cursor.com/docs/sdk/typescript) — `create` / `send` / `wait` | ~10 | ☐ opz. |
-| **D** | #3 | (si aggiorna a fine lab) | — | — |
-| **E** | #4 | *Sometimes Important: Humans In The Loop* · *Managing Agent Tools & The Environment* · *How Agent Execution Is Constrained* | ~10 | ☐ più avanti |
-| **F** | #7 | *Providing Your Own Instructions & Understanding AGENTS.md / CLAUDE.md* · *Understanding Agent Skills* | ~12 | ☐ con lab skills |
+| **E** | #4 | Udemy § *Using & Steering*: *Three Main Ways…* · *Managing Agent Tools…* · *Choosing The Right Model* · *Humans In The Loop* | ~10 | ◐ **16/10** — fatti 13–15 (+ intro 12); manca **#20 HITL** |
+| **F** | #7 | *Developer-provided System Instructions* ☑ 16/10 · *AGENTS.md / CLAUDE.md* · *Agent Skills* (+ *Memory* opz.) | ~12–15 | ◐ — #16 fatto; resto con lab skills |
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
-**Prossima sessione media:** blocco **C** (~10′), poi **C2** se resta tempo. Appunti A+B: learning session su screenshot (da mandare).
+**Prossima sessione media:** blocco **E** (sezione Udemy *Using & Steering*, ~10′). C se lo trovi ancora; altrimenti skip. Learning screenshot → **Mer 21/10**.
 
 ## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
 
@@ -88,7 +87,7 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 | **1b** | ☑ 25/09 | Fallimento voluto (file assente) | Capisci: `finished` ≠ task riuscito |
 | **2** | ☑ 02/10 | `Agent.create` + `send` + secondo messaggio (stesso agent) | Due turni, stesso contesto |
 | **3** | ☑ 09/10 | Modello errori: `CursorAgentError` vs `status === "error"` | Sai quale fix per quale |
-| **4** | ☐ | Stesso pattern su **repo reale** (cwd stretto, task read-only) | Esito utile su codice che conosci |
+| **4** | ☑ 16/10 | Stesso pattern su **repo reale** (cwd root track-em-all, prompt su EpisodePage, read-only) | Esito utile su codice che conosci |
 | **5** | ☐ | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
 | **6** | ☐ | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
 | **7** | ☐ *opz* | Skills / AGENTS.md sul progetto lavoro | L’agente rispetta regole progetto |
@@ -106,6 +105,7 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 - [`raw/lab-2026-09-25-local-prompt.md`](./raw/lab-2026-09-25-local-prompt.md)
 - [`raw/lab-2026-10-02-create-send.md`](./raw/lab-2026-10-02-create-send.md)
 - [`raw/lab-2026-10-09-errors.md`](./raw/lab-2026-10-09-errors.md)
+- [`raw/lab-2026-10-16-real-repo.md`](./raw/lab-2026-10-16-real-repo.md)
 
 ## Idea later (non path)
 
