@@ -13,12 +13,12 @@ pages: 448
 language: en
 domain: software-engineering
 tags: [reading-queue, books, refactoring, tdd, code-smell]
-status: queued
+status: reading
 priority: high
-updated: 2026-10-13
+updated: 2026-10-21
 found_via: "Matt Pocock — skills / AI coding workflow video"
 why: "Behavior-preserving structure changes, code smells, and red-green-refactor — complements agent-assisted coding without letting the AI refactor everything. Priorità carriera dopo chiusura DDIA cap.10."
-start_when: "Dopo chiusura DDIA cap.10 + 2ª edizione (2018) in mano — pezzi utili (smell + catalogo), non tutto il libro"
+start_when: "Started 21/10 — 2ª ed. in mano. Pezzi utili (metodo + smell + catalogo), non tutto il libro di fila."
 related_skills:
   - mattpocock/skills — tdd, code-review (Fowler smell baseline), request-refactor-plan
 related_concepts: []
@@ -56,3 +56,7 @@ urls:
 ## Chat hook
 
 > "Riprendo Fowler Refactoring — [[reading-refactoring-fowler]] — partiamo da code smells / extract function."
+
+## Session log
+
+- **2026-10-21** — Libro arrivato; coda → `reading`. DDIA path chiuso. Prima sessione: prefazione/metodo (cos’è refactor + test), poi smells.

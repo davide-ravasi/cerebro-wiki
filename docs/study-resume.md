@@ -73,27 +73,19 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Questa settimana — focus
 
-*(settimana 2026-10-12 → 10-16)*
+*(sett. chiusa 2026-10-12 → 10-16: track SEO Episode Helmet · MR+reduce-side · lab #4 · video §1 + §2 parziale.)*
+
+### Questa settimana (2026-10-19 → 10-23)
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
-| Lun | track-em-all: dedupe + Show Twitter/canonical ✓ · **Episode Helmet** ✓ | ☑ |
-| Mar | **MapReduce** gate ✓ (map / shuffle / reduce) | ☑ |
-| Mer | DDIA cap. 10 — **reduce-side joins** ✓ (core) · resto lista ancora aperta | ◐ |
-| Gio | Learning screenshot (agente vs workflow) — **saltato** → recupero sett. prossima | ☐→ |
-| Ven | lab **#4** ✓ · Udemy §2 **#12–16** ☑ (manca #20 HITL per chiudere E) | ☑ |
+| Lun | track: **canonical Episode** ✓ · **JSON-LD Show** (`TVSeries`) ✓ pushato · wiki SEO in cerebro | ☑ |
+| Mar | DDIA cap. 10 — **map-side joins** ✓ (broadcast / partizione allineata; altrimenti reduce-side) | ☑ |
+| Mer | **Ripasso agenti** ✓ 21/10 — workflow vs agent · harness esegue tool · AGENTS.md vs skills · memory | ☑ |
+| Gio | Cap. 10 — **output batch** ✓ · **DDIA path chiuso** 21/10 → **Fowler 2ª** attivo (libro arrivato) | ☑ |
+| Ven | Video §2 **chiusi** (#20+#17–18+#Memory appunti ✓ 20/10) · lab **#5** cloud **oppure** skill pratica | ☐ |
 
-*(Sett. chiusa 12–16/10: track SEO Episode · MR+reduce-side · lab #4 · video §1 completa + §2 parziale.)*
-
-### Settimana prossima (2026-10-19 → 10-23)
-
-| Giorno | Piano (1 riga) |
-|--------|----------------|
-| Lun | track: Helmet **Person** (1 obiettivo) |
-| Mar | DDIA cap. 10 — **map-side joins** (poi output batch se resta) |
-| Mer | **Recupero learning** ~25′: screenshot A/B + harness → agente vs workflow (1 concetto) |
-| Gio | Cap. 10 continua **oppure** stop / note |
-| Ven | Udemy **#20 HITL** (~3′) · poi lab **#5** cloud **oppure** #17–18 se preferisci F |
+*Mar chiuso (map-side). Prox track = JSON-LD Episode/Person · sitemap surplus.*
 
 ---
 
@@ -115,10 +107,19 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 | | |
 |---|---|
-| **Hook** | *map = etichetta · shuffle = mucchi · reduce = aggrega/abbina. Reduce-side join = abbina nel reduce dopo shuffle; tag dataset; 1+N → riga per evento; skew = chiave gigante.* |
-| **Skill** | `@learn-core-idea-first` ✓ 13–14/10 (MR + join + reduce-side) |
+| **Hook** | *map/shuffle/reduce · reduce-side vs map-side · output batch = risultato materializzato per job successivi (non “query live”).* |
+| **Skill** | MR+join ✓ · map-side ✓ · path **archiviato 21/10** |
 | **Dove** | `raw/chapter-10.md` |
-| **Bookmark** | Prox: **map-side joins** → output batch → Hadoop vs DB → beyond MR. |
+| **Bookmark** | **Chiuso** path studio. Q&A joins+output = ripasso opz. se serve. Cap. 11–12 surplus. |
+
+### track-em-all — SEO a layer (canonical · OG · JSON-LD)
+
+| | |
+|---|---|
+| **Hook** | *4 layer: title/desc · canonical=`og:url`=route id · OG/Twitter share · JSON-LD = tipo schema.org. Episode: `useParams` id ≠ `episode_number`. Show: `TVSeries` solo se `showData`.* |
+| **Skill** | rilettura / Spiega-lead se serve |
+| **Dove** | [[map-frontend-seo]] · `sources/react/raw/track-em-all-seo-helmet-jsonld.md` |
+| **Bookmark** | Show JSON-LD ✓ 19/10. Prox: Episode/Person JSON-LD · tipi su schema.org + Search Gallery. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -239,19 +240,23 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Tema | Stato | Prossimo |
 |------|--------|----------|
 | DDIA cap. 9 | Lettura ✓ · generale **2/2** ✓ 01/10 · **5 gap ZK ✓ 24/09** | **Archivio** (chiuso studio doppio passaggio) |
-| DDIA cap. 10 | MR + join core-idea ✓ · **resto = argomenti in chat Mer** | Poi Fowler 2ª. Cap. 11–12 = surplus |
+| DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
+| **Fowler Refactoring 2ª** | Libro **arrivato** · `status: reading` | Prefazione/metodo → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | OG ~89 ✓ · Show Helmet + dedupe + Twitter/canonical ✓ · **Episode Helmet** ✓ (12/10) | Prox: Helmet **Person** · JSON-LD |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#4** ✓ · video **A+B** ☑ | Prox: lab **#5** cloud · video **C** · learning screenshot Mer 21/10 |
+| track-em-all | OG · Helmet · canonical Episode · JSON-LD Show ✓ | Prox: JSON-LD Episode/Person · sitemap · *campo prove Fowler* |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#4** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 | Prox: lab **#5** cloud / skill pratica |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
-| Libri coda | Fowler 2ª (dopo cap.10) · HF SA · Makarevich · DDIA 11–12 surplus | In attesa fine 10 + copia Fowler |
+| Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
 | **Bass theory** *(surplus, non settimana tipo)* | [[map-bass-theory]] · sheets-library scaffold | **Flusso ok 02/10:** foto → prompt agente → tabella + `INSERT` SQL → tu Run in Supabase. Poi upload Storage + `UPDATE` URL. Non compete con Lun/Mar |
 
 ---
 
 ## Fatto di recente
 
-- **2026-10-16** — Lab agenti **#4** ✓. Video Udemy §2: **#12–16** ☑ (tools/env, model, system instructions). Manca **#20 HITL** per chiudere E; #17–18 = F dopo. Learning screenshot → Mer 21/10
+- **2026-10-21** — Ripasso agenti ✓. **DDIA path chiuso** (cap.10 core archiviato; 11–12 surplus). **Fowler 2ª** attivo (libro arrivato) — partire da metodo/smells. Prox: prima lettura Fowler · Ven lab #5
+- **2026-10-20** — Cap. 10: map-side ✓ · output batch letto. Udemy **§2 chiusa**: #20 · #17–18 · memory. Foto ripasso Mer ok
+- **2026-10-19** — Track'em All: **canonical Episode** (`useParams` id) · **JSON-LD Show** (`TVSeries`, guard `showData`) pushato. Cerebro: [[map-frontend-seo]] · concept canonical / JSON-LD / OG · pattern Helmet layers · raw `sources/react/raw/track-em-all-seo-helmet-jsonld.md`. Prox track: JSON-LD Episode/Person
+- **2026-10-16** — Lab **#4** ✓ · Udemy §2 #12–16 ☑ · **Workshop morning-agent** (note in `docs/private/workshop-morning-agent-2026-10-16.md`, repo `Documents/morning-agent`). Prox: #20 HITL · Mer learning · lab #5/#7 con skill pattern
 - **2026-10-14** — Cap. 10: **reduce-side joins** core ✓. Prox DDIA: map-side joins
 - **2026-10-13** — MapReduce + join core-idea ✓. Lista pezzi restanti cap. 10 annotata
 - **2026-10-12** — Track'em All: **dedupe meta** · Show Twitter + canonical · **Episode Helmet**. Prox track: Person Helmet
@@ -321,4 +326,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-16 — lab **#4** ✓ · Udemy §2 #12–16 ☑ · prox: #20 HITL · Mer 21/10 learning · Mar map-side*
+*Ultimo aggiornamento: 2026-10-21 — DDIA chiuso · Fowler 2ª attivo · prox prima lettura Fowler · Ven lab #5*

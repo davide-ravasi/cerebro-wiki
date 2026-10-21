@@ -19,7 +19,7 @@ This folder is a Markdown-first knowledge base designed for:
 - `sources/nodejs/`: Node.js / Express raw notes from study and projects — see `README.md` there; files under `raw/`
 - `concepts/`: atomic evergreen notes (one concept per file); subfolders by domain (e.g. `distributed-systems/`, `databases/`, `web/`, `ai/`)
 - `patterns/`: practical decision notes and tradeoffs (when to use what)
-- `maps/`: map of content (MOC) pages that organize related notes (e.g. `web-security-map.md` for CORS/CSP/Helmet, `reading-map.md` for books queue + active reading)
+- `maps/`: map of content (MOC) pages that organize related notes (e.g. `web-security-map.md` for CORS/CSP/Helmet, `frontend-seo-map.md` for canonical/OG/JSON-LD, `reading-map.md` for books queue + active reading)
 - `glossary/`: short canonical definitions
 - `templates/`: reusable templates for every note type (including [`reading-queue-entry.md`](templates/reading-queue-entry.md))
 - `.cursor/skills/` (repo root): Cursor agent skills for **learning modes** (study DDIA/Mongo in chat) — see [`.cursor/skills/README.md`](../.cursor/skills/README.md)

@@ -5,7 +5,7 @@ type: source
 domain: ai
 tags: [source, ai, agents, cursor-sdk, udemy]
 status: evergreen
-updated: 2026-10-02
+updated: 2026-10-20
 ---
 
 # AI agents — path snello (lavoro)
@@ -37,11 +37,12 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | **B** | #1–2 | *AI Agent Harnesses, LLMs & Limitations* · *How Agents Use Tools* · *Understanding Session Context* · *Core AI Agent Building Blocks - Overview* | ~13 | ☑ **09/10** |
 | **C** | — | *(non presente in questo curriculum Udemy — loop/tools già in §1 + lab)* | — | ☑ skip |
 | **C2** | #2 | Docs: [Cursor SDK](https://cursor.com/docs/sdk/typescript) — `create` / `send` / `wait` | ~10 | ☐ opz. |
-| **E** | #4 | Udemy § *Using & Steering*: *Three Main Ways…* · *Managing Agent Tools…* · *Choosing The Right Model* · *Humans In The Loop* | ~10 | ◐ **16/10** — fatti 13–15 (+ intro 12); manca **#20 HITL** |
-| **F** | #7 | *Developer-provided System Instructions* ☑ 16/10 · *AGENTS.md / CLAUDE.md* · *Agent Skills* (+ *Memory* opz.) | ~12–15 | ◐ — #16 fatto; resto con lab skills |
+| **E** | #4 | §2: *Three Main Ways…* (#12) · tools/model (#13–15) · *Humans In The Loop* (#20) | ~10 | ☑ **20/10** |
+| **F** | #7 | *System Instructions* (#16) · *AGENTS.md / CLAUDE.md* · *Agent Skills* (#17–18) · Memory (notes) | ~12–15 | ☑ **20/10** (appunti foto) |
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
-**Prossima sessione media:** blocco **E** (sezione Udemy *Using & Steering*, ~10′). C se lo trovi ancora; altrimenti skip. Learning screenshot → **Mer 21/10**.
+**Coda video Max (path):** **chiusa** 20/10.  
+**Mer 21/10:** ripasso chat su tutte le foto (harness/loop/workflow + AGENTS.md vs skills + memory).
 
 ## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
 

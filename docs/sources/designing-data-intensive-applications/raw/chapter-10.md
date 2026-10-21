@@ -111,9 +111,10 @@ Here's my take on chapter 10 so far:
 - [x] MapReduce core-idea ✓ 13/10 (map/shuffle/reduce) · DFS / resto lettura in corso
 - [x] Join (batch/MR) core-idea ✓ 13/10
 - [ ] Resto cap. 10 — lista utente 13/10; sessione **14/10** (reduce-side ✓ in corso):
-  - [x] Reduce-side joins and grouping — **core 14/10** (etichetta dataset · 1+N · join nel reduce · skew accennato). Sort-merge: solo nome in quadro; approfondire se serve in rilettura
-  - [ ] Map-side joins
-  - [ ] Output of batch workflows
-  - [ ] Hadoop vs distributed databases
-  - [ ] Beyond MapReduce (materialise intermediate state · graph/iterative · high-level APIs)
+  - [x] Reduce-side joins and grouping — **core 14/10** (etichetta dataset · 1+N · join nel reduce · skew accennato). Rilettura 20/10
+  - [x] Map-side joins — **core 20/10** (broadcast se piccolo · oppure fette co-partizionate; altrimenti reduce-side). Sessione: riletto anche reduce-side; gate ok
+  - [x] Output of batch workflows — **letto 20/10** (senza appunti) · da fissare in Q&A con joins
+  - [ ] Hadoop vs distributed databases — **skip deep** (surplus; ok cenni in Q&A se esce)
+  - [ ] Beyond MapReduce — **skip deep** (surplus dopo Fowler / se serve)
+- [x] **Path chiuso 21/10** — core MR/joins/output enough; Q&A joins opz. se ripasso. **Fowler 2ª** = libro attivo. Cap. 11–12 surplus.
 - [ ] Cap. 11–12 — **non** in path ora (surplus dopo Fowler)

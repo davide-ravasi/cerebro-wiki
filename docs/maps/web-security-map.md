@@ -48,4 +48,6 @@ Navigation for **browser security** notes learned while building Track'em All an
 
 # Related Maps
 
+- [[map-frontend-seo]] — page meta / canonical / JSON-LD (`react-helmet-async`); different from Express Helmet headers
+
 - [[map-databases]] (orthogonal; app data layer)
