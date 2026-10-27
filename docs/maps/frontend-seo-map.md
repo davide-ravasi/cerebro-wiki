@@ -5,7 +5,7 @@ type: map
 domain: web
 tags: [map, navigation, web, seo, react, helmet, json-ld, open-graph, track-em-all]
 status: evergreen
-updated: 2026-10-19
+updated: 2026-10-26
 ---
 
 # Purpose
@@ -34,19 +34,19 @@ Navigation for **page-level SEO** learned on Track'em All (SPA + `react-helmet-a
 2. Read the type page for allowed properties and parent types.
 3. If you care about Google rich results, cross-check [Search Gallery](https://developers.google.com/search/docs/appearance/structured-data/search-gallery).
 
-# Track'em All status (2026-10-19)
+# Track'em All status (2026-10-26)
 
 | Page | Meta Helmet | Canonical | JSON-LD |
 |------|-------------|-----------|---------|
 | Show | ✓ | ✓ | ✓ `TVSeries` |
-| Episode | ✓ | ✓ (`useParams` id) | next: `TVEpisode` |
-| Person | ✓ | ✓ | next: `Person` |
+| Episode | ✓ | ✓ (`useParams` id) | ✓ `TVEpisode` (+ season/series) |
+| Person | ✓ | ✓ | ✓ `Person` |
 
 Also backlog: sitemap (surplus).
 
 # Open Threads
 
-- Episode / Person JSON-LD (same pattern as Show)
+- Sitemap (surplus)
 - Nested episode URLs (`/show/…/season/…`) would require route + canonical + JSON-LD together
 - Non-JS crawlers vs SPA (prerender/SSR if share/index quality stalls)
 

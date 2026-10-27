@@ -59,4 +59,6 @@ urls:
 
 ## Session log
 
-- **2026-10-21** — Libro arrivato; coda → `reading`. DDIA path chiuso. Prima sessione: prefazione/metodo (cos’è refactor + test), poi smells.
+- **2026-10-27** — ~**10/44** pp metodo / first example (impresa teatrale). Gate parziale: test automatizzati prima · Extract Function + rename variabili. Precisazione fissata: refactor = stessa behavior, struttura diversa. Bookmark: riprendere da p.~11 dello stesso pezzo.
+- **2026-10-22** — 1ª lettura rimandata a sett. 26–30/10.
+- **2026-10-21** — Libro arrivato; coda → `reading`. DDIA path chiuso.

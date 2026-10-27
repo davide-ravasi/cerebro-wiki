@@ -2,7 +2,7 @@
 title: Track'em All — SEO a layer (Helmet, canonical, OG, JSON-LD)
 type: raw-note
 tags: [react, seo, helmet, canonical, open-graph, json-ld, schema.org, track-em-all]
-provenance: Sessioni track-em-all 2026-09 → 2026-10-19 (Show/Episode/Person Helmet · canonical Episode · JSON-LD Show)
+provenance: Sessioni track-em-all 2026-09 → 2026-10-26 (Helmet · canonical Episode · JSON-LD Show/Episode/Person)
 see_also_app: track-em-all ShowPage / EpisodePage / PersonPage · App.tsx routes · EpisodeCard Link
 promote_later: docs/concepts/web/canonical-url.md · json-ld.md · open-graph-and-twitter-cards.md · patterns/web/spa-page-seo-helmet-jsonld.md
 ---
@@ -73,15 +73,15 @@ Evita script vuoti / `null` in loading (`JSON.stringify(undefined)` non è una s
 
 ---
 
-## Stato (19/10)
+## Stato (26/10)
 
 | Pagina | Helmet meta | Canonical corretto | JSON-LD |
 |--------|-------------|--------------------|---------|
-| Show | ✓ | ✓ `/show/:id` | ✓ `TVSeries` (pushato) |
-| Episode | ✓ | ✓ `/episode/:id` (useParams) | Prox `TVEpisode` |
-| Person | ✓ | ✓ `/person/:id` | Prox `Person` |
+| Show | ✓ | ✓ `/show/:id` | ✓ `TVSeries` |
+| Episode | ✓ | ✓ `/episode/:id` (useParams) | ✓ `TVEpisode` (+ season/series) |
+| Person | ✓ | ✓ `/person/:id` | ✓ `Person` |
 
-Prox track: JSON-LD Episode/Person · sitemap (surplus).
+Prox track: sitemap (surplus).
 
 ---
 
