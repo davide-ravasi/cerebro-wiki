@@ -95,7 +95,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track: JSON-LD **Episode** (`TVEpisode`) + **Person** ✓ · agente track aggiorna docs | ☑ |
 | Mar | **Fowler** — 1ª sessione: ~10/44 pp metodo (teatro · test · Extract Function) ✓ 27/10 | ◐ |
-| Mer | Ripasso corto **oppure** Fowler smells | ☐ |
+| Mer | **JSON-LD** learning ~15–20′ (`@learn-core-idea-first` — tipo macchina vs canonical/OG; Show/Episode/Person) | ☐ |
 | Gio | Fowler continua **oppure** stop | ☐ |
 | Ven | lab **#5** se non fatto · altrimenti skill pratica | ☐ |
 
@@ -131,7 +131,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *4 layer: title/desc · canonical=`og:url`=route id · OG/Twitter share · JSON-LD = tipo schema.org. Episode: `useParams` id ≠ `episode_number`. Show: `TVSeries` solo se `showData`.* |
 | **Skill** | rilettura / Spiega-lead se serve |
 | **Dove** | [[map-frontend-seo]] · `sources/react/raw/track-em-all-seo-helmet-jsonld.md` |
-| **Bookmark** | Show/Episode/Person JSON-LD ✓ 26/10. Prox: sitemap surplus · tipi schema.org se serve. |
+| **Bookmark** | Show/Episode/Person JSON-LD ✓ 26/10. **Mer 28/10:** learning core-idea 15–20′. Poi sitemap surplus. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -341,4 +341,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-27 — Fowler ~10/44 metodo ✓ · prox finire esempio Fowler · Ven lab #5 · migrazione Drive/repo in coda*
+*Ultimo aggiornamento: 2026-10-27 — Fowler ~10/44 ✓ · Mer 28/10 JSON-LD learning 15–20′ · prox Fowler continua · Ven lab #5 · migrazione in coda*
