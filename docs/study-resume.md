@@ -106,7 +106,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Gio | **Ripasso ufficio:** Next.js Tier 1 concetti (bass-sheets checklist) — SC/CC · App Router · fetch server · env · `sources/nextjs/raw/bass-sheets-gio-checklist.md` | ☐ |
 | Ven | lab **#5** se non fatto · altrimenti skill pratica | ☐ |
 
-**28/10 (prima del cambio PC):** export Markdown delle chat da tenere (questa cerebro + le altre che indichi) → Drive. Il thread non si riapre sull’altro PC; il resume sì, dopo commit+push.
+**28/10 cambio PC:** il filo di questa chat è `docs/restart-prompt-2026-10-28.md` (incollalo in una chat nuova). Le altre chat, se servono, vanno esportate in Markdown sulla macchina vecchia.
 
 **Prenotato — mer 4/11:** ripasso ufficio SEO, tutti i layer e perché ci sono (title/description, canonical, OG/Twitter, JSON-LD + campi minimi Show/Episode/Person). Non tutto schema.org.
 
@@ -353,4 +353,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-28 — Mer JSON-LD ✓ · mer 4/11 ripasso SEO completo · Gio Next · export chat + push ancora aperti*
+*Ultimo aggiornamento: 2026-10-28 — prompt ripartenza `docs/restart-prompt-2026-10-28.md` · Gio Next · mer 4/11 SEO*
