@@ -20,7 +20,7 @@ Piano per un progetto **cerebro-style dedicato alla teoria musicale applicata al
 |----------|-------|-------|
 | **cerebro-bass** *(da creare)* o mappa in cerebro | Teoria, roadmap, concetti, esercizi testuali | Piano in questa mappa |
 | **learn-bass-fretboard** | Simulazione / pratica sul manico | Esiste (visualizzatore) |
-| **bass-sheets-library** (`react-exp/bass-sheets-library`) | Catalogo spartiti scritti a mano (foto → metadati → ricerca → status studio) | Scaffold + schema Supabase ✓ · **surplus 02/10:** prompt agente foto→tabella→`INSERT` SQL (test ok; upload Storage + UPDATE URL dopo) |
+| **bass-sheets-library** (`react-exp/bass-sheets-library`) | Catalogo spartiti scritti a mano (foto → metadati → ricerca → status studio) | Scaffold + schema Supabase ✓ · **surplus 02/10:** prompt agente foto→tabella→`INSERT` SQL (test ok; upload Storage + UPDATE URL dopo) · **Gio 30/10:** Next Tier 1 — `docs/sources/nextjs/raw/bass-sheets-gio-checklist.md` |
 
 Stesso pattern già in uso: `cerebro` (teoria) + app pratiche. Qui **sheets-library = repertorio personale reale** (le tue trascrizioni/spartiti), non solo brani di YouTube.
 

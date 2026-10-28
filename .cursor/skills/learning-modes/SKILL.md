@@ -25,6 +25,30 @@ User can `@learn-operational-fast`, `@learn-error-simulator`, `@learn-core-idea-
 - "learning curve destroyer" → operational fast
 - "error simulator" / "simulatore errori" → error simulator  
 - "traduttore" / "core idea" → core idea first
+- `Reflect:` → chiusura 3 righe (vedi sotto) — non è una skill a parte
+- `Interleave:` → quiz misto su `@learn-error-simulator` (vedi sotto)
+
+## Chiusure corte (nel flow, non skill nuove)
+
+Ispirate a [agentic-learning](https://github.com/FavioVazquez/agentic-learning) (`reflect`, `interleave`). **Non** installare quella skill: scrivono `docs/revisit.md` e duplicano `study-resume`.
+
+### Reflect
+
+Trigger: `Reflect:` oppure fine sessione Mer/Gio se l’utente chiude.
+
+Chiedi **solo** queste tre righe (l’utente le scrive; tu non le riempi al posto suo):
+
+1. **Imparato** — una frase
+2. **Obiettivo** — cosa volevo oggi
+3. **Buco** — cosa è ancora opaco
+
+Poi: se c’è un buco, proponi **una** riga in «Da ripassare» (o backlog). Non aprire un file nuovo.
+
+### Interleave
+
+Trigger: `Interleave:` + 2 temi (se manca il secondo, prendilo da «Da ripassare» o dal piano Mer/Gio).
+
+Usa `@learn-error-simulator` con **uno** scenario che mescola i due temi (stessa domanda, due concetti). Una domanda, aspetta la risposta. Niente lezione prima. Un solo giro salvo richiesta di un altro.
 
 ## Cerebro wiki
 

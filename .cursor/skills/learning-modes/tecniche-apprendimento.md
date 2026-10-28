@@ -15,6 +15,8 @@ Nota di collegamento (non sostituisce le skill). Fonte esterna: “4 tecniche + 
 | **Test attivo / casi / quiz aperti** | `@learn-error-simulator` + smoke/codice | Preferisci scenari a quiz a scelta multipla |
 | **Analogie / meno carico** | core-idea + note a mano (DDIA) | — |
 | **Feynman inverso** (io spiego → feedback lacune) | **Spiega-lead** in `docs/study-resume.md` (ogni ~14 gg) | In chat: `Spiega-lead: [concetto]` |
+| **Reflect** (imparato / obiettivo / buco) | chiusura in `@learning-modes` | `Reflect:` — 3 righe; buco → una voce in resume. Non un file `revisit.md` |
+| **Interleaving** (mischiare 2 temi) | `@learn-error-simulator` via `Interleave:` | 1 scenario misto, non due lezioni. Meglio di studiare un tema fino a esaurirlo |
 
 ---
 
@@ -33,7 +35,8 @@ Se parti da zero senza skill: `@learning-modes` + “sono confuso / ripasso / op
 | Mappatura | roadmap corta o voce in `study-resume` |
 | Comprensione | core-idea **oppure** note a mano |
 | Elaborazione | Spiega-lead (bi-settimanale) |
-| Verifica | error-simulator |
+| Verifica | error-simulator · a volte `Interleave:` (2 temi) |
+| Chiusura | `Reflect:` → 3 righe; buco nel resume |
 
 Guida lettura articoli/capitoli: [guida-articoli-e-lettura.md](./guida-articoli-e-lettura.md).
 

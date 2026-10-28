@@ -14,13 +14,17 @@
 |--------|-------|-----------|------|
 | **Lun** | ~1 h | **2×25** | **track-em-all** — 1 pezzo codice |
 | **Mar** | ~1 h | **2×25** | **DDIA** — nuovo (leggi / core-idea) |
-| **Mer** | ~30 min | **1×25** | **Ripasso** con Cursor (`@learn-error-simulator`) |
-| **Gio** | ~30 min | **1×25** | **Ripasso** con Cursor (altro tema o stesso se debole) |
+| **Mer** | ~30 min | **1×25** | **Ripasso concetti** (ufficio) — chat only |
+| **Gio** | ~30 min | **1×25** | **Ripasso concetti** (ufficio) — altro tema o stesso se debole |
 | **Ven** | ~1 h | **2×25** | **Mongo** corto **oppure** track-em-all **oppure** lab agenti (1 pomodoro) — **mai due deep** |
 
 **Pause:** 5 min tra pomodori; dopo 2 pomodori puoi fermarti (hai fatto l’ora).
 
 **Max Node:** nessun slot fisso — 1 pomodoro solo se sblocca track-em-all.
+
+**Ufficio (Mer / Gio):** solo ripasso / core-idea in chat — niente libro lungo, niente codice deep, niente lab. Tema della settimana ok (JSON-LD, Next, Fowler *idea*), ma formato leggero.
+
+**Fowler vs Next:** lettura Fowler = **Mar** (o casa). Gio Next = checklist concetti. Se Fowler avanza, Mer/Gio possono **alternare** i temi (o entrambi in settimane diverse) — sempre in modalità ripasso, non dual deep lo stesso giorno.
 
 ### Come usare i 2 pomodori (Lun / Mar / Ven)
 
@@ -29,11 +33,12 @@
 | **1° (25)** | Obiettivo unico (codice / lettura / lezione) |
 | **2° (25)** | Continua **lo stesso** obiettivo — oppure 15 min lavoro + 10 min aggiorna questo file |
 
-### Mer / Gio (1 pomodoro)
+### Mer / Gio (1 pomodoro — ufficio)
 
-1. Apri questa sezione **Da ripassare**
-2. In chat: `@learn-error-simulator` + hook della voce
-3. Fine: spunta o sposta in **Fatto di recente** / **Ripasso chiuso**
+1. Tema dalla settimana o da **Da ripassare** (max 1). Oppure `Interleave: [tema A] + [tema B]` — **uno** scenario misto, non due lezioni
+2. In chat: `@learn-core-idea-first` **oppure** `@learn-error-simulator` + hook
+3. Chiudi con `Reflect:` — 3 righe: **imparato** / **obiettivo** / **buco** (il buco diventa una voce di ripasso se serve)
+4. Spunta o sposta in **Fatto di recente** / **Ripasso chiuso**
 
 ---
 
@@ -46,6 +51,8 @@
 | Verificare | `@learn-error-simulator` + tema |
 | Solo rileggere | path in **Dove** — niente skill |
 | Spiega a parole tue | `Spiega-lead: [concetto]` (cadenza ~14 gg) |
+| Chiudere la sessione | `Reflect:` — imparato / obiettivo / buco |
+| Mischiare 2 temi | `Interleave: [A] + [B]` (1 scenario, Mer/Gio) |
 
 **Nuovo → ripasso:** Mar (nuovo) → Mer/Gio (simulator su quel pezzo). Lun (app) → eventualmente Gio se hai messo un hook tecnico.
 
@@ -95,9 +102,13 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track: JSON-LD **Episode** (`TVEpisode`) + **Person** ✓ · agente track aggiorna docs | ☑ |
 | Mar | **Fowler** — 1ª sessione: ~10/44 pp metodo (teatro · test · Extract Function) ✓ 27/10 | ◐ |
-| Mer | **JSON-LD** learning ~15–20′ (`@learn-core-idea-first` — tipo macchina vs canonical/OG; Show/Episode/Person) | ☐ |
-| Gio | Fowler continua **oppure** stop | ☐ |
+| Mer | **Ripasso ufficio:** JSON-LD ✓ 28/10 — tipo macchina ≠ canonical/OG; Show `TVSeries` · Episode `TVEpisode` · Person `Person` | ☑ |
+| Gio | **Ripasso ufficio:** Next.js Tier 1 concetti (bass-sheets checklist) — SC/CC · App Router · fetch server · env · `sources/nextjs/raw/bass-sheets-gio-checklist.md` | ☐ |
 | Ven | lab **#5** se non fatto · altrimenti skill pratica | ☐ |
+
+**28/10 (prima del cambio PC):** export Markdown delle chat da tenere (questa cerebro + le altre che indichi) → Drive. Il thread non si riapre sull’altro PC; il resume sì, dopo commit+push.
+
+**Prenotato — mer 4/11:** ripasso ufficio SEO, tutti i layer e perché ci sono (title/description, canonical, OG/Twitter, JSON-LD + campi minimi Show/Episode/Person). Non tutto schema.org.
 
 ---
 
@@ -131,7 +142,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *4 layer: title/desc · canonical=`og:url`=route id · OG/Twitter share · JSON-LD = tipo schema.org. Episode: `useParams` id ≠ `episode_number`. Show: `TVSeries` solo se `showData`.* |
 | **Skill** | rilettura / Spiega-lead se serve |
 | **Dove** | [[map-frontend-seo]] · `sources/react/raw/track-em-all-seo-helmet-jsonld.md` |
-| **Bookmark** | Show/Episode/Person JSON-LD ✓ 26/10. **Mer 28/10:** learning core-idea 15–20′. Poi sitemap surplus. |
+| **Bookmark** | Ruolo JSON-LD ✓ 28/10. **Mer 4/11:** ripasso tutti i layer SEO e perché (inclusi campi minimi, non tutto schema.org). Poi sitemap surplus. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -259,12 +270,13 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#4** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 | Prox: lab **#5** cloud / skill pratica |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
-| **Bass theory** *(surplus, non settimana tipo)* | [[map-bass-theory]] · sheets-library scaffold | **Flusso ok 02/10:** foto → prompt agente → tabella + `INSERT` SQL → tu Run in Supabase. Poi upload Storage + `UPDATE` URL. Non compete con Lun/Mar |
+| **Bass / Next.js** *(Gio ripasso + surplus casa)* | [[map-bass-theory]] · checklist `sources/nextjs/raw/bass-sheets-gio-checklist.md` | Gio = concetti (ufficio). Codice/tutorial deep = casa/surplus. Alterna con Fowler idea su Mer/Gio se serve. Sheet: foto → SQL → Supabase (ok 02/10) |
 
 ---
 
 ## Fatto di recente
 
+- **2026-10-28** — JSON-LD core-idea ✓ + Reflect. Imparato: ruolo del tipo accanto a canonical/OG. Obiettivo: perché tutti i dati SEO. Buco in backlog: catalogo attributi (campi minimi, non tutto schema.org).
 - **2026-10-27** — Fowler 2ª: ~**10/44** pp metodo/first example (teatro). Preso: test prima · Extract Function + rename. Precisato: refactor = struttura **senza** cambiare comportamento. Prox: finire pezzo metodo
 - **2026-10-26** — Track: JSON-LD Episode + Person ✓. Backup Drive avviato (env+private; 3 report lunghi ancora da caricare). Prox: chiudere Drive · fase B push repo
 - **2026-10-22** — Gio: no lettura. Fowler 1ª → sett. 26–30.
@@ -336,9 +348,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 1. **Attivo ≈ max 3**; in più → **Backlog ripasso**.
 2. **1 obiettivo per sessione** (anche con 2 pomodori).
-3. Mer/Gio = solo ripasso da «Da ripassare» (non dal backlog intero).
-4. Fine sessione: spunta tabella settimana + aggiorna ripasso (2 min).
+3. Mer/Gio = solo ripasso da «Da ripassare» o dal piano settimana (non dal backlog intero). `Interleave` = 2 temi, 1 scenario.
+4. Fine sessione: `Reflect:` (3 righe) + spunta tabella settimana + aggiorna ripasso (2 min).
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-27 — Fowler ~10/44 ✓ · Mer 28/10 JSON-LD learning 15–20′ · prox Fowler continua · Ven lab #5 · migrazione in coda*
+*Ultimo aggiornamento: 2026-10-28 — Mer JSON-LD ✓ · mer 4/11 ripasso SEO completo · Gio Next · export chat + push ancora aperti*
