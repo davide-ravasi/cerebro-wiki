@@ -103,7 +103,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Lun | track: JSON-LD **Episode** (`TVEpisode`) + **Person** ✓ · agente track aggiorna docs | ☑ |
 | Mar | **Fowler** — 1ª sessione: ~10/44 pp metodo (teatro · test · Extract Function) ✓ 27/10 | ◐ |
 | Mer | **Ripasso ufficio:** JSON-LD ✓ 28/10 — tipo macchina ≠ canonical/OG; Show `TVSeries` · Episode `TVEpisode` · Person `Person` | ☑ |
-| Gio | **Ripasso ufficio:** Next.js Tier 1 concetti (bass-sheets checklist) — SC/CC · App Router · fetch server · env · `sources/nextjs/raw/bass-sheets-gio-checklist.md` | ☐ |
+| Gio | **Ripasso ufficio:** Next SC vs CC ✓ 29/10 · App Router → prossima Gio (Q&A layout solo informale) · checklist | ◐ |
 | Ven | lab **#5** se non fatto · altrimenti skill pratica | ☐ |
 
 **28/10 cambio PC:** il filo di questa chat è `docs/restart-prompt-2026-10-28.md` (incollalo in una chat nuova). Le altre chat, se servono, vanno esportate in Markdown sulla macchina vecchia.
@@ -276,6 +276,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-10-29** — Next: SC vs CC ✓. Domande su layout/`app` (informali, App Router formale → prox Gio). Nota: SC può usare `NEXT_PUBLIC_*` Supabase; vantaggio = meno JS + dati al primo paint.
 - **2026-10-28** — JSON-LD core-idea ✓ + Reflect. Imparato: ruolo del tipo accanto a canonical/OG. Obiettivo: perché tutti i dati SEO. Buco in backlog: catalogo attributi (campi minimi, non tutto schema.org).
 - **2026-10-27** — Fowler 2ª: ~**10/44** pp metodo/first example (teatro). Preso: test prima · Extract Function + rename. Precisato: refactor = struttura **senza** cambiare comportamento. Prox: finire pezzo metodo
 - **2026-10-26** — Track: JSON-LD Episode + Person ✓. Backup Drive avviato (env+private; 3 report lunghi ancora da caricare). Prox: chiudere Drive · fase B push repo

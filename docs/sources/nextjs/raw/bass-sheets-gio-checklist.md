@@ -7,7 +7,7 @@
 
 ## Ordine Gio (Tier 1)
 
-1. [ ] **Server vs Client Components** — default server; `"use client"` solo per stato/eventi
+1. [x] **Server vs Client Components** — default server; `"use client"` solo per stato/eventi ✓ 29/10
 2. [ ] **App Router** — `app/`, `layout.tsx`, `page.tsx`, nested
 3. [ ] **Data fetching sul server** — async page / SC; niente `useEffect` per il primo load
 4. [ ] **Env** — `NEXT_PUBLIC_*` vs secret solo server (`.env.local` Supabase)
