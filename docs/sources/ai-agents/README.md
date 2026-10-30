@@ -5,7 +5,7 @@ type: source
 domain: ai
 tags: [source, ai, agents, cursor-sdk, udemy]
 status: evergreen
-updated: 2026-10-20
+updated: 2026-10-30
 ---
 
 # AI agents — path snello (lavoro)
@@ -16,15 +16,21 @@ Corso Udemy: [AI Agents & Workflows — The Practical Guide](https://www.udemy.c
 Cadenza: **1×25 min / Ven** (XOR track/Mongo). Mar–Gio pesanti → skip.  
 Mappa: [[map-agents-lab]]
 
-## Mappa Udemy → tuo path
+## Mappa Udemy → tuo path (sezioni curriculum)
 
-| Modulo corso (indicativo) | Tu |
-|---------------------------|-----|
-| Getting started · What are agents & workflows | **Guarda** (~10–15 min totali) |
-| Workflows vs agentic · tools · HITL · memory light | **Guarda** i pezzi concetto; non rifare tutto in OpenAI/Python |
-| OpenAI SDK / structured outputs / Slack / Ollama | **Salta** (stessi concetti → Cursor SDK) |
-| Multi-agent + CrewAI section | **Salta** finché lab #5–6 non sono stabili |
-| n8n / no-code deep | **Salta** come percorso; ok 1 video se curiosità |
+Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/course/ai-agents-workflows-the-practical-guide/) (Max / Academind).  
+Regola: **1 obiettivo Ven** = lab SDK. Udemy = vocabolario, max 15–20′ dopo lab o in surplus corto. Non rifare in OpenAI/Python/n8n.
+
+| § | Titolo corso | ~ | Quando | Stato |
+|---|--------------|--:|--------|:-----:|
+| **1** | Getting Started | 25′ | Prima / con lab **#1–2** | ☑ |
+| **2** | Using & Steering AI Agents | 27′ | Con lab **#3–4** (+ HITL/skills) | ☑ |
+| **3** | Building Agents & Workflows — Overview (#21–25) | 10′ | **Dopo lab #5** (oggi ok) — overview; pezzo utile = *WHO / WHERE* (#23) | ☐ |
+| **4** | Building AI Workflows & Applications | ~2h30 | **Skip path** (implementazione corso). Ok 1 video se curiosità, mai + lab deep | skip |
+| **5** | Building AI Agents | ~2h | **Skip path** stesso motivo; concetti → Cursor SDK lab | skip |
+| **6** | Using CrewAI | ~53′ | Solo **dopo lab #8b** (capstone). Prima = no | skip |
+
+**§3 lezioni:** 21 Module intro · 22 Options for building · **23 WHO builds / WHERE runs** · 24 Options with code · 25 Choosing building blocks.
 
 ## Coda video / articoli (da smaltire)
 
@@ -36,13 +42,14 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | **A** | #1 | *What Are AI Agents?* · *General vs Task-specific Agents* · *Where Agents Run* · *AI Agents vs AI Workflows* | ~10 | ☑ **02/10** |
 | **B** | #1–2 | *AI Agent Harnesses, LLMs & Limitations* · *How Agents Use Tools* · *Understanding Session Context* · *Core AI Agent Building Blocks - Overview* | ~13 | ☑ **09/10** |
 | **C** | — | *(non presente in questo curriculum Udemy — loop/tools già in §1 + lab)* | — | ☑ skip |
-| **C2** | #2 | Docs: [Cursor SDK](https://cursor.com/docs/sdk/typescript) — `create` / `send` / `wait` | ~10 | ☐ opz. |
+| **C2** | #5 | Docs: [Cursor SDK](https://cursor.com/docs/sdk/typescript) — `local` vs `cloud` · `resume` / run id (prepara #6) | ~10 | ☐ opz. **dopo #5** |
 | **E** | #4 | §2: *Three Main Ways…* (#12) · tools/model (#13–15) · *Humans In The Loop* (#20) | ~10 | ☑ **20/10** |
 | **F** | #7 | *System Instructions* (#16) · *AGENTS.md / CLAUDE.md* · *Agent Skills* (#17–18) · Memory (notes) | ~12–15 | ☑ **20/10** (appunti foto) |
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
-**Coda video Max (path):** **chiusa** 20/10.  
-**Mer 21/10:** ripasso chat su tutte le foto (harness/loop/workflow + AGENTS.md vs skills + memory).
+**Coda video Max §1–§2:** **chiusa** 20/10.  
+**§3:** prossima (opz., ~10′) dopo #5 — dimmi quando la inizi / chiudi.  
+**Mer 21/10:** ripasso chat foto (harness/loop/workflow + AGENTS.md vs skills + memory).
 
 ## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
 
@@ -55,8 +62,8 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 | **3** | [AI + design system guardrails (Evil Martians)](https://evilmartians.com/chronicles/ai-makes-design-system-guardrails-mandatory-this-framework-delivers-them) | Token, regole, AI su UI — track / lavoro | ~15 | ☐ |
 | — | [Layers](https://layers.jamiemill.com) | 7 strati product design (skill opz.) | ~20 | ☐ (Mer 07/10 = RTK; Layers in coda) |
 
-**Ordine suggerito:** harness (1) → tech lead (2) → design guardrails (3) · Layers quando previsto in calendario.  
-**Se hai ~15′ oggi:** parti da **#1 harness** (collega lab + video Max B).
+**Ordine suggerito:** harness (1) ☑ → tech lead (2) → design guardrails (3) · Layers quando previsto in calendario.  
+**Dopo lab #5 (~15′):** docs SDK **C2** (cloud + `resume`) **oppure** articolo **#2** tech lead. Non aprire moduli Udemy nuovi.
 
 ## Max (Udemy) vs docs ufficiali Cursor
 
@@ -89,11 +96,15 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 | **2** | ☑ 02/10 | `Agent.create` + `send` + secondo messaggio (stesso agent) | Due turni, stesso contesto |
 | **3** | ☑ 09/10 | Modello errori: `CursorAgentError` vs `status === "error"` | Sai quale fix per quale |
 | **4** | ☑ 16/10 | Stesso pattern su **repo reale** (cwd root track-em-all, prompt su EpisodePage, read-only) | Esito utile su codice che conosci |
-| **5** | ☐ | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
+| **5** | ☑ 30/10 | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
 | **6** | ☐ | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
 | **7** | ☐ *opz* | Skills / AGENTS.md sul progetto lavoro | L’agente rispetta regole progetto |
+| **7b** | ☐ | **HITL / permessi** — cosa può toccare; quando si ferma e chiede te | Sai dove sta il cancello umano vs il loop |
 | **8** | ☐ *opz* | Tool custom o MCP **solo se** un caso lavoro lo chiede | — |
-| **9** | ☐ *opz* | Claude Managed Agents / multi-agent | Solo dopo 5–6 stabili |
+| **8b** | ☐ | **Capstone** — *un* agent a più passi (piano → tool → verifica → stop) | Complesso = composto, non più API |
+| **9** | ☐ *opz* | Claude Managed Agents / multi-agent | Solo dopo **8b** (e 5–6) stabili |
+
+Regola: **1–6** obbligatori in ordine. **7 → 7b → 8 (se serve) → 8b → 9**. Non un secondo corso in parallelo. CrewAI / Udemy multi-agent: no finché 8b non è solido.
 
 ## Orizzonte ~3 mesi (successo)
 
@@ -107,6 +118,7 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 - [`raw/lab-2026-10-02-create-send.md`](./raw/lab-2026-10-02-create-send.md)
 - [`raw/lab-2026-10-09-errors.md`](./raw/lab-2026-10-09-errors.md)
 - [`raw/lab-2026-10-16-real-repo.md`](./raw/lab-2026-10-16-real-repo.md)
+- [`raw/lab-2026-10-30-cloud.md`](./raw/lab-2026-10-30-cloud.md)
 
 ## Idea later (non path)
 

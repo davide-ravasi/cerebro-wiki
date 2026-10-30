@@ -104,7 +104,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Mar | **Fowler** — 1ª sessione: ~10/44 pp metodo (teatro · test · Extract Function) ✓ 27/10 | ◐ |
 | Mer | **Ripasso ufficio:** JSON-LD ✓ 28/10 — tipo macchina ≠ canonical/OG; Show `TVSeries` · Episode `TVEpisode` · Person `Person` | ☑ |
 | Gio | **Ripasso ufficio:** Next SC vs CC ✓ 29/10 · App Router → prossima Gio (Q&A layout solo informale) · checklist | ◐ |
-| Ven | lab **#5** se non fatto · altrimenti skill pratica | ☐ |
+| Ven | lab **#5** cloud ✓ 30/10 | ☑ |
 
 **28/10 cambio PC:** il filo di questa chat è `docs/restart-prompt-2026-10-28.md` (incollalo in una chat nuova). Le altre chat, se servono, vanno esportate in Markdown sulla macchina vecchia.
 
@@ -267,7 +267,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Fowler Refactoring 2ª** | `reading` · **27/10** ~10/44 pp first example/metodo | Prox: finire pezzo metodo/esempio → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | OG · Helmet · canonical · JSON-LD Show/Episode/Person ✓ 26/10 | Prox: sitemap surplus · *campo prove Fowler* |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#4** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 | Prox: lab **#5** cloud / skill pratica |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#5** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b capstone | Prox: lab **#6** resume |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
 | **Bass / Next.js** *(Gio ripasso + surplus casa)* | [[map-bass-theory]] · checklist `sources/nextjs/raw/bass-sheets-gio-checklist.md` | Gio = concetti (ufficio). Codice/tutorial deep = casa/surplus. Alterna con Fowler idea su Mer/Gio se serve. Sheet: foto → SQL → Supabase (ok 02/10) |
@@ -276,6 +276,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-10-30** — Lab agenti **#5** cloud ✓ + Reflect. Imparato: `cloud` in `create` → VM Cursor + clone GitHub; l’agente risponde su quel clone. Buco: nessuno. Interesse (dopo 6–8b): spingere l’esperimento oltre (es. comandi sul clone). Prox: **#6** resume.
 - **2026-10-29** — Next: SC vs CC ✓. Domande su layout/`app` (informali, App Router formale → prox Gio). Nota: SC può usare `NEXT_PUBLIC_*` Supabase; vantaggio = meno JS + dati al primo paint.
 - **2026-10-28** — JSON-LD core-idea ✓ + Reflect. Imparato: ruolo del tipo accanto a canonical/OG. Obiettivo: perché tutti i dati SEO. Buco in backlog: catalogo attributi (campi minimi, non tutto schema.org).
 - **2026-10-27** — Fowler 2ª: ~**10/44** pp metodo/first example (teatro). Preso: test prima · Extract Function + rename. Precisato: refactor = struttura **senza** cambiare comportamento. Prox: finire pezzo metodo
@@ -354,4 +355,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-28 — prompt ripartenza `docs/restart-prompt-2026-10-28.md` · Gio Next · mer 4/11 SEO*
+*Ultimo aggiornamento: 2026-10-30 — lab #5 cloud ✓ + Reflect · prox Ven #6 resume · mer 4/11 SEO · Gio App Router*
