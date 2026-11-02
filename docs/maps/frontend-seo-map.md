@@ -5,7 +5,7 @@ type: map
 domain: web
 tags: [map, navigation, web, seo, react, helmet, json-ld, open-graph, track-em-all]
 status: evergreen
-updated: 2026-10-26
+updated: 2026-11-02
 ---
 
 # Purpose
@@ -42,13 +42,28 @@ Navigation for **page-level SEO** learned on Track'em All (SPA + `react-helmet-a
 | Episode | ✓ | ✓ (`useParams` id) | ✓ `TVEpisode` (+ season/series) |
 | Person | ✓ | ✓ | ✓ `Person` |
 
-Also backlog: sitemap (surplus).
+Also backlog: ~~sitemap~~ ✓ 02/11. GSC/index rimandato.
 
 # Open Threads
 
-- Sitemap (surplus)
+- Sitemap ✓ 02/11 — `public/sitemap.xml` (/, /about, /login, /register) + `Sitemap:` in `robots.txt`. Live ok (Chrome/curl; Opera a volte no). Dynamic entity URL = un giorno.
+- **GSC / indicizzazione: no per ora** — migliorare il sito prima; poi Search Console + submit sitemap
 - Nested episode URLs (`/show/…/season/…`) would require route + canonical + JSON-LD together
 - Non-JS crawlers vs SPA (prerender/SSR if share/index quality stalls)
+- Trap SPA: URL senza file statico (es. `/sitemap`) → `_redirects` → app; file vero = `/sitemap.xml`
+
+## JSON-LD — arricchire un giorno (non path attivo)
+
+Path entity **chiuso** (minimi Show/Episode/Person ✓). Solo se serve rich result / chiarezza extra:
+
+| Dove | Add-on |
+|------|--------|
+| Show | `genre` · `startDate`/`datePublished` · `numberOfSeasons` · `actor`/`creator` (lista corta) |
+| Episode | `actor` cast · `sameAs` TMDB |
+| Person | `sameAs` (IMDb/TMDB) · `jobTitle` / known-for se in UI |
+| Home | `WebSite` / `Organization` (non entity page) |
+
+Non tutto schema.org. Mer 4/11 = ripasso layer + campi minimi, non questi add-on.
 
 # Related Maps
 

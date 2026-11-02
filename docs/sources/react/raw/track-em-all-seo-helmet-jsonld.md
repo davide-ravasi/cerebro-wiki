@@ -81,7 +81,24 @@ Evita script vuoti / `null` in loading (`JSON.stringify(undefined)` non è una s
 | Episode | ✓ | ✓ `/episode/:id` (useParams) | ✓ `TVEpisode` (+ season/series) |
 | Person | ✓ | ✓ `/person/:id` | ✓ `Person` |
 
-Prox track: sitemap (surplus).
+Prox track: ~~sitemap~~ ✓ 02/11 (`public/sitemap.xml` + `robots.txt`, live ok). **GSC/index rimandato** (migliorare sito prima). Entity URL dinamiche = un giorno.
+
+### Reflect 02/11 (Davide)
+
+- **Imparato:** sitemap descrive agli crawler le URL (+ priority/changefreq poco usati da Google); conta soprattutto `<loc>`. In `robots.txt` si indica dove trovare la sitemap.
+- **Obiettivo:** il crawler ha chiaro quali pagine vogliamo che visiti.
+- **Buco:** nessuno per ora.
+
+## JSON-LD — un giorno (non ora)
+
+Entity minimi ✓. Arricchire solo se serve:
+
+- Show: `genre` · date · `numberOfSeasons` · `actor`/`creator`
+- Episode: `actor` · `sameAs` TMDB
+- Person: `sameAs` · job/known-for se in UI
+- Home: `WebSite` / `Organization`
+
+Vedi [[map-frontend-seo]] Open Threads.
 
 ---
 

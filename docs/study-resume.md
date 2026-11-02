@@ -110,6 +110,16 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 **Prenotato — mer 4/11:** ripasso ufficio SEO, tutti i layer e perché ci sono (title/description, canonical, OG/Twitter, JSON-LD + campi minimi Show/Episode/Person). Non tutto schema.org.
 
+### Questa settimana (2026-11-02 → 11-06)
+
+| Giorno | Piano (1 riga) | Fatto? |
+|--------|----------------|:------:|
+| Lun | track: **sitemap** + `robots` ✓ · GSC/index rimandato (migliorare sito prima) | ☑ |
+| Mar | **Fowler** da ~p.11 pezzo metodo | ☐ |
+| Mer | ripasso (ufficio) — oppure attesa mer 4/11 SEO | ☐ |
+| Gio | Next Tier 1: App Router (checklist bass-sheets) | ☐ |
+| Ven | lab agenti **#6** resume / run id | ☐ |
+
 ---
 
 ## Da ripassare (attivo — max 3)
@@ -142,7 +152,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *4 layer: title/desc · canonical=`og:url`=route id · OG/Twitter share · JSON-LD = tipo schema.org. Episode: `useParams` id ≠ `episode_number`. Show: `TVSeries` solo se `showData`.* |
 | **Skill** | rilettura / Spiega-lead se serve |
 | **Dove** | [[map-frontend-seo]] · `sources/react/raw/track-em-all-seo-helmet-jsonld.md` |
-| **Bookmark** | Ruolo JSON-LD ✓ 28/10. **Mer 4/11:** ripasso tutti i layer SEO e perché (inclusi campi minimi, non tutto schema.org). Poi sitemap surplus. |
+| **Bookmark** | Ruolo JSON-LD ✓ 28/10 · sitemap ✓ 02/11. **Mer 4/11:** ripasso layer + campi minimi. **GSC no per ora.** **Un giorno:** JSON-LD enrich · entity URL in sitemap — [[map-frontend-seo]]. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -266,7 +276,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
 | **Fowler Refactoring 2ª** | `reading` · **27/10** ~10/44 pp first example/metodo | Prox: finire pezzo metodo/esempio → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | OG · Helmet · canonical · JSON-LD Show/Episode/Person ✓ 26/10 | Prox: sitemap surplus · *campo prove Fowler* |
+| track-em-all | OG · Helmet · canonical · JSON-LD ✓ · sitemap statica ✓ 02/11 | Prox: migliorare sito · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#5** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b capstone | Prox: lab **#6** resume |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
@@ -276,6 +286,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-11-02** — Track: **sitemap** ✓ + Reflect. Imparato: sitemap = URL (+ priority/changefreq poco usati da Google); `robots.txt` punta alla sitemap. Obiettivo: dare al crawler le pagine da visitare. Buco: nessuno. GSC/index **no per ora**. Trap: SPA vs `/sitemap.xml`.
 - **2026-10-30** — Lab agenti **#5** cloud ✓ + Reflect. Imparato: `cloud` in `create` → VM Cursor + clone GitHub; l’agente risponde su quel clone. Buco: nessuno. Interesse (dopo 6–8b): spingere l’esperimento oltre (es. comandi sul clone). Prox: **#6** resume.
 - **2026-10-29** — Next: SC vs CC ✓. Domande su layout/`app` (informali, App Router formale → prox Gio). Nota: SC può usare `NEXT_PUBLIC_*` Supabase; vantaggio = meno JS + dati al primo paint.
 - **2026-10-28** — JSON-LD core-idea ✓ + Reflect. Imparato: ruolo del tipo accanto a canonical/OG. Obiettivo: perché tutti i dati SEO. Buco in backlog: catalogo attributi (campi minimi, non tutto schema.org).
@@ -355,4 +366,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-10-30 — lab #5 cloud ✓ + Reflect · prox Ven #6 resume · mer 4/11 SEO · Gio App Router*
+*Ultimo aggiornamento: 2026-11-02 — sitemap ✓ · GSC rimandato · Mar Fowler · Gio App Router · Ven #6 · mer 4/11 SEO*

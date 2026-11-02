@@ -21,6 +21,8 @@ Skill: `@learn-core-idea-first` · `@learn-error-simulator` · `@learn-operation
 
 **30/10 — Lab #5 cloud** ✓: `cloud: { repos }` · ID `bc-…` · VM ≠ `local.cwd`. Udemy: §1–2 ☑ · §3 overview dopo #5 · §4–5 skip · §6 dopo #8b.
 
+**02/11 — Sitemap track** ✓: `sitemap.xml` + `robots` · GSC/index **rimandato** (migliorare sito prima).
+
 **29/10 — Next.js SC vs CC** (bass-sheets): default server; `"use client"` solo per interazione; lista server + filtri client; SC può usare `NEXT_PUBLIC_*` Supabase; vantaggio SC = meno JS + dati al primo paint. Domande su layout/`app` = solo informali — **App Router formale non fatto**.
 
 ## Prossimi slot
@@ -31,6 +33,7 @@ Skill: `@learn-core-idea-first` · `@learn-error-simulator` · `@learn-operation
 | **Prossima Gio** | Next Tier 1: **App Router** → fetch server → env · `docs/sources/nextjs/raw/bass-sheets-gio-checklist.md` |
 | **Mer 4/11** | Ripasso SEO completo (title/desc · canonical · OG · JSON-LD + campi minimi). Non tutto schema.org |
 | **Mar** | Fowler da ~p.11 del pezzo metodo |
+| **Prox Lun track** | migliorare sito (non GSC finché non pronto) |
 
 ## Drive
 
