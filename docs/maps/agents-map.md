@@ -25,9 +25,10 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 
 # Practical Patterns
 
-- Lab repo: `../ai-lab` — `#1` prompt ✓ · `#2` create+send ✓ · `#3` errori ✓ · `#4` real-repo ✓ 16/10 · `#5` cloud ✓ 30/10 (`bc-…`, VM vs `cwd`)  
-  Trap #4: cwd foglia → SQLite `unable to open database file`; cwd = root repo + prompt stretto  
-  Trap #5: senza `cloud` l’SDK fa local in silenzio
+- Lab repo: `../ai-lab` — `#1`–`#5` ✓ · `#6` resume ✓ 04/11 (`Agent.resume` su `bc-…`, id salvato a mano)  
+  Trap #4: cwd foglia → SQLite; cwd = root + prompt stretto  
+  Trap #5: senza `cloud` → local in silenzio  
+  Trap #6: id dopo `create` lo salvi tu; Node chiuso ≠ agente Cursor chiuso
 - Cadenza: Ven 1×25, XOR track/Mongo
 
 # Source / corso
@@ -35,7 +36,7 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 - Udemy: *AI Agents & Workflows — The Practical Guide*
   - §1 Getting Started: **tutto ☑**
   - §2 *Using & Steering*: **tutto ☑** 20/10 (E+F). Hook skills: progressive disclosure · `name`+`description` · AGENTS.md = README for agents
-  - §3 Overview (#21–25, ~10′): **dopo #5** — ☐; pezzo utile #23 WHO/WHERE
+  - §3 Overview (~10′): ◐ 04/11 #21–22 ✓ · restano #23–25 (utile #23 WHO/WHERE)
   - §4 Workflows (~2h30) · §5 Building Agents (~2h): **skip path** (curiosità 1 video max)
   - §6 CrewAI: **dopo #8b** only
 
@@ -44,7 +45,7 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 
 # Open Threads
 
-- Lab **#6** resume / run id. Path 7 → 7b HITL → 8 se serve → **8b capstone** → 9. Non un secondo corso.
+- Lab **#7** skills / AGENTS.md. Path 7b HITL → 8 se serve → **8b capstone** → 9.
 - Ripasso foto Mer ✓ 21/10
 - **Workshop D-Edge 16/10** (appunti private): `docs/private/workshop-morning-agent-2026-10-16.md` · repo `C:\Users\dravasi\Documents\morning-agent` — riprendere per lab #7 / skill vs agent
 - Surplus: foto spartito → INSERT (ok 02/10)

@@ -29,8 +29,9 @@ Skill: `@learn-core-idea-first` · `@learn-error-simulator` · `@learn-operation
 
 | Quando | Cosa |
 |--------|------|
-| **Mer 4/11** | Lab agenti **#6** resume (SEO spostato a ven, solo questa sett.) |
+| **Mer 4/11** | Lab agenti **#6** resume ✓ |
 | **Ven 6/11** | Ripasso SEO (title/desc · canonical · OG · JSON-LD + campi minimi) |
+| **Prox lab** | **#7** skills / AGENTS.md |
 | **Prossima Gio** | Next Tier 1: **App Router** → fetch server → env · `docs/sources/nextjs/raw/bass-sheets-gio-checklist.md` |
 | **Mer 4/11** | Ripasso SEO completo (title/desc · canonical · OG · JSON-LD + campi minimi). Non tutto schema.org |
 | **Mar** | Fowler da ~p.11 del pezzo metodo |

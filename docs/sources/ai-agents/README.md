@@ -25,7 +25,7 @@ Regola: **1 obiettivo Ven** = lab SDK. Udemy = vocabolario, max 15–20′ dopo 
 |---|--------------|--:|--------|:-----:|
 | **1** | Getting Started | 25′ | Prima / con lab **#1–2** | ☑ |
 | **2** | Using & Steering AI Agents | 27′ | Con lab **#3–4** (+ HITL/skills) | ☑ |
-| **3** | Building Agents & Workflows — Overview (#21–25) | 10′ | **Dopo lab #5** (oggi ok) — overview; pezzo utile = *WHO / WHERE* (#23) | ☐ |
+| **3** | Building Agents & Workflows — Overview (#21–25) | 10′ | Dopo #5/#6 — overview; pezzo utile = *WHO / WHERE* (#23) | ◐ 04/11: #21–22 ✓ · restano #23–25 |
 | **4** | Building AI Workflows & Applications | ~2h30 | **Skip path** (implementazione corso). Ok 1 video se curiosità, mai + lab deep | skip |
 | **5** | Building AI Agents | ~2h | **Skip path** stesso motivo; concetti → Cursor SDK lab | skip |
 | **6** | Using CrewAI | ~53′ | Solo **dopo lab #8b** (capstone). Prima = no | skip |
@@ -48,7 +48,7 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
 **Coda video Max §1–§2:** **chiusa** 20/10.  
-**§3:** prossima (opz., ~10′) dopo #5 — dimmi quando la inizi / chiudi.  
+**§3:** ◐ 04/11 — #21 Module intro · #22 Options for building ✓. Restano **#23** WHO/WHERE · #24 Options with code · #25 Choosing building blocks.  
 **Mer 21/10:** ripasso chat foto (harness/loop/workflow + AGENTS.md vs skills + memory).
 
 ## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
@@ -97,7 +97,7 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 | **3** | ☑ 09/10 | Modello errori: `CursorAgentError` vs `status === "error"` | Sai quale fix per quale |
 | **4** | ☑ 16/10 | Stesso pattern su **repo reale** (cwd root track-em-all, prompt su EpisodePage, read-only) | Esito utile su codice che conosci |
 | **5** | ☑ 30/10 | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
-| **6** | ☐ | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
+| **6** | ☑ 04/11 | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
 | **7** | ☐ *opz* | Skills / AGENTS.md sul progetto lavoro | L’agente rispetta regole progetto |
 | **7b** | ☐ | **HITL / permessi** — cosa può toccare; quando si ferma e chiede te | Sai dove sta il cancello umano vs il loop |
 | **8** | ☐ *opz* | Tool custom o MCP **solo se** un caso lavoro lo chiede | — |
@@ -119,6 +119,7 @@ Regola: **1–6** obbligatori in ordine. **7 → 7b → 8 (se serve) → 8b → 
 - [`raw/lab-2026-10-09-errors.md`](./raw/lab-2026-10-09-errors.md)
 - [`raw/lab-2026-10-16-real-repo.md`](./raw/lab-2026-10-16-real-repo.md)
 - [`raw/lab-2026-10-30-cloud.md`](./raw/lab-2026-10-30-cloud.md)
+- [`raw/lab-2026-11-04-resume.md`](./raw/lab-2026-11-04-resume.md)
 
 ## Idea later (non path)
 

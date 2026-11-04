@@ -116,7 +116,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track: **sitemap** + `robots` ✓ · GSC/index rimandato (migliorare sito prima) | ☑ |
 | Mar | **Fowler** da ~p.11 pezzo metodo | ☐ |
-| Mer | **lab #6** resume / run id (SEO spostato a ven, solo questa sett.) | ☐ |
+| Mer | **lab #6** resume ✓ 04/11 (SEO → ven, solo questa sett.) | ☑ |
 | Gio | Next Tier 1: App Router (checklist bass-sheets) | ☐ |
 | Ven | ripasso SEO (title/desc · canonical · OG · JSON-LD + campi minimi) | ☐ |
 
@@ -277,7 +277,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Fowler Refactoring 2ª** | `reading` · **27/10** ~10/44 pp first example/metodo | Prox: finire pezzo metodo/esempio → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | OG · Helmet · canonical · JSON-LD ✓ · sitemap statica ✓ 02/11 | Prox: migliorare sito · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#5** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b capstone | Prox: lab **#6** resume |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#6** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b | Prox: lab **#7** skills / AGENTS.md |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
 | **Bass / Next.js** *(Gio ripasso + surplus casa)* | [[map-bass-theory]] · checklist `sources/nextjs/raw/bass-sheets-gio-checklist.md` | Gio = concetti (ufficio). Codice/tutorial deep = casa/surplus. Alterna con Fowler idea su Mer/Gio se serve. Sheet: foto → SQL → Supabase (ok 02/10) |
@@ -286,6 +286,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-11-04** — Lab **#6** resume ✓ + Reflect. Udemy §3: #21–22 ✓ (restano #23–25). Prox lab: **#7**. Ven: SEO.
 - **2026-11-02** — Track: **sitemap** ✓ + Reflect. Imparato: sitemap = URL (+ priority/changefreq poco usati da Google); `robots.txt` punta alla sitemap. Obiettivo: dare al crawler le pagine da visitare. Buco: nessuno. GSC/index **no per ora**. Trap: SPA vs `/sitemap.xml`.
 - **2026-10-30** — Lab agenti **#5** cloud ✓ + Reflect. Imparato: `cloud` in `create` → VM Cursor + clone GitHub; l’agente risponde su quel clone. Buco: nessuno. Interesse (dopo 6–8b): spingere l’esperimento oltre (es. comandi sul clone). Prox: **#6** resume.
 - **2026-10-29** — Next: SC vs CC ✓. Domande su layout/`app` (informali, App Router formale → prox Gio). Nota: SC può usare `NEXT_PUBLIC_*` Supabase; vantaggio = meno JS + dati al primo paint.
