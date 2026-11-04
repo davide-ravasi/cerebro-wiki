@@ -116,9 +116,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track: **sitemap** + `robots` ✓ · GSC/index rimandato (migliorare sito prima) | ☑ |
 | Mar | **Fowler** da ~p.11 pezzo metodo | ☐ |
-| Mer | ripasso (ufficio) — oppure attesa mer 4/11 SEO | ☐ |
+| Mer | **lab #6** resume / run id (SEO spostato a ven, solo questa sett.) | ☐ |
 | Gio | Next Tier 1: App Router (checklist bass-sheets) | ☐ |
-| Ven | lab agenti **#6** resume / run id | ☐ |
+| Ven | ripasso SEO (title/desc · canonical · OG · JSON-LD + campi minimi) | ☐ |
 
 ---
 
