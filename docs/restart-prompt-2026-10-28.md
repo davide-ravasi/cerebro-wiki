@@ -6,7 +6,7 @@ Leggi anche `docs/study-resume.md`.
 
 ## Chi sono e come studio
 
-Mi chiamo Davide. Studio in questo repo (wiki + resume). Full-stack, traiettoria senior/lead. App principale: track-em-all. Libro in corso: Fowler, *Refactoring* (2ª ed.), ~10/44 pp del primo esempio (teatro, test prima, Extract Function). DDIA cap. 9–10 chiuso.
+Mi chiamo Davide. Studio in questo repo (wiki + resume). Full-stack, traiettoria senior/lead. App principale: track-em-all. Libro in corso: Fowler, *Refactoring* (2ª ed.), ~**24/44** pp del primo esempio (teatro · temps · volumeCredits). DDIA cap. 9–10 chiuso.
 
 **Mer / Gio** = ufficio, 1 pomodoro, solo ripasso concetti in chat. Niente libro lungo, niente codice deep. Fowler = **Mar** o casa.
 
@@ -34,7 +34,7 @@ Skill: `@learn-core-idea-first` · `@learn-error-simulator` · `@learn-operation
 | **Prox lab** | **#7** skills / AGENTS.md |
 | **Prossima Gio** | Next Tier 1: **App Router** → fetch server → env · `docs/sources/nextjs/raw/bass-sheets-gio-checklist.md` |
 | **Mer 4/11** | Ripasso SEO completo (title/desc · canonical · OG · JSON-LD + campi minimi). Non tutto schema.org |
-| **Mar** | Fowler da ~p.11 del pezzo metodo |
+| **Mar** | Fowler da ~**p.24/44** pezzo metodo |
 | **Prox Lun track** | migliorare sito (non GSC finché non pronto) |
 
 ## Drive

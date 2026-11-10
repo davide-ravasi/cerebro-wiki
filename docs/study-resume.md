@@ -115,10 +115,20 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | track: **sitemap** + `robots` ✓ · GSC/index rimandato (migliorare sito prima) | ☑ |
-| Mar | **Fowler** da ~p.11 pezzo metodo | ☐ |
+| Mar | **Fowler** ~p.11→**24/44** ✓ 10/11 (temps · volumeCredits) | ☑ |
 | Mer | **lab #6** resume ✓ 04/11 (SEO → ven, solo questa sett.) | ☑ |
 | Gio | Next Tier 1: App Router (checklist bass-sheets) | ☐ |
 | Ven | ripasso SEO (title/desc · canonical · OG · JSON-LD + campi minimi) | ☐ |
+
+### Questa settimana (2026-11-10 → 11-14)
+
+| Giorno | Piano (1 riga) | Fatto? |
+|--------|----------------|:------:|
+| Lun | *(recupero lavoro/hackathon — no slot)* | — |
+| Mar | **Fowler** ~24/44 ✓ (temps · volumeCredits) · stop lettura | ☑ |
+| Mer | ripasso ufficio: **SEO** (4 layer + campi minimi) — recupero da ven 6/11 | ☐ |
+| Gio | Next Tier 1: **App Router** (checklist bass-sheets) — recupero | ☐ |
+| Ven | lab agenti **#7** skills / AGENTS.md **oppure** finire Udemy §3 (#23–25) | ☐ |
 
 ---
 
@@ -274,7 +284,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|----------|
 | DDIA cap. 9 | Lettura ✓ · generale **2/2** ✓ 01/10 · **5 gap ZK ✓ 24/09** | **Archivio** (chiuso studio doppio passaggio) |
 | DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
-| **Fowler Refactoring 2ª** | `reading` · **27/10** ~10/44 pp first example/metodo | Prox: finire pezzo metodo/esempio → smells → 1 refactor su track |
+| **Fowler Refactoring 2ª** | `reading` · **10/11** ~**24/44** pp first example (teatro · temps · volumeCredits split/extract) | Prox: finire pezzo metodo → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | OG · Helmet · canonical · JSON-LD ✓ · sitemap statica ✓ 02/11 | Prox: migliorare sito · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#6** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b | Prox: lab **#7** skills / AGENTS.md |
@@ -286,6 +296,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-11-10** — Fowler ~**24/44**: Replace Temp/Query · Inline · `volumeCreditsFor` · Split Loop → Slide → Extract → Inline. Prox: finire pezzo metodo.
 - **2026-11-04** — Lab **#6** resume ✓ + Reflect. Udemy §3: #21–22 ✓ (restano #23–25). Prox lab: **#7**. Ven: SEO.
 - **2026-11-02** — Track: **sitemap** ✓ + Reflect. Imparato: sitemap = URL (+ priority/changefreq poco usati da Google); `robots.txt` punta alla sitemap. Obiettivo: dare al crawler le pagine da visitare. Buco: nessuno. GSC/index **no per ora**. Trap: SPA vs `/sitemap.xml`.
 - **2026-10-30** — Lab agenti **#5** cloud ✓ + Reflect. Imparato: `cloud` in `create` → VM Cursor + clone GitHub; l’agente risponde su quel clone. Buco: nessuno. Interesse (dopo 6–8b): spingere l’esperimento oltre (es. comandi sul clone). Prox: **#6** resume.
