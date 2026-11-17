@@ -135,8 +135,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | *(vacanze — no slot)* | — |
-| Mar | **Fowler** ~**32/44** ✓ — split calcolo dati vs presentazione (text/HTML) | ☑ |
-| Mer | ripasso ufficio: **SEO** 4 layer + campi minimi (title/desc · canonical · OG · JSON-LD) | ☐ |
+| Mar | **Fowler** ~**32/44** ✓ · **+ track:** `vite-bundle-visualizer` + error-sim first-load/lazy | ☑ |
+| Mer | ripasso ufficio: **SEO** 4 layer + campi minimi (title/desc · canonical · OG · JSON-LD) — *opz. Interleave + hook bundle* | ☐ |
 | Gio | Next Tier 1: **App Router** → fetch server → env · `bass-sheets-gio-checklist.md` | ☐ |
 | Ven | lab agenti **#7** skills / AGENTS.md (1 obiettivo) | ☐ |
 
@@ -173,6 +173,15 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Skill** | rilettura / Spiega-lead se serve |
 | **Dove** | [[map-frontend-seo]] · `sources/react/raw/track-em-all-seo-helmet-jsonld.md` |
 | **Bookmark** | Ruolo JSON-LD ✓ 28/10 · sitemap ✓ 02/11. **Mer 4/11:** ripasso layer + campi minimi. **GSC no per ora.** **Un giorno:** JSON-LD enrich · entity URL in sitemap — [[map-frontend-seo]]. |
+
+### track-em-all — first-load / bundle / `React.lazy`
+
+| | |
+|---|---|
+| **Hook** | *First load = grafo di import dalla shell (`App`/Header), non “pagina che vedi”. `React.lazy` sulle route sposta solo il codice di quelle pagine: **non** toglie `react-dom` né lib ancora importate dalla shell (FA, toastify, helmet). Cold load `/show/:id` = shell chunk + chunk Show — non “Show più veloce ovunque”.* |
+| **Skill** | `@learn-error-simulator` ✓ 17/11 (3 scenari) — ripasso / Spiega-lead se serve |
+| **Dove** | track `docs/TODO-LIST.md` → Performance · `npm run analyze` |
+| **Bookmark** | Visualizer ✓ 17/11 (1 chunk ~402 kB). **Prox codice:** route lazy Show/Episode/Person. Opz. Devtools solo in `import.meta.env.DEV`. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -296,7 +305,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
 | **Fowler Refactoring 2ª** | `reading` · **17/11** ~**32/44** pp (teatro · temps · credits · **split data vs HTML/text**) | Prox: finire pezzo metodo → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | OG · Helmet · canonical · JSON-LD ✓ · sitemap statica ✓ 02/11 | Prox: migliorare sito · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
+| track-em-all | OG · Helmet · JSON-LD ✓ · sitemap ✓ · **bundle visualizer ✓ 17/11** | Prox: **`React.lazy` route** · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#6** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b | Prox: lab **#7** skills / AGENTS.md |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
@@ -305,6 +314,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 ---
 
 ## Fatto di recente
+
+- **2026-11-17** — Track'em All: **`vite-bundle-visualizer`** (`npm run analyze`) · finding in TODO (1 chunk ~402 kB; top: react-dom · FA · toastify ≈ helmet) · **error-sim** first-load/lazy ✓ · docs only (no commit). Prox track: `React.lazy` route. Hook → backlog.
 
 - **2026-11-17** — Fowler ~**32/44**: separazione **dati/calcolo** vs **presentazione** (statement testuale o HTML). Prox: finire pezzo metodo (~44).
 - **2026-11-10** — Fowler ~**24/44**: Replace Temp/Query · Inline · `volumeCreditsFor` · Split Loop → Slide → Extract → Inline.
@@ -389,4 +400,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-11-17 — ripartenza post-vacanze · Fowler ~24/44 · sett. 17–21: Mar Fowler · Mer SEO · Gio App Router · Ven #7*
+*Ultimo aggiornamento: 2026-11-17 — track visualizer + error-sim first-load → backlog · Fowler ~32/44 · sett. 17–21: Mer SEO · Gio App Router · Ven #7*
