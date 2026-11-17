@@ -126,9 +126,19 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | *(recupero lavoro/hackathon — no slot)* | — |
 | Mar | **Fowler** ~24/44 ✓ (temps · volumeCredits) · stop lettura | ☑ |
-| Mer | ripasso ufficio: **SEO** (4 layer + campi minimi) — recupero da ven 6/11 | ☐ |
-| Gio | Next Tier 1: **App Router** (checklist bass-sheets) — recupero | ☐ |
-| Ven | lab agenti **#7** skills / AGENTS.md **oppure** finire Udemy §3 (#23–25) | ☐ |
+| Mer–Ven | *(vacanze / non fatti — non recuperare)* | — |
+
+### Questa settimana (2026-11-17 → 11-21) — ripartenza post-vacanze
+
+*Niente recupero slot saltati. Filo normale da dove eri.*
+
+| Giorno | Piano (1 riga) | Fatto? |
+|--------|----------------|:------:|
+| Lun | *(vacanze — no slot)* | — |
+| Mar | **Fowler** ~**32/44** ✓ — split calcolo dati vs presentazione (text/HTML) | ☑ |
+| Mer | ripasso ufficio: **SEO** 4 layer + campi minimi (title/desc · canonical · OG · JSON-LD) | ☐ |
+| Gio | Next Tier 1: **App Router** → fetch server → env · `bass-sheets-gio-checklist.md` | ☐ |
+| Ven | lab agenti **#7** skills / AGENTS.md (1 obiettivo) | ☐ |
 
 ---
 
@@ -284,7 +294,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|----------|
 | DDIA cap. 9 | Lettura ✓ · generale **2/2** ✓ 01/10 · **5 gap ZK ✓ 24/09** | **Archivio** (chiuso studio doppio passaggio) |
 | DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
-| **Fowler Refactoring 2ª** | `reading` · **10/11** ~**24/44** pp first example (teatro · temps · volumeCredits split/extract) | Prox: finire pezzo metodo → smells → 1 refactor su track |
+| **Fowler Refactoring 2ª** | `reading` · **17/11** ~**32/44** pp (teatro · temps · credits · **split data vs HTML/text**) | Prox: finire pezzo metodo → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | OG · Helmet · canonical · JSON-LD ✓ · sitemap statica ✓ 02/11 | Prox: migliorare sito · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#6** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b | Prox: lab **#7** skills / AGENTS.md |
@@ -296,7 +306,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-11-10** — Fowler ~**24/44**: Replace Temp/Query · Inline · `volumeCreditsFor` · Split Loop → Slide → Extract → Inline. Prox: finire pezzo metodo.
+- **2026-11-17** — Fowler ~**32/44**: separazione **dati/calcolo** vs **presentazione** (statement testuale o HTML). Prox: finire pezzo metodo (~44).
+- **2026-11-10** — Fowler ~**24/44**: Replace Temp/Query · Inline · `volumeCreditsFor` · Split Loop → Slide → Extract → Inline.
 - **2026-11-04** — Lab **#6** resume ✓ + Reflect. Udemy §3: #21–22 ✓ (restano #23–25). Prox lab: **#7**. Ven: SEO.
 - **2026-11-02** — Track: **sitemap** ✓ + Reflect. Imparato: sitemap = URL (+ priority/changefreq poco usati da Google); `robots.txt` punta alla sitemap. Obiettivo: dare al crawler le pagine da visitare. Buco: nessuno. GSC/index **no per ora**. Trap: SPA vs `/sitemap.xml`.
 - **2026-10-30** — Lab agenti **#5** cloud ✓ + Reflect. Imparato: `cloud` in `create` → VM Cursor + clone GitHub; l’agente risponde su quel clone. Buco: nessuno. Interesse (dopo 6–8b): spingere l’esperimento oltre (es. comandi sul clone). Prox: **#6** resume.
@@ -378,4 +389,4 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 5. **Non-core:** Mongo, basso, **lab agenti** = solo surplus (Ven). Agenti: **1 obiettivo**, 1 pomodoro; non + track deep lo stesso giorno. Path: `docs/sources/ai-agents/README.md` (Udemy = solo vocabolario selezionato).
 6. **Ogni ~14 giorni:** «Spiega come un lead» — dimmi la data del giorno.
 
-*Ultimo aggiornamento: 2026-11-02 — sitemap ✓ · GSC rimandato · Mar Fowler · Gio App Router · Ven #6 · mer 4/11 SEO*
+*Ultimo aggiornamento: 2026-11-17 — ripartenza post-vacanze · Fowler ~24/44 · sett. 17–21: Mar Fowler · Mer SEO · Gio App Router · Ven #7*
