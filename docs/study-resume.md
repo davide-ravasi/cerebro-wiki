@@ -136,9 +136,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | *(vacanze — no slot)* | — |
 | Mar | **Fowler** ~**32/44** ✓ · **+ track:** `vite-bundle-visualizer` + error-sim first-load/lazy | ☑ |
-| Mer | ripasso ufficio: **SEO** 4 layer + campi minimi (title/desc · canonical · OG · JSON-LD) — *opz. Interleave + hook bundle* | ☐ |
+| Mer | ripasso SEO ✓ 18/11 — 4 layer · URL reale · guard JSON-LD | ☑ |
 | Gio | Next Tier 1: **App Router** → fetch server → env · `bass-sheets-gio-checklist.md` | ☐ |
-| Ven | lab agenti **#7** skills / AGENTS.md (1 obiettivo) | ☐ |
+| Ven | lab agenti **#7** AGENTS.md + `settingSources` ✓ 20/11 | ☑ |
 
 ---
 
@@ -306,7 +306,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Fowler Refactoring 2ª** | `reading` · **17/11** ~**32/44** pp (teatro · temps · credits · **split data vs HTML/text**) | Prox: finire pezzo metodo → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | OG · Helmet · JSON-LD ✓ · sitemap ✓ · **bundle visualizer ✓ 17/11** | Prox: **`React.lazy` route** · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#6** ✓ · §2 video ☑ · ripasso foto ✓ 21/10 · path 7b HITL + 8b | Prox: lab **#7** skills / AGENTS.md |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#7** ✓ · §2 video ☑ · path 7b HITL + 8b | Prox: lab **#7b** HITL / permessi |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
 | **Bass / Next.js** *(Gio ripasso + surplus casa)* | [[map-bass-theory]] · checklist `sources/nextjs/raw/bass-sheets-gio-checklist.md` | Gio = concetti (ufficio). Codice/tutorial deep = casa/surplus. Alterna con Fowler idea su Mer/Gio se serve. Sheet: foto → SQL → Supabase (ok 02/10) |
@@ -315,6 +315,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-11-20** — Lab **#7** AGENTS.md ✓ + Reflect. Imparato: AGENTS sempre (se caricato) · skills on-demand · `settingSources: ["project"]` obbligatorio in SDK local. Prox: **#7b** HITL.
+- **2026-11-18** — Ripasso SEO ✓ + Reflect. Imparato: ruoli dei layer meta; URL deve essere quello reale (niente contraddizioni canonical/OG/JSON-LD); guard su JSON-LD evita crash/dati parziali. Buco: nessuno dichiarato.
 - **2026-11-17** — Track'em All: **`vite-bundle-visualizer`** (`npm run analyze`) · finding in TODO (1 chunk ~402 kB; top: react-dom · FA · toastify ≈ helmet) · **error-sim** first-load/lazy ✓ · docs only (no commit). Prox track: `React.lazy` route. Hook → backlog.
 
 - **2026-11-17** — Fowler ~**32/44**: separazione **dati/calcolo** vs **presentazione** (statement testuale o HTML). Prox: finire pezzo metodo (~44).

@@ -45,7 +45,7 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 
 # Open Threads
 
-- Lab **#7** skills / AGENTS.md. Path 7b HITL → 8 se serve → **8b capstone** → 9.
+- Lab **#7** AGENTS.md ✓ 20/11 (`settingSources: ["project"]`). Prox: **#7b** HITL → 8 se serve → **8b** → 9.
 - Ripasso foto Mer ✓ 21/10
 - **Workshop D-Edge 16/10** (appunti private): `docs/private/workshop-morning-agent-2026-10-16.md` · repo `C:\Users\dravasi\Documents\morning-agent` — riprendere per lab #7 / skill vs agent
 - Surplus: foto spartito → INSERT (ok 02/10)

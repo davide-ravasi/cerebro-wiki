@@ -89,6 +89,12 @@ Prox track: ~~sitemap~~ ✓ 02/11 (`public/sitemap.xml` + `robots.txt`, live ok)
 - **Obiettivo:** il crawler ha chiaro quali pagine vogliamo che visiti.
 - **Buco:** nessuno per ora.
 
+### Reflect 18/11 (Davide) — ripasso 4 layer
+
+- **Imparato:** ruoli dei layer SEO; URL = quello reale della pagina (canonical = og:url = json-ld url), altrimenti contraddizione; guard su JSON-LD evita errori o dati parziali.
+- **Obiettivo:** *(non dichiarato esplicito — coerenza layer)*
+- **Buco:** nessuno.
+
 ## JSON-LD — un giorno (non ora)
 
 Entity minimi ✓. Arricchire solo se serve:

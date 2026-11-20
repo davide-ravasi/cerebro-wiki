@@ -98,7 +98,7 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 | **4** | ☑ 16/10 | Stesso pattern su **repo reale** (cwd root track-em-all, prompt su EpisodePage, read-only) | Esito utile su codice che conosci |
 | **5** | ☑ 30/10 | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
 | **6** | ☑ 04/11 | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
-| **7** | ☐ *opz* | Skills / AGENTS.md sul progetto lavoro | L’agente rispetta regole progetto |
+| **7** | ☑ 20/11 | Skills / AGENTS.md sul progetto lavoro | L’agente rispetta regole progetto |
 | **7b** | ☐ | **HITL / permessi** — cosa può toccare; quando si ferma e chiede te | Sai dove sta il cancello umano vs il loop |
 | **8** | ☐ *opz* | Tool custom o MCP **solo se** un caso lavoro lo chiede | — |
 | **8b** | ☐ | **Capstone** — *un* agent a più passi (piano → tool → verifica → stop) | Complesso = composto, non più API |
@@ -120,6 +120,7 @@ Regola: **1–6** obbligatori in ordine. **7 → 7b → 8 (se serve) → 8b → 
 - [`raw/lab-2026-10-16-real-repo.md`](./raw/lab-2026-10-16-real-repo.md)
 - [`raw/lab-2026-10-30-cloud.md`](./raw/lab-2026-10-30-cloud.md)
 - [`raw/lab-2026-11-04-resume.md`](./raw/lab-2026-11-04-resume.md)
+- [`raw/lab-2026-11-20-agents-md.md`](./raw/lab-2026-11-20-agents-md.md)
 
 ## Idea later (non path)
 
