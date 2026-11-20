@@ -140,13 +140,29 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Gio | Next Tier 1: **App Router** → fetch server → env · `bass-sheets-gio-checklist.md` | ☐ |
 | Ven | lab agenti **#7** AGENTS.md + `settingSources` ✓ 20/11 | ☑ |
 
+### Prossima settimana (2026-11-24 → 11-28) — bozza
+
+| Giorno | Piano (1 riga) | Fatto? |
+|--------|----------------|:------:|
+| Mar | Fowler da ~**p.32/44** | ☐ |
+| Mer | ripasso ufficio: **Udemy §1–3 overview** (agent vs workflow · where runs · building blocks) — corto | ☐ |
+| Gio | Next App Router *(se non fatto 19/11)* oppure altro ripasso | ☐ |
+| Ven | lab **#7b** HITL / permessi | ☐ |
+
 ---
 
 ## Da ripassare (attivo — max 3)
 
-### 1. *(libero — MapReduce core-idea ✓ 13/10)*
+### 1. Udemy §1–3 overview (agenti)
 
-### 2. *(libero)*
+| | |
+|---|---|
+| **Hook** | *agent vs workflow · where it runs (local/cloud) · harness/building blocks · AGENTS vs skills (lab #7)* |
+| **Skill** | `@learn-error-simulator` o core-idea corto |
+| **Dove** | Udemy §1–3 · lab notes ai-agents · `AGENTS.md` in ai-lab |
+| **Bookmark** | Prenotato **mer 25/11** (dopo §3 chiusa 20/11) |
+
+### 2. *(libero — MapReduce core-idea ✓ 13/10)*
 
 ### 3. *(libero)*
 
@@ -315,7 +331,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-11-20** — Lab **#7** AGENTS.md ✓ + Reflect. Imparato: AGENTS sempre (se caricato) · skills on-demand · `settingSources: ["project"]` obbligatorio in SDK local. Prox: **#7b** HITL.
+- **2026-11-20** — Lab **#7** AGENTS.md ✓ + Reflect. Udemy **§3** #23–25 ✓ (overview path chiuso). Prox lab: **#7b** HITL.
 - **2026-11-18** — Ripasso SEO ✓ + Reflect. Imparato: ruoli dei layer meta; URL deve essere quello reale (niente contraddizioni canonical/OG/JSON-LD); guard su JSON-LD evita crash/dati parziali. Buco: nessuno dichiarato.
 - **2026-11-17** — Track'em All: **`vite-bundle-visualizer`** (`npm run analyze`) · finding in TODO (1 chunk ~402 kB; top: react-dom · FA · toastify ≈ helmet) · **error-sim** first-load/lazy ✓ · docs only (no commit). Prox track: `React.lazy` route. Hook → backlog.
 

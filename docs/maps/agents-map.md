@@ -36,7 +36,7 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 - Udemy: *AI Agents & Workflows — The Practical Guide*
   - §1 Getting Started: **tutto ☑**
   - §2 *Using & Steering*: **tutto ☑** 20/10 (E+F). Hook skills: progressive disclosure · `name`+`description` · AGENTS.md = README for agents
-  - §3 Overview (~10′): ◐ 04/11 #21–22 ✓ · restano #23–25 (utile #23 WHO/WHERE)
+  - §3 Overview (~10′): ☑ **20/11** #21–25 (utile #23 WHO/WHERE)
   - §4 Workflows (~2h30) · §5 Building Agents (~2h): **skip path** (curiosità 1 video max)
   - §6 CrewAI: **dopo #8b** only
 

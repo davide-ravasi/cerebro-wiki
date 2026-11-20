@@ -25,7 +25,7 @@ Regola: **1 obiettivo Ven** = lab SDK. Udemy = vocabolario, max 15–20′ dopo 
 |---|--------------|--:|--------|:-----:|
 | **1** | Getting Started | 25′ | Prima / con lab **#1–2** | ☑ |
 | **2** | Using & Steering AI Agents | 27′ | Con lab **#3–4** (+ HITL/skills) | ☑ |
-| **3** | Building Agents & Workflows — Overview (#21–25) | 10′ | Dopo #5/#6 — overview; pezzo utile = *WHO / WHERE* (#23) | ◐ 04/11: #21–22 ✓ · restano #23–25 |
+| **3** | Building Agents & Workflows — Overview (#21–25) | 10′ | Dopo #5/#6 — overview; pezzo utile = *WHO / WHERE* (#23) | ☑ **20/11** |
 | **4** | Building AI Workflows & Applications | ~2h30 | **Skip path** (implementazione corso). Ok 1 video se curiosità, mai + lab deep | skip |
 | **5** | Building AI Agents | ~2h | **Skip path** stesso motivo; concetti → Cursor SDK lab | skip |
 | **6** | Using CrewAI | ~53′ | Solo **dopo lab #8b** (capstone). Prima = no | skip |
@@ -48,7 +48,7 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
 **Coda video Max §1–§2:** **chiusa** 20/10.  
-**§3:** ◐ 04/11 — #21 Module intro · #22 Options for building ✓. Restano **#23** WHO/WHERE · #24 Options with code · #25 Choosing building blocks.  
+**§3:** ☑ **20/11** — #21–25 chiusi (#23 WHO/WHERE · #24 Options with code · #25 Choosing building blocks).  
 **Mer 21/10:** ripasso chat foto (harness/loop/workflow + AGENTS.md vs skills + memory).
 
 ## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
