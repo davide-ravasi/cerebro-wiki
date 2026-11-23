@@ -140,13 +140,14 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Gio | Next Tier 1: **App Router** → fetch server → env · `bass-sheets-gio-checklist.md` | ☐ |
 | Ven | lab agenti **#7** AGENTS.md + `settingSources` ✓ 20/11 | ☑ |
 
-### Prossima settimana (2026-11-24 → 11-28) — bozza
+### Questa settimana (2026-11-24 → 11-28)
 
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
+| Lun | track: **React.lazy** + Suspense ✓ 23/11 (analyze ok) | ☑ |
 | Mar | Fowler da ~**p.32/44** | ☐ |
-| Mer | ripasso ufficio: **Udemy §1–3 overview** (agent vs workflow · where runs · building blocks) — corto | ☐ |
-| Gio | Next App Router *(se non fatto 19/11)* oppure altro ripasso | ☐ |
+| Mer | ripasso ufficio: **Udemy §1–3 overview** — corto | ☐ |
+| Gio | Next App Router *(se non fatto)* oppure altro ripasso | ☐ |
 | Ven | lab **#7b** HITL / permessi | ☐ |
 
 ---
@@ -197,7 +198,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Hook** | *First load = grafo di import dalla shell (`App`/Header), non “pagina che vedi”. `React.lazy` sulle route sposta solo il codice di quelle pagine: **non** toglie `react-dom` né lib ancora importate dalla shell (FA, toastify, helmet). Cold load `/show/:id` = shell chunk + chunk Show — non “Show più veloce ovunque”.* |
 | **Skill** | `@learn-error-simulator` ✓ 17/11 (3 scenari) — ripasso / Spiega-lead se serve |
 | **Dove** | track `docs/TODO-LIST.md` → Performance · `npm run analyze` |
-| **Bookmark** | Visualizer ✓ 17/11 (1 chunk ~402 kB). **Prox codice:** route lazy Show/Episode/Person. Opz. Devtools solo in `import.meta.env.DEV`. |
+| **Bookmark** | Visualizer ✓ 17/11 · **route lazy ✓ 23/11** (entry ~390 kB + chunk pagine). Prox: FA/toastify shell. |
 
 ### track-em-all — Redux Toolkit + TypeScript (`createAsyncThunk` generics)
 
@@ -321,7 +322,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
 | **Fowler Refactoring 2ª** | `reading` · **17/11** ~**32/44** pp (teatro · temps · credits · **split data vs HTML/text**) | Prox: finire pezzo metodo → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
-| track-em-all | OG · Helmet · JSON-LD ✓ · sitemap ✓ · **bundle visualizer ✓ 17/11** | Prox: **`React.lazy` route** · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
+| track-em-all | SEO ✓ · sitemap ✓ · visualizer ✓ · **route lazy ✓ 23/11** | Prox: FA/toastify shell · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#7** ✓ · §2 video ☑ · path 7b HITL + 8b | Prox: lab **#7b** HITL / permessi |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
@@ -331,7 +332,9 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-11-20** — Lab **#7** AGENTS.md ✓ + Reflect. Udemy **§3** #23–25 ✓ (overview path chiuso). Prox lab: **#7b** HITL.
+- **2026-11-23** — Track: **`React.lazy` + Suspense** ✓ + Reflect. Post LinkedIn Yangshun FE system design: **non path** — checklist/RADIO da tenere da parte solo se colloquio FE SD; non coda studio.
+- **2026-11-23** — Track lazy Reflect: pagine non-Home in chunk a parte; shell (react-dom/FA/toastify) resta in `index`. Prox: FA/toastify.
+- **2026-11-20** — Lab **#7** AGENTS.md ✓ + Reflect. Udemy **§3** ✓. Coda **Claude Academy** curata. Prox lab: **#7b** HITL.
 - **2026-11-18** — Ripasso SEO ✓ + Reflect. Imparato: ruoli dei layer meta; URL deve essere quello reale (niente contraddizioni canonical/OG/JSON-LD); guard su JSON-LD evita crash/dati parziali. Buco: nessuno dichiarato.
 - **2026-11-17** — Track'em All: **`vite-bundle-visualizer`** (`npm run analyze`) · finding in TODO (1 chunk ~402 kB; top: react-dom · FA · toastify ≈ helmet) · **error-sim** first-load/lazy ✓ · docs only (no commit). Prox track: `React.lazy` route. Hook → backlog.
 

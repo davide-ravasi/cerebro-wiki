@@ -42,6 +42,7 @@ Path snello per agenti **utili al lavoro**: Cursor SDK + vocabolario Udemy selez
 
 - Docs: https://cursor.com/docs/sdk/typescript
 - Articolo harness ☑ 09/10
+- Claude Academy (curata): coda in `sources/ai-agents/README.md` — 5 skills · 10 HITL · 2 MCP · 4 subagents · 8/9 fluency; resto skip
 
 # Open Threads
 

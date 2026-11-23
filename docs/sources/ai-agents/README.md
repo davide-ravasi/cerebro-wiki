@@ -72,10 +72,24 @@ Un articolo per sessione (~15–20′), dopo retrieval (RTK, DDIA) o come lettur
 | **Video Max** | Vocabolario: cos’è un agent, tools, session context, agent vs workflow. Non sostituisce i lab. I titoli in coda sono mappati dal curriculum; il dettaglio frame-per-frame può variare. |
 | **[Docs SDK TypeScript](https://cursor.com/docs/sdk/typescript)** | Come lo fai in `ai-lab`: `prompt` / `create`+`send`, `local` vs `cloud`, `wait`, errori, `resume`. Priorità per codice. |
 | **[Cursor Learn — Agents](https://cursor.com/learn/agents)** (+ *Working with agents*) | Come usare l’agente **in IDE** (harness, prompt, context, delega). Complementa Max; non sostituisce lab SDK. |
-| **[Claude Academy](https://academy.claude.com)** | Fluency / Claude Code / Platform. Utile in generale; **non** sul path SDK Cursor. Opz.: *AI Fluency* o pezzi Claude Code se usi Claude; Platform/MCP solo se serve al lavoro. |
+| **[Claude Academy](https://academy.claude.com)** | Vocabolario / Claude ecosystem. **Non** secondo corso: vedi coda sotto. |
 | **Skill** `@sdk` / `~/.cursor/skills-cursor/sdk` | Trap comuni + pattern pronti in chat |
 
-**Non aggiungere** Claude Academy / Cursor Learn come filo parallelo a Max + lab Ven — solo se A+B sono fatti e resta curiosità (15′).
+**Non aggiungere** Claude Academy / Cursor Learn come filo parallelo a Max + lab Ven — solo surplus 15′ dopo un lab, mai + deep lo stesso giorno.
+
+## Coda Claude Academy (curata 20/11 — LinkedIn list)
+
+Filo = ai-lab. Questi sono **opz.** allineati ai lab.
+
+| Quando | # | Titolo | Link |
+|--------|:-:|--------|------|
+| Dopo #7 / rinforzo skills | **5** | Introduction to Agent Skills | https://lnkd.in/dvFwHh4H |
+| Con lab **#7b** HITL | **10** | Building Effective Human-Agent Teams | https://lnkd.in/dirGY67q |
+| Con lab **#8** (MCP se serve) | **2** | Introduction to Model Context Protocol | https://lnkd.in/d8Aa7wdc |
+| Dopo **#8b** / verso #9 | **4** | Introduction to Subagents | https://lnkd.in/dXYtRRkX |
+| Surplus fluency (1 a scelta) | **8** o **9** | AI Fluency: Framework · AI Capabilities and Limitations | https://lnkd.in/dT8w5bgG · https://lnkd.in/dFCuQxYT |
+
+**Skip (non path):** 1 Claude Code in Action · 3 MCP Advanced (dopo 2 solo se serve) · 6 AI-native SDLC · 7 Deploying Claude Enterprise · 11–19 Fluency per ruoli (builders/creative/edu/K–12/nonprofit/SMB/students) · 20–24 Claude API / Tool Use Messages / Evals / Bedrock / Google Cloud.
 
 ## Concetti da fissare (Udemy o Spiega-lead)
 
