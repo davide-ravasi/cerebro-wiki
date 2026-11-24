@@ -145,7 +145,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | Giorno | Piano (1 riga) | Fatto? |
 |--------|----------------|:------:|
 | Lun | track: **React.lazy** + Suspense ✓ 23/11 (analyze ok) | ☑ |
-| Mar | Fowler da ~**p.32/44** | ☐ |
+| Mar | Fowler ~**38/44** ✓ — split calc/format · reorganize by type | ☑ |
 | Mer | ripasso ufficio: **Udemy §1–3 overview** — corto | ☐ |
 | Gio | Next App Router *(se non fatto)* oppure altro ripasso | ☐ |
 | Ven | lab **#7b** HITL / permessi | ☐ |
@@ -320,7 +320,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |------|--------|----------|
 | DDIA cap. 9 | Lettura ✓ · generale **2/2** ✓ 01/10 · **5 gap ZK ✓ 24/09** | **Archivio** (chiuso studio doppio passaggio) |
 | DDIA cap. 9–10 | Path **chiuso** 21/10 (9 doppio passaggio · 10 MR/joins/output) | Archivio · Q&A joins opz. · 11–12 surplus |
-| **Fowler Refactoring 2ª** | `reading` · **17/11** ~**32/44** pp (teatro · temps · credits · **split data vs HTML/text**) | Prox: finire pezzo metodo → smells → 1 refactor su track |
+| **Fowler Refactoring 2ª** | `reading` · **24/11** ~**38/44** pp (teatro · data vs format · **reorganize by type**) | Prox: finire pezzo metodo (~44) → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | SEO ✓ · sitemap ✓ · visualizer ✓ · **route lazy ✓ 23/11** | Prox: FA/toastify shell · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
 | **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#7** ✓ · §2 video ☑ · path 7b HITL + 8b | Prox: lab **#7b** HITL / permessi |
@@ -332,7 +332,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
-- **2026-11-23** — Track: **`React.lazy` + Suspense** ✓ + Reflect. Post LinkedIn Yangshun FE system design: **non path** — checklist/RADIO da tenere da parte solo se colloquio FE SD; non coda studio.
+- **2026-11-24** — Fowler ~**38/44** + Reflect. Imparato: calculator polimorfico per tipo → calcolo isolato; switch lungo = stessa fn da riaprire, caos e bug silenziosi. Prox Mar: ~44.
+- **2026-11-23** — Track: **`React.lazy` + Suspense** ✓ + Reflect. Post LinkedIn Yangshun FE system design: **non path**.
 - **2026-11-23** — Track lazy Reflect: pagine non-Home in chunk a parte; shell (react-dom/FA/toastify) resta in `index`. Prox: FA/toastify.
 - **2026-11-20** — Lab **#7** AGENTS.md ✓ + Reflect. Udemy **§3** ✓. Coda **Claude Academy** curata. Prox lab: **#7b** HITL.
 - **2026-11-18** — Ripasso SEO ✓ + Reflect. Imparato: ruoli dei layer meta; URL deve essere quello reale (niente contraddizioni canonical/OG/JSON-LD); guard su JSON-LD evita crash/dati parziali. Buco: nessuno dichiarato.
