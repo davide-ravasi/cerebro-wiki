@@ -48,7 +48,9 @@ Corso: [AI Agents & Workflows — The Practical Guide](https://www.udemy.com/cou
 | — | skip | Welcome/Community · n8n deep · LEGACY Python/OpenAI/Ollama/Slack · Structured outputs · Multi-agent · CrewAI · eve · Memory deep finché non serve | — | skip |
 
 **Coda video Max §1–§2:** **chiusa** 20/10.  
-**§3:** ☑ **20/11** — #21–25 chiusi (#23 WHO/WHERE · #24 Options with code · #25 Choosing building blocks).  
+**§3:** ☑ **20/11** — #21–25 chiusi.  
+**Path Udemy Max: chiuso** (27/11) — §4–6 non sul filo; surplus video → Claude Academy curata.  
+
 **Mer 21/10:** ripasso chat foto (harness/loop/workflow + AGENTS.md vs skills + memory).
 
 ## Coda articoli (lavoro / surplus — non in parallelo al lab Ven)
@@ -84,7 +86,7 @@ Filo = ai-lab. Questi sono **opz.** allineati ai lab.
 | Quando | # | Titolo | Link |
 |--------|:-:|--------|------|
 | Dopo #7 / rinforzo skills | **5** | Introduction to Agent Skills | https://lnkd.in/dvFwHh4H |
-| Con lab **#7b** HITL | **10** | Building Effective Human-Agent Teams | https://lnkd.in/dirGY67q |
+| Dopo lab / surplus | **10** | Building Effective Human-Agent Teams | https://lnkd.in/dirGY67q | ◐ 27/11: prime 2 lezioni (shared multi-user = poco sul path lab; continuare se tempo dopo lab) |
 | Con lab **#8** (MCP se serve) | **2** | Introduction to Model Context Protocol | https://lnkd.in/d8Aa7wdc |
 | Dopo **#8b** / verso #9 | **4** | Introduction to Subagents | https://lnkd.in/dXYtRRkX |
 | Surplus fluency (1 a scelta) | **8** o **9** | AI Fluency: Framework · AI Capabilities and Limitations | https://lnkd.in/dT8w5bgG · https://lnkd.in/dFCuQxYT |
@@ -113,7 +115,7 @@ Filo = ai-lab. Questi sono **opz.** allineati ai lab.
 | **5** | ☑ 30/10 | **Cloud**: `cloud: { repos }` su un repo tuo, task piccolo | Capisci VM vs disco locale |
 | **6** | ☑ 04/11 | **Resume** / run id / osservabilità minima | Riapri un agent dopo |
 | **7** | ☑ 20/11 | Skills / AGENTS.md sul progetto lavoro | L’agente rispetta regole progetto |
-| **7b** | ☐ | **HITL / permessi** — cosa può toccare; quando si ferma e chiede te | Sai dove sta il cancello umano vs il loop |
+| **7b** | ☑ 27/11 | **HITL / permessi** — cosa può toccare; quando si ferma e chiede te | Sai dove sta il cancello umano vs il loop |
 | **8** | ☐ *opz* | Tool custom o MCP **solo se** un caso lavoro lo chiede | — |
 | **8b** | ☐ | **Capstone** — *un* agent a più passi (piano → tool → verifica → stop) | Complesso = composto, non più API |
 | **9** | ☐ *opz* | Claude Managed Agents / multi-agent | Solo dopo **8b** (e 5–6) stabili |
@@ -135,6 +137,7 @@ Regola: **1–6** obbligatori in ordine. **7 → 7b → 8 (se serve) → 8b → 
 - [`raw/lab-2026-10-30-cloud.md`](./raw/lab-2026-10-30-cloud.md)
 - [`raw/lab-2026-11-04-resume.md`](./raw/lab-2026-11-04-resume.md)
 - [`raw/lab-2026-11-20-agents-md.md`](./raw/lab-2026-11-20-agents-md.md)
+- [`raw/lab-2026-11-27-hitl.md`](./raw/lab-2026-11-27-hitl.md)
 
 ## Idea later (non path)
 

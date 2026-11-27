@@ -146,24 +146,27 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 |--------|----------------|:------:|
 | Lun | track: **React.lazy** + Suspense ✓ 23/11 (analyze ok) | ☑ |
 | Mar | Fowler ~**38/44** ✓ — split calc/format · reorganize by type | ☑ |
-| Mer | ripasso ufficio: **Udemy §1–3 overview** — corto | ☐ |
+| Mer | ripasso §1–3 / lab ✓ 25/11 — workflow vs agent · local/cloud · settingSources | ☑ |
 | Gio | Next App Router *(se non fatto)* oppure altro ripasso | ☐ |
-| Ven | lab **#7b** HITL / permessi | ☐ |
+| Ven | lab **#7b** HITL / permessi ✓ 27/11 | ☑ |
+
+### Prossima settimana (2026-12-01 → 12-05)
+
+| Giorno | Piano (1 riga) | Fatto? |
+|--------|----------------|:------:|
+| Lun | track: taglio shell **oppure** Episode fetch-by-id (1 pezzo) | ☐ |
+| Mar | Fowler da ~**p.38/44** → chiudere pezzo metodo | ☐ |
+| Mer | ripasso ufficio: HITL/leve (prompt · cwd · sandbox · cloud) **oppure** SEO corto | ☐ |
+| Gio | Next Tier 1: **App Router** (checklist bass-sheets) — se ancora aperto | ☐ |
+| Ven | lab **#8b** capstone (skip #8 MCP finché non serve un caso vero) | ☐ |
 
 ---
 
 ## Da ripassare (attivo — max 3)
 
-### 1. Udemy §1–3 overview (agenti)
+### 1. *(libero — Udemy §1–3 ✓ 25/11 · MapReduce ✓ 13/10)*
 
-| | |
-|---|---|
-| **Hook** | *agent vs workflow · where it runs (local/cloud) · harness/building blocks · AGENTS vs skills (lab #7)* |
-| **Skill** | `@learn-error-simulator` o core-idea corto |
-| **Dove** | Udemy §1–3 · lab notes ai-agents · `AGENTS.md` in ai-lab |
-| **Bookmark** | Prenotato **mer 25/11** (dopo §3 chiusa 20/11) |
-
-### 2. *(libero — MapReduce core-idea ✓ 13/10)*
+### 2. *(libero)*
 
 ### 3. *(libero)*
 
@@ -323,7 +326,7 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 | **Fowler Refactoring 2ª** | `reading` · **24/11** ~**38/44** pp (teatro · data vs format · **reorganize by type**) | Prox: finire pezzo metodo (~44) → smells → 1 refactor su track |
 | Mongo find | confronti, elemMatch, `$and`/`$or` ✓ | prossima lezione (surplus Ven) |
 | track-em-all | SEO ✓ · sitemap ✓ · visualizer ✓ · **route lazy ✓ 23/11** | Prox: FA/toastify shell · GSC dopo · JSON-LD enrich *un giorno* · *campo prove Fowler* |
-| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#7** ✓ · §2 video ☑ · path 7b HITL + 8b | Prox: lab **#7b** HITL / permessi |
+| **Agenti / cloud** *(surplus Ven, lavoro)* | Lab **#1–#7b** ✓ · §2–3 video ☑ · path 8 se serve → 8b | Prox: lab **#8** MCP solo se caso vero, o **#8b** capstone |
 | tracking-ds | P0 lavoro | Pages trap ✓ 16/09 |
 | Libri coda | HF SA · Makarevich · DDIA 11–12 surplus · Pragmatic | Dopo avvio Fowler |
 | **Bass / Next.js** *(Gio ripasso + surplus casa)* | [[map-bass-theory]] · checklist `sources/nextjs/raw/bass-sheets-gio-checklist.md` | Gio = concetti (ufficio). Codice/tutorial deep = casa/surplus. Alterna con Fowler idea su Mer/Gio se serve. Sheet: foto → SQL → Supabase (ok 02/10) |
@@ -332,6 +335,8 @@ es. `Spiega-lead: CORS 200 vs policy` oppure `Spiega-lead: linearizability`
 
 ## Fatto di recente
 
+- **2026-11-27** — Lab **#7b** HITL ✓. Claude Academy **#10** ◐ (2 lezioni; shared agent = lead/team, poco sul lab). Prox surplus: finire #10 dopo un lab. Prox lab: #8b (o #8 se caso MCP).
+- **2026-11-25** — Ripasso §1–3/lab ✓ + Reflect. Imparato: agent se serve loop/decisioni; se deterministico bastano script/workflow. In create va dichiarato cosa caricare (`local`/`cloud`, `settingSources`) — default non porta le regole progetto.
 - **2026-11-24** — Fowler ~**38/44** + Reflect. Imparato: calculator polimorfico per tipo → calcolo isolato; switch lungo = stessa fn da riaprire, caos e bug silenziosi. Prox Mar: ~44.
 - **2026-11-23** — Track: **`React.lazy` + Suspense** ✓ + Reflect. Post LinkedIn Yangshun FE system design: **non path**.
 - **2026-11-23** — Track lazy Reflect: pagine non-Home in chunk a parte; shell (react-dom/FA/toastify) resta in `index`. Prox: FA/toastify.
